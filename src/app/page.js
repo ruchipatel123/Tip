@@ -5,6 +5,7 @@ import CarouselCoverLucide from "./coverflowLucide";
 import PricingSection from "./pricing";
 import TrustPilotSection from "./trustpilot";
 import FAQSection from "./faq";
+import Footer from "./footer";
 
 export default function Home() {
   const logos = [
@@ -59,8 +60,7 @@ export default function Home() {
       <PricingSection />
       <TrustPilotSection />
       <FAQSection />
-      <CarouselCoverLucide />
-
+      <Footer />
     </main>
   );
 }
