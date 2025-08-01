@@ -3,6 +3,8 @@ import HeroSection from "./hero";
 import CarouselCover from "./coverflowCarousel.jsx";
 import CarouselCoverLucide from "./coverflowLucide";
 import PricingSection from "./pricing";
+import TrustPilotSection from "./trustpilot";
+import FAQSection from "./faq";
 
 export default function Home() {
   const logos = [
@@ -46,7 +48,7 @@ export default function Home() {
               Ottieni i risultati <br /> che meriti
             </h2>
             <p className="text-lg text-center">
-              Chi usa la nostra app è entusiasta: il 99,2% delle nostre utenti
+              Chi usa la nostra app è entusiasta: il 99,2% delle nostre utenti
               consiglierebbe Traininpink™ ad una propria amica.
             </p>
           </div>
@@ -55,6 +57,10 @@ export default function Home() {
       {/* <CarouselCover /> */}
       <CarouselCoverLucide />
       <PricingSection />
+      <TrustPilotSection />
+      <FAQSection />
+      <CarouselCoverLucide />
+
     </main>
   );
 }
