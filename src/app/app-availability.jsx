@@ -15,37 +15,20 @@ export default function AppAvailabilitySection() {
 
       {/* App Store Buttons */}
       <div className="absolute top-[226px] left-1/2 transform -translate-x-1/2 z-20">
-        <div className="flex items-center gap-5">
-          {/* App Store Button */}
-          <a href="#" className="hover:opacity-80 transition-opacity">
-            <div className="w-[165px] h-[55px] bg-black rounded-lg flex items-center justify-center">
-              <svg width="165" height="55" viewBox="0 0 165 55" fill="none">
-                <rect width="165" height="55" rx="8" fill="black"/>
-                <text x="20" y="18" className="font-['SF_Pro_Display'] text-[10px] text-white">Scarica su</text>
-                <text x="20" y="40" className="font-['SF_Pro_Display'] text-[22px] font-semibold text-white">App Store</text>
-                <g transform="translate(115, 12)">
-                  <path d="M25 19C24 17 22 16 20 16C18.5 16 17 16.8 16 18C15 19.2 14.7 20.8 14.7 22.4C14.7 24.5 15.4 26.4 16.7 27.7C18 29 19.9 29.7 22 29.7C24.1 29.7 26 29 27.3 27.7C28.6 26.4 29.3 24.5 29.3 22.4C29.3 20.8 29 19.2 28 18C27 16.8 25.5 16 24 16C22 16 20 17 19 19L25 19Z" fill="white"/>
-                </g>
-              </svg>
-            </div>
-          </a>
-          
-          {/* Google Play Button */}
-          <a href="#" className="hover:opacity-80 transition-opacity">
-            <div className="w-[186px] h-[55px] bg-black rounded-lg flex items-center justify-center">
-              <svg width="186" height="55" viewBox="0 0 186 55" fill="none">
-                <rect width="186" height="55" rx="8" fill="black"/>
-                <text x="60" y="16" className="font-['Roboto'] text-[9px] text-white">DISPONIBILE SU</text>
-                <text x="60" y="36" className="font-['Roboto'] text-[18px] font-medium text-white">Google Play</text>
-                <g transform="translate(15, 16)">
-                  <path d="M3 0L19 8L19 16L3 24L3 0Z" fill="#EB4335"/>
-                  <path d="M19 8L25 12L19 16L19 8Z" fill="#FABC13"/>
-                  <path d="M3 0L19 8L15 12L3 4L3 0Z" fill="#547DBF"/>
-                  <path d="M3 24L19 16L15 12L3 20L3 24Z" fill="#30A851"/>
-                </g>
-              </svg>
-            </div>
-          </a>
+         
+          <div className="flex gap-4 items-center justify-center mt-10">
+            <Image
+              src="/logo/playStoreIcon.svg"
+              alt="playStoreIcon"
+              width={185}
+              height={55}
+            />
+            <Image
+              src="/logo/appStoreIcon.svg"
+              alt="appStoreIcon"
+              width={185}
+              height={55}
+            />
         </div>
       </div>
 
@@ -60,12 +43,7 @@ export default function AppAvailabilitySection() {
             priority
           />
           
-          {/* Traininpink Logo Overlay */}
-          <div className="absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2">
-            <div className="text-white text-4xl md:text-6xl font-light tracking-wider">
-              traininpink
-            </div>
-          </div>
+          
         </div>
       </div>
 

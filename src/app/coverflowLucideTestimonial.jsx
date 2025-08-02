@@ -14,33 +14,43 @@ const coverflowLucideTestimonial = () => {
   const slides = [
     {
       id: 1,
-      title: "Pilates Linfodrenante™",
+      name: "Giulia S.",
+      userName:"@_giuliasarno_",
       image: "/images/testimonialCarouselOne.png",
-      description: "Build strength and stability",
+      description: "Ho perso circa 6kg e mezzo ma la cosa più bella è che mi aiuta molto anche con la gestione del lipedema,  ho migliorato tantissimo la postura ed eliminato la diastasi (ho partorito a ottobre 2023)",
+      profile: "/images/carouselDp.png",
     },
     {
       id: 2,
-      title: "Pilates Linfodrenante™",
+      name: "Valentina C.",
+      userName:"@vale_corno92",
       image: "/images/testimonialCarouselTwo.png",
-      description: "Find your center and balance",
+      description: "Testimonial TBC + picture",
+      profile: "/images/carouselDpTwo.png",
     },
     {
       id: 3,
-      title: "Pilates Linfodrenante™",
+      name: "Pilates Linfodrenante™",
+      userName:"test",
       image: "/images/testimonialCarouselThree.jpeg",
-      description: "Connect with nature's energy",
+      description: "Ho perso circa 6kg e mezzo ma la cosa più bella è che mi aiuta molto anche con la gestione del lipedema,  ho migliorato tantissimo la postura ed eliminato la diastasi (ho partorito a ottobre 2023)",
+      profile: "/images/carouselDp.png",
     },
     {
       id: 4,
-      title: "Pilates Linfodrenante™",
+      name: "Pilates Linfodrenante™",
+      userName:"test",
       image: "/images/testimonialCarouselFour.png",
-      description: "Achieve inner peace",
+      description: "Ho perso circa 6kg e mezzo ma la cosa più bella è che mi aiuta molto anche con la gestione del lipedema,  ho migliorato tantissimo la postura ed eliminato la diastasi (ho partorito a ottobre 2023)",
+      profile: "/images/carouselDp.png",
     },
     {
       id: 5,
-      title: "Pilates Linfodrenante™",
+      name: "Pilates Linfodrenante™",
+      userName:"test",
       image: "/images/testimonialCarouselFive.png",
-      description: "Stretch and strengthen",
+      description: "Ho perso circa 6kg e mezzo ma la cosa più bella è che mi aiuta molto anche con la gestione del lipedema,  ho migliorato tantissimo la postura ed eliminato la diastasi (ho partorito a ottobre 2023)",
+      profile: "/images/carouselDp.png",
     },
   ];
 
@@ -161,7 +171,7 @@ const coverflowLucideTestimonial = () => {
   };
 
   return (
-    <div className="relative w-full bg-white py-20 overflow-hidden">
+    <div className="relative w-full bg-[#F3EFEC] py-20 overflow-hidden">
       <h1 className="text-center text-4xl font-normal">
         Le loro storie,
         <br />
@@ -186,13 +196,13 @@ const coverflowLucideTestimonial = () => {
               style={getSlideStyle(index)}
               onClick={() => goToSlide(index)}
             >
-              <div className="w-full h-full bg-white rounded-2xl overflow-hidden flex flex-col">
-                {/* Image container */}
-                <div className="relative flex-1 overflow-hidden">
+              <div className="relative w-full h-full bg-white rounded-2xl ">
+                {/* Image container - full height */}
+                <div className="relative w-full h-full overflow-hidden">
                   <Image
                     src={slide.image}
                     alt={slide.title}
-                    className="w-full h-full object-cover rounded-t-2xl"
+                    className="w-full h-full object-cover rounded-2xl"
                     width={483}
                     height={603}
                     style={{
@@ -205,7 +215,7 @@ const coverflowLucideTestimonial = () => {
                   {/* White overlay for inactive cards */}
                   {index !== currentIndex && (
                     <div
-                      className="absolute inset-0 bg-white rounded-t-2xl"
+                      className="absolute inset-0 bg-white rounded-2xl"
                       style={{
                         mixBlendMode: "overlay",
                         opacity: 0.6,
@@ -216,13 +226,30 @@ const coverflowLucideTestimonial = () => {
 
                 {/* Content - only visible on active card */}
                 {index === currentIndex && (
-                  <div className="h-16 bg-[#F3EFEC] flex items-center justify-between px-4 rounded-b-2xl">
-                    <h3 className="text-xl font-bold text-black">
-                      {slide.title}
-                    </h3>
-                    <p className="text-black text-base flex items-center gap-2">
-                      Details <FaArrowRight />
-                    </p>
+                  <div className="absolute top-130 left-1/2 transform -translate-x-1/2 bg-white rounded-2xl p-4 shadow-lg max-w-[90%] w-[350px]">
+                    {/* Image with name and user */}
+                    <div className="flex items-center gap-3 mb-3">
+                      <div className="w-12 h-12 rounded-full overflow-hidden bg-gray-200">
+                        <Image
+                          src={slide.image}
+                          alt={slide.userName}
+                          className="w-full h-full object-cover"
+                          width={48}
+                          height={48}
+                        />
+                      </div>
+                      <div className="flex  gap-1">
+                        <h4 className="text-base font-semibold text-black">{slide.name}</h4>
+                        <p className="text-base text-[#8C8C8C]">@{slide.userName}</p>
+                      </div>
+                    </div>
+                    
+                    {/* Description text */}
+                    <div className="pt-3">
+                      <p className="text-sm text-gray-800 leading-relaxed">
+                        {slide.description}
+                      </p>
+                    </div>
                   </div>
                 )}
               </div>
@@ -230,11 +257,11 @@ const coverflowLucideTestimonial = () => {
           ))}
         </div>
       </div>
-      <div className="flex items-center justify-center gap-2 mt-8">
+      <div className="flex items-center justify-center gap-2 mt-40">
         <button
           onClick={prevSlide}
           disabled={isAnimating}
-          className=" z-20 bg-[#F3EFEC] backdrop-blur-sm hover:bg-[#ece3dc] disabled:opacity-50 disabled:cursor-not-allowed rounded-full p-3 transition-all duration-300"
+          className=" z-20 bg-white backdrop-blur-sm hover:bg-[#ece3dc] disabled:opacity-50 disabled:cursor-not-allowed rounded-full p-3 transition-all duration-300"
           style={{ border: "1px solid #6847441A" }}
         >
           <ChevronLeft className="w-6 h-6 text-black" />
@@ -242,28 +269,13 @@ const coverflowLucideTestimonial = () => {
         <button
           onClick={nextSlide}
           disabled={isAnimating}
-          className=" z-20 bg-[#F3EFEC] backdrop-blur-sm hover:bg-[#ece3dc] disabled:opacity-50 disabled:cursor-not-allowed rounded-full p-3 transition-all duration-300 border border-white/20"
+          className=" z-20 bg-white backdrop-blur-sm hover:bg-[#ece3dc] disabled:opacity-50 disabled:cursor-not-allowed rounded-full p-3 transition-all duration-300 border border-white/20"
           style={{ border: "1px solid #6847441A" }}
         >
           <ChevronRight className="w-6 h-6 text-black" />
         </button>
       </div>
-      {/* Dots indicator */}
-      <div className="absolute bottom-8 left-1/2 -translate-x-1/2 flex space-x-2 z-20">
-        {slides.map((_, index) => (
-          <button
-            key={index}
-            onClick={() => goToSlide(index)}
-            className={`w-3 h-3 rounded-full transition-all duration-300 ${
-              index === currentIndex
-                ? "bg-white scale-125"
-                : "bg-white/40 hover:bg-white/60"
-            }`}
-          />
-        ))}
-      </div>
-
-      {/* Title overlay */}
+        
     </div>
   );
 };

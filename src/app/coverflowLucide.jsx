@@ -254,22 +254,7 @@ const CarouselCoverLucide = () => {
           <ChevronRight className="w-6 h-6 text-black" />
         </button>
       </div>
-      {/* Dots indicator */}
-      <div className="absolute bottom-8 left-1/2 -translate-x-1/2 flex space-x-2 z-20">
-        {slides.map((_, index) => (
-          <button
-            key={index}
-            onClick={() => goToSlide(index)}
-            className={`w-3 h-3 rounded-full transition-all duration-300 ${
-              index === currentIndex
-                ? "bg-white scale-125"
-                : "bg-white/40 hover:bg-white/60"
-            }`}
-          />
-        ))}
-      </div>
-
-      {/* Title overlay */}
+      
     </div>
   );
 };
