@@ -201,7 +201,7 @@ const coverflowLucideTestimonial = () => {
                 <div className="relative w-full h-full overflow-hidden">
                   <Image
                     src={slide.image}
-                    alt={slide.title}
+                    alt={'testimonial image ' + index}
                     className="w-full h-full object-cover rounded-2xl"
                     width={483}
                     height={603}

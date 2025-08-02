@@ -1,10 +1,13 @@
+"use client"
 import Image from "next/image";
+import { useState } from "react";
 
 export default function Footer() {
+  const [showChatMessage, setShowChatMessage] = useState(true);
   return (
     <footer className="bg-[#553B39] text-white relative">
       {/* Main Footer Content */}
-      <div className="flex flex-wrap justify-center gap-8 pt-20 pb-4 px-8">
+      <div className="flex flex-wrap justify-center gap-8 pt-20 pb-10 px-8">
         {/* Left Section - Logo and Social Media */}
         <div className="flex flex-col gap-[14px] w-[354px]">
           {/* Logo */}
@@ -212,36 +215,44 @@ export default function Footer() {
       </div>
 
       {/* Help Chat Button - Positioned Absolutely */}
-      <div className="absolute top-[200px] right-[100px] flex items-end gap-2">
-        {/* Close Button */}
-        <div className="w-10 h-10 bg-white/80 rounded-full flex items-center justify-center shadow-lg">
-          <svg width="16" height="16" viewBox="0 0 16 16" fill="none">
-            <path
-              d="M12 4L4 12M4 4L12 12"
-              stroke="black"
-              strokeWidth="1"
-              strokeLinecap="round"
-              strokeLinejoin="round"
-            />
-          </svg>
-        </div>
-
-        {/* Help Button */}
-        <div className="bg-white rounded-[20px] px-3 py-3 shadow-lg">
-          <span className="font-['DM_Sans'] text-sm text-black">
-            Come possiamo aiutarti?
-          </span>
-        </div>
-      </div>
+     
 
       {/* Chat Icon - Bottom Right */}
-      <div className="fixed bottom-8 right-8 w-16 h-16 bg-[#98685E] rounded-[32px] flex items-center justify-center shadow-lg hover:bg-[#8a5d56] transition-colors cursor-pointer">
-        <svg width="32" height="26" viewBox="0 0 32 26" fill="none">
-          <path
-            d="M28 0H4C1.8 0 0 1.8 0 4V18C0 20.2 1.8 22 4 22H8V26L14 22H28C30.2 22 32 20.2 32 18V4C32 1.8 30.2 0 28 0ZM8 13C7.4 13 7 12.6 7 12C7 11.4 7.4 11 8 11C8.6 11 9 11.4 9 12C9 12.6 8.6 13 8 13ZM16 13C15.4 13 15 12.6 15 12C15 11.4 15.4 11 16 11C16.6 11 17 11.4 17 12C17 12.6 16.6 13 16 13ZM24 13C23.4 13 23 12.6 23 12C23 11.4 23.4 11 24 11C24.6 11 25 11.4 25 12C25 12.6 24.6 13 24 13Z"
-            fill="white"
-          />
-        </svg>
+      <div className="fixed flex flex-col bottom-8 gap-4 right-8 items-end justify-center">
+        {showChatMessage && (
+          <div className="flex items-end gap-2">
+            {/* Close Button */}
+            <div 
+              className="w-10 h-10 bg-white/80 rounded-full flex items-center justify-center shadow-lg cursor-pointer hover:bg-white/90 transition-colors"
+              onClick={() => setShowChatMessage(false)}
+            >
+              <svg width="16" height="16" viewBox="0 0 16 16" fill="none">
+                <path
+                  d="M12 4L4 12M4 4L12 12"
+                  stroke="black"
+                  strokeWidth="1"
+                  strokeLinecap="round"
+                  strokeLinejoin="round"
+                />
+              </svg>
+            </div>
+
+            {/* Help Button */}
+            <div className="bg-white rounded-[20px] px-3 py-3 shadow-lg">
+              <span className="font-['DM_Sans'] text-sm text-black">
+                Come possiamo aiutarti?
+              </span>
+            </div>
+          </div>
+        )}
+      <div className="w-16 h-16 bg-[#98685E] rounded-[32px] flex items-center justify-center shadow-lg hover:bg-[#8a5d56] transition-colors cursor-pointer">
+        <Image
+          src="/logo/footerChatIcon.svg"
+          alt="chatIcon"
+          width={32}
+          height={26}
+        />
+        </div>
       </div>
 
       {/* Copyright Section */}

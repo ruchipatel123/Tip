@@ -9,6 +9,7 @@ export default function MilestonesSection() {
   const containerRef = useRef(null);
   const [isLocked, setIsLocked] = useState(false);
   const [scrollPhase, setScrollPhase] = useState(0); // 0: before lock, 1: locked, 2: after lock
+  const [windowHeight, setWindowHeight] = useState(800);
   
   const { scrollYProgress } = useScroll({
     target: containerRef,
@@ -17,7 +18,21 @@ export default function MilestonesSection() {
 
   // Transform values for smooth transitions
   const cardsProgress = useTransform(scrollYProgress, [0, 0.8], [0, 1]);
-  const sectionY = useTransform(scrollYProgress, [0.8, 1], [0, -window.innerHeight || -800]);
+  const sectionY = useTransform(scrollYProgress, [0.8, 1], [0, -windowHeight]);
+
+  useEffect(() => {
+    // Set window height on client side
+    if (typeof window !== 'undefined') {
+      setWindowHeight(window.innerHeight);
+      
+      const handleResize = () => {
+        setWindowHeight(window.innerHeight);
+      };
+      
+      window.addEventListener('resize', handleResize);
+      return () => window.removeEventListener('resize', handleResize);
+    }
+  }, []);
 
   useEffect(() => {
     const unsubscribe = scrollYProgress.onChange((progress) => {
@@ -36,9 +51,9 @@ export default function MilestonesSection() {
     return () => unsubscribe();
   }, [scrollYProgress]);
 
-  // Card animation transforms
+  // Card animation transforms - increased travel distance
   const getCardTransform = (index) => {
-    return useTransform(cardsProgress, [0, 1], [0, -300 - (index * 50)]);
+    return useTransform(cardsProgress, [0, 1], [0, -500 - (index * 80)]);
   };
 
   const card1Y = getCardTransform(0);
