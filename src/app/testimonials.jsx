@@ -1,24 +1,39 @@
 'use client';
 
-import Image from "next/image";
 import { useState } from "react";
-
+import { IoIosArrowBack, IoIosArrowForward } from "react-icons/io";
+import { PiSpeakerXLight } from "react-icons/pi";
+import { PiSpeakerHighThin } from "react-icons/pi";
 export default function TestimonialsSection() {
   const [currentSlide, setCurrentSlide] = useState(0);
+  const [isMuted, setIsMuted] = useState(true);
 
   const testimonials = [
     {
       id: 1,
       title: "Cinzia lost 37kg with Traininpink",
-      image: "/testimonials/cinzia-testimonial-1bc664.png",
+      leftImage: "/testimonials/cinzia-testimonial-1bc664.png",
+      rightImage: "/testimonials/phone-testimonial-1c9257.png",
+      video: "/videos/testimonialone.mp4",
       type: "video",
       hasUnmute: true
     },
     {
       id: 2,
       title: "From our Inbox",
-      image: "/testimonials/phone-testimonial-1c9257.png",
+      leftImage: "/testimonials/cinzia-testimonial-1bc664.png",
+      rightImage: "/testimonials/instatemplateOne.png",
+      video: "/videos/testimonialtwo.mp4",
       type: "message",
+      hasUnmute: false
+    },
+    {
+      id: 3,
+      title: "Success Story",
+      leftImage: "/testimonials/cinzia-testimonial-1bc664.png",
+      rightImage: "/testimonials/phone-testimonial-1c9257.png",
+      video: "/videos/testimonialthree.mp4",
+      type: "video",
       hasUnmute: false
     }
   ];
@@ -30,6 +45,12 @@ export default function TestimonialsSection() {
   const prevSlide = () => {
     setCurrentSlide((prev) => (prev - 1 + testimonials.length) % testimonials.length);
   };
+
+  const toggleMute = () => {
+    setIsMuted(!isMuted);
+  };
+
+  const currentTestimonial = testimonials[currentSlide];
 
   return (
     <section className="bg-white relative w-full h-[1423px] overflow-hidden">
@@ -58,88 +79,92 @@ export default function TestimonialsSection() {
         </div>
       </div>
 
-      {/* Testimonial Cards */}
+      {/* Dynamic Testimonial Titles */}
       <div className="absolute top-[452px] left-[163px] w-[437px] h-[36px] z-10">
         <h3 className="font-['Poppins'] text-[28px] leading-[36px] tracking-[-0.1px] font-normal text-[#553B39] text-center">
-          {testimonials[0].title}
+          {currentSlide === 0 ? currentTestimonial.title : testimonials[0].title}
         </h3>
       </div>
 
       <div className="absolute top-[452px] right-[277px] w-[207px] h-[36px] z-10">
         <h3 className="font-['Poppins'] text-[28px] leading-[36px] tracking-[-0.1px] font-normal text-[#553B39] text-center">
-          From our Inbox
+          {currentSlide === 1 ? "From our Inbox" : "From our Inbox"}
         </h3>
       </div>
 
-      {/* Left Testimonial Card */}
+      {/* Left Testimonial Card - Intro Video */}
       <div className="absolute top-[511px] left-[48px] w-[667px] h-[830px] rounded-2xl overflow-hidden">
         <div className="relative w-full h-full">
-          <Image
-            src="/testimonials/cinzia-testimonial-1bc664.png"
-            alt="Cinzia transformation testimonial"
-            fill
-            className="object-cover"
-          />
+          <video
+            className="w-full h-full object-cover"
+            autoPlay
+            muted={isMuted}
+            playsInline
+            loop
+          >
+            <source src="/videos/videoInro.mp4" type="video/mp4" />
+            Your browser does not support the video tag.
+          </video>
           
-          {/* Tap to unmute button */}
+          {/* Mute/Unmute button */}
           <div className="absolute bottom-[80px] left-1/2 transform -translate-x-1/2">
-            <div className="bg-[#553B39] border border-white/20 shadow-[0px_4px_20px_0px_rgba(0,0,0,0.25)] rounded-full px-4 py-3 flex items-center gap-3">
-              <svg width="27" height="24" viewBox="0 0 27 24" fill="none">
-                <path d="M14 2L14 22" stroke="white" strokeWidth="1.1" strokeLinecap="round"/>
-                <path d="M18 6C20 8 20 16 18 18" stroke="white" strokeWidth="1.1" strokeLinecap="round"/>
-                <path d="M22 9.5C24 11.5 24 12.5 22 14.5" stroke="white" strokeWidth="1.1" strokeLinecap="round"/>
-                <path d="M32 15C33 16 33 16 32 17" stroke="white" strokeWidth="1.1" strokeLinecap="round"/>
-              </svg>
+            <button 
+              onClick={toggleMute}
+              className="bg-[#553B39] border border-white/20 shadow-[0px_4px_20px_0px_rgba(0,0,0,0.25)] rounded-full px-4 py-3 flex items-center gap-3 hover:bg-[#6a544f] transition-colors"
+            >
+              {isMuted ? (
+                <PiSpeakerXLight color='white' size={20}/>
+              ) : (
+                <PiSpeakerHighThin color='white' size={20}/>
+              )}
               <span className="font-['DM_Sans'] text-base leading-[26px] text-white">
-                Tap to unmute
+                {isMuted ? 'Tap to unmute' : 'Tap to mute'}
               </span>
-            </div>
+            </button>
           </div>
         </div>
       </div>
 
-      {/* Right Testimonial Card */}
+      {/* Right Testimonial Card - Carousel */}
       <div className="absolute top-[511px] right-[48px] w-[667px] h-[830px] rounded-2xl overflow-hidden bg-[#F3EFEC]">
-        <div className="relative w-full h-full flex items-center justify-center">
+        <div className="relative w-full h-full flex items-center gap-10 justify-center">
           {/* Phone mockup container */}
-          <div className="relative w-[326px] h-[621px]">
+          <button 
+              onClick={prevSlide}
+              className="w-14 h-14 bg-white border border-[rgba(104,71,68,0.1)] shadow-[0px_2px_20px_0px_rgba(0,0,0,0.08)] rounded-full flex items-center justify-center hover:bg-gray-50 transition-colors"
+            >
+              <IoIosArrowBack />
+            </button>
+          <div className="relative w-[318px] h-[621px]">
             <div className="w-full h-full bg-white rounded-2xl shadow-[0px_4px_10px_0px_rgba(0,0,0,0.25)] overflow-hidden">
-              <Image
-                src="/testimonials/phone-testimonial-1c9257.png"
-                alt="Message testimonial from inbox"
-                fill
-                className="object-cover"
-              />
+              <video
+                key={currentTestimonial.video} // Force re-render when video changes
+                className="w-full h-full object-contain"
+                autoPlay
+                muted
+                playsInline
+                onEnded={(e) => e.target.pause()} // Stop when video ends
+              >
+                <source src={currentTestimonial.video} type="video/mp4" />
+                Your browser does not support the video tag.
+              </video>
             </div>
           </div>
-
-          {/* Navigation arrows */}
-          <div className="absolute right-[82px] top-1/2 transform -translate-y-1/2 flex items-center gap-2">
-            <button 
-              onClick={prevSlide}
-              className="w-14 h-14 bg-white border border-[rgba(104,71,68,0.1)] shadow-[0px_2px_20px_0px_rgba(0,0,0,0.08)] rounded-full flex items-center justify-center"
-            >
-              <svg width="24" height="24" viewBox="0 0 24 24" fill="none">
-                <path d="M15 18L9 12L15 6" stroke="black" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round"/>
-              </svg>
-            </button>
-            <button 
+          <button 
               onClick={nextSlide}
-              className="w-14 h-14 bg-white border border-[rgba(104,71,68,0.1)] shadow-[0px_2px_20px_0px_rgba(0,0,0,0.08)] rounded-full flex items-center justify-center"
+              className="w-14 h-14 bg-white border border-[rgba(104,71,68,0.1)] shadow-[0px_2px_20px_0px_rgba(0,0,0,0.08)] rounded-full flex items-center justify-center hover:bg-gray-50 transition-colors"
             >
-              <svg width="24" height="24" viewBox="0 0 24 24" fill="none">
-                <path d="M9 18L15 12L9 6" stroke="black" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round"/>
-              </svg>
+            <IoIosArrowForward />
             </button>
-          </div>
-
+ 
           {/* Pagination dots */}
           <div className="absolute bottom-[83px] left-1/2 transform -translate-x-1/2 flex items-center gap-1">
-            {[0, 1, 2, 3, 4, 5, 6].map((index) => (
-              <div
+            {testimonials.map((_, index) => (
+              <button
                 key={index}
-                className={`w-6 h-0.5 ${
-                  index === 0 ? 'bg-[#98685E]' : 'bg-black/10'
+                onClick={() => setCurrentSlide(index)}
+                className={`w-6 h-0.5 transition-colors ${
+                  index === currentSlide ? 'bg-[#98685E]' : 'bg-black/10'
                 }`}
               />
             ))}
