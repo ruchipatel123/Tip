@@ -12,6 +12,7 @@ import Footer from "./footer";
 import MobileSection from "./mobileSection";
 import BradStrip from "./bradStrip";
 import MobileMock from "./mobileMock";
+import CoverflowLucideTestimonial from "./coverflowLucideTestimonial";
 
 export default function Home() {
   
@@ -27,7 +28,7 @@ export default function Home() {
       <PricingSection />
       <TrustPilotSection />
       <FAQSection />
-      <CarouselCoverLucide />
+      <CoverflowLucideTestimonial />
       <MilestonesSection />
       <AppAvailabilitySection />
       <Footer />
