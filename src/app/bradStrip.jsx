@@ -10,7 +10,7 @@ export default function BradStrip() {
     "/logo/graza.svg",
   ];
   return (
-    <section className="flex flex-wrap gap-10 justify-between items-center p-10 max-w-[1328px] mx-auto">
+    <section className="flex overflow-x-auto gap-10 justify-between items-center p-10 max-w-[1328px] mx-auto">
       {logos?.map((logo, index) => {
         return (
           <div key={index}>
@@ -19,7 +19,7 @@ export default function BradStrip() {
               alt="logo"
               width={200}
               height={38}
-              className="w-full h-full object-contain"
+              className="w-full h-full object-contain min-w-[60px] min-h-[38px]"
             />
           </div>
         );

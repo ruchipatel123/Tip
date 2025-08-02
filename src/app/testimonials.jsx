@@ -53,125 +53,229 @@ export default function TestimonialsSection() {
   const currentTestimonial = testimonials[currentSlide];
 
   return (
-    <section className="bg-white relative w-full h-[1423px] overflow-hidden">
+    <section className="bg-white w-full py-12 sm:py-16 lg:py-20 overflow-hidden">
       {/* Header Section */}
-      <div className="absolute top-[84px] left-1/2 transform -translate-x-1/2 z-20">
-        <div className="flex flex-col items-center gap-6 w-[403px]">
-          <div className="flex flex-col items-center gap-6 w-full">
-            <h2 className="font-['Poppins'] text-[36px] leading-[47px] tracking-[-0.15px] font-normal text-black text-center">
-              I risultati delle<br />
-              nostre donne
-            </h2>
-            <p className="font-['DM_Sans'] text-lg leading-[29px] text-black text-center w-[313px]">
-              Più di 180.000 donne sono felici nel proprio corpo grazie a Traininpink™
-            </p>
-          </div>
-          
-          {/* CTA Button */}
-          <button className="bg-[#684744] border border-[rgba(243,239,236,0.2)] shadow-[0px_2px_20px_0px_rgba(0,0,0,0.2)] rounded-lg py-[10px] px-4 flex items-center justify-center gap-3 w-[273px] h-[54px]">
-            <span className="font-['DM_Sans'] text-xl font-medium leading-[29px] text-white">
-              Inizia la prova gratuita
-            </span>
-            <svg width="13.33" height="10" viewBox="0 0 14 10" fill="none">
-              <path d="M1 5H13M13 5L9 1M13 5L9 9" stroke="white" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round"/>
-            </svg>
-          </button>
+      <div className="flex flex-col items-center gap-6 sm:gap-8 px-4 sm:px-6 lg:px-8 mb-12 sm:mb-16 lg:mb-20">
+        <div className="flex flex-col items-center gap-4 sm:gap-6 w-full max-w-lg">
+          <h2 className="font-['Poppins'] text-[24px] sm:text-[32px] lg:text-[36px] leading-[32px] sm:leading-[42px] lg:leading-[47px] tracking-[-0.15px] font-normal text-black text-center">
+            I risultati delle<br />
+            nostre donne
+          </h2>
+          <p className="font-['DM_Sans'] text-base sm:text-lg leading-[24px] sm:leading-[29px] text-black text-center max-w-sm sm:max-w-md">
+            Più di 180.000 donne sono felici nel proprio corpo grazie a Traininpink™
+          </p>
         </div>
+        
+        {/* CTA Button */}
+        <button className="bg-[#684744] border border-[rgba(243,239,236,0.2)] shadow-[0px_2px_20px_0px_rgba(0,0,0,0.2)] rounded-lg py-3 px-6 flex items-center justify-center gap-3 w-full max-w-xs sm:max-w-sm h-12 sm:h-[54px]">
+          <span className="font-['DM_Sans'] text-lg sm:text-xl font-medium leading-[24px] sm:leading-[29px] text-white">
+            Inizia la prova gratuita
+          </span>
+          <svg width="13.33" height="10" viewBox="0 0 14 10" fill="none" className="flex-shrink-0">
+            <path d="M1 5H13M13 5L9 1M13 5L9 9" stroke="white" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round"/>
+          </svg>
+        </button>
       </div>
 
-      {/* Dynamic Testimonial Titles */}
-      <div className="absolute top-[452px] left-[163px] w-[437px] h-[36px] z-10">
-        <h3 className="font-['Poppins'] text-[28px] leading-[36px] tracking-[-0.1px] font-normal text-[#553B39] text-center">
-          {currentSlide === 0 ? currentTestimonial.title : testimonials[0].title}
-        </h3>
-      </div>
-
-      <div className="absolute top-[452px] right-[277px] w-[207px] h-[36px] z-10">
-        <h3 className="font-['Poppins'] text-[28px] leading-[36px] tracking-[-0.1px] font-normal text-[#553B39] text-center">
-          {currentSlide === 1 ? "From our Inbox" : "From our Inbox"}
-        </h3>
-      </div>
-
-      {/* Left Testimonial Card - Intro Video */}
-      <div className="absolute top-[511px] left-[48px] w-[667px] h-[830px] rounded-2xl overflow-hidden">
-        <div className="relative w-full h-full">
-          <video
-            className="w-full h-full object-cover"
-            autoPlay
-            muted={isMuted}
-            playsInline
-            loop
-          >
-            <source src="/videos/videoInro.mp4" type="video/mp4" />
-            Your browser does not support the video tag.
-          </video>
-          
-          {/* Mute/Unmute button */}
-          <div className="absolute bottom-[80px] left-1/2 transform -translate-x-1/2">
-            <button 
-              onClick={toggleMute}
-              className="bg-[#553B39] border border-white/20 shadow-[0px_4px_20px_0px_rgba(0,0,0,0.25)] rounded-full px-4 py-3 flex items-center gap-3 hover:bg-[#6a544f] transition-colors"
-            >
-              {isMuted ? (
-                <PiSpeakerXLight color='white' size={20}/>
-              ) : (
-                <PiSpeakerHighThin color='white' size={20}/>
-              )}
-              <span className="font-['DM_Sans'] text-base leading-[26px] text-white">
-                {isMuted ? 'Tap to unmute' : 'Tap to mute'}
-              </span>
-            </button>
+      {/* Desktop Layout */}
+      <div className="hidden lg:flex lg:flex-row lg:gap-8 xl:gap-12 px-4 sm:px-6 lg:px-8">
+        {/* Left Testimonial Card - Intro Video */}
+        <div className="flex-1 max-w-2xl">
+          <div className="mb-6">
+            <h3 className="font-['Poppins'] text-[24px] lg:text-[28px] leading-[32px] lg:leading-[36px] tracking-[-0.1px] font-normal text-[#553B39] text-center">
+              Cinzia lost 37kg with Traininpink
+            </h3>
           </div>
-        </div>
-      </div>
-
-      {/* Right Testimonial Card - Carousel */}
-      <div className="absolute top-[511px] right-[48px] w-[667px] h-[830px] rounded-2xl overflow-hidden bg-[#F3EFEC]">
-        <div className="relative w-full h-full flex items-center gap-10 justify-center">
-          {/* Phone mockup container */}
-          <button 
-              onClick={prevSlide}
-              className="w-14 h-14 bg-white border border-[rgba(104,71,68,0.1)] shadow-[0px_2px_20px_0px_rgba(0,0,0,0.08)] rounded-full flex items-center justify-center hover:bg-gray-50 transition-colors"
-            >
-              <IoIosArrowBack />
-            </button>
-          <div className="relative w-[318px] h-[621px]">
-            <div className="w-full h-full bg-white rounded-2xl shadow-[0px_4px_10px_0px_rgba(0,0,0,0.25)] overflow-hidden">
+          <div className="aspect-[4/5] rounded-2xl overflow-hidden bg-black">
+            <div className="relative w-full h-full">
               <video
-                key={currentTestimonial.video} // Force re-render when video changes
-                className="w-full h-full object-contain"
+                className="w-full h-full object-cover"
                 autoPlay
-                muted
+                muted={isMuted}
                 playsInline
-                onEnded={(e) => e.target.pause()} // Stop when video ends
+                loop
               >
-                <source src={currentTestimonial.video} type="video/mp4" />
+                <source src="/videos/videoInro.mp4" type="video/mp4" />
                 Your browser does not support the video tag.
               </video>
+              
+              {/* Mute/Unmute button */}
+              <div className="absolute bottom-8 left-1/2 transform -translate-x-1/2">
+                <button 
+                  onClick={toggleMute}
+                  className="bg-[#553B39] border border-white/20 shadow-[0px_4px_20px_0px_rgba(0,0,0,0.25)] rounded-full px-4 py-3 flex items-center gap-3 hover:bg-[#6a544f] transition-colors"
+                >
+                  {isMuted ? (
+                    <PiSpeakerXLight color='white' size={20}/>
+                  ) : (
+                    <PiSpeakerHighThin color='white' size={20}/>
+                  )}
+                  <span className="font-['DM_Sans'] text-base leading-[26px] text-white">
+                    {isMuted ? 'Tap to unmute' : 'Tap to mute'}
+                  </span>
+                </button>
+              </div>
             </div>
           </div>
-          <button 
-              onClick={nextSlide}
-              className="w-14 h-14 bg-white border border-[rgba(104,71,68,0.1)] shadow-[0px_2px_20px_0px_rgba(0,0,0,0.08)] rounded-full flex items-center justify-center hover:bg-gray-50 transition-colors"
-            >
-            <IoIosArrowForward />
-            </button>
- 
-          {/* Pagination dots */}
-          <div className="absolute bottom-[83px] left-1/2 transform -translate-x-1/2 flex items-center gap-1">
-            {testimonials.map((_, index) => (
-              <button
-                key={index}
-                onClick={() => setCurrentSlide(index)}
-                className={`w-6 h-0.5 transition-colors ${
-                  index === currentSlide ? 'bg-[#98685E]' : 'bg-black/10'
-                }`}
-              />
-            ))}
+        </div>
+
+        {/* Right Testimonial Card - Carousel */}
+        <div className="flex-1 max-w-2xl">
+          <div className="mb-6">
+            <h3 className="font-['Poppins'] text-[24px] lg:text-[28px] leading-[32px] lg:leading-[36px] tracking-[-0.1px] font-normal text-[#553B39] text-center">
+              From our Inbox
+            </h3>
+          </div>
+          <div className="aspect-[4/5] rounded-2xl overflow-hidden bg-[#F3EFEC]">
+            <div className="relative w-full h-full flex items-center justify-center gap-6">
+              {/* Navigation Buttons */}
+              <button 
+                onClick={prevSlide}
+                className="w-10 h-10 lg:w-14 lg:h-14 bg-white border border-[rgba(104,71,68,0.1)] shadow-[0px_2px_20px_0px_rgba(0,0,0,0.08)] rounded-full flex items-center justify-center hover:bg-gray-50 transition-colors z-10"
+              >
+                <IoIosArrowBack />
+              </button>
+              
+              {/* Phone Mockup */}
+              <div className="relative flex-1 max-w-[280px] aspect-[9/16]">
+                <div className="w-full h-full bg-white rounded-2xl shadow-[0px_4px_10px_0px_rgba(0,0,0,0.25)] overflow-hidden">
+                  <video
+                    key={currentTestimonial.video}
+                    className="w-full h-full object-contain"
+                    autoPlay
+                    muted
+                    playsInline
+                    onEnded={(e) => e.target.pause()}
+                  >
+                    <source src={currentTestimonial.video} type="video/mp4" />
+                    Your browser does not support the video tag.
+                  </video>
+                </div>
+              </div>
+              
+              <button 
+                onClick={nextSlide}
+                className="w-10 h-10 lg:w-14 lg:h-14 bg-white border border-[rgba(104,71,68,0.1)] shadow-[0px_2px_20px_0px_rgba(0,0,0,0.08)] rounded-full flex items-center justify-center hover:bg-gray-50 transition-colors z-10"
+              >
+                <IoIosArrowForward />
+              </button>
+              
+              {/* Pagination dots */}
+              <div className="absolute bottom-8 left-1/2 transform -translate-x-1/2 flex items-center gap-1">
+                {testimonials.map((_, index) => (
+                  <button
+                    key={index}
+                    onClick={() => setCurrentSlide(index)}
+                    className={`w-6 h-0.5 transition-colors ${
+                      index === currentSlide ? 'bg-[#98685E]' : 'bg-black/10'
+                    }`}
+                  />
+                ))}
+              </div>
+            </div>
           </div>
         </div>
       </div>
 
+      {/* Mobile Layout */}
+      <div className="lg:hidden px-4 sm:px-6 space-y-8 sm:space-y-12">
+        {/* Mobile Intro Video */}
+        <div className="w-full">
+          <div className="mb-4 sm:mb-6">
+            <h3 className="font-['Poppins'] text-[20px] sm:text-[24px] leading-[28px] sm:leading-[32px] tracking-[-0.1px] font-normal text-[#553B39] text-center">
+              Cinzia lost 37kg with Traininpink
+            </h3>
+          </div>
+          <div className="aspect-[4/5] max-w-md mx-auto rounded-2xl overflow-hidden bg-black">
+            <div className="relative w-full h-full">
+              <video
+                className="w-full h-full object-cover"
+                autoPlay
+                muted={isMuted}
+                playsInline
+                loop
+              >
+                <source src="/videos/videoInro.mp4" type="video/mp4" />
+                Your browser does not support the video tag.
+              </video>
+              
+              {/* Mute/Unmute button */}
+              <div className="absolute bottom-6 left-1/2 transform -translate-x-1/2">
+                <button 
+                  onClick={toggleMute}
+                  className="bg-[#553B39] border border-white/20 shadow-[0px_4px_20px_0px_rgba(0,0,0,0.25)] rounded-full px-3 py-2 sm:px-4 sm:py-3 flex items-center gap-2 sm:gap-3 hover:bg-[#6a544f] transition-colors"
+                >
+                  {isMuted ? (
+                    <PiSpeakerXLight color='white' size={18}/>
+                  ) : (
+                    <PiSpeakerHighThin color='white' size={18}/>
+                  )}
+                  <span className="font-['DM_Sans'] text-sm sm:text-base leading-[20px] sm:leading-[26px] text-white">
+                    {isMuted ? 'Tap to unmute' : 'Tap to mute'}
+                  </span>
+                </button>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        {/* Mobile Testimonial Carousel */}
+        <div className="w-full">
+          <div className="mb-4 sm:mb-6">
+            <h3 className="font-['Poppins'] text-[20px] sm:text-[24px] leading-[28px] sm:leading-[32px] tracking-[-0.1px] font-normal text-[#553B39] text-center">
+              From our Inbox
+            </h3>
+          </div>
+          <div className="aspect-[4/5] max-w-sm mx-auto rounded-2xl overflow-hidden bg-[#F3EFEC]">
+            <div className="relative w-full h-full flex items-center justify-center gap-4">
+              {/* Navigation Buttons */}
+              <button 
+                onClick={prevSlide}
+                className="w-10 h-10 bg-white border border-[rgba(104,71,68,0.1)] shadow-[0px_2px_20px_0px_rgba(0,0,0,0.08)] rounded-full flex items-center justify-center hover:bg-gray-50 transition-colors z-10"
+              >
+                <IoIosArrowBack size={16} />
+              </button>
+              
+              {/* Phone Mockup */}
+              <div className="relative flex-1 max-w-[200px] aspect-[9/16]">
+                <div className="w-full h-full bg-white rounded-2xl shadow-[0px_4px_10px_0px_rgba(0,0,0,0.25)] overflow-hidden">
+                  <video
+                    key={currentTestimonial.video}
+                    className="w-full h-full object-contain"
+                    autoPlay
+                    muted
+                    playsInline
+                    onEnded={(e) => e.target.pause()}
+                  >
+                    <source src={currentTestimonial.video} type="video/mp4" />
+                    Your browser does not support the video tag.
+                  </video>
+                </div>
+              </div>
+              
+              <button 
+                onClick={nextSlide}
+                className="w-10 h-10 bg-white border border-[rgba(104,71,68,0.1)] shadow-[0px_2px_20px_0px_rgba(0,0,0,0.08)] rounded-full flex items-center justify-center hover:bg-gray-50 transition-colors z-10"
+              >
+                <IoIosArrowForward size={16} />
+              </button>
+              
+              {/* Pagination dots */}
+              <div className="absolute bottom-6 left-1/2 transform -translate-x-1/2 flex items-center gap-1">
+                {testimonials.map((_, index) => (
+                  <button
+                    key={index}
+                    onClick={() => setCurrentSlide(index)}
+                    className={`w-2 h-[4px]  md:w-4 md:h-0.5 transition-colors ${
+                      index === currentSlide ? 'bg-[#98685E]' : 'bg-black/10'
+                    }`}
+                  />
+                ))}
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
     </section>
   );
 } 

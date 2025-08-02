@@ -166,7 +166,7 @@ const CarouselCoverLucide = () => {
         Allenamenti su misura per <br /> te per risultati garantiti
       </h1>
       {/* Main carousel container */}
-      <div className="flex items-center justify-center gap-6 mt-10 text-3xl font-normal">
+      <div className="flex flex-wrap items-center justify-center gap-6 mt-10 text-3xl font-normal">
         <p>
           Tutti <span className="text-black align-super text-xl">10</span>
         </p>

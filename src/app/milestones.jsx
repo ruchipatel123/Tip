@@ -80,38 +80,98 @@ export default function MilestonesSection() {
         </div>
 
         {/* Center Content */}
-        <div className="absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 z-20">
-          <div className="flex flex-col items-center gap-8 w-[455px]">
+        <div className="absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 z-20 px-4 sm:px-6">
+          <div className="flex flex-col items-center gap-6 sm:gap-8 w-full max-w-lg">
             {/* Logo */}
-            <div className="flex flex-col items-center pb-[9px]">
-              <div className="w-[224px] h-[43px] flex items-center justify-center">
-                <span className="text-white text-2xl font-light tracking-wider">
+            <div className="flex flex-col items-center pb-2 sm:pb-[9px]">
+              <div className="w-full max-w-[224px] h-[32px] sm:h-[43px] flex items-center justify-center">
+                <span className="text-white text-xl sm:text-2xl font-light tracking-wider">
                   traininpink
                 </span>
               </div>
             </div>
             
             {/* Tagline */}
-            <p className="font-['DM_Sans'] text-xl font-medium leading-[29px] text-[#F3EFEC] text-center w-[379px]">
+            <p className="font-['DM_Sans'] text-lg sm:text-xl font-medium leading-[26px] sm:leading-[29px] text-[#F3EFEC] text-center max-w-sm lg:max-w-[379px]">
               Milestones from women like you.
             </p>
             
             {/* CTA Button */}
-            <button className="bg-[#684744] border border-[rgba(243,239,236,0.2)] shadow-[0px_2px_20px_0px_rgba(0,0,0,0.2)] rounded-lg py-[10px] px-4 flex items-center justify-center gap-3 w-[251px] h-[54px] hover:bg-[#7a5653] transition-colors">
-              <span className="font-['DM_Sans'] text-lg leading-[29px] text-white">
+            <button className="bg-[#684744] border border-[rgba(243,239,236,0.2)] shadow-[0px_2px_20px_0px_rgba(0,0,0,0.2)] rounded-lg py-3 px-4 sm:py-[10px] sm:px-4 flex items-center justify-center gap-3 w-full max-w-xs sm:max-w-[251px] h-12 sm:h-[54px] hover:bg-[#7a5653] transition-colors">
+              <span className="font-['DM_Sans'] text-base sm:text-lg leading-[24px] sm:leading-[29px] text-white">
                 Inizia la prova gratuita
               </span>
-              <svg width="13.33" height="10" viewBox="0 0 14 10" fill="none">
+              <svg width="13.33" height="10" viewBox="0 0 14 10" fill="none" className="flex-shrink-0">
                 <path d="M1 5H13M13 5L9 1M13 5L9 9" stroke="white" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round"/>
               </svg>
             </button>
           </div>
         </div>
 
-        {/* Floating Stats Cards */}
+        {/* Mobile Stats Cards */}
+        <div className="lg:hidden absolute inset-0 z-10 flex flex-col justify-center items-center px-4 py-8 space-y-8">
+          {/* Stats Grid */}
+          <div className="grid grid-cols-1 gap-6 w-full max-w-sm mt-32">
+            {/* Card 1 - 40 thousand+ */}
+            <div className="bg-white/10 backdrop-blur-sm rounded-2xl p-6">
+              <div className="flex flex-col gap-4">
+                <div className="flex items-end gap-2 pb-4 border-b border-white/16">
+                  <span className="font-['Poppins'] text-[40px] font-medium leading-[44px] tracking-[-2px] text-[#F3EFEC]">
+                    40
+                  </span>
+                  <span className="font-['Poppins'] text-[24px] font-medium leading-[32px] tracking-[-0.6px] text-[#F3EFEC] pb-1">
+                    thousand+
+                  </span>
+                </div>
+                <p className="font-['Poppins'] text-[16px] leading-[22px] tracking-[-0.05px] text-white">
+                  Currently<br />
+                  subscribed users
+                </p>
+              </div>
+            </div>
+
+            {/* Card 2 - 4.3 months */}
+            <div className="bg-white/10 backdrop-blur-sm rounded-2xl p-6">
+              <div className="flex flex-col gap-4">
+                <div className="flex items-end gap-2 pb-4 border-b border-white/16">
+                  <span className="font-['Poppins'] text-[40px] font-medium leading-[44px] tracking-[-2px] text-white">
+                    4.3
+                  </span>
+                  <span className="font-['Poppins'] text-[24px] font-medium leading-[32px] tracking-[-0.6px] text-white pb-1">
+                    months
+                  </span>
+                </div>
+                <p className="font-['Poppins'] text-[16px] leading-[22px] tracking-[-0.05px] text-white">
+                  High loyalty<br />
+                  retention rate
+                </p>
+              </div>
+            </div>
+
+            {/* Card 3 - 117 thousand */}
+            <div className="bg-white/10 backdrop-blur-sm rounded-2xl p-6">
+              <div className="flex flex-col gap-4">
+                <div className="flex items-end gap-2 pb-4 border-b border-white/16">
+                  <span className="font-['Poppins'] text-[40px] font-medium leading-[44px] tracking-[-2px] text-white">
+                    117
+                  </span>
+                  <span className="font-['Poppins'] text-[24px] font-medium leading-[32px] tracking-[-0.6px] text-white pb-1">
+                    thousand
+                  </span>
+                </div>
+                <p className="font-['Poppins'] text-[16px] leading-[22px] tracking-[-0.05px] text-white">
+                  Followers on<br />
+                  social media
+                </p>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        {/* Desktop Floating Stats Cards */}
         {/* Left Card - 40 thousand+ */}
         <motion.div 
-          className="absolute top-[60%] left-[66px] w-[430px] z-10"
+          className="hidden lg:block absolute top-[60%] left-[66px] w-[430px] z-10"
           style={{ y: card1Y }}
         >
           <div className="bg-white/10 backdrop-blur-sm rounded-[32px] p-10 h-[319px]">
@@ -136,7 +196,7 @@ export default function MilestonesSection() {
 
         {/* Top Right Card - 4.3 months */}
         <motion.div 
-          className="absolute top-[15%] right-[42px] w-[430px] z-10"
+          className="hidden lg:block absolute top-[15%] right-[42px] w-[430px] z-10"
           style={{ y: card2Y }}
         >
           <div className="bg-white/10 backdrop-blur-sm rounded-[32px] p-10 h-[319px]">
@@ -161,7 +221,7 @@ export default function MilestonesSection() {
 
         {/* Bottom Right Card - 117 thousand */}
         <motion.div 
-          className="absolute top-[80%] right-[162px] w-[430px] z-10"
+          className="hidden lg:block absolute top-[80%] right-[162px] w-[430px] z-10"
           style={{ y: card3Y }}
         >
           <div className="bg-white/10 backdrop-blur-sm rounded-[32px] p-10 h-[319px]">

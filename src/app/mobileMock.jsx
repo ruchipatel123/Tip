@@ -4,8 +4,8 @@ import { FaApple, FaFacebook } from "react-icons/fa";
 
 export default function MobileMock() {
   return (
-    <section className="flex bg-[#F1EBE7] justify-betwen items-center p-20">
-      <div className="w-1/2 flex justify-center">
+    <section className="flex flex-col md:flex-row bg-[#F1EBE7] justify-betwen items-center p-2  md:p-20">
+      <div className="w-full md:w-1/2 flex justify-center">
         <Image
           src="/images/mobileMockup.png"
           alt="mobileMockup"
@@ -14,7 +14,7 @@ export default function MobileMock() {
           className="w-full h-full object-contain max-w-[348px] max-h-[714px]"
         />
       </div>
-      <div className="w-1/2">
+      <div className="w-full md:w-1/2">
         <div className="max-w-[477px] mx-auto flex flex-col gap-4">
           <h2 className="text-4xl font-normal text-center">
             Ottieni i risultati <br /> che meriti
@@ -133,7 +133,7 @@ export default function MobileMock() {
         </div>
 
         <div>
-          <div className="flex gap-4 items-center justify-center mt-10">
+          <div className="flex flex-col md:flex-row gap-4 items-center justify-center mt-10">
             <Image
               src="/logo/playStoreIcon.svg"
               alt="playStoreIcon"
