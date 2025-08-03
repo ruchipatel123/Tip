@@ -239,3 +239,92 @@ select:focus-visible {
   display: none;  /* Safari and Chrome */
 }
 
+/* Custom Swiper Styles for Testimonials Carousel */
+.swiper {
+  width: 100%;
+  height: 100%;
+  overflow: hidden;
+}
+
+.swiper-slide {
+  text-align: center;
+  font-size: 18px;
+  background-color: transparent;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  transition: all 0.8s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+  overflow: hidden;
+}
+
+/* Enhanced slide transition effects for fixed container */
+.swiper-slide-active {
+  transform: scale(1);
+  opacity: 1;
+  z-index: 2;
+}
+
+.swiper-slide-next,
+.swiper-slide-prev {
+  transform: scale(1);
+  opacity: 0;
+  z-index: 1;
+}
+
+/* Smooth wrapper transition */
+.swiper-wrapper {
+  transition-timing-function: cubic-bezier(0.25, 0.46, 0.45, 0.94);
+}
+
+/* Custom easing for banner-like movement */
+.swiper-horizontal > .swiper-wrapper {
+  transition-timing-function: cubic-bezier(0.25, 0.46, 0.45, 0.94);
+}
+
+/* Hide default swiper navigation and pagination */
+.swiper-button-next,
+.swiper-button-prev,
+.swiper-pagination {
+  display: none !important;
+}
+
+/* Enhanced video container for smooth transitions */
+.swiper-slide video {
+  transition: all 0.8s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+  width: 100%;
+  height: 100%;
+  object-fit: contain;
+}
+
+/* Ensure fixed container behavior */
+.testimonials-fixed-container {
+  position: relative;
+  overflow: hidden;
+}
+
+/* Additional smooth banner effect */
+@keyframes slideInFromRight {
+  from {
+    transform: translateX(100%);
+    opacity: 0;
+  }
+  to {
+    transform: translateX(0);
+    opacity: 1;
+  }
+}
+
+@keyframes slideOutToLeft {
+  from {
+    transform: translateX(0);
+    opacity: 1;
+  }
+  to {
+    transform: translateX(-100%);
+    opacity: 0;
+  }
+}
+
+button {
+  cursor: grab;
+}

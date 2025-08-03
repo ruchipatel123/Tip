@@ -235,7 +235,7 @@ const CarouselCoverLucide = () => {
         <p
           className={`${
             activeCard === "Tutti" ? "text-black" : "opacity-20"
-          } cursor-pointer`}
+          } cursor-grab`}
           onClick={() => setActiveCard("Tutti")}
         >
           Tutti <span className="text-black align-super text-xl">10</span>
@@ -243,7 +243,7 @@ const CarouselCoverLucide = () => {
         <p
           className={`${
             activeCard === "Pilates" ? "text-black" : "opacity-20"
-          } cursor-pointer`}
+          } cursor-grab`}
           onClick={() => setActiveCard("Pilates")}
         >
           Pilates
@@ -251,7 +251,7 @@ const CarouselCoverLucide = () => {
         <p
           className={`${
             activeCard === "Tonificazione" ? "text-black" : "opacity-20"
-          } cursor-pointer`}
+          } cursor-grab`}
           onClick={() => setActiveCard("Tonificazione")}
         >
           Tonificazione
@@ -259,7 +259,7 @@ const CarouselCoverLucide = () => {
         <p
           className={`${
             activeCard === "Cardio" ? "text-black" : "opacity-20"
-          } cursor-pointer`}
+          } cursor-grab`}
           onClick={() => setActiveCard("Cardio")}
         >
           Cardio
@@ -267,7 +267,7 @@ const CarouselCoverLucide = () => {
         <p
           className={`${
             activeCard === "Yoga" ? "text-black" : "opacity-20"
-          } cursor-pointer`}
+          } cursor-grab`}
           onClick={() => setActiveCard("Yoga")}
         >
           Yoga
@@ -275,7 +275,7 @@ const CarouselCoverLucide = () => {
         <p
           className={`${
             activeCard === "Pre e post parto" ? "text-black" : "opacity-20"
-          } cursor-pointer`}
+          } cursor-grab`}
           onClick={() => setActiveCard("Pre e post parto")}
         >
           Pre e post parto
@@ -294,7 +294,7 @@ const CarouselCoverLucide = () => {
           {slides.map((slide, index) => (
             <div
               key={slide.id}
-              className="absolute w-80 md:w-100 h-[90%] md:h-full  cursor-pointer rounded-2xl preserve-3d"
+              className="absolute w-80 md:w-100 h-[90%] md:h-full  cursor-grab rounded-2xl preserve-3d"
               style={getSlideStyle(index)}
               onClick={() => goToSlide(index)}
             >
@@ -346,7 +346,7 @@ const CarouselCoverLucide = () => {
                 {/* Content - only visible on active card when NOT expanded */}
                 {index === currentIndex && expandedCard !== slide.id && (
                   <div
-                    className="absolute bottom-0 left-0 w-full h-16 bg-[#F3EFEC] flex items-center justify-between px-4 rounded-b-2xl cursor-pointer transition-all duration-300 hover:bg-[#ece3dc] z-30"
+                    className="absolute bottom-0 left-0 w-full h-16 bg-[#F3EFEC] flex items-center justify-between px-4 rounded-b-2xl cursor-grab transition-all duration-300 hover:bg-[#ece3dc] z-30"
                     onClick={(e) => handleDetailsClick(e, slide.id)}
                   >
                     <h3 className="font-poppins text-[18px] font-medium leading-[1.41em] tracking-[-0.23%] text-black">
@@ -371,7 +371,7 @@ const CarouselCoverLucide = () => {
                     <div className="h-full flex flex-col">
                       {/* Header with title and close button - now at top of accordion */}
                       <div
-                        className="h-14 bg-[#F3EFEC] flex items-center justify-between px-4 cursor-pointer transition-all duration-300 hover:bg-[#ece3dc] flex-shrink-0"
+                        className="h-14 bg-[#F3EFEC] flex items-center justify-between px-4 cursor-grab transition-all duration-300 hover:bg-[#ece3dc] flex-shrink-0"
                         onClick={(e) => handleDetailsClick(e, slide.id)}
                       >
                         <h3 className="font-poppins text-[22px] font-medium leading-[1.41em] tracking-[-0.23%] text-black">
@@ -462,7 +462,7 @@ const CarouselCoverLucide = () => {
         <button
           onClick={prevSlide}
           disabled={isAnimating}
-          className=" z-20 bg-[#F3EFEC] backdrop-blur-sm hover:bg-[#ece3dc] disabled:opacity-50 disabled:cursor-not-allowed rounded-full p-3 transition-all duration-300"
+          className=" z-20 bg-[#F3EFEC] cursor-grab backdrop-blur-sm hover:bg-[#ece3dc] disabled:opacity-50 disabled:cursor-not-allowed rounded-full p-3 transition-all duration-300"
           style={{ border: "1px solid #6847441A" }}
         >
           <ChevronLeft className="w-6 h-6 text-black" />
@@ -470,7 +470,7 @@ const CarouselCoverLucide = () => {
         <button
           onClick={nextSlide}
           disabled={isAnimating}
-          className=" z-20 bg-[#F3EFEC] backdrop-blur-sm hover:bg-[#ece3dc] disabled:opacity-50 disabled:cursor-not-allowed rounded-full p-3 transition-all duration-300 border border-white/20"
+          className=" z-20 bg-[#F3EFEC] cursor-grab backdrop-blur-sm hover:bg-[#ece3dc] disabled:opacity-50 disabled:cursor-not-allowed rounded-full p-3 transition-all duration-300 border border-white/20"
           style={{ border: "1px solid #6847441A" }}
         >
           <ChevronRight className="w-6 h-6 text-black" />
@@ -478,7 +478,7 @@ const CarouselCoverLucide = () => {
       </div>
       <div className="flex flex-col bg-white z-10 mt-12 lg:flex-row items-center justify-center gap-6 sm:gap-8 relative px-4">
         {/* Primary CTA */}
-        <button className="primary-cta flex items-center justify-center gap-3 bg-[#f3efec] border border-[rgba(0,0,0,0.10)] rounded-lg shadow-[0_2px_20px_0_rgba(0,0,0,0.15)] px-4 py-3 text-[#684744] text-lg sm:text-xl font-medium leading-snug w-full sm:min-w-60 sm:w-auto h-14">
+        <button className="primary-cta cursor-grab flex items-center justify-center gap-3 bg-[#f3efec] border border-[rgba(0,0,0,0.10)] rounded-lg shadow-[0_2px_20px_0_rgba(0,0,0,0.15)] px-4 py-3 text-[#684744] text-lg sm:text-xl font-medium leading-snug w-full sm:min-w-60 sm:w-auto h-14">
           <span className="font-bold text-center font-dm-sans">
             Parlaci dei tuoi obiettivi
           </span>
@@ -491,7 +491,7 @@ const CarouselCoverLucide = () => {
         </span>
 
         {/* Secondary CTA */}
-        <button className="secondary-cta flex items-center justify-center gap-3 bg-[#684744] border border-[rgba(243,239,236,0.20)] rounded-lg shadow-[0_2px_20px_0_rgba(0,0,0,0.15)] px-4 py-3 text-white text-lg sm:text-xl font-medium leading-snug w-full sm:min-w-60 sm:w-auto h-14">
+        <button className="secondary-cta cursor-grab flex items-center justify-center gap-3 bg-[#684744] border border-[rgba(243,239,236,0.20)] rounded-lg shadow-[0_2px_20px_0_rgba(0,0,0,0.15)] px-4 py-3 text-white text-lg sm:text-xl font-medium leading-snug w-full sm:min-w-60 sm:w-auto h-14">
           <span className="font-bold font-dm-sans">
             Inizia la prova gratuita
           </span>

@@ -1,13 +1,45 @@
 "use client";
 
 import Image from "next/image";
-import { useState } from "react";
+import { useState, useRef, useEffect } from "react";
 import { IoIosArrowBack, IoIosArrowForward } from "react-icons/io";
 import { PiSpeakerXLight } from "react-icons/pi";
 import { PiSpeakerHighThin } from "react-icons/pi";
+import { Swiper, SwiperSlide } from 'swiper/react';
+import { Navigation, Pagination, EffectCreative } from 'swiper/modules';
+
+// Import Swiper styles
+import 'swiper/css';
+import 'swiper/css/navigation';
+import 'swiper/css/pagination';
+import 'swiper/css/effect-creative';
 export default function TestimonialsSection() {
   const [currentSlide, setCurrentSlide] = useState(0);
   const [isMuted, setIsMuted] = useState(true);
+  const swiperRef = useRef(null);
+  const mobileSwiperRef = useRef(null);
+  const videoRefs = useRef([]);
+  const mobileVideoRefs = useRef([]);
+
+  // Initialize first video on component mount
+  useEffect(() => {
+    const timer = setTimeout(() => {
+      // Try desktop first
+      if (videoRefs.current[0]) {
+        videoRefs.current[0].play().catch(() => {
+          console.log('Autoplay prevented for desktop initial video');
+        });
+      }
+      // Then mobile
+      if (mobileVideoRefs.current[0]) {
+        mobileVideoRefs.current[0].play().catch(() => {
+          console.log('Autoplay prevented for mobile initial video');
+        });
+      }
+    }, 500);
+
+    return () => clearTimeout(timer);
+  }, []);
 
   const testimonials = [
     {
@@ -39,18 +71,81 @@ export default function TestimonialsSection() {
     },
   ];
 
-  const nextSlide = () => {
-    setCurrentSlide((prev) => (prev + 1) % testimonials.length);
+  // Desktop navigation functions
+  const nextSlideDesktop = () => {
+    if (swiperRef.current) {
+      swiperRef.current.slideNext();
+    }
   };
 
-  const prevSlide = () => {
-    setCurrentSlide(
-      (prev) => (prev - 1 + testimonials.length) % testimonials.length
-    );
+  const prevSlideDesktop = () => {
+    if (swiperRef.current) {
+      swiperRef.current.slidePrev();
+    }
+  };
+
+  // Mobile navigation functions
+  const nextSlideMobile = () => {
+    if (mobileSwiperRef.current) {
+      mobileSwiperRef.current.slideNext();
+    }
+  };
+
+  const prevSlideMobile = () => {
+    if (mobileSwiperRef.current) {
+      mobileSwiperRef.current.slidePrev();
+    }
   };
 
   const toggleMute = () => {
     setIsMuted(!isMuted);
+  };
+
+  // Desktop slide change handler
+  const handleDesktopSlideChange = (swiper) => {
+    const newIndex = swiper.realIndex;
+    setCurrentSlide(newIndex);
+    
+    // Control desktop video playback
+    videoRefs.current.forEach((video, index) => {
+      if (video) {
+        if (index === newIndex) {
+          video.currentTime = 0;
+          video.play().catch(() => {
+            console.log('Desktop autoplay prevented for video', index);
+          });
+        } else {
+          video.pause();
+          video.currentTime = 0;
+        }
+      }
+    });
+  };
+
+  // Mobile slide change handler
+  const handleMobileSlideChange = (swiper) => {
+    const newIndex = swiper.realIndex;
+    setCurrentSlide(newIndex);
+    
+    // Control mobile video playback
+    mobileVideoRefs.current.forEach((video, index) => {
+      if (video) {
+        if (index === newIndex) {
+          video.currentTime = 0;
+          video.play().catch(() => {
+            console.log('Mobile autoplay prevented for video', index);
+          });
+        } else {
+          video.pause();
+          video.currentTime = 0;
+        }
+      }
+    });
+  };
+
+  const handleVideoEnded = (videoElement) => {
+    // Pause video after it ends (play once)
+    videoElement.pause();
   };
 
   const currentTestimonial = testimonials[currentSlide];
@@ -143,7 +238,7 @@ export default function TestimonialsSection() {
           </div>
         </div>
 
-        {/* Right Testimonial Card - Carousel */}
+        {/* Right Testimonial Card - Swiper Carousel */}
         <div className="flex-1 max-w-2xl">
           <div className="mb-6">
             <h3 className="font-['Poppins'] text-[24px] lg:text-[28px] leading-[32px] lg:leading-[36px] tracking-[-0.1px] font-normal text-[#553B39] text-center">
@@ -154,31 +249,61 @@ export default function TestimonialsSection() {
             <div className="relative w-full h-full flex items-center justify-center gap-6">
               {/* Navigation Buttons */}
               <button
-                onClick={prevSlide}
+                onClick={prevSlideDesktop}
                 className="w-10 h-10 lg:w-14 lg:h-14 bg-white border border-[rgba(104,71,68,0.1)] shadow-[0px_2px_20px_0px_rgba(0,0,0,0.08)] rounded-full flex items-center justify-center hover:bg-gray-50 transition-colors z-10"
               >
                 <IoIosArrowBack />
               </button>
 
-              {/* Phone Mockup */}
+              {/* Fixed Phone Container */}
               <div className="relative flex-1 h-full max-h-[621px] max-w-[330px]">
-                <div className="w-full h-full bg-white rounded-2xl shadow-[0px_4px_10px_0px_rgba(0,0,0,0.25)] overflow-hidden">
-                  <video
-                    key={currentTestimonial.video}
-                    className="w-full h-full object-contain"
-                    autoPlay
-                    muted
-                    playsInline
-                    onEnded={(e) => e.target.pause()}
+                <div className="w-full h-full bg-white rounded-2xl shadow-[0px_4px_10px_0px_rgba(0,0,0,0.25)] overflow-hidden testimonials-fixed-container">
+                  {/* Swiper Container - Only content moves inside */}
+                  <Swiper
+                    onSwiper={(swiper) => (swiperRef.current = swiper)}
+                    onSlideChange={handleDesktopSlideChange}
+                    modules={[Navigation, Pagination, EffectCreative]}
+                    spaceBetween={0}
+                    slidesPerView={1}
+                    speed={800}
+                    effect="creative"
+                    creativeEffect={{
+                      prev: {
+                        shadow: false,
+                        translate: ["-100%", 0, 0],
+                        opacity: 0,
+                      },
+                      next: {
+                        shadow: false,
+                        translate: ["100%", 0, 0],
+                        opacity: 0,
+                      },
+                    }}
+                    loop={true}
+                    grabCursor={true}
+                    allowTouchMove={true}
+                    className="w-full h-full"
                   >
-                    <source src={currentTestimonial.video} type="video/mp4" />
-                    Your browser does not support the video tag.
-                  </video>
+                    {testimonials.map((testimonial, index) => (
+                      <SwiperSlide key={testimonial.id}>
+                        <video
+                          ref={(el) => (videoRefs.current[index] = el)}
+                          className="w-full h-full object-contain"
+                          muted
+                          playsInline
+                          onEnded={(e) => handleVideoEnded(e.target)}
+                        >
+                          <source src={testimonial.video} type="video/mp4" />
+                          Your browser does not support the video tag.
+                        </video>
+                      </SwiperSlide>
+                    ))}
+                  </Swiper>
                 </div>
               </div>
 
               <button
-                onClick={nextSlide}
+                onClick={nextSlideDesktop}
                 className="w-10 h-10 lg:w-14 lg:h-14 bg-white border border-[rgba(104,71,68,0.1)] shadow-[0px_2px_20px_0px_rgba(0,0,0,0.08)] rounded-full flex items-center justify-center hover:bg-gray-50 transition-colors z-10"
               >
                 <IoIosArrowForward />
@@ -189,7 +314,11 @@ export default function TestimonialsSection() {
                 {testimonials.map((_, index) => (
                   <button
                     key={index}
-                    onClick={() => setCurrentSlide(index)}
+                    onClick={() => {
+                      if (swiperRef.current) {
+                        swiperRef.current.slideToLoop(index);
+                      }
+                    }}
                     className={`w-6 h-0.5 transition-colors ${
                       index === currentSlide ? "bg-[#98685E]" : "bg-black/10"
                     }`}
@@ -254,58 +383,93 @@ export default function TestimonialsSection() {
             <div className="relative w-full flex items-center justify-center gap-4">
               {/* Navigation Buttons */}
               <button
-                onClick={prevSlide}
+                onClick={prevSlideMobile}
                 className="w-10 h-10 hidden md:flex bg-white border border-[rgba(104,71,68,0.1)] shadow-[0px_2px_20px_0px_rgba(0,0,0,0.08)] rounded-full items-center justify-center hover:bg-gray-50 transition-colors z-10"
               >
                 <IoIosArrowBack size={16} />
               </button>
 
-              {/* Phone Mockup */}
+              {/* Fixed Phone Container for Mobile */}
               <div className="relative max-w-[325px] w-full mx-auto">
-                <div className="h-[500px] sm:h-[600px] w-full mx-auto bg-white rounded-2xl shadow-[0px_4px_10px_0px_rgba(0,0,0,0.25)] overflow-hidden flex items-center justify-center">
-                  <video
-                    key={currentTestimonial.video}
-                    className="max-w-full max-h-full object-contain"
-                    autoPlay
-                    muted
-                    playsInline
-                    onEnded={(e) => e.target.pause()}
+                <div className="h-[500px] sm:h-[600px] w-full mx-auto bg-white rounded-2xl shadow-[0px_4px_10px_0px_rgba(0,0,0,0.25)] overflow-hidden testimonials-fixed-container">
+                  {/* Swiper Container - Only content moves inside */}
+                  <Swiper
+                    onSwiper={(swiper) => (mobileSwiperRef.current = swiper)}
+                    onSlideChange={handleMobileSlideChange}
+                    modules={[Navigation, Pagination, EffectCreative]}
+                    spaceBetween={0}
+                    slidesPerView={1}
+                    speed={800}
+                    effect="creative"
+                    creativeEffect={{
+                      prev: {
+                        shadow: false,
+                        translate: ["-100%", 0, 0],
+                        opacity: 0,
+                      },
+                      next: {
+                        shadow: false,
+                        translate: ["100%", 0, 0],
+                        opacity: 0,
+                      },
+                    }}
+                    loop={true}
+                    grabCursor={true}
+                    allowTouchMove={true}
+                    className="w-full h-full"
                   >
-                    <source src={currentTestimonial.video} type="video/mp4" />
-                    Your browser does not support the video tag.
-                  </video>
+                    {testimonials.map((testimonial, index) => (
+                      <SwiperSlide key={testimonial.id}>
+                        <video
+                          ref={(el) => (mobileVideoRefs.current[index] = el)}
+                          className="w-full h-full object-contain"
+                          muted
+                          playsInline
+                          onEnded={(e) => handleVideoEnded(e.target)}
+                        >
+                          <source src={testimonial.video} type="video/mp4" />
+                          Your browser does not support the video tag.
+                        </video>
+                      </SwiperSlide>
+                    ))}
+                  </Swiper>
                 </div>
               </div>
 
               <button
-                onClick={nextSlide}
+                onClick={nextSlideMobile}
                 className="w-10 h-10 hidden md:flex bg-white border border-[rgba(104,71,68,0.1)] shadow-[0px_2px_20px_0px_rgba(0,0,0,0.08)] rounded-full items-center justify-center hover:bg-gray-50 transition-colors z-10"
               >
                 <IoIosArrowForward size={16} />
               </button>
-
-              {/* Pagination dots */}
             </div>
+            
+            {/* Pagination dots */}
             <div className="flex items-center gap-1 justify-center my-5">
               {testimonials.map((_, index) => (
                 <button
                   key={index}
-                  onClick={() => setCurrentSlide(index)}
+                  onClick={() => {
+                    if (mobileSwiperRef.current) {
+                      mobileSwiperRef.current.slideToLoop(index);
+                    }
+                  }}
                   className={`w-6 h-[2px]  md:w-4 md:h-0.5 transition-colors ${
                     index === currentSlide ? "bg-[#98685E]" : "bg-black/10"
                   }`}
                 />
               ))}
             </div>
+            
             <div className="flex flex-row gap-2 justify-center">
               <button
-                onClick={prevSlide}
+                onClick={prevSlideMobile}
                 className="w-10 h-10 bg-white border border-[rgba(104,71,68,0.1)] shadow-[0px_2px_20px_0px_rgba(0,0,0,0.08)] rounded-full  items-center justify-center hover:bg-gray-50 transition-colors z-10 flex md:hidden"
               >
                 <IoIosArrowBack size={16} />
               </button>
               <button
-                onClick={nextSlide}
+                onClick={nextSlideMobile}
                 className="w-10 h-10 bg-white border border-[rgba(104,71,68,0.1)] shadow-[0px_2px_20px_0px_rgba(0,0,0,0.08)] rounded-full  items-center justify-center hover:bg-gray-50 transition-colors z-10 flex md:hidden"
               >
                 <IoIosArrowForward size={16} />

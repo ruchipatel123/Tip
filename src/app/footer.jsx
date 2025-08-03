@@ -258,7 +258,7 @@ export default function Footer() {
           <div className="flex items-end gap-2">
             {/* Close Button */}
             <div
-              className="w-8 h-8 sm:w-10 sm:h-10 bg-white/80 rounded-full flex items-center justify-center shadow-lg cursor-pointer hover:bg-white/90 transition-colors"
+              className="w-8 h-8 sm:w-10 sm:h-10 bg-white/80 rounded-full flex items-center justify-center shadow-lg cursor-grab hover:bg-white/90 transition-colors"
               onClick={() => setShowChatMessage(false)}
             >
               <svg
@@ -286,7 +286,7 @@ export default function Footer() {
             </div>
           </div>
         )}
-        <div className="w-12 h-12 sm:w-14 sm:h-14 lg:w-16 lg:h-16 bg-[#98685E] rounded-[24px] sm:rounded-[28px] lg:rounded-[32px] flex items-center justify-center shadow-lg hover:bg-[#8a5d56] transition-colors cursor-pointer">
+        <div className="w-12 h-12 sm:w-14 sm:h-14 lg:w-16 lg:h-16 bg-[#98685E] rounded-[24px] sm:rounded-[28px] lg:rounded-[32px] flex items-center justify-center shadow-lg hover:bg-[#8a5d56] transition-colors cursor-grab">
           <Image
             src="/logo/footerChatIcon.svg"
             alt="chatIcon"

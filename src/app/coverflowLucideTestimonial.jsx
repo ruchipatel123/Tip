@@ -192,7 +192,7 @@ const coverflowLucideTestimonial = () => {
           {slides.map((slide, index) => (
             <div
               key={slide.id}
-              className="absolute w-80 md:w-100 h-full cursor-pointer rounded-2xl preserve-3d"
+              className="absolute w-80 md:w-100 h-full cursor-grab rounded-2xl preserve-3d"
               style={getSlideStyle(index)}
               onClick={() => goToSlide(index)}
             >
@@ -256,7 +256,7 @@ const coverflowLucideTestimonial = () => {
         <button
           onClick={prevSlide}
           disabled={isAnimating}
-          className=" z-20 bg-white backdrop-blur-sm hover:bg-[#ece3dc] disabled:opacity-50 disabled:cursor-not-allowed rounded-full p-3 transition-all duration-300"
+          className=" z-20 bg-white backdrop-blur-sm cursor-grab hover:bg-[#ece3dc] disabled:opacity-50 disabled:cursor-not-allowed rounded-full p-3 transition-all duration-300"
           style={{ border: "1px solid #6847441A" }}
         >
           <ChevronLeft className="w-6 h-6 text-black" />

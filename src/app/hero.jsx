@@ -98,13 +98,13 @@ export default function HeroSection() {
             />
           </div>
           <div className="flex items-center gap-2 sm:gap-4">
-          <button className="w-fit bg-[#684744] border border-[rgba(243,239,236,0.20)] rounded-lg shadow-[0_2px_20px_0_rgba(0,0,0,0.15)] px-1 sm:px-4 py-3 text-white text-lg font-medium leading-snug h-12 hover:bg-[#7a5653] transition-colors flex items-center justify-center gap-3">
+          <button className="w-fit bg-[#684744] cursor-grab border border-[rgba(243,239,236,0.20)] rounded-lg shadow-[0_2px_20px_0_rgba(0,0,0,0.15)] px-1 sm:px-4 py-3 text-white text-lg font-medium leading-snug h-12 hover:bg-[#7a5653] transition-colors flex items-center justify-center gap-3">
             <p className="font-dm-sans font-bold">Prova gratis</p>
              <FaArrowRight />
           </button>
           {/* Hamburger Menu Button */}
           <button
-            className="hamburger-button flex items-center justify-center w-10 h-10 text-white z-30"
+            className="hamburger-button cursor-grab flex items-center justify-center w-10 h-10 text-white z-30"
             onClick={() => setIsMobileMenuOpen(!isMobileMenuOpen)}
             aria-label="Toggle mobile menu"
             aria-expanded={isMobileMenuOpen}
@@ -152,15 +152,15 @@ export default function HeroSection() {
           {/* Desktop Navigation */}
           <div className="flex items-center gap-10 justify-between xl:w-[55%]">
             <div className="flex items-end gap-7 font-dm-sans text-white font-extrabold whitespace-nowrap">
-              <div className="flex items-center gap-2 cursor-pointer hover:opacity-80 transition-opacity">
+              <div className="flex items-center gap-2 cursor-grab hover:opacity-80 transition-opacity">
                 <span className="text-base">L'APP</span>
                 <FaArrowRight />
               </div>
-              <div className="flex items-center gap-2 cursor-pointer hover:opacity-80 transition-opacity">
+              <div className="flex items-center gap-2 cursor-grab hover:opacity-80 transition-opacity">
                 <span className="text-base">PREZZI</span>
                 <FaArrowRight />
               </div>
-              <div className="flex items-center gap-2 cursor-pointer hover:opacity-80 transition-opacity">
+              <div className="flex items-center gap-2 cursor-grab hover:opacity-80 transition-opacity">
                 <span className="text-base">BLOG</span>
                 <FaArrowRight />
               </div>
@@ -168,12 +168,12 @@ export default function HeroSection() {
 
             {/* Desktop Login and CTA */}
             <div className="flex items-center gap-6 font-dm-sans">
-              <div className="login-link border-b border-[#f3efec] pb-1 cursor-pointer hover:opacity-80 transition-opacity">
+              <div className="login-link border-b border-[#f3efec] pb-1 cursor-grab hover:opacity-80 transition-opacity">
                 <span className="text-white text-lg font-bold tracking-tight leading-none">
                   Accedi
                 </span>
               </div>
-              <button className="cta-button flex items-center justify-center gap-3 bg-[#684744] border border-[rgba(243,239,236,0.20)] rounded-lg shadow-[0_2px_20px_0_rgba(0,0,0,0.15)] px-4 py-3 text-white text-xl font-medium leading-snug min-w-60 h-14 hover:bg-[#7a5653] transition-colors">
+              <button className="cta-button cursor-grab flex items-center justify-center gap-3 bg-[#684744] border border-[rgba(243,239,236,0.20)] rounded-lg shadow-[0_2px_20px_0_rgba(0,0,0,0.15)] px-4 py-3 text-white text-xl font-medium leading-snug min-w-60 h-14 hover:bg-[#7a5653] transition-colors">
                 <span className="font-bold font-dm-sans">
                   Inizia la prova gratuita
                 </span>
@@ -209,7 +209,7 @@ export default function HeroSection() {
             </div>
             <button
               onClick={() => setIsMobileMenuOpen(false)}
-              className="text-white hover:text-gray-300 transition-colors"
+              className="text-white hover:text-gray-300 cursor-grab transition-colors"
               aria-label="Close menu"
             >
               <svg
@@ -280,7 +280,7 @@ export default function HeroSection() {
           {/* CTA Buttons */}
           <div className="flex flex-col lg:flex-row items-center justify-center gap-6 sm:gap-8">
             {/* Primary CTA */}
-            <button className="primary-cta hidden  lg:flex items-center justify-center gap-3 bg-[#f3efec] border border-[rgba(0,0,0,0.10)] rounded-lg shadow-[0_2px_20px_0_rgba(0,0,0,0.15)] px-4 py-3 text-[#684744] text-lg sm:text-xl font-medium leading-snug w-full sm:min-w-60 sm:w-auto h-14">
+            <button className="primary-cta hidden cursor-grab  lg:flex items-center justify-center gap-3 bg-[#f3efec] border border-[rgba(0,0,0,0.10)] rounded-lg shadow-[0_2px_20px_0_rgba(0,0,0,0.15)] px-4 py-3 text-[#684744] text-lg sm:text-xl font-medium leading-snug w-full sm:min-w-60 sm:w-auto h-14">
               <span className="font-bold text-center">
                 Parlaci dei tuoi obiettivi
               </span>
