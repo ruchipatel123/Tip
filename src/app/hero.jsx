@@ -139,7 +139,7 @@ export default function HeroSection() {
           </div>
 
           {/* Desktop Navigation */}
-          <div className="flex items-center gap-10 justify-between w-[55%]">
+          <div className="flex items-center gap-10 justify-between xl:w-[55%]">
           <div className="flex items-end gap-7 font-dm-sans text-white font-extrabold whitespace-nowrap">
             <div className="flex items-center gap-2 cursor-pointer hover:opacity-80 transition-opacity">
               <span className="text-base">L'APP</span>

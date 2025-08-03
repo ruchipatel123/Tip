@@ -171,10 +171,10 @@ export default function MilestonesSection() {
         {/* Desktop Floating Stats Cards */}
         {/* Left Card - 40 thousand+ */}
         <motion.div 
-          className="hidden lg:block absolute top-[60%] left-[66px] w-[430px] z-10"
+          className="hidden lg:block absolute top-[60%] left-[66px] w-[300px] xl:w-[430px] z-10"
           style={{ y: card1Y }}
         >
-          <div className="bg-white/10 backdrop-blur-sm rounded-[32px] p-10 h-[319px]">
+          <div className="bg-white/10 backdrop-blur-sm rounded-[32px] p-4 xl:p-10 h-[319px]">
             <div className="flex flex-col gap-[60px] h-full">
               <div className="flex items-end gap-[14px] pb-[25px] border-b border-white/16">
                 <span className="font-['Poppins'] text-[80px] font-medium leading-[88px] tracking-[-4px] text-[#F3EFEC]">
@@ -196,10 +196,10 @@ export default function MilestonesSection() {
 
         {/* Top Right Card - 4.3 months */}
         <motion.div 
-          className="hidden lg:block absolute top-[15%] right-[42px] w-[430px] z-10"
+          className="hidden lg:block absolute top-[15%] right-[42px] w-[300px] xl:w-[430px] z-10"
           style={{ y: card2Y }}
         >
-          <div className="bg-white/10 backdrop-blur-sm rounded-[32px] p-10 h-[319px]">
+          <div className="bg-white/10 backdrop-blur-sm rounded-[32px] p-4 xl:p-10 h-[319px]">
             <div className="flex flex-col gap-[60px] h-full">
               <div className="flex items-end gap-[14px] pb-[25px] border-b border-[rgba(22,42,65,0.16)]">
                 <span className="font-['Poppins'] text-[80px] font-medium leading-[88px] tracking-[-4px] text-white">
@@ -221,10 +221,10 @@ export default function MilestonesSection() {
 
         {/* Bottom Right Card - 117 thousand */}
         <motion.div 
-          className="hidden lg:block absolute top-[80%] right-[162px] w-[430px] z-10"
+          className="hidden lg:block absolute top-[80%] right-[4%] w-[300px] xl:w-[430px] z-10"
           style={{ y: card3Y }}
         >
-          <div className="bg-white/10 backdrop-blur-sm rounded-[32px] p-10 h-[319px]">
+          <div className="bg-white/10 backdrop-blur-sm rounded-[32px] p-4 xl:p-10 h-[319px]">
             <div className="flex flex-col gap-[60px] h-full">
               <div className="flex items-end gap-[14px] pb-[25px] border-b border-[rgba(22,42,65,0.16)]">
                 <span className="font-['Poppins'] text-[80px] font-medium leading-[88px] tracking-[-4px] text-white">

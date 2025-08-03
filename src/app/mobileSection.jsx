@@ -123,7 +123,7 @@ export default function MobileSection() {
 
   return (
     <section className="bg-[#F1EBE7] pt-10">
-      <div className="sticky top-10 left-[18%] z-[100] w-1/2 ">
+      <div className="sticky top-10 left-[5%] xl:left-[18%] z-[100] w-1/2 ">
         <Image
           src="/images/mobileMockup.png"
           alt="mobileMockup"
