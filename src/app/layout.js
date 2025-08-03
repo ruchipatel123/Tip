@@ -23,6 +23,7 @@ export default function RootLayout({ children }) {
     <html lang="en">
       <head>
       <script type="text/javascript" src="https://www.bugherd.com/sidebarv2.js?apikey=dwgswnp02rhqou75f5e6ba" async="true"></script>
+      <title>TraininPink</title>
       </head>
       <body
         className={`${poppins.variable} ${dmSans.variable} antialiased`}
