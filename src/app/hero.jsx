@@ -1,7 +1,7 @@
 "use client";
 import React, { useState, useEffect } from "react";
 import Image from "next/image";
-
+import { FaArrowRight } from "react-icons/fa6";
 export default function HeroSection() {
   const [videoLoaded, setVideoLoaded] = useState(false);
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
@@ -129,67 +129,29 @@ export default function HeroSection() {
                 alt="TraininPink Logo"
                 width={536}
                 height={81}
-                className="w-full h-full object-contain"
+                className="object-contain"
                 priority
               />
             </div>
             <p className="text-[#f3efec] font-poppins text-xl font-normal leading-relaxed tracking-tight mt-4">
-              L'app di Pilates e allenamento n. 1 in Italia
+              L'app di Pilates e <br/> allenamento n. 1 in Italia
             </p>
           </div>
 
           {/* Desktop Navigation */}
-          <div className="flex items-end gap-9 font-dm-sans text-white font-extrabold whitespace-nowrap">
+          <div className="flex items-center gap-10 justify-between w-[55%]">
+          <div className="flex items-end gap-7 font-dm-sans text-white font-extrabold whitespace-nowrap">
             <div className="flex items-center gap-2 cursor-pointer hover:opacity-80 transition-opacity">
               <span className="text-base">L'APP</span>
-              <svg
-                xmlns="http://www.w3.org/2000/svg"
-                fill="none"
-                viewBox="0 0 24 24"
-                strokeWidth={1.5}
-                stroke="currentColor"
-                className="size-6"
-              >
-                <path
-                  strokeLinecap="round"
-                  strokeLinejoin="round"
-                  d="M13.5 4.5 21 12m0 0-7.5 7.5M21 12H3"
-                />
-              </svg>
+              <FaArrowRight />
             </div>
             <div className="flex items-center gap-2 cursor-pointer hover:opacity-80 transition-opacity">
               <span className="text-base">PREZZI</span>
-              <svg
-                xmlns="http://www.w3.org/2000/svg"
-                fill="none"
-                viewBox="0 0 24 24"
-                strokeWidth={1.5}
-                stroke="currentColor"
-                className="size-6"
-              >
-                <path
-                  strokeLinecap="round"
-                  strokeLinejoin="round"
-                  d="M13.5 4.5 21 12m0 0-7.5 7.5M21 12H3"
-                />
-              </svg>
+              <FaArrowRight />
             </div>
             <div className="flex items-center gap-2 cursor-pointer hover:opacity-80 transition-opacity">
               <span className="text-base">BLOG</span>
-              <svg
-                xmlns="http://www.w3.org/2000/svg"
-                fill="none"
-                viewBox="0 0 24 24"
-                strokeWidth={1.5}
-                stroke="currentColor"
-                className="size-6"
-              >
-                <path
-                  strokeLinecap="round"
-                  strokeLinejoin="round"
-                  d="M13.5 4.5 21 12m0 0-7.5 7.5M21 12H3"
-                />
-              </svg>
+              <FaArrowRight />
             </div>
           </div>
 
@@ -201,22 +163,10 @@ export default function HeroSection() {
               </span>
             </div>
             <button className="cta-button flex items-center justify-center gap-3 bg-[#684744] border border-[rgba(243,239,236,0.20)] rounded-lg shadow-[0_2px_20px_0_rgba(0,0,0,0.15)] px-4 py-3 text-white text-xl font-medium leading-snug min-w-60 h-14 hover:bg-[#7a5653] transition-colors">
-              <span className="font-bold">Inizia la prova gratuita</span>
-              <svg
-                xmlns="http://www.w3.org/2000/svg"
-                fill="none"
-                viewBox="0 0 24 24"
-                strokeWidth={1.5}
-                stroke="currentColor"
-                className="size-6"
-              >
-                <path
-                  strokeLinecap="round"
-                  strokeLinejoin="round"
-                  d="M13.5 4.5 21 12m0 0-7.5 7.5M21 12H3"
-                />
-              </svg>
+              <span className="font-bold font-['DM Sans']">Inizia la prova gratuita</span>
+              <FaArrowRight size={15} />
             </button>
+          </div>
           </div>
         </nav>
 
@@ -231,20 +181,7 @@ export default function HeroSection() {
         <div className="lg:hidden mt-6">
           <button className="cta-button flex items-center justify-center gap-3 bg-[#684744] border border-[rgba(243,239,236,0.20)] rounded-lg shadow-[0_2px_20px_0_rgba(0,0,0,0.15)] px-4 py-3 text-white text-lg font-medium leading-snug w-full h-12 hover:bg-[#7a5653] transition-colors">
             <span className="font-bold">Inizia la prova gratuita</span>
-            <svg
-              xmlns="http://www.w3.org/2000/svg"
-              fill="none"
-              viewBox="0 0 24 24"
-              strokeWidth={1.5}
-              stroke="currentColor"
-              className="size-5"
-            >
-              <path
-                strokeLinecap="round"
-                strokeLinejoin="round"
-                d="M13.5 4.5 21 12m0 0-7.5 7.5M21 12H3"
-              />
-            </svg>
+            <FaArrowRight />
           </button>
         </div>
       </header>
@@ -292,20 +229,7 @@ export default function HeroSection() {
                 onClick={() => setIsMobileMenuOpen(false)}
               >
                 <span className="text-lg">L'APP</span>
-                <svg
-                  xmlns="http://www.w3.org/2000/svg"
-                  fill="none"
-                  viewBox="0 0 24 24"
-                  strokeWidth={1.5}
-                  stroke="currentColor"
-                  className="w-5 h-5"
-                >
-                  <path
-                    strokeLinecap="round"
-                    strokeLinejoin="round"
-                    d="M13.5 4.5 21 12m0 0-7.5 7.5M21 12H3"
-                  />
-                </svg>
+                <FaArrowRight />
               </a>
               <a
                 href="#"
@@ -313,20 +237,7 @@ export default function HeroSection() {
                 onClick={() => setIsMobileMenuOpen(false)}
               >
                 <span className="text-lg">PREZZI</span>
-                <svg
-                  xmlns="http://www.w3.org/2000/svg"
-                  fill="none"
-                  viewBox="0 0 24 24"
-                  strokeWidth={1.5}
-                  stroke="currentColor"
-                  className="w-5 h-5"
-                >
-                  <path
-                    strokeLinecap="round"
-                    strokeLinejoin="round"
-                    d="M13.5 4.5 21 12m0 0-7.5 7.5M21 12H3"
-                  />
-                </svg>
+                <FaArrowRight />
               </a>
               <a
                 href="#"
@@ -334,20 +245,7 @@ export default function HeroSection() {
                 onClick={() => setIsMobileMenuOpen(false)}
               >
                 <span className="text-lg">BLOG</span>
-                <svg
-                  xmlns="http://www.w3.org/2000/svg"
-                  fill="none"
-                  viewBox="0 0 24 24"
-                  strokeWidth={1.5}
-                  stroke="currentColor"
-                  className="w-5 h-5"
-                >
-                  <path
-                    strokeLinecap="round"
-                    strokeLinejoin="round"
-                    d="M13.5 4.5 21 12m0 0-7.5 7.5M21 12H3"
-                  />
-                </svg>
+                <FaArrowRight />
               </a>
             </nav>
           </div>
@@ -383,11 +281,11 @@ export default function HeroSection() {
       </div>
 
       {/* Hero Content */}
-      <div className="absolute inset-0 flex items-end justify-center pb-16 sm:pb-20 z-10">
+      <div className="absolute inset-0 flex items-end justify-center pb-16 sm:pb-10 z-10">
         <div className="text-center max-w-4xl px-4 sm:px-6">
           {/* Main Headline */}
           <div className="mb-8 sm:mb-10">
-            <h1 className="text-white font-dm-sans text-lg sm:text-xl lg:text-2xl font-medium leading-6 sm:leading-7 max-w-sm sm:max-w-lg lg:max-w-xl mx-auto">
+            <h1 className="text-white font-dm-sans text-lg sm:text-xl lg:text-xl max-w-[400px] mx-auto font-medium leading-6 sm:leading-7 ">
               <span className="font-bold">
                 Dal 2019 abbiamo aiutato 159.000 donne ad ottenere il corpo dei
                 loro sogni
@@ -400,20 +298,7 @@ export default function HeroSection() {
             {/* Primary CTA */}
             <button className="primary-cta flex items-center justify-center gap-3 bg-[#f3efec] border border-[rgba(0,0,0,0.10)] rounded-lg shadow-[0_2px_20px_0_rgba(0,0,0,0.15)] px-4 py-3 text-[#684744] text-lg sm:text-xl font-medium leading-snug w-full sm:min-w-60 sm:w-auto h-14">
               <span className="font-bold text-center">Parlaci dei tuoi obiettivi</span>
-              <svg
-                xmlns="http://www.w3.org/2000/svg"
-                fill="none"
-                viewBox="0 0 24 24"
-                strokeWidth={1.5}
-                stroke="currentColor"
-                className="size-6 flex-shrink-0"
-              >
-                <path
-                  strokeLinecap="round"
-                  strokeLinejoin="round"
-                  d="M13.5 4.5 21 12m0 0-7.5 7.5M21 12H3"
-                />
-              </svg>
+              <FaArrowRight size={15} />
             </button>
 
             {/* OR Text */}
@@ -424,20 +309,8 @@ export default function HeroSection() {
             {/* Secondary CTA */}
             <button className="secondary-cta flex items-center justify-center gap-3 bg-[#684744] border border-[rgba(243,239,236,0.20)] rounded-lg shadow-[0_2px_20px_0_rgba(0,0,0,0.15)] px-4 py-3 text-white text-lg sm:text-xl font-medium leading-snug w-full sm:min-w-60 sm:w-auto h-14">
               <span className="font-bold">Inizia la prova gratuita</span>
-              <svg
-                xmlns="http://www.w3.org/2000/svg"
-                fill="none"
-                viewBox="0 0 24 24"
-                strokeWidth={1.5}
-                stroke="currentColor"
-                className="size-6 flex-shrink-0"
-              >
-                <path
-                  strokeLinecap="round"
-                  strokeLinejoin="round"
-                  d="M13.5 4.5 21 12m0 0-7.5 7.5M21 12H3"
-                />
-              </svg>
+              <FaArrowRight size={15} />
+               
             </button>
           </div>
         </div>

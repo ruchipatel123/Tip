@@ -20,7 +20,7 @@ export default function Home() {
     <main>
       <HeroSection />
       <BradStrip />
-      <MobileMock />
+      {/* <MobileMock /> */}
       <MobileSection />
       <TestimonialsSection />
       {/* <CarouselCover /> */}
