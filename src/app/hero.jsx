@@ -91,7 +91,7 @@ export default function HeroSection() {
           </div>
           <div className="flex items-center gap-2 sm:gap-4">
           <button className="w-fit bg-[#684744] border border-[rgba(243,239,236,0.20)] rounded-lg shadow-[0_2px_20px_0_rgba(0,0,0,0.15)] px-1 sm:px-4 py-3 text-white text-lg font-medium leading-snug h-12 hover:bg-[#7a5653] transition-colors flex items-center justify-center gap-3">
-            <p className="font-poppins">Prova gratis</p>
+            <p className="font-dm-sans font-bold">Prova gratis</p>
              <FaArrowRight />
           </button>
           {/* Hamburger Menu Button */}
@@ -262,7 +262,7 @@ export default function HeroSection() {
                 Dal 2019 abbiamo aiutato 159.000 donne ad ottenere il corpo dei
                 loro sogni
               </span>
-              <span className="block font-poppins lg:hidden text-3xl font-normal">
+              <span className="block font-poppins lg:hidden text-2xl-up-custom leading-8 font-normal">
               L'app di Pilates e <br/> allenamento<br/>
               n. 1 in Italia
               </span>
@@ -286,7 +286,7 @@ export default function HeroSection() {
 
             {/* Secondary CTA */}
             <button className="secondary-cta flex items-center justify-center gap-3 bg-[#684744] border border-[rgba(243,239,236,0.20)] rounded-lg shadow-[0_2px_20px_0_rgba(0,0,0,0.15)] px-4 py-3 text-white text-lg sm:text-xl font-medium leading-snug w-full sm:min-w-60 sm:w-auto h-14">
-              <span className="font-bold">Inizia la prova gratuita</span>
+              <span className="font-bold font-dm-sans">Inizia la prova gratuita</span>
               <FaArrowRight size={15} />
             </button>
           </div>

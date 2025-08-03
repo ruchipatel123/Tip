@@ -3,6 +3,7 @@
 import Image from "next/image";
 import { useEffect, useRef, useState } from "react";
 import { motion, useScroll, useTransform, useMotionValue } from "framer-motion";
+import { FaArrowRight } from "react-icons/fa6";
 
 export default function MilestonesSection() {
   const sectionRef = useRef(null);
@@ -101,8 +102,8 @@ export default function MilestonesSection() {
         </div>
 
         {/* Center Content */}
-        <div className="absolute top-40 left-1/2 md:top-1/2 md:left-1/2 transform -translate-x-1/2 -translate-y-1/2 z-20 px-4 sm:px-6 w-full">
-          <div className="flex flex-col items-center gap-6 sm:gap-8 w-full md:max-w-lg">
+        <div className="absolute top-40 left-1/2 md:top-1/2 md:left-1/2 transform -translate-x-1/2 -translate-y-1/2 z-20 px-4 sm:px-6 w-full md:w-fit">
+          <div className="flex flex-col items-center gap-6 sm:gap-4 w-full md:max-w-lg">
             {/* Logo */}
             <div className="flex flex-col items-center pb-2 sm:pb-[9px]">
               <div className="w-full max-w-[224px] h-[32px] sm:h-[43px] flex items-center justify-center">
@@ -116,30 +117,16 @@ export default function MilestonesSection() {
             </div>
 
             {/* Tagline */}
-            <p className="font-['DM_Sans'] text-lg sm:text-xl font-medium leading-[26px] sm:leading-[29px] text-[#F3EFEC] text-center max-w-sm lg:max-w-[379px]">
+            <p className="font-dm-sans text-lg sm:text-xl font-medium leading-[26px] sm:leading-[29px] text-[#F3EFEC] text-center max-w-sm lg:max-w-[379px]">
               Milestones from <br className="block md:hidden"/> women like you.
             </p>
 
             {/* CTA Button */}
-            <button className="md:bg-[#684744] bg-[#F3EFEC] border border-[rgba(243,239,236,0.2)] shadow-[0px_2px_20px_0px_rgba(0,0,0,0.2)] rounded-lg py-3 px-4 sm:py-[10px] sm:px-4 flex items-center justify-center gap-3 w-full sm:max-w-[251px] h-12 sm:h-[54px] hover:bg-[#7a5653] transition-colors">
-              <span className="font-['DM_Sans'] font-bold text-lg sm:text-lg leading-[24px] sm:leading-[29px] md:text-white text-[#684744]">
+            <button className="md:bg-[#684744] bg-[#F3EFEC] border border-[rgba(243,239,236,0.2)] shadow-[0px_2px_20px_0px_rgba(0,0,0,0.2)] rounded-lg py-3 px-4 sm:py-[10px] sm:px-2 flex items-center justify-center gap-3 w-full sm:max-w-[251px] h-12 sm:h-[54px] hover:bg-[#7a5653] transition-colors">
+              <span className="font-dm-sans font-bold text-lg sm:text-lg leading-[24px] sm:leading-[29px] md:text-white text-[#684744]">
                 Inizia la prova gratuita
               </span>
-              <svg
-                width="13.33"
-                height="10"
-                viewBox="0 0 14 10"
-                fill="none"
-                className="flex-shrink-0"
-              >
-                <path
-                  d="M1 5H13M13 5L9 1M13 5L9 9"
-                  stroke="white"
-                  strokeWidth="1.5"
-                  strokeLinecap="round"
-                  strokeLinejoin="round"
-                />
-              </svg>
+              <FaArrowRight size={15} className="md:text-white text-[#684744]" />
             </button>
           </div>
         </div>
@@ -151,14 +138,14 @@ export default function MilestonesSection() {
             <div className="bg-white/10 backdrop-blur-sm rounded-2xl p-6 min-w-[280px] snap-start flex-shrink-0">
               <div className="flex flex-col gap-4">
                 <div className="flex items-end gap-2 pb-4 border-b border-white/16">
-                  <span className="font-['Poppins'] text-[40px] font-medium leading-[44px] tracking-[-2px] text-white">
+                  <span className="font-poppins text-5xl font-medium leading-[44px] tracking-[-2px] text-white">
                     4.3
                   </span>
-                  <span className="font-['Poppins'] text-[24px] font-medium leading-[32px] tracking-[-0.6px] text-white pb-1">
+                  <span className="font-poppins text-xl font-medium leading-[32px] tracking-[-0.6px] text-white pb-1">
                     months
                   </span>
                 </div>
-                <p className="font-['Poppins'] text-[16px] leading-[22px] tracking-[-0.05px] text-white">
+                <p className="font-poppins text-lg leading-[22px] tracking-[-0.05px] text-white">
                   High loyalty
                   <br />
                   retention rate
@@ -168,7 +155,7 @@ export default function MilestonesSection() {
             <div className="bg-white/10 backdrop-blur-sm rounded-2xl p-6 min-w-[280px] snap-start flex-shrink-0">
               <div className="flex flex-col gap-4">
                 <div className="flex items-end gap-2 pb-4 border-b border-white/16">
-                  <span className="font-['Poppins'] text-[40px] font-medium leading-[44px] tracking-[-2px] text-[#F3EFEC]">
+                  <span className="font-['Poppins'] text-5xl font-medium leading-[44px] tracking-[-2px] text-[#F3EFEC]">
                     40
                   </span>
                   <span className="font-['Poppins'] text-[24px] font-medium leading-[32px] tracking-[-0.6px] text-[#F3EFEC] pb-1">
@@ -187,7 +174,7 @@ export default function MilestonesSection() {
             <div className="bg-white/10 backdrop-blur-sm rounded-2xl p-6 min-w-[280px] snap-start flex-shrink-0">
               <div className="flex flex-col gap-4">
                 <div className="flex items-end gap-2 pb-4 border-b border-white/16">
-                  <span className="font-['Poppins'] text-[40px] font-medium leading-[44px] tracking-[-2px] text-white">
+                  <span className="font-['Poppins'] text-5xl font-medium leading-[44px] tracking-[-2px] text-white">
                     4.3
                   </span>
                   <span className="font-['Poppins'] text-[24px] font-medium leading-[32px] tracking-[-0.6px] text-white pb-1">
@@ -206,7 +193,7 @@ export default function MilestonesSection() {
             <div className="bg-white/10 backdrop-blur-sm rounded-2xl p-6 min-w-[280px] snap-start flex-shrink-0">
               <div className="flex flex-col gap-4">
                 <div className="flex items-end gap-2 pb-4 border-b border-white/16">
-                  <span className="font-['Poppins'] text-[40px] font-medium leading-[44px] tracking-[-2px] text-white">
+                  <span className="font-['Poppins'] text-5xl font-medium leading-[44px] tracking-[-2px] text-white">
                     117
                   </span>
                   <span className="font-['Poppins'] text-[24px] font-medium leading-[32px] tracking-[-0.6px] text-white pb-1">

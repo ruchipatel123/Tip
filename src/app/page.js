@@ -52,7 +52,7 @@ const MobileTrustSection = () => {
   return (
     <div className="block md:hidden w-full bg-[#F1EBE7] py-10">
       <div className="max-w-[477px] mx-auto flex flex-col gap-4">
-        <h2 className="text-4xl font-normal text-center">
+        <h2 className="text-2xl-up-custom font-poppins font-normal leading-9 text-center">
           Ottieni i risultati <br /> che meriti
         </h2>
         <p className="text-lg text-center font-normal text-bold hidden md:block">
@@ -60,7 +60,7 @@ const MobileTrustSection = () => {
           consiglierebbe Traininpink™ ad una propria amica.
         </p>
       </div>
-      <div className="flex flex-wrap gap-4 justify-center mt-10">
+      <div className="flex flex-wrap gap-4 justify-center mt-10 px-2">
         <div className="flex flex-row gap-8">
           <div className="flex items-center gap-2">
             <Image
@@ -71,7 +71,7 @@ const MobileTrustSection = () => {
             />
             <div className="flex flex-col items-center">
               <FaApple className="text-4xl mb-2" color="#000" size={20} />
-              <span className="text-[17.5px] text-[#737373] font-bold text-center leading-5">
+              <span className="text-[16.36px] font-dm-sans font-medium text-[#737373] text-center leading-5">
                 4.8/5 stelle
                 <br />
                 1.500+ recensioni{" "}
@@ -94,7 +94,7 @@ const MobileTrustSection = () => {
             />
             <div className="flex flex-col items-center">
               <FaFacebook className="text-4xl mb-2" color="#1877F2" size={20} />
-              <span className="text-[17.5px] text-[#737373] font-bold text-center leading-5">
+              <span className="text-[16.36px] font-dm-sans font-medium text-[#737373] text-center leading-5">
                 4.8/5 stelle
                 <br />
                 1.500+ recensioni{" "}
@@ -125,7 +125,7 @@ const MobileTrustSection = () => {
                 height={20}
                 className=" mb-2"
               />
-              <span className="text-[17.5px] text-[#737373] font-bold text-center leading-5">
+              <span className="text-[16.36px] font-dm-sans font-medium text-[#737373] text-center leading-5">
                 4.8/5 stelle
                 <br />
                 1.500+ recensioni{" "}
@@ -154,7 +154,7 @@ const MobileTrustSection = () => {
                 height={20}
                 className=" mb-2"
               />
-              <span className="text-[17.5px] text-[#737373] font-bold text-center leading-5">
+              <span className="text-[16.36px] font-dm-sans font-medium text-[#737373] text-center leading-5">
                 4.8/5 stelle
                 <br />
                 1.500+ recensioni{" "}

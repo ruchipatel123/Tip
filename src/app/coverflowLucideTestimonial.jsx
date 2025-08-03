@@ -172,7 +172,7 @@ const coverflowLucideTestimonial = () => {
 
   return (
     <div className="relative w-full bg-[#F3EFEC] py-20 overflow-hidden">
-      <h1 className="text-center text-4xl font-normal">
+      <h1 className="text-center text-2xl-up-custom font-normal font-poppins">
         Le loro storie,
         <br />
         la tua ispirazione.
@@ -233,15 +233,15 @@ const coverflowLucideTestimonial = () => {
                           height={48}
                         />
                       </div>
-                      <div className="flex  gap-1">
-                        <h4 className="text-base font-semibold text-black">{slide.name}</h4>
-                        <p className="text-base text-[#8C8C8C]">@{slide.userName}</p>
+                      <div className="flex flex-row gap-1">
+                        <h4 className="text-base font-dm-sans font-normal text-black">{slide.name}</h4>
+                        <p className="text-base font-dm-sans text-[#8C8C8C]">@{slide.userName}</p>
                       </div>
                     </div>
                     
                     {/* Description text */}
                     <div className="pt-3">
-                      <p className="text-sm text-gray-800 leading-relaxed">
+                      <p className="text-sm text-[#171717] font-dm-sans font-normal leading-relaxed">
                         {slide.description}
                       </p>
                     </div>
@@ -252,7 +252,7 @@ const coverflowLucideTestimonial = () => {
           ))}
         </div>
       </div>
-      <div className="flex items-center justify-center gap-2 mt-40">
+      <div className="flex items-center justify-center gap-2 mt-45">
         <button
           onClick={prevSlide}
           disabled={isAnimating}

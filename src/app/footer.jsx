@@ -38,19 +38,19 @@ export default function Footer() {
             <div className="grid grid-cols-1 sm:grid-cols-2 gap-8">
               {/* Traininpink Links */}
               <div className="flex flex-col items-center sm:items-start gap-3">
-                <h3 className="font-['DM_Sans'] text-base font-bold leading-[22px] text-white">
+                <h3 className="font-dm-sans text-base font-bold leading-[22px] text-white">
                   Traininpink
                 </h3>
                 <div className="flex flex-col items-center sm:items-start gap-2">
                   <a
                     href="#"
-                    className="font-['DM_Sans'] text-sm sm:text-base leading-[20px] sm:leading-[22px] text-white hover:opacity-80 transition-opacity"
+                    className="font-dm-sans text-sm sm:text-base leading-[20px] sm:leading-[22px] text-white hover:opacity-80 transition-opacity"
                   >
                     Buoni regalo Traininpink
                   </a>
                   <a
                     href="#"
-                    className="font-['DM_Sans'] text-sm sm:text-base leading-[20px] sm:leading-[22px] text-white hover:opacity-80 transition-opacity"
+                    className="font-dm-sans text-sm sm:text-base leading-[20px] sm:leading-[22px] text-white hover:opacity-80 transition-opacity"
                   >
                     Contattaci
                   </a>
@@ -59,31 +59,31 @@ export default function Footer() {
 
               {/* Resources Section */}
               <div className="flex flex-col items-center sm:items-start gap-3">
-                <h3 className="font-['DM_Sans'] text-base font-bold leading-[22px] text-white">
+                <h3 className="font-dm-sans text-base font-bold leading-[22px] text-white">
                   Risorse
                 </h3>
                 <div className="flex flex-col items-center sm:items-start gap-2">
                   <a
                     href="#"
-                    className="font-['DM_Sans'] text-sm sm:text-base leading-[20px] sm:leading-[22px] text-white hover:opacity-80 transition-opacity"
+                    className="font-dm-sans text-sm sm:text-base leading-[20px] sm:leading-[22px] text-white hover:opacity-80 transition-opacity"
                   >
                     Gestire il tuo account
                   </a>
                   <a
                     href="#"
-                    className="font-['DM_Sans'] text-sm sm:text-base leading-[20px] sm:leading-[22px] text-white hover:opacity-80 transition-opacity"
+                    className="font-dm-sans text-sm sm:text-base leading-[20px] sm:leading-[22px] text-white hover:opacity-80 transition-opacity"
                   >
                     Centro di supporto
                   </a>
                   <a
                     href="#"
-                    className="font-['DM_Sans'] text-sm sm:text-base leading-[20px] sm:leading-[22px] text-white hover:opacity-80 transition-opacity"
+                    className="font-dm-sans text-sm sm:text-base leading-[20px] sm:leading-[22px] text-white hover:opacity-80 transition-opacity"
                   >
                     Privacy and cookie policy
                   </a>
                   <a
                     href="#"
-                    className="font-['DM_Sans'] text-sm sm:text-base leading-[20px] sm:leading-[22px] text-white hover:opacity-80 transition-opacity"
+                    className="font-dm-sans text-sm sm:text-base leading-[20px] sm:leading-[22px] text-white hover:opacity-80 transition-opacity"
                   >
                     Termini e Condizioni
                   </a>
@@ -349,7 +349,7 @@ export default function Footer() {
 
       {/* Copyright Section */}
       <div className="border-t border-white/10 py-4 sm:py-6 flex justify-center px-4">
-        <p className="font-['DM_Sans'] text-xs sm:text-sm leading-4 sm:leading-5 text-white text-center flex items-center gap-2">
+        <p className="font-dm-sans text-sm sm:text-sm leading-4 sm:leading-5 text-white text-center flex items-center gap-2">
           <FaRegCopyright />
           2024 Traininpink | Tutti i diritti riservati.
         </p>

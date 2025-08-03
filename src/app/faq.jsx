@@ -44,7 +44,7 @@ export default function FAQSection() {
       <div className="w-full max-w-[984px] flex flex-col items-center gap-12 sm:gap-16 lg:gap-[69px]">
         {/* Title */}
         <div className="flex flex-col items-center gap-3 sm:gap-[13px]">
-          <h2 className="font-['Poppins'] text-3xl sm:text-[28px] lg:text-[36px] leading-[32px] sm:leading-[38px] lg:leading-[47px] tracking-[-0.15px] font-normal text-[#2D1E1D] text-center">
+          <h2 className="font-poppins text-2xl-up-custom sm:text-[28px] lg:text-[36px] leading-[32px] sm:leading-[38px] lg:leading-[47px] tracking-[-0.15px] font-normal text-[#2D1E1D] text-center">
             Domande Frequenti
           </h2>
         </div>
@@ -67,10 +67,10 @@ export default function FAQSection() {
               {/* Question Header */}
               <button
                 onClick={() => toggleItem(index)}
-                className="w-full p-4 sm:p-6 flex items-start sm:items-center justify-between gap-4 sm:gap-8 lg:gap-[47px] hover:bg-[#F3EFEC] transition-colors duration-200"
+                className="w-full p-4 sm:p-6 flex items-center sm:items-center justify-between gap-4 sm:gap-8 lg:gap-[47px] hover:bg-[#F3EFEC] transition-colors duration-200"
               >
                 <div className="flex flex-col items-start flex-1 min-w-0">
-                  <h3 className="font-['Poppins'] text-[16px] sm:text-[18px] lg:text-[22px] leading-[24px] sm:leading-[26px] lg:leading-[31px] tracking-[-0.05px] font-normal text-[#404040] text-left break-words">
+                  <h3 className="font-poppins text-lg sm:text-[18px] lg:text-[22px] leading-[24px] sm:leading-[26px] lg:leading-[31px] tracking-[-0.05px] font-normal text-[#404040] text-left break-words">
                     {item.question}
                   </h3>
                 </div>

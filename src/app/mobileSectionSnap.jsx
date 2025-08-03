@@ -123,25 +123,17 @@ export default function MobileSectionSnap() {
 
   return (
     <section className="bg-[#F1EBE7] md:pt-10">
-      
-      <div className="block md:hidden sticky top-10 left-[5%] xl:left-[18%] z-[100] w-full mx-auto ">
+      <div className="block md:hidden sticky top-5 left-[5%] xl:left-[18%] z-[100] w-full mx-auto ">
         <Image
           src="/images/mobileMockup.png"
           alt="mobileMockup"
           width={348}
           height={714}
-          className=" w-[300px]  h-[648px] sm:w-[348px] top-10 left-0 z-[100]  sm:h-[714px]  mx-auto"
+          className=" w-[300px]  h-[648px] sm:w-[348px] top-5 left-0 z-[100]  sm:h-[714px]  mx-auto"
         />
       </div>
-     
 
       <div ref={containerRef} className="md:mt-50 relative">
-        
-      
-       
-
-        
-        
         {sections.map((section, index) => {
           const isActive = currentSection === index;
 
@@ -153,7 +145,6 @@ export default function MobileSectionSnap() {
               whileInView={{ opacity: 1 }}
               transition={{ duration: 0.6 }}
             >
-              
               {/* Animated Image */}
               <motion.div
                 className="relative z-20 w-full mx-auto max-w-[1360px] h-screen md:h-full"
@@ -165,8 +156,6 @@ export default function MobileSectionSnap() {
                   ease: [0.4, 0, 0.2, 1],
                 }}
               >
-                 
-
                 <motion.div
                   whileHover={{ scale: 1.05 }}
                   transition={{ duration: 0.3 }}

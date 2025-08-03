@@ -218,12 +218,20 @@ const CarouselCoverLucide = () => {
 
   return (
     <div className="relative w-full bg-white py-20 overflow-hidden">
-      <h1 className="text-center text-3xl md:text-4xl font-normal max-w-[290px] mx-auto">
+      
+      <h1 className="text-center relative font-poppins text-2xl-up-custom leading-10 md:text-4xl font-normal max-w-[290px] md:max-w-[479px] mx-auto">
         Allenamenti su misura per <br className="hidden md:block" /> te per
         risultati garantiti
+        <Image
+        src="/dotLineSeven.svg"
+        alt="dotLineSeven"
+        width={348}
+        height={106}
+        className="absolute -top-30 left-1/2 hidden md:block"
+      />
       </h1>
       {/* Main carousel container */}
-      <div className="flex flex-wrap items-center justify-between md:justify-start gap-2 sm:gap-6 mt-10 text-2xl md:text-3xl font-normal px-4">
+      <div className="flex flex-wrap items-center justify-between md:justify-center gap-2 sm:gap-6 mt-10 text-xl font-poppins md:text-3xl font-normal px-4">
         <p
           className={`${
             activeCard === "Tutti" ? "text-black" : "opacity-20"
@@ -341,11 +349,11 @@ const CarouselCoverLucide = () => {
                     className="absolute bottom-0 left-0 w-full h-16 bg-[#F3EFEC] flex items-center justify-between px-4 rounded-b-2xl cursor-pointer transition-all duration-300 hover:bg-[#ece3dc] z-30"
                     onClick={(e) => handleDetailsClick(e, slide.id)}
                   >
-                    <h3 className="font-poppins text-[22px] font-medium leading-[1.41em] tracking-[-0.23%] text-black">
+                    <h3 className="font-poppins text-[18px] font-medium leading-[1.41em] tracking-[-0.23%] text-black">
                       {slide.title}
                     </h3>
                     <p className="text-black font-dm-sans text-base font-normal leading-[1.625em] flex items-center gap-2">
-                      Details
+                      <span className="hidden md:block">Details</span>
                       <FaArrowRight />
                     </p>
                   </div>
@@ -471,7 +479,7 @@ const CarouselCoverLucide = () => {
       <div className="flex flex-col bg-white z-10 mt-12 lg:flex-row items-center justify-center gap-6 sm:gap-8 relative px-4">
         {/* Primary CTA */}
         <button className="primary-cta flex items-center justify-center gap-3 bg-[#f3efec] border border-[rgba(0,0,0,0.10)] rounded-lg shadow-[0_2px_20px_0_rgba(0,0,0,0.15)] px-4 py-3 text-[#684744] text-lg sm:text-xl font-medium leading-snug w-full sm:min-w-60 sm:w-auto h-14">
-          <span className="font-bold text-center">
+          <span className="font-bold text-center font-dm-sans">
             Parlaci dei tuoi obiettivi
           </span>
           <FaArrowRight size={15} />
@@ -484,7 +492,9 @@ const CarouselCoverLucide = () => {
 
         {/* Secondary CTA */}
         <button className="secondary-cta flex items-center justify-center gap-3 bg-[#684744] border border-[rgba(243,239,236,0.20)] rounded-lg shadow-[0_2px_20px_0_rgba(0,0,0,0.15)] px-4 py-3 text-white text-lg sm:text-xl font-medium leading-snug w-full sm:min-w-60 sm:w-auto h-14">
-          <span className="font-bold">Inizia la prova gratuita</span>
+          <span className="font-bold font-dm-sans">
+            Inizia la prova gratuita
+          </span>
           <FaArrowRight size={15} />
         </button>
         <Image

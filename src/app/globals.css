@@ -12,10 +12,61 @@
   --font-family-poppins: var(--font-poppins);
   
   /* Custom Font Size Configuration */
-  --font-size-xl-custom: 22px;
-  --font-size-2xl-custom: 28px;
-  --font-size-2xl-up-custom: 32px;
-  --font-size-3xl-custom: 34px;
+  --text-xl-custom: 22px;
+  --text-xl-up-custom: 26px;
+  --text-2xl-custom: 28px;
+  --text-2xl-up-custom: 32px;
+  --text-3xl-custom: 34px;
+}
+
+/* Custom Font Family Utility Classes */
+.font-poppins {
+  font-family: var(--font-poppins);
+}
+
+.font-dm-sans {
+  font-family: var(--font-dm-sans);
+}
+
+/* Additional Font Utility Classes */
+.font-poppins-light {
+  font-family: var(--font-poppins);
+  font-weight: 400;
+}
+
+.font-poppins-medium {
+  font-family: var(--font-poppins);
+  font-weight: 500;
+}
+
+.font-poppins-semibold {
+  font-family: var(--font-poppins);
+  font-weight: 600;
+}
+
+.font-poppins-bold {
+  font-family: var(--font-poppins);
+  font-weight: 700;
+}
+
+.font-dm-sans-regular {
+  font-family: var(--font-dm-sans);
+  font-weight: 400;
+}
+
+.font-dm-sans-medium {
+  font-family: var(--font-dm-sans);
+  font-weight: 500;
+}
+
+.font-dm-sans-bold {
+  font-family: var(--font-dm-sans);
+  font-weight: 700;
+}
+
+.font-dm-sans-extrabold {
+  font-family: var(--font-dm-sans);
+  font-weight: 800;
 }
 
 /* Global Mobile Optimizations */
@@ -45,11 +96,7 @@ body {
 /* Mobile-specific optimizations */
 @media (max-width: 768px) {
   /* Improve touch targets */
-  button, a, input, select, textarea {
-    /* min-height: 44px;
-    min-width: 44px; */
-  }
-  
+ 
   /* Prevent zoom on input focus */
   input, textarea, select {
     font-size: 16px !important;
@@ -109,11 +156,11 @@ select:focus-visible {
 
 /* High contrast mode support */
 @media (prefers-contrast: high) {
-  .bg-[#F1EBE7] {
+  .bg-custom-light {
     background-color: #f5f5f5;
   }
   
-  .text-[#684744] {
+  .text-custom-dark {
     color: #333;
   }
 }
