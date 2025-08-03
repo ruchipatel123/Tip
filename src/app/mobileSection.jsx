@@ -425,7 +425,7 @@ export default function MobileSection() {
           alt="mobileMockup"
           width={348}
           height={714}
-          className="w-[348px] z-[100] h-[714px] sticky top-10 mx-auto"
+          className="w-[348px] z-[100] block md:hidden h-[714px] sticky top-10 mx-auto"
         />
 
         {sections.map((section, index) => {
