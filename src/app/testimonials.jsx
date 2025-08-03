@@ -161,7 +161,7 @@ export default function TestimonialsSection() {
               </button>
 
               {/* Phone Mockup */}
-              <div className="relative flex-1 max-w-[330px]">
+              <div className="relative flex-1 h-full max-h-[621px] max-w-[330px]">
                 <div className="w-full h-full bg-white rounded-2xl shadow-[0px_4px_10px_0px_rgba(0,0,0,0.25)] overflow-hidden">
                   <video
                     key={currentTestimonial.video}
@@ -251,21 +251,21 @@ export default function TestimonialsSection() {
             </h3>
           </div>
           <div className="mx-auto py-10 rounded-2xl overflow-hidden bg-[#F3EFEC]">
-            <div className="relative w-full h-full flex items-center justify-center gap-4">
+            <div className="relative w-full flex items-center justify-center gap-4">
               {/* Navigation Buttons */}
               <button
                 onClick={prevSlide}
-                className="w-10 h-10 hidden md:flex bg-white border border-[rgba(104,71,68,0.1)] shadow-[0px_2px_20px_0px_rgba(0,0,0,0.08)] rounded-full  items-center justify-center hover:bg-gray-50 transition-colors z-10"
+                className="w-10 h-10 hidden md:flex bg-white border border-[rgba(104,71,68,0.1)] shadow-[0px_2px_20px_0px_rgba(0,0,0,0.08)] rounded-full items-center justify-center hover:bg-gray-50 transition-colors z-10"
               >
                 <IoIosArrowBack size={16} />
               </button>
 
               {/* Phone Mockup */}
-              <div className="relative max-w-[325px] mx-auto">
-                <div className="w-[90%] h-[90%] sm:w-full sm:h-full mx-auto bg-white rounded-2xl shadow-[0px_4px_10px_0px_rgba(0,0,0,0.25)] overflow-hidden">
+              <div className="relative max-w-[325px] w-full mx-auto">
+                <div className="h-[500px] sm:h-[600px] w-full mx-auto bg-white rounded-2xl shadow-[0px_4px_10px_0px_rgba(0,0,0,0.25)] overflow-hidden flex items-center justify-center">
                   <video
                     key={currentTestimonial.video}
-                    className="w-[90%] h-[90%] sm:w-full sm:h-full object-contain"
+                    className="max-w-full max-h-full object-contain"
                     autoPlay
                     muted
                     playsInline
@@ -279,7 +279,7 @@ export default function TestimonialsSection() {
 
               <button
                 onClick={nextSlide}
-                className="w-10 h-10 hidden md:flex bg-white border border-[rgba(104,71,68,0.1)] shadow-[0px_2px_20px_0px_rgba(0,0,0,0.08)] rounded-full  items-center justify-center hover:bg-gray-50 transition-colors z-10"
+                className="w-10 h-10 hidden md:flex bg-white border border-[rgba(104,71,68,0.1)] shadow-[0px_2px_20px_0px_rgba(0,0,0,0.08)] rounded-full items-center justify-center hover:bg-gray-50 transition-colors z-10"
               >
                 <IoIosArrowForward size={16} />
               </button>
@@ -300,13 +300,13 @@ export default function TestimonialsSection() {
             <div className="flex flex-row gap-2 justify-center">
               <button
                 onClick={prevSlide}
-                className="w-10 h-10 bg-white border border-[rgba(104,71,68,0.1)] shadow-[0px_2px_20px_0px_rgba(0,0,0,0.08)] rounded-full flex items-center justify-center hover:bg-gray-50 transition-colors z-10"
+                className="w-10 h-10 bg-white border border-[rgba(104,71,68,0.1)] shadow-[0px_2px_20px_0px_rgba(0,0,0,0.08)] rounded-full  items-center justify-center hover:bg-gray-50 transition-colors z-10 flex md:hidden"
               >
                 <IoIosArrowBack size={16} />
               </button>
               <button
                 onClick={nextSlide}
-                className="w-10 h-10 bg-white border border-[rgba(104,71,68,0.1)] shadow-[0px_2px_20px_0px_rgba(0,0,0,0.08)] rounded-full flex items-center justify-center hover:bg-gray-50 transition-colors z-10"
+                className="w-10 h-10 bg-white border border-[rgba(104,71,68,0.1)] shadow-[0px_2px_20px_0px_rgba(0,0,0,0.08)] rounded-full  items-center justify-center hover:bg-gray-50 transition-colors z-10 flex md:hidden"
               >
                 <IoIosArrowForward size={16} />
               </button>
