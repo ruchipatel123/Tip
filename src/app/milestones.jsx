@@ -10,23 +10,26 @@ export default function MilestonesSection() {
   const [isLocked, setIsLocked] = useState(false);
   const [scrollPhase, setScrollPhase] = useState(0); // 0: before lock, 1: locked, 2: after lock
   const [windowHeight, setWindowHeight] = useState(800);
+  const [isDesktop, setIsDesktop] = useState(false);
   
   const { scrollYProgress } = useScroll({
     target: containerRef,
     offset: ["start start", "end start"]
   });
 
-  // Transform values for smooth transitions
+  // Transform values for smooth transitions - only on desktop
   const cardsProgress = useTransform(scrollYProgress, [0, 0.8], [0, 1]);
   const sectionY = useTransform(scrollYProgress, [0.8, 1], [0, -windowHeight]);
 
   useEffect(() => {
-    // Set window height on client side
+    // Set window height and detect desktop on client side
     if (typeof window !== 'undefined') {
       setWindowHeight(window.innerHeight);
+      setIsDesktop(window.innerWidth >= 1024);
       
       const handleResize = () => {
         setWindowHeight(window.innerHeight);
+        setIsDesktop(window.innerWidth >= 1024);
       };
       
       window.addEventListener('resize', handleResize);
@@ -35,6 +38,9 @@ export default function MilestonesSection() {
   }, []);
 
   useEffect(() => {
+    // Only apply scroll locking behavior on desktop
+    if (!isDesktop) return;
+    
     const unsubscribe = scrollYProgress.onChange((progress) => {
       if (progress >= 0 && progress < 0.8) {
         setScrollPhase(1); // Locked phase
@@ -49,7 +55,7 @@ export default function MilestonesSection() {
     });
 
     return () => unsubscribe();
-  }, [scrollYProgress]);
+  }, [scrollYProgress, isDesktop]);
 
   // Card animation transforms - increased travel distance
   const getCardTransform = (index) => {
@@ -61,11 +67,17 @@ export default function MilestonesSection() {
   const card3Y = getCardTransform(2);
 
   return (
-    <div ref={containerRef} className="relative" style={{ height: '300vh' }}>
+    <div 
+      ref={containerRef} 
+      className="relative" 
+      style={{ height: isDesktop ? '300vh' : 'auto' }}
+    >
       <motion.section 
         ref={sectionRef}
-        className="sticky top-0 w-full h-screen overflow-hidden border-t border-black/10"
-        style={{ y: scrollPhase === 2 ? sectionY : 0 }}
+        className={`w-full h-screen overflow-hidden border-t border-black/10 ${
+          isDesktop ? 'sticky top-0' : 'relative'
+        }`}
+        style={{ y: isDesktop && scrollPhase === 2 ? sectionY : 0 }}
       >
         {/* Background Image with Overlay */}
         <div className="absolute inset-0">
@@ -108,12 +120,11 @@ export default function MilestonesSection() {
           </div>
         </div>
 
-        {/* Mobile Stats Cards */}
-        <div className="lg:hidden absolute inset-0 z-10 flex flex-col justify-center items-center px-4 py-8 space-y-8">
-          {/* Stats Grid */}
-          <div className="grid grid-cols-1 gap-6 w-full max-w-sm mt-32">
+        {/* Mobile Stats Cards - Horizontal Scrollable */}
+        <div className="lg:hidden absolute bottom-8 left-0 right-0 z-10 px-4">
+          <div className="flex gap-6 overflow-x-auto scrollbar-hide snap-x snap-mandatory pb-4">
             {/* Card 1 - 40 thousand+ */}
-            <div className="bg-white/10 backdrop-blur-sm rounded-2xl p-6">
+            <div className="bg-white/10 backdrop-blur-sm rounded-2xl p-6 min-w-[280px] snap-start flex-shrink-0">
               <div className="flex flex-col gap-4">
                 <div className="flex items-end gap-2 pb-4 border-b border-white/16">
                   <span className="font-['Poppins'] text-[40px] font-medium leading-[44px] tracking-[-2px] text-[#F3EFEC]">
@@ -131,7 +142,7 @@ export default function MilestonesSection() {
             </div>
 
             {/* Card 2 - 4.3 months */}
-            <div className="bg-white/10 backdrop-blur-sm rounded-2xl p-6">
+            <div className="bg-white/10 backdrop-blur-sm rounded-2xl p-6 min-w-[280px] snap-start flex-shrink-0">
               <div className="flex flex-col gap-4">
                 <div className="flex items-end gap-2 pb-4 border-b border-white/16">
                   <span className="font-['Poppins'] text-[40px] font-medium leading-[44px] tracking-[-2px] text-white">
@@ -149,7 +160,7 @@ export default function MilestonesSection() {
             </div>
 
             {/* Card 3 - 117 thousand */}
-            <div className="bg-white/10 backdrop-blur-sm rounded-2xl p-6">
+            <div className="bg-white/10 backdrop-blur-sm rounded-2xl p-6 min-w-[280px] snap-start flex-shrink-0">
               <div className="flex flex-col gap-4">
                 <div className="flex items-end gap-2 pb-4 border-b border-white/16">
                   <span className="font-['Poppins'] text-[40px] font-medium leading-[44px] tracking-[-2px] text-white">
@@ -172,7 +183,7 @@ export default function MilestonesSection() {
         {/* Left Card - 40 thousand+ */}
         <motion.div 
           className="hidden lg:block absolute top-[60%] left-[66px] w-[300px] xl:w-[430px] z-10"
-          style={{ y: card1Y }}
+          style={{ y: isDesktop ? card1Y : 0 }}
         >
           <div className="bg-white/10 backdrop-blur-sm rounded-[32px] p-4 xl:p-10 h-[319px]">
             <div className="flex flex-col gap-[60px] h-full">
@@ -197,7 +208,7 @@ export default function MilestonesSection() {
         {/* Top Right Card - 4.3 months */}
         <motion.div 
           className="hidden lg:block absolute top-[15%] right-[42px] w-[300px] xl:w-[430px] z-10"
-          style={{ y: card2Y }}
+          style={{ y: isDesktop ? card2Y : 0 }}
         >
           <div className="bg-white/10 backdrop-blur-sm rounded-[32px] p-4 xl:p-10 h-[319px]">
             <div className="flex flex-col gap-[60px] h-full">
@@ -222,7 +233,7 @@ export default function MilestonesSection() {
         {/* Bottom Right Card - 117 thousand */}
         <motion.div 
           className="hidden lg:block absolute top-[80%] right-[4%] w-[300px] xl:w-[430px] z-10"
-          style={{ y: card3Y }}
+          style={{ y: isDesktop ? card3Y : 0 }}
         >
           <div className="bg-white/10 backdrop-blur-sm rounded-[32px] p-4 xl:p-10 h-[319px]">
             <div className="flex flex-col gap-[60px] h-full">

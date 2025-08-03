@@ -2,6 +2,17 @@
 @import url('https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700&display=swap');
 @import url('https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;700;800&display=swap');
 
+@theme {
+  /* Font Family Configuration */
+  --font-family-dm-sans: 'DM Sans', sans-serif;
+  --font-family-poppins: 'Poppins', sans-serif;
+  
+  /* Custom Font Size Configuration */
+  --font-size-xl-custom: 22px;
+  --font-size-2xl-custom: 28px;
+  --font-size-3xl-custom: 34px;
+}
+
 /* Global Mobile Optimizations */
 * {
   box-sizing: border-box;
@@ -25,14 +36,7 @@ body {
   overflow-x: hidden;
 }
 
-/* Custom font utilities */
-.font-poppins {
-  font-family: 'Poppins', sans-serif;
-}
 
-.font-dm-sans {
-  font-family: 'DM Sans', sans-serif;
-}
 
 /* Mobile-specific optimizations */
 @media (max-width: 768px) {
@@ -57,7 +61,7 @@ body {
   /* Improve image loading on mobile */
   img {
     max-width: 100%;
-    height: auto;
+    /* height: auto; */
   }
 }
 
@@ -173,5 +177,14 @@ select:focus-visible {
 
 .animate-slideUp {
   animation: slideUp 0.4s ease-out forwards;
+}
+
+/* Hide scrollbar utility */
+.scrollbar-hide {
+  -ms-overflow-style: none;  /* Internet Explorer 10+ */
+  scrollbar-width: none;  /* Firefox */
+}
+.scrollbar-hide::-webkit-scrollbar {
+  display: none;  /* Safari and Chrome */
 }
 
