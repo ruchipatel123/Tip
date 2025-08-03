@@ -44,7 +44,7 @@ export default function FAQSection() {
       <div className="w-full max-w-[984px] flex flex-col items-center gap-12 sm:gap-16 lg:gap-[69px]">
         {/* Title */}
         <div className="flex flex-col items-center gap-3 sm:gap-[13px]">
-          <h2 className="font-['Poppins'] text-[24px] sm:text-[28px] lg:text-[36px] leading-[32px] sm:leading-[38px] lg:leading-[47px] tracking-[-0.15px] font-normal text-[#2D1E1D] text-center">
+          <h2 className="font-['Poppins'] text-3xl sm:text-[28px] lg:text-[36px] leading-[32px] sm:leading-[38px] lg:leading-[47px] tracking-[-0.15px] font-normal text-[#2D1E1D] text-center">
             Domande Frequenti
           </h2>
         </div>

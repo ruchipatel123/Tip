@@ -123,169 +123,20 @@ export default function MobileSectionSnap() {
 
   return (
     <section className="bg-[#F1EBE7] md:pt-10">
-      <div className="hidden md:block sticky top-10 left-[5%] xl:left-[18%] z-[100] w-1/2 ">
-        <Image
-          src="/images/mobileMockup.png"
-          alt="mobileMockup"
-          width={348}
-          height={714}
-          className="w-[348px] top-10 left-0 z-[100]  h-[714px] "
-        />
-      </div>
+      
       <div className="block md:hidden sticky top-10 left-[5%] xl:left-[18%] z-[100] w-full mx-auto ">
         <Image
           src="/images/mobileMockup.png"
           alt="mobileMockup"
           width={348}
           height={714}
-          className="w-[348px] top-10 left-0 z-[100]  h-[714px]  mx-auto"
+          className=" w-[300px]  h-[648px] sm:w-[348px] top-10 left-0 z-[100]  sm:h-[714px]  mx-auto"
         />
       </div>
      
 
       <div ref={containerRef} className="md:mt-50 relative">
-        <div className="hidden md:block w-full md:w-1/2 absolute -top-200 right-0 md:right-20">
-          <div className="max-w-[477px] mx-auto flex flex-col gap-4">
-            <h2 className="text-4xl font-normal text-center">
-              Ottieni i risultati <br /> che meriti
-            </h2>
-            <p className="text-lg text-center font-normal text-bold hidden md:block">
-              Chi usa la nostra app è entusiasta: il 99,2% delle nostre utenti
-              consiglierebbe Traininpink™ ad una propria amica.
-            </p>
-          </div>
-          <div className="flex flex-wrap gap-4 justify-center mt-10">
-            <div className="flex flex-col gap-8">
-              <div className="flex items-center gap-2">
-                <Image
-                  src="/logo/wreath-left.svg.svg"
-                  alt="left wreath"
-                  width={30}
-                  height={100}
-                />
-                <div className="flex flex-col items-center">
-                  <FaApple className="text-4xl mb-2" color="#000" size={20} />
-                  <span className="text-[17.5px] text-[#737373] font-bold text-center leading-5">
-                    4.8/5 stelle
-                    <br />
-                    1.500+ recensioni{" "}
-                  </span>
-                </div>
-                <Image
-                  src="/logo/wreath-left.svg.svg"
-                  alt="left wreath"
-                  width={30}
-                  height={100}
-                  className="scale-x-[-1]"
-                />
-              </div>
-              <div className="flex items-center gap-2">
-                <Image
-                  src="/logo/wreath-left.svg.svg"
-                  alt="left wreath"
-                  width={30}
-                  height={100}
-                />
-                <div className="flex flex-col items-center">
-                  <FaFacebook
-                    className="text-4xl mb-2"
-                    color="#1877F2"
-                    size={20}
-                  />
-                  <span className="text-[17.5px] text-[#737373] font-bold text-center leading-5">
-                    4.8/5 stelle
-                    <br />
-                    1.500+ recensioni{" "}
-                  </span>
-                </div>
-                <Image
-                  src="/logo/wreath-left.svg.svg"
-                  alt="left wreath"
-                  width={30}
-                  height={100}
-                  className="scale-x-[-1]"
-                />
-              </div>
-            </div>
-            <div className="flex flex-col gap-8">
-              <div className="flex items-center gap-2">
-                <Image
-                  src="/logo/wreath-left.svg.svg"
-                  alt="left wreath"
-                  width={30}
-                  height={100}
-                />
-                <div className="flex flex-col items-center">
-                  <Image
-                    src="/logo/playstore.svg"
-                    alt="googlePlay"
-                    width={19}
-                    height={20}
-                    className=" mb-2"
-                  />
-                  <span className="text-[17.5px] text-[#737373] font-bold text-center leading-5">
-                    4.8/5 stelle
-                    <br />
-                    1.500+ recensioni{" "}
-                  </span>
-                </div>
-                <Image
-                  src="/logo/wreath-left.svg.svg"
-                  alt="left wreath"
-                  width={30}
-                  height={100}
-                  className="scale-x-[-1]"
-                />
-              </div>
-              <div className="flex items-center gap-2">
-                <Image
-                  src="/logo/wreath-left.svg.svg"
-                  alt="left wreath"
-                  width={30}
-                  height={100}
-                />
-                <div className="flex flex-col items-center">
-                  <Image
-                    src="/logo/trustPilotLogo.png"
-                    alt="appStore"
-                    width={83}
-                    height={20}
-                    className=" mb-2"
-                  />
-                  <span className="text-[17.5px] text-[#737373] font-bold text-center leading-5">
-                    4.8/5 stelle
-                    <br />
-                    1.500+ recensioni{" "}
-                  </span>
-                </div>
-                <Image
-                  src="/logo/wreath-left.svg.svg"
-                  alt="left wreath"
-                  width={30}
-                  height={100}
-                  className="scale-x-[-1]"
-                />
-              </div>
-            </div>
-          </div>
-
-          <div>
-            <div className="flex flex-col md:flex-row gap-4 items-center justify-center mt-10">
-              <Image
-                src="/logo/playStoreIcon.svg"
-                alt="playStoreIcon"
-                width={185}
-                height={55}
-              />
-              <Image
-                src="/logo/appStoreIcon.svg"
-                alt="appStoreIcon"
-                width={185}
-                height={55}
-              />
-            </div>
-          </div>
-        </div>
+        
       
        
 
@@ -302,15 +153,7 @@ export default function MobileSectionSnap() {
               whileInView={{ opacity: 1 }}
               transition={{ duration: 0.6 }}
             >
-              {index === 2 && (
-                <Image
-                  src="/dotLineFour.svg"
-                  alt="dotLineFour"
-                  width={2}
-                  height={184}
-                  className="absolute hidden md:block bottom-0 left-[50%]"
-                />
-              )}
+              
               {/* Animated Image */}
               <motion.div
                 className="relative z-20 w-full mx-auto max-w-[1360px] h-screen md:h-full"
@@ -322,35 +165,7 @@ export default function MobileSectionSnap() {
                   ease: [0.4, 0, 0.2, 1],
                 }}
               >
-                {/* Section Indicator */}
-                {index === 0 && (
-                  <Image
-                    src="/dotLineOne.svg"
-                    alt="dotLineOne"
-                    width={412}
-                    height={184}
-                    className="absolute hidden md:block -top-[35%] left-[42%] -translate-x-[42%]"
-                  />
-                )}
-
-                {index === 0 && (
-                  <Image
-                    src="/dotLineTwo.svg"
-                    alt="dotLineTwo"
-                    width={612}
-                    height={184}
-                    className="absolute hidden md:block top-[110%] left-[20%] -translate-x-[20%]"
-                  />
-                )}
-                {index === 1 && (
-                  <Image
-                    src="/dotLineThree.svg"
-                    alt="dotLineThree"
-                    width={612}
-                    height={184}
-                    className="absolute hidden md:block top-[80%] -right-12"
-                  />
-                )}
+                 
 
                 <motion.div
                   whileHover={{ scale: 1.05 }}

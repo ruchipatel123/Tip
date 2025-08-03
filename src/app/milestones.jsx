@@ -1,4 +1,4 @@
-'use client';
+"use client";
 
 import Image from "next/image";
 import { useEffect, useRef, useState } from "react";
@@ -11,10 +11,10 @@ export default function MilestonesSection() {
   const [scrollPhase, setScrollPhase] = useState(0); // 0: before lock, 1: locked, 2: after lock
   const [windowHeight, setWindowHeight] = useState(800);
   const [isDesktop, setIsDesktop] = useState(false);
-  
+
   const { scrollYProgress } = useScroll({
     target: containerRef,
-    offset: ["start start", "end start"]
+    offset: ["start start", "end start"],
   });
 
   // Transform values for smooth transitions - only on desktop
@@ -23,24 +23,24 @@ export default function MilestonesSection() {
 
   useEffect(() => {
     // Set window height and detect desktop on client side
-    if (typeof window !== 'undefined') {
+    if (typeof window !== "undefined") {
       setWindowHeight(window.innerHeight);
       setIsDesktop(window.innerWidth >= 1024);
-      
+
       const handleResize = () => {
         setWindowHeight(window.innerHeight);
         setIsDesktop(window.innerWidth >= 1024);
       };
-      
-      window.addEventListener('resize', handleResize);
-      return () => window.removeEventListener('resize', handleResize);
+
+      window.addEventListener("resize", handleResize);
+      return () => window.removeEventListener("resize", handleResize);
     }
   }, []);
 
   useEffect(() => {
     // Only apply scroll locking behavior on desktop
     if (!isDesktop) return;
-    
+
     const unsubscribe = scrollYProgress.onChange((progress) => {
       if (progress >= 0 && progress < 0.8) {
         setScrollPhase(1); // Locked phase
@@ -59,7 +59,7 @@ export default function MilestonesSection() {
 
   // Card animation transforms - increased travel distance
   const getCardTransform = (index) => {
-    return useTransform(cardsProgress, [0, 1], [0, -500 - (index * 80)]);
+    return useTransform(cardsProgress, [0, 1], [0, -500 - index * 80]);
   };
 
   const card1Y = getCardTransform(0);
@@ -67,54 +67,78 @@ export default function MilestonesSection() {
   const card3Y = getCardTransform(2);
 
   return (
-    <div 
-      ref={containerRef} 
-      className="relative" 
-      style={{ height: isDesktop ? '300vh' : 'auto' }}
+    <div
+      ref={containerRef}
+      className="relative"
+      style={{ height: isDesktop ? "300vh" : "auto" }}
     >
-      <motion.section 
+      <motion.section
         ref={sectionRef}
         className={`w-full h-screen overflow-hidden border-t border-black/10 ${
-          isDesktop ? 'sticky top-0' : 'relative'
+          isDesktop ? "sticky top-0" : "relative"
         }`}
         style={{ y: isDesktop && scrollPhase === 2 ? sectionY : 0 }}
       >
         {/* Background Image with Overlay */}
         <div className="absolute inset-0">
+          {/* Mobile Background Image */}
+          <Image
+            src="/images/parallaxBottomImage.jpg"
+            alt="Woman in workout attire"
+            fill
+            className="object-cover lg:hidden"
+            priority
+          />
+          {/* Tablet and Desktop Background Image */}
           <Image
             src="/images/tipModelParallax.jpg"
             alt="Woman in workout attire"
             fill
-            className="object-cover"
+            className="object-cover hidden lg:block"
             priority
           />
           <div className="absolute inset-0 bg-black/30"></div>
         </div>
 
         {/* Center Content */}
-        <div className="absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 z-20 px-4 sm:px-6">
-          <div className="flex flex-col items-center gap-6 sm:gap-8 w-full max-w-lg">
+        <div className="absolute top-40 left-1/2 md:top-1/2 md:left-1/2 transform -translate-x-1/2 -translate-y-1/2 z-20 px-4 sm:px-6 w-full">
+          <div className="flex flex-col items-center gap-6 sm:gap-8 w-full md:max-w-lg">
             {/* Logo */}
             <div className="flex flex-col items-center pb-2 sm:pb-[9px]">
               <div className="w-full max-w-[224px] h-[32px] sm:h-[43px] flex items-center justify-center">
-                <span className="text-white text-xl sm:text-2xl font-light tracking-wider">
-                  traininpink
-                </span>
+                <Image
+                  src="/logo/trainPinkLogoParallax.svg"
+                  alt="traininpinkLogo"
+                  width={224}
+                  height={43}
+                />
               </div>
             </div>
-            
+
             {/* Tagline */}
             <p className="font-['DM_Sans'] text-lg sm:text-xl font-medium leading-[26px] sm:leading-[29px] text-[#F3EFEC] text-center max-w-sm lg:max-w-[379px]">
-              Milestones from women like you.
+              Milestones from <br className="block md:hidden"/> women like you.
             </p>
-            
+
             {/* CTA Button */}
-            <button className="bg-[#684744] border border-[rgba(243,239,236,0.2)] shadow-[0px_2px_20px_0px_rgba(0,0,0,0.2)] rounded-lg py-3 px-4 sm:py-[10px] sm:px-4 flex items-center justify-center gap-3 w-full max-w-xs sm:max-w-[251px] h-12 sm:h-[54px] hover:bg-[#7a5653] transition-colors">
-              <span className="font-['DM_Sans'] text-base sm:text-lg leading-[24px] sm:leading-[29px] text-white">
+            <button className="md:bg-[#684744] bg-[#F3EFEC] border border-[rgba(243,239,236,0.2)] shadow-[0px_2px_20px_0px_rgba(0,0,0,0.2)] rounded-lg py-3 px-4 sm:py-[10px] sm:px-4 flex items-center justify-center gap-3 w-full sm:max-w-[251px] h-12 sm:h-[54px] hover:bg-[#7a5653] transition-colors">
+              <span className="font-['DM_Sans'] font-bold text-lg sm:text-lg leading-[24px] sm:leading-[29px] md:text-white text-[#684744]">
                 Inizia la prova gratuita
               </span>
-              <svg width="13.33" height="10" viewBox="0 0 14 10" fill="none" className="flex-shrink-0">
-                <path d="M1 5H13M13 5L9 1M13 5L9 9" stroke="white" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round"/>
+              <svg
+                width="13.33"
+                height="10"
+                viewBox="0 0 14 10"
+                fill="none"
+                className="flex-shrink-0"
+              >
+                <path
+                  d="M1 5H13M13 5L9 1M13 5L9 9"
+                  stroke="white"
+                  strokeWidth="1.5"
+                  strokeLinecap="round"
+                  strokeLinejoin="round"
+                />
               </svg>
             </button>
           </div>
@@ -127,6 +151,23 @@ export default function MilestonesSection() {
             <div className="bg-white/10 backdrop-blur-sm rounded-2xl p-6 min-w-[280px] snap-start flex-shrink-0">
               <div className="flex flex-col gap-4">
                 <div className="flex items-end gap-2 pb-4 border-b border-white/16">
+                  <span className="font-['Poppins'] text-[40px] font-medium leading-[44px] tracking-[-2px] text-white">
+                    4.3
+                  </span>
+                  <span className="font-['Poppins'] text-[24px] font-medium leading-[32px] tracking-[-0.6px] text-white pb-1">
+                    months
+                  </span>
+                </div>
+                <p className="font-['Poppins'] text-[16px] leading-[22px] tracking-[-0.05px] text-white">
+                  High loyalty
+                  <br />
+                  retention rate
+                </p>
+              </div>
+            </div>
+            <div className="bg-white/10 backdrop-blur-sm rounded-2xl p-6 min-w-[280px] snap-start flex-shrink-0">
+              <div className="flex flex-col gap-4">
+                <div className="flex items-end gap-2 pb-4 border-b border-white/16">
                   <span className="font-['Poppins'] text-[40px] font-medium leading-[44px] tracking-[-2px] text-[#F3EFEC]">
                     40
                   </span>
@@ -135,7 +176,8 @@ export default function MilestonesSection() {
                   </span>
                 </div>
                 <p className="font-['Poppins'] text-[16px] leading-[22px] tracking-[-0.05px] text-white">
-                  Currently<br />
+                  Currently
+                  <br />
                   subscribed users
                 </p>
               </div>
@@ -153,7 +195,8 @@ export default function MilestonesSection() {
                   </span>
                 </div>
                 <p className="font-['Poppins'] text-[16px] leading-[22px] tracking-[-0.05px] text-white">
-                  High loyalty<br />
+                  High loyalty
+                  <br />
                   retention rate
                 </p>
               </div>
@@ -171,7 +214,8 @@ export default function MilestonesSection() {
                   </span>
                 </div>
                 <p className="font-['Poppins'] text-[16px] leading-[22px] tracking-[-0.05px] text-white">
-                  Followers on<br />
+                  Followers on
+                  <br />
                   social media
                 </p>
               </div>
@@ -181,7 +225,7 @@ export default function MilestonesSection() {
 
         {/* Desktop Floating Stats Cards */}
         {/* Left Card - 40 thousand+ */}
-        <motion.div 
+        <motion.div
           className="hidden lg:block absolute top-[60%] left-[66px] w-[300px] xl:w-[430px] z-10"
           style={{ y: isDesktop ? card1Y : 0 }}
         >
@@ -197,7 +241,8 @@ export default function MilestonesSection() {
               </div>
               <div className="h-[66px]">
                 <p className="font-['Poppins'] text-[28px] leading-[36px] tracking-[-0.1px] text-white">
-                  Currently<br />
+                  Currently
+                  <br />
                   subscribed users
                 </p>
               </div>
@@ -206,7 +251,7 @@ export default function MilestonesSection() {
         </motion.div>
 
         {/* Top Right Card - 4.3 months */}
-        <motion.div 
+        <motion.div
           className="hidden lg:block absolute top-[15%] right-[42px] w-[300px] xl:w-[430px] z-10"
           style={{ y: isDesktop ? card2Y : 0 }}
         >
@@ -222,7 +267,8 @@ export default function MilestonesSection() {
               </div>
               <div className="h-[66px]">
                 <p className="font-['Poppins'] text-[28px] leading-[36px] tracking-[-0.1px] text-white">
-                  High loyalty<br />
+                  High loyalty
+                  <br />
                   retention rate
                 </p>
               </div>
@@ -231,7 +277,7 @@ export default function MilestonesSection() {
         </motion.div>
 
         {/* Bottom Right Card - 117 thousand */}
-        <motion.div 
+        <motion.div
           className="hidden lg:block absolute top-[80%] right-[4%] w-[300px] xl:w-[430px] z-10"
           style={{ y: isDesktop ? card3Y : 0 }}
         >
@@ -247,7 +293,8 @@ export default function MilestonesSection() {
               </div>
               <div className="h-[66px]">
                 <p className="font-['Poppins'] text-[28px] leading-[36px] tracking-[-0.1px] text-white">
-                  Followers on<br />
+                  Followers on
+                  <br />
                   social media
                 </p>
               </div>

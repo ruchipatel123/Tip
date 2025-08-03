@@ -172,18 +172,20 @@ const MobileTrustSection = () => {
       </div>
 
       <div>
-        <div className="flex flex-row gap-4 items-center justify-center my-10">
+        <div className="flex flex-wrap flex-row gap-4 items-center justify-center my-10">
           <Image
             src="/logo/playStoreIcon.svg"
             alt="playStoreIcon"
             width={185}
             height={55}
+            
           />
           <Image
             src="/logo/appStoreIcon.svg"
             alt="appStoreIcon"
             width={185}
             height={55}
+           
           />
         </div>
       </div>

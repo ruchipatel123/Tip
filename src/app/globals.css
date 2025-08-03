@@ -1,15 +1,20 @@
 @import "tailwindcss";
 @import url('https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700&display=swap');
 @import url('https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;700;800&display=swap');
+:root {
+  --font-poppins: 'Poppins', sans-serif;
+  --font-dm-sans: 'DM Sans', sans-serif;
+}
 
 @theme {
   /* Font Family Configuration */
-  --font-family-dm-sans: 'DM Sans', sans-serif;
-  --font-family-poppins: 'Poppins', sans-serif;
+  --font-family-dm-sans: var(--font-dm-sans);
+  --font-family-poppins: var(--font-poppins);
   
   /* Custom Font Size Configuration */
   --font-size-xl-custom: 22px;
   --font-size-2xl-custom: 28px;
+  --font-size-2xl-up-custom: 32px;
   --font-size-3xl-custom: 34px;
 }
 
@@ -28,7 +33,6 @@ html {
 body {
   background: var(--background);
   color: var(--foreground);
-  font-family: Arial, Helvetica, sans-serif;
   /* Improve font rendering on mobile */
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;

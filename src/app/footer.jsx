@@ -92,7 +92,7 @@ export default function Footer() {
             </div>
 
             {/* App Store Buttons */}
-            <div className="flex flex-col items-center gap-3">
+            <div className="hidden md:flex flex-col items-center gap-3">
               <Image
                 src="/logo/appStoreLogoDark.svg"
                 alt="appStoreIcon"

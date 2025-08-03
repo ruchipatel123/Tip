@@ -192,7 +192,7 @@ const coverflowLucideTestimonial = () => {
           {slides.map((slide, index) => (
             <div
               key={slide.id}
-              className="absolute w-100 h-full cursor-pointer rounded-2xl preserve-3d"
+              className="absolute w-80 md:w-100 h-full cursor-pointer rounded-2xl preserve-3d"
               style={getSlideStyle(index)}
               onClick={() => goToSlide(index)}
             >

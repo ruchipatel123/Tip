@@ -61,7 +61,7 @@ export default function PricingSection() {
             </div>
             
             {/* Card Content */}
-            <div className="bg-white rounded-b-2xl shadow-[0px_4px_20px_0px_rgba(0,0,0,0.1)] border border-black/10 p-4 sm:p-6 relative min-h-[380px] h-[430px]">
+            <div className="bg-white rounded-b-2xl shadow-[0px_4px_20px_0px_rgba(0,0,0,0.1)] border border-black/10 p-4 sm:p-6 relative md:min-h-[380px] md:h-[430px]">
               <div className="flex flex-col justify-between h-full gap-8">
                 <div className="flex flex-col gap-3 sm:gap-4">
                   <h3 className="font-['Poppins'] text-[24px] sm:text-[28px] font-medium leading-[32px] sm:leading-[36px] tracking-[-0.1px] text-black">
@@ -143,13 +143,12 @@ export default function PricingSection() {
         </div>
 
         {/* Guarantee Section */}
-        <div className="flex flex-col items-center gap-4 sm:gap-6 w-full max-w-xs lg:max-w-[273.33px]">
-          <div className="flex items-center gap-3 sm:gap-[13px] w-full">
+        <div className="flex flex-col items-center justify-center gap-4 sm:gap-6 w-full max-w-xs lg:max-w-[273.33px]">
+          <div className="flex items-center gap-3 sm:gap-[13px] w-full justify-center">
             <Image src='/logo/guarateeICon.svg' alt='starIcon' width={60} height={60} className="sm:w-[74px] sm:h-[74px]" style={{ filter: 'drop-shadow(0px 0px 20px #A0736540)' }} />
-             
-            <div className="font-['DM_Sans'] text-sm sm:text-base leading-5 sm:leading-6 text-[#684744] flex-1">
-              <div className="font-normal">GARANZIA 30 GIORNI</div>
-              <div className="font-normal">Soddisfata o rimborsata</div>
+            <div className="font-['DM_Sans'] text-sm sm:text-base leading-5 sm:leading-6 text-[#684744]">
+              <div className="font-normal w-fit">GARANZIA 30 GIORNI</div>
+              <div className="font-normal w-fit">Soddisfata o rimborsata</div>
             </div>
           </div>
         </div>

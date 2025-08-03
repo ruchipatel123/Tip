@@ -67,7 +67,7 @@ export default function TestimonialsSection() {
         alt="dotLineFive"
         width={361}
         height={413}
-        className="absolute -top-20 -left-[20%]"
+        className="absolute -top-20 -left-[20%] hidden md:block"
       />
           <h2 className="font-['Poppins'] text-[24px] sm:text-[32px] lg:text-[36px] leading-[32px] sm:leading-[42px] lg:leading-[47px] tracking-[-0.15px] font-normal text-black text-center">
             I risultati delle
@@ -204,7 +204,7 @@ export default function TestimonialsSection() {
       </div>
 
       {/* Mobile Layout */}
-      <div className="lg:hidden px-4 sm:px-6 space-y-8 sm:space-y-12">
+      <div className="lg:hidden px-2 sm:px-6 space-y-8 sm:space-y-12">
         {/* Mobile Intro Video */}
         <div className="w-full">
           <div className="mb-4 sm:mb-6">
@@ -252,22 +252,22 @@ export default function TestimonialsSection() {
               From our Inbox
             </h3>
           </div>
-          <div className="aspect-[4/5] max-w-sm mx-auto rounded-2xl overflow-hidden bg-[#F3EFEC]">
+          <div className="mx-auto py-10 rounded-2xl overflow-hidden bg-[#F3EFEC]">
             <div className="relative w-full h-full flex items-center justify-center gap-4">
               {/* Navigation Buttons */}
               <button
                 onClick={prevSlide}
-                className="w-10 h-10 bg-white border border-[rgba(104,71,68,0.1)] shadow-[0px_2px_20px_0px_rgba(0,0,0,0.08)] rounded-full flex items-center justify-center hover:bg-gray-50 transition-colors z-10"
+                className="w-10 h-10 hidden md:flex bg-white border border-[rgba(104,71,68,0.1)] shadow-[0px_2px_20px_0px_rgba(0,0,0,0.08)] rounded-full  items-center justify-center hover:bg-gray-50 transition-colors z-10"
               >
                 <IoIosArrowBack size={16} />
               </button>
 
               {/* Phone Mockup */}
-              <div className="relative flex-1 max-w-[200px] aspect-[9/16]">
-                <div className="w-full h-full bg-white rounded-2xl shadow-[0px_4px_10px_0px_rgba(0,0,0,0.25)] overflow-hidden">
+              <div className="relative max-w-[325px] mx-auto">
+                <div className="w-[90%] h-[90%] sm:w-full sm:h-full mx-auto bg-white rounded-2xl shadow-[0px_4px_10px_0px_rgba(0,0,0,0.25)] overflow-hidden">
                   <video
                     key={currentTestimonial.video}
-                    className="w-full h-full object-contain"
+                    className="w-[90%] h-[90%] sm:w-full sm:h-full object-contain"
                     autoPlay
                     muted
                     playsInline
@@ -281,24 +281,42 @@ export default function TestimonialsSection() {
 
               <button
                 onClick={nextSlide}
-                className="w-10 h-10 bg-white border border-[rgba(104,71,68,0.1)] shadow-[0px_2px_20px_0px_rgba(0,0,0,0.08)] rounded-full flex items-center justify-center hover:bg-gray-50 transition-colors z-10"
+                className="w-10 h-10 hidden md:flex bg-white border border-[rgba(104,71,68,0.1)] shadow-[0px_2px_20px_0px_rgba(0,0,0,0.08)] rounded-full  items-center justify-center hover:bg-gray-50 transition-colors z-10"
               >
                 <IoIosArrowForward size={16} />
               </button>
+             
 
               {/* Pagination dots */}
-              <div className="absolute bottom-6 left-1/2 transform -translate-x-1/2 flex items-center gap-1">
+         
+              
+            </div>
+            <div className="flex items-center gap-1 justify-center my-5">
                 {testimonials.map((_, index) => (
                   <button
                     key={index}
                     onClick={() => setCurrentSlide(index)}
-                    className={`w-2 h-[4px]  md:w-4 md:h-0.5 transition-colors ${
+                    className={`w-6 h-[3px]  md:w-4 md:h-0.5 transition-colors ${
                       index === currentSlide ? "bg-[#98685E]" : "bg-black/10"
                     }`}
                   />
                 ))}
               </div>
-            </div>
+            <div className="flex flex-row gap-2 justify-center">
+                 
+                 <button
+                   onClick={prevSlide}
+                   className="w-10 h-10 bg-white border border-[rgba(104,71,68,0.1)] shadow-[0px_2px_20px_0px_rgba(0,0,0,0.08)] rounded-full flex items-center justify-center hover:bg-gray-50 transition-colors z-10"
+                 >
+                   <IoIosArrowBack size={16} />
+                 </button>
+                 <button
+                   onClick={nextSlide}
+                   className="w-10 h-10 bg-white border border-[rgba(104,71,68,0.1)] shadow-[0px_2px_20px_0px_rgba(0,0,0,0.08)] rounded-full flex items-center justify-center hover:bg-gray-50 transition-colors z-10"
+                 >
+                   <IoIosArrowForward size={16} />
+                 </button>
+                 </div>
           </div>
         </div>
       </div>

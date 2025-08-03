@@ -12,7 +12,7 @@ const CarouselCoverLucide = () => {
   const touchEndX = useRef(0);
   const videoRef = useRef(null);
 
-  const [activeCard, setActiveCard] = useState('Tutti');
+  const [activeCard, setActiveCard] = useState("Tutti");
 
   // Close accordion when slide changes
   useEffect(() => {
@@ -25,56 +25,61 @@ const CarouselCoverLucide = () => {
       id: 1,
       title: "Pilates Linfodrenante™",
       image: "/images/carouselleft1.png",
-      description: "L'esclusivo Pilates per eliminare la ritenzione, migliorare la cricolazione e tonificare",
+      description:
+        "L'esclusivo Pilates per eliminare la ritenzione, migliorare la cricolazione e tonificare",
       duration: "5-25",
       frequency: "3 volte a settimana",
       level: "principiante",
       objectives: "ritenzione, sgonfiare, tonificare",
-      equipment: "nessun attrezzo richiesto"
+      equipment: "nessun attrezzo richiesto",
     },
     {
       id: 2,
       title: "Pilates Tonificante™",
       image: "/images/carouselleft2.jpeg",
-      description: "Pilates intensivo per sviluppare forza muscolare e definizione corporea",
+      description:
+        "Pilates intensivo per sviluppare forza muscolare e definizione corporea",
       duration: "15-30",
       frequency: "4 volte a settimana",
       level: "intermedio",
       objectives: "tonificare, rinforzare, definire",
-      equipment: "elastici, pesi leggeri"
+      equipment: "elastici, pesi leggeri",
     },
     {
       id: 3,
       title: "Pilates Cardio™",
       image: "/images/carouselcenter.jpg",
-      description: "Combinazione dinamica di Pilates e cardio per bruciare calorie e migliorare la resistenza",
+      description:
+        "Combinazione dinamica di Pilates e cardio per bruciare calorie e migliorare la resistenza",
       duration: "20-40",
       frequency: "3-4 volte a settimana",
       level: "avanzato",
       objectives: "dimagrire, resistenza, energia",
-      equipment: "tappetino, palla pilates"
+      equipment: "tappetino, palla pilates",
     },
     {
       id: 4,
       title: "Pilates Posturale™",
       image: "/images/carouselright1.png",
-      description: "Esercizi mirati per migliorare la postura e alleviare tensioni della colonna vertebrale",
+      description:
+        "Esercizi mirati per migliorare la postura e alleviare tensioni della colonna vertebrale",
       duration: "10-20",
       frequency: "5 volte a settimana",
       level: "principiante",
       objectives: "postura, flessibilità, benessere",
-      equipment: "cuscino, rullo foam"
+      equipment: "cuscino, rullo foam",
     },
     {
       id: 5,
       title: "Pilates Pre/Post Parto™",
       image: "/images/carouselright2.png",
-      description: "Programma specializzato per supportare il corpo durante e dopo la gravidanza",
+      description:
+        "Programma specializzato per supportare il corpo durante e dopo la gravidanza",
       duration: "15-25",
       frequency: "2-3 volte a settimana",
       level: "adattato",
       objectives: "forza core, recupero, benessere",
-      equipment: "palla, fasce elastiche"
+      equipment: "palla, fasce elastiche",
     },
   ];
 
@@ -101,7 +106,7 @@ const CarouselCoverLucide = () => {
 
   const handleDetailsClick = (e, slideId) => {
     e.stopPropagation(); // Prevent slide navigation
-    
+
     if (expandedCard === slideId) {
       // Close accordion
       setExpandedCard(null);
@@ -213,19 +218,60 @@ const CarouselCoverLucide = () => {
 
   return (
     <div className="relative w-full bg-white py-20 overflow-hidden">
-      <h1 className="text-center text-4xl font-normal">
-        Allenamenti su misura per <br /> te per risultati garantiti
+      <h1 className="text-center text-3xl md:text-4xl font-normal max-w-[290px] mx-auto">
+        Allenamenti su misura per <br className="hidden md:block" /> te per
+        risultati garantiti
       </h1>
       {/* Main carousel container */}
-      <div className="flex flex-wrap items-center justify-center gap-6 mt-10 text-3xl font-normal">
-        <p className={`${activeCard === 'Tutti' ? 'text-black' : 'opacity-20'} cursor-pointer`} onClick={() => setActiveCard('Tutti')}>
+      <div className="flex flex-wrap items-center justify-between md:justify-start gap-2 sm:gap-6 mt-10 text-2xl md:text-3xl font-normal px-4">
+        <p
+          className={`${
+            activeCard === "Tutti" ? "text-black" : "opacity-20"
+          } cursor-pointer`}
+          onClick={() => setActiveCard("Tutti")}
+        >
           Tutti <span className="text-black align-super text-xl">10</span>
         </p>
-        <p className={`${activeCard === 'Pilates' ? 'text-black' : 'opacity-20'} cursor-pointer`} onClick={() => setActiveCard('Pilates')}>Pilates</p>
-        <p className={`${activeCard === 'Tonificazione' ? 'text-black' : 'opacity-20'} cursor-pointer`} onClick={() => setActiveCard('Tonificazione')}>Tonificazione</p>
-        <p className={`${activeCard === 'Cardio' ? 'text-black' : 'opacity-20'} cursor-pointer`} onClick={() => setActiveCard('Cardio')}>Cardio</p>
-        <p className={`${activeCard === 'Yoga' ? 'text-black' : 'opacity-20'} cursor-pointer`} onClick={() => setActiveCard('Yoga')}>Yoga</p>
-        <p className={`${activeCard === 'Pre e post parto' ? 'text-black' : 'opacity-20'} cursor-pointer`} onClick={() => setActiveCard('Pre e post parto')}>Pre e post parto</p>
+        <p
+          className={`${
+            activeCard === "Pilates" ? "text-black" : "opacity-20"
+          } cursor-pointer`}
+          onClick={() => setActiveCard("Pilates")}
+        >
+          Pilates
+        </p>
+        <p
+          className={`${
+            activeCard === "Tonificazione" ? "text-black" : "opacity-20"
+          } cursor-pointer`}
+          onClick={() => setActiveCard("Tonificazione")}
+        >
+          Tonificazione
+        </p>
+        <p
+          className={`${
+            activeCard === "Cardio" ? "text-black" : "opacity-20"
+          } cursor-pointer`}
+          onClick={() => setActiveCard("Cardio")}
+        >
+          Cardio
+        </p>
+        <p
+          className={`${
+            activeCard === "Yoga" ? "text-black" : "opacity-20"
+          } cursor-pointer`}
+          onClick={() => setActiveCard("Yoga")}
+        >
+          Yoga
+        </p>
+        <p
+          className={`${
+            activeCard === "Pre e post parto" ? "text-black" : "opacity-20"
+          } cursor-pointer`}
+          onClick={() => setActiveCard("Pre e post parto")}
+        >
+          Pre e post parto
+        </p>
       </div>
       <div className="relative h-full flex items-center justify-center px-4 mt-10">
         {/* Carousel container */}
@@ -240,17 +286,17 @@ const CarouselCoverLucide = () => {
           {slides.map((slide, index) => (
             <div
               key={slide.id}
-              className="absolute w-100 h-full cursor-pointer rounded-2xl preserve-3d"
+              className="absolute w-80 md:w-100 h-[90%] md:h-full  cursor-pointer rounded-2xl preserve-3d"
               style={getSlideStyle(index)}
               onClick={() => goToSlide(index)}
             >
               <div className="relative w-full h-full bg-white rounded-2xl overflow-hidden">
                 {/* Video container - shows in top 50% when accordion is expanded */}
                 {expandedCard === slide.id && index === currentIndex && (
-                  <div className="absolute top-0 left-0 w-full h-1/2 overflow-hidden z-20">
+                  <div className="absolute bg-[#F3EFEC] top-0 left-0 w-full h-[50%] md:h-1/2 overflow-hidden z-20 flex items-center justify-center">
                     <video
                       ref={videoRef}
-                      className="w-full h-full object-cover rounded-t-2xl"
+                      className="w-full h-full object-cover md:rounded-t-2xl"
                       autoPlay
                       muted
                       loop
@@ -263,24 +309,27 @@ const CarouselCoverLucide = () => {
                 )}
 
                 {/* Image container - always present, but hidden when accordion is expanded */}
-                <div className={`relative w-full h-full transition-all duration-700 ease-in-out ${
-                  expandedCard === slide.id && index === currentIndex ? 'opacity-0' : 'opacity-100'
-                }`}>
+                <div
+                  className={`relative w-full h-full transition-all duration-700 ease-in-out ${
+                    expandedCard === slide.id && index === currentIndex
+                      ? "opacity-0"
+                      : "opacity-100"
+                  }`}
+                >
                   <Image
                     src={slide.image}
                     alt={slide.title}
                     className="w-full h-full object-cover rounded-t-2xl"
                     width={483}
                     height={603}
-                     
                   />
                   {/* White overlay for inactive cards */}
                   {index !== currentIndex && (
-                    <div 
+                    <div
                       className="absolute inset-0 bg-white rounded-t-2xl"
-                      style={{ 
-                        mixBlendMode: 'lighten',
-                        opacity: 0.6
+                      style={{
+                        mixBlendMode: "lighten",
+                        opacity: 0.6,
                       }}
                     />
                   )}
@@ -288,7 +337,7 @@ const CarouselCoverLucide = () => {
 
                 {/* Content - only visible on active card when NOT expanded */}
                 {index === currentIndex && expandedCard !== slide.id && (
-                  <div 
+                  <div
                     className="absolute bottom-0 left-0 w-full h-16 bg-[#F3EFEC] flex items-center justify-between px-4 rounded-b-2xl cursor-pointer transition-all duration-300 hover:bg-[#ece3dc] z-30"
                     onClick={(e) => handleDetailsClick(e, slide.id)}
                   >
@@ -296,22 +345,24 @@ const CarouselCoverLucide = () => {
                       {slide.title}
                     </h3>
                     <p className="text-black font-dm-sans text-base font-normal leading-[1.625em] flex items-center gap-2">
-                      Details 
+                      Details
                       <FaArrowRight />
                     </p>
                   </div>
                 )}
 
                 {/* Expanded Accordion - slides up from bottom as overlay */}
-                <div className={`absolute bottom-0 left-0 w-full bg-[#F3EFEC] rounded-b-2xl transition-all duration-500 ease-in-out z-25 ${
-                  expandedCard === slide.id && index === currentIndex 
-                    ? 'h-1/2 translate-y-0 opacity-100' 
-                    : 'h-0 translate-y-full opacity-0'
-                }`}>
+                <div
+                  className={`absolute bottom-0 left-0 w-full bg-[#F3EFEC] rounded-b-2xl transition-all duration-500 ease-in-out z-25 ${
+                    expandedCard === slide.id && index === currentIndex
+                      ? "h-1/2 translate-y-0 opacity-100"
+                      : "h-0 translate-y-full opacity-0"
+                  }`}
+                >
                   {expandedCard === slide.id && index === currentIndex && (
                     <div className="h-full flex flex-col">
                       {/* Header with title and close button - now at top of accordion */}
-                      <div 
+                      <div
                         className="h-14 bg-[#F3EFEC] flex items-center justify-between px-4 cursor-pointer transition-all duration-300 hover:bg-[#ece3dc] flex-shrink-0"
                         onClick={(e) => handleDetailsClick(e, slide.id)}
                       >
@@ -319,7 +370,7 @@ const CarouselCoverLucide = () => {
                           {slide.title}
                         </h3>
                         <p className="text-black font-dm-sans text-base font-normal leading-[1.625em] flex items-center gap-2">
-                          Details 
+                          Details
                           <FaArrowRight className="rotate-90" />
                         </p>
                       </div>
@@ -331,12 +382,11 @@ const CarouselCoverLucide = () => {
                           <p className="text-black mb-2 font-dm-sans text-base leading-[1.625em] max-w-[342px]">
                             {slide.description}
                           </p>
-                          
-                          
+
                           {/* Content grid with vertical divider */}
                           <div className="relative">
                             {/* Vertical divider line */}
-                            
+
                             {/* Left Column */}
                             <div className="flex justify-between border-b border-[#DBD7D4]">
                               {/* Allenamenti Section */}
@@ -356,7 +406,7 @@ const CarouselCoverLucide = () => {
                                   {slide.frequency}
                                 </p>
                               </div>
-                              
+
                               {/* Livello Section */}
                               <div className="w-1/2 py-2 border-l border-[#DBD7D4] pl-4">
                                 <h4 className="text-black font-dm-sans text-sm font-normal leading-[1.5em] opacity-40">
@@ -366,13 +416,10 @@ const CarouselCoverLucide = () => {
                                   {slide.level}
                                 </p>
                               </div>
-                              
                             </div>
-                            
+
                             {/* Right Column */}
                             <div className="flex justify-between">
-                              
-
                               {/* Obiettivi Section */}
                               <div className="w-1/2 py-2">
                                 <h4 className="text-black font-dm-sans text-sm font-normal leading-[1.5em] opacity-40">
@@ -421,29 +468,40 @@ const CarouselCoverLucide = () => {
           <ChevronRight className="w-6 h-6 text-black" />
         </button>
       </div>
-      <div className="flex flex-col bg-white z-10 mt-12 lg:flex-row items-center justify-center gap-6 sm:gap-8 relative">
-            {/* Primary CTA */}
-            <button className="primary-cta flex items-center justify-center gap-3 bg-[#f3efec] border border-[rgba(0,0,0,0.10)] rounded-lg shadow-[0_2px_20px_0_rgba(0,0,0,0.15)] px-4 py-3 text-[#684744] text-lg sm:text-xl font-medium leading-snug w-full sm:min-w-60 sm:w-auto h-14">
-              <span className="font-bold text-center">Parlaci dei tuoi obiettivi</span>
-              <FaArrowRight size={15} />
-            </button>
+      <div className="flex flex-col bg-white z-10 mt-12 lg:flex-row items-center justify-center gap-6 sm:gap-8 relative px-4">
+        {/* Primary CTA */}
+        <button className="primary-cta flex items-center justify-center gap-3 bg-[#f3efec] border border-[rgba(0,0,0,0.10)] rounded-lg shadow-[0_2px_20px_0_rgba(0,0,0,0.15)] px-4 py-3 text-[#684744] text-lg sm:text-xl font-medium leading-snug w-full sm:min-w-60 sm:w-auto h-14">
+          <span className="font-bold text-center">
+            Parlaci dei tuoi obiettivi
+          </span>
+          <FaArrowRight size={15} />
+        </button>
 
-            {/* OR Text */}
-            <span className="text-black font-dm-sans text-lg font-normal opacity-90">
-              oppure
-            </span>
+        {/* OR Text */}
+        <span className="text-black font-dm-sans text-lg font-normal opacity-90">
+          oppure
+        </span>
 
-            {/* Secondary CTA */}
-            <button className="secondary-cta flex items-center justify-center gap-3 bg-[#684744] border border-[rgba(243,239,236,0.20)] rounded-lg shadow-[0_2px_20px_0_rgba(0,0,0,0.15)] px-4 py-3 text-white text-lg sm:text-xl font-medium leading-snug w-full sm:min-w-60 sm:w-auto h-14">
-              <span className="font-bold">Inizia la prova gratuita</span>
-              <FaArrowRight size={15} />
-               
-            </button>
-            <Image src='/dotLineSix.svg' alt='dotLineSix' width={270} height={207} className="absolute bottom-13 left-[51%]" />
-      <Image src='/dotLineFour.svg' alt='dotLineSeven' width={2} height={50} className="absolute -bottom-30 left-[51%]" />
-
-          </div>
-      
+        {/* Secondary CTA */}
+        <button className="secondary-cta flex items-center justify-center gap-3 bg-[#684744] border border-[rgba(243,239,236,0.20)] rounded-lg shadow-[0_2px_20px_0_rgba(0,0,0,0.15)] px-4 py-3 text-white text-lg sm:text-xl font-medium leading-snug w-full sm:min-w-60 sm:w-auto h-14">
+          <span className="font-bold">Inizia la prova gratuita</span>
+          <FaArrowRight size={15} />
+        </button>
+        <Image
+          src="/dotLineSix.svg"
+          alt="dotLineSix"
+          width={270}
+          height={207}
+          className="absolute bottom-13 left-[51%] hidden md:block"
+        />
+        <Image
+          src="/dotLineFour.svg"
+          alt="dotLineSeven"
+          width={2}
+          height={50}
+          className="absolute -bottom-30 left-[51%] hidden md:block"
+        />
+      </div>
     </div>
   );
 };

@@ -70,7 +70,7 @@ export default function HeroSection() {
 
       {/* Header Navigation */}
       <header
-        className="relative z-20 px-4 sm:px-6 lg:px-10 pt-3 pb-6"
+        className="relative z-20 px-2 sm:px-6 lg:px-10 pt-3 pb-6"
         style={{
           background:
             "linear-gradient(180deg, #000000 0%, rgba(0, 0, 0, 0) 100%)",
@@ -89,9 +89,9 @@ export default function HeroSection() {
               priority
             />
           </div>
-          <div className="flex items-center gap-4">
+          <div className="flex items-center gap-2 sm:gap-4">
           <button className="w-fit bg-[#684744] border border-[rgba(243,239,236,0.20)] rounded-lg shadow-[0_2px_20px_0_rgba(0,0,0,0.15)] px-1 sm:px-4 py-3 text-white text-lg font-medium leading-snug h-12 hover:bg-[#7a5653] transition-colors flex items-center justify-center gap-3">
-            <span className="font-bold">Prova gratis</span>
+            <p className="font-poppins">Prova gratis</p>
              <FaArrowRight />
           </button>
           {/* Hamburger Menu Button */}
@@ -166,7 +166,7 @@ export default function HeroSection() {
                 </span>
               </div>
               <button className="cta-button flex items-center justify-center gap-3 bg-[#684744] border border-[rgba(243,239,236,0.20)] rounded-lg shadow-[0_2px_20px_0_rgba(0,0,0,0.15)] px-4 py-3 text-white text-xl font-medium leading-snug min-w-60 h-14 hover:bg-[#7a5653] transition-colors">
-                <span className="font-bold font-['DM Sans']">
+                <span className="font-bold font-dm-sans">
                   Inizia la prova gratuita
                 </span>
                 <FaArrowRight size={15} />
@@ -262,7 +262,7 @@ export default function HeroSection() {
                 Dal 2019 abbiamo aiutato 159.000 donne ad ottenere il corpo dei
                 loro sogni
               </span>
-              <span className="block lg:hidden text-3xl font-normal">
+              <span className="block font-poppins lg:hidden text-3xl font-normal">
               L'app di Pilates e <br/> allenamento<br/>
               n. 1 in Italia
               </span>

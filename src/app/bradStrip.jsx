@@ -10,7 +10,7 @@ export default function BradStrip() {
     "/logo/graza.svg",
   ];
   return (
-    <section className="flex overflow-x-auto gap-10 justify-between items-center p-4 md:p-10 md:py-13 max-w-[1328px] mx-auto">
+    <section className="flex overflow-x-auto gap-10 justify-between items-center p-4 md:p-10 md:py-13 max-w-[1328px] mx-auto [&::-webkit-scrollbar]:h-1 [&::-webkit-scrollbar-track]:bg-gray-100 [&::-webkit-scrollbar-thumb]:bg-gray-300 [&::-webkit-scrollbar-thumb]:rounded-full">
       {logos?.map((logo, index) => {
         return (
           <div key={index}>
