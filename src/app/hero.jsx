@@ -52,18 +52,26 @@ export default function HeroSection() {
     >
       {/* Video Background */}
       <video
-        className={`absolute inset-0 w-full h-full object-cover ${
+        className={`absolute inset-0 w-full h-full min-h-screen object-cover transition-opacity duration-1000 ease-in-out ${
           videoLoaded ? "opacity-100" : "opacity-0"
         }`}
+        style={{
+          objectPosition: 'center center',
+        }}
         autoPlay
         muted
         loop
         playsInline
+        preload="metadata"
         onLoadedData={() => setVideoLoaded(true)}
         onError={() => setVideoLoaded(false)}
+        onCanPlay={() => setVideoLoaded(true)}
       >
         <source src="/videos/herovideo.mp4" type="video/mp4" />
       </video>
+
+      {/* Loading Indicator */}
+      
 
       {/* Overlay to ensure text readability */}
       <div className="absolute inset-0 bg-black/20 md:bg-transparent"></div>
