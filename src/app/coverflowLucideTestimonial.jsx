@@ -4,14 +4,8 @@ import { ChevronLeft, ChevronRight } from "lucide-react";
 import Image from "next/image";
 import { FaArrowRight } from "react-icons/fa6";
 const coverflowLucideTestimonial = () => {
-  const [currentIndex, setCurrentIndex] = useState(2);
-  const [isAnimating, setIsAnimating] = useState(false);
-  const containerRef = useRef(null);
-  const touchStartX = useRef(0);
-  const touchEndX = useRef(0);
-
-  // Sample data for the carousel - you can replace with your actual content
-  const slides = [
+  // Create extended slides array with clones for infinite effect
+  const originalSlides = [
     {
       id: 1,
       name: "Giulia S.",
@@ -54,25 +48,97 @@ const coverflowLucideTestimonial = () => {
     },
   ];
 
+  // Create infinite slides by cloning first and last slides
+  const slides = [
+    // Clone last 2 slides at the beginning
+    { ...originalSlides[originalSlides.length - 2], id: `clone-${originalSlides[originalSlides.length - 2].id}-start-2` },
+    { ...originalSlides[originalSlides.length - 1], id: `clone-${originalSlides[originalSlides.length - 1].id}-start-1` },
+    // Original slides
+    ...originalSlides,
+    // Clone first 2 slides at the end
+    { ...originalSlides[0], id: `clone-${originalSlides[0].id}-end-1` },
+    { ...originalSlides[1], id: `clone-${originalSlides[1].id}-end-2` },
+  ];
+
+  const [currentIndex, setCurrentIndex] = useState(2 + 2); // Start at original slide index 2 + 2 clones at start
+  const [isAnimating, setIsAnimating] = useState(false);
+  const containerRef = useRef(null);
+  const touchStartX = useRef(0);
+  const touchEndX = useRef(0);
+  const [isTransitioning, setIsTransitioning] = useState(true);
+
   const nextSlide = () => {
     if (isAnimating) return;
     setIsAnimating(true);
-    setCurrentIndex((prev) => (prev + 1) % slides.length);
-    setTimeout(() => setIsAnimating(false), 600);
+    setIsTransitioning(true);
+    setCurrentIndex(prev => prev + 1);
+    
+    setTimeout(() => {
+      setIsAnimating(false);
+      // Check if we're at a cloned slide and need to reset
+      if (currentIndex + 1 >= slides.length - 2) {
+        // We're at the end clones, jump to beginning of original slides
+        setIsTransitioning(false);
+        setCurrentIndex(2); // First original slide (after 2 clones)
+        setTimeout(() => setIsTransitioning(true), 50);
+      }
+    }, 600);
   };
 
   const prevSlide = () => {
     if (isAnimating) return;
     setIsAnimating(true);
-    setCurrentIndex((prev) => (prev - 1 + slides.length) % slides.length);
-    setTimeout(() => setIsAnimating(false), 600);
+    setIsTransitioning(true);
+    setCurrentIndex(prev => prev - 1);
+    
+    setTimeout(() => {
+      setIsAnimating(false);
+      // Check if we're at a cloned slide and need to reset
+      if (currentIndex - 1 <= 1) {
+        // We're at the start clones, jump to end of original slides
+        setIsTransitioning(false);
+        setCurrentIndex(slides.length - 3); // Last original slide (before 2 clones)
+        setTimeout(() => setIsTransitioning(true), 50);
+      }
+    }, 600);
   };
 
   const goToSlide = (index) => {
-    if (isAnimating || index === currentIndex) return;
-    setIsAnimating(true);
-    setCurrentIndex(index);
-    setTimeout(() => setIsAnimating(false), 600);
+    if (isAnimating) return;
+    
+    // Calculate current position in original slides (0-4)
+    const totalSlides = originalSlides.length;
+    const currentOriginalIndex = ((currentIndex - 2) + totalSlides) % totalSlides;
+    const targetOriginalIndex = index;
+    
+    if (currentOriginalIndex === targetOriginalIndex) return;
+    
+    // Calculate shortest path distances
+    const forwardDistance = (targetOriginalIndex - currentOriginalIndex + totalSlides) % totalSlides;
+    const backwardDistance = (currentOriginalIndex - targetOriginalIndex + totalSlides) % totalSlides;
+    
+    // Create a navigation queue to smoothly animate to target
+    let steps;
+    let navigationFunction;
+    
+    if (forwardDistance <= backwardDistance) {
+      steps = forwardDistance;
+      navigationFunction = nextSlide;
+    } else {
+      steps = backwardDistance;
+      navigationFunction = prevSlide;
+    }
+    
+    // Execute navigation steps with proper timing
+    const executeNavigation = (remainingSteps) => {
+      if (remainingSteps > 0) {
+        navigationFunction();
+        // Wait for current animation to complete before next step
+        setTimeout(() => executeNavigation(remainingSteps - 1), 650);
+      }
+    };
+    
+    executeNavigation(steps);
   };
 
   // Touch handlers
@@ -164,7 +230,7 @@ const coverflowLucideTestimonial = () => {
       opacity,
       zIndex,
       boxShadow,
-      transition: isAnimating
+      transition: isTransitioning && (isAnimating || diff === 0)
         ? "all 0.6s cubic-bezier(0.25, 0.46, 0.45, 0.94)"
         : "none",
     };
@@ -194,7 +260,17 @@ const coverflowLucideTestimonial = () => {
               key={slide.id}
               className="absolute w-80 md:w-100 h-full cursor-grab rounded-2xl preserve-3d"
               style={getSlideStyle(index)}
-              onClick={() => goToSlide(index)}
+              onClick={() => {
+                // For cloned slides, calculate the equivalent original slide index
+                if (slide.id.toString().includes('clone')) {
+                  const originalId = parseInt(slide.id.split('-')[1]);
+                  const originalIndex = originalSlides.findIndex(s => s.id === originalId);
+                  goToSlide(originalIndex);
+                } else {
+                  const originalIndex = originalSlides.findIndex(s => s.id === slide.id);
+                  goToSlide(originalIndex);
+                }
+              }}
             >
               <div className="relative w-full h-full bg-white rounded-2xl ">
                 {/* Image container - full height */}

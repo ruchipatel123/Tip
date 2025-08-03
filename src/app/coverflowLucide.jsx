@@ -4,23 +4,8 @@ import { ChevronLeft, ChevronRight } from "lucide-react";
 import Image from "next/image";
 import { FaArrowRight } from "react-icons/fa6";
 const CarouselCoverLucide = () => {
-  const [currentIndex, setCurrentIndex] = useState(2);
-  const [isAnimating, setIsAnimating] = useState(false);
-  const [expandedCard, setExpandedCard] = useState(null);
-  const containerRef = useRef(null);
-  const touchStartX = useRef(0);
-  const touchEndX = useRef(0);
-  const videoRef = useRef(null);
-
-  const [activeCard, setActiveCard] = useState("Tutti");
-
-  // Close accordion when slide changes
-  useEffect(() => {
-    setExpandedCard(null);
-  }, [currentIndex]);
-
-  // Sample data for the carousel - you can replace with your actual content
-  const slides = [
+  // Create extended slides array with clones for infinite effect
+  const originalSlides = [
     {
       id: 1,
       title: "Pilates Linfodrenante™",
@@ -83,25 +68,106 @@ const CarouselCoverLucide = () => {
     },
   ];
 
+  // Create infinite slides by cloning first and last slides
+  const slides = [
+    // Clone last 2 slides at the beginning
+    { ...originalSlides[originalSlides.length - 2], id: `clone-${originalSlides[originalSlides.length - 2].id}-start-2` },
+    { ...originalSlides[originalSlides.length - 1], id: `clone-${originalSlides[originalSlides.length - 1].id}-start-1` },
+    // Original slides
+    ...originalSlides,
+    // Clone first 2 slides at the end
+    { ...originalSlides[0], id: `clone-${originalSlides[0].id}-end-1` },
+    { ...originalSlides[1], id: `clone-${originalSlides[1].id}-end-2` },
+  ];
+
+  const [currentIndex, setCurrentIndex] = useState(2 + 2); // Start at original slide index 2 + 2 clones at start
+  const [isAnimating, setIsAnimating] = useState(false);
+  const [expandedCard, setExpandedCard] = useState(null);
+  const containerRef = useRef(null);
+  const touchStartX = useRef(0);
+  const touchEndX = useRef(0);
+  const videoRef = useRef(null);
+  const [isTransitioning, setIsTransitioning] = useState(true);
+
+  const [activeCard, setActiveCard] = useState("Tutti");
+
+  // Close accordion when slide changes
+  useEffect(() => {
+    setExpandedCard(null);
+  }, [currentIndex]);
+
   const nextSlide = () => {
     if (isAnimating) return;
     setIsAnimating(true);
-    setCurrentIndex((prev) => (prev + 1) % slides.length);
-    setTimeout(() => setIsAnimating(false), 600);
+    setIsTransitioning(true);
+    setCurrentIndex(prev => prev + 1);
+    
+    setTimeout(() => {
+      setIsAnimating(false);
+      // Check if we're at a cloned slide and need to reset
+      if (currentIndex + 1 >= slides.length - 2) {
+        // We're at the end clones, jump to beginning of original slides
+        setIsTransitioning(false);
+        setCurrentIndex(2); // First original slide (after 2 clones)
+        setTimeout(() => setIsTransitioning(true), 50);
+      }
+    }, 600);
   };
 
   const prevSlide = () => {
     if (isAnimating) return;
     setIsAnimating(true);
-    setCurrentIndex((prev) => (prev - 1 + slides.length) % slides.length);
-    setTimeout(() => setIsAnimating(false), 600);
+    setIsTransitioning(true);
+    setCurrentIndex(prev => prev - 1);
+    
+    setTimeout(() => {
+      setIsAnimating(false);
+      // Check if we're at a cloned slide and need to reset
+      if (currentIndex - 1 <= 1) {
+        // We're at the start clones, jump to end of original slides
+        setIsTransitioning(false);
+        setCurrentIndex(slides.length - 3); // Last original slide (before 2 clones)
+        setTimeout(() => setIsTransitioning(true), 50);
+      }
+    }, 600);
   };
 
   const goToSlide = (index) => {
-    if (isAnimating || index === currentIndex) return;
-    setIsAnimating(true);
-    setCurrentIndex(index);
-    setTimeout(() => setIsAnimating(false), 600);
+    if (isAnimating) return;
+    
+    // Calculate current position in original slides (0-4)
+    const totalSlides = originalSlides.length;
+    const currentOriginalIndex = ((currentIndex - 2) + totalSlides) % totalSlides;
+    const targetOriginalIndex = index;
+    
+    if (currentOriginalIndex === targetOriginalIndex) return;
+    
+    // Calculate shortest path distances
+    const forwardDistance = (targetOriginalIndex - currentOriginalIndex + totalSlides) % totalSlides;
+    const backwardDistance = (currentOriginalIndex - targetOriginalIndex + totalSlides) % totalSlides;
+    
+    // Create a navigation queue to smoothly animate to target
+    let steps;
+    let navigationFunction;
+    
+    if (forwardDistance <= backwardDistance) {
+      steps = forwardDistance;
+      navigationFunction = nextSlide;
+    } else {
+      steps = backwardDistance;
+      navigationFunction = prevSlide;
+    }
+    
+    // Execute navigation steps with proper timing
+    const executeNavigation = (remainingSteps) => {
+      if (remainingSteps > 0) {
+        navigationFunction();
+        // Wait for current animation to complete before next step
+        setTimeout(() => executeNavigation(remainingSteps - 1), 650);
+      }
+    };
+    
+    executeNavigation(steps);
   };
 
   const handleDetailsClick = (e, slideId) => {
@@ -210,7 +276,7 @@ const CarouselCoverLucide = () => {
       opacity,
       zIndex,
       boxShadow,
-      transition: isAnimating
+      transition: isTransitioning && (isAnimating || diff === 0)
         ? "all 0.6s cubic-bezier(0.25, 0.46, 0.45, 0.94)"
         : "none",
     };
@@ -296,163 +362,183 @@ const CarouselCoverLucide = () => {
               key={slide.id}
               className="absolute w-80 md:w-100 h-[90%] md:h-full  cursor-grab rounded-2xl preserve-3d"
               style={getSlideStyle(index)}
-              onClick={() => goToSlide(index)}
+              onClick={() => {
+                // For cloned slides, calculate the equivalent original slide index
+                if (slide.id.toString().includes('clone')) {
+                  const originalId = parseInt(slide.id.split('-')[1]);
+                  const originalIndex = originalSlides.findIndex(s => s.id === originalId);
+                  goToSlide(originalIndex);
+                } else {
+                  const originalIndex = originalSlides.findIndex(s => s.id === slide.id);
+                  goToSlide(originalIndex);
+                }
+              }}
             >
               <div className="relative w-full h-full bg-white rounded-2xl overflow-hidden">
-                {/* Video container - shows in top 50% when accordion is expanded */}
-                {expandedCard === slide.id && index === currentIndex && (
-                  <div className="absolute bg-[#F3EFEC] top-0 left-0 w-full h-[50%] md:h-1/2 overflow-hidden z-20 flex items-center justify-center">
-                    <video
-                      ref={videoRef}
-                      className="w-full h-full object-cover md:rounded-t-2xl"
-                      autoPlay
-                      muted
-                      loop
-                      playsInline
-                    >
-                      <source src="/videos/herovideo.mp4" type="video/mp4" />
-                      Your browser does not support the video tag.
-                    </video>
-                  </div>
-                )}
+                {/* Get the original slide ID for comparison */}
+                {(() => {
+                  const originalSlideId = slide.id.toString().includes('clone') 
+                    ? parseInt(slide.id.split('-')[1]) 
+                    : slide.id;
+                  const isExpanded = expandedCard === originalSlideId && index === currentIndex;
+                  
+                  return (
+                    <>
+                      {/* Video container - shows in top 50% when accordion is expanded */}
+                      {isExpanded && (
+                        <div className="absolute bg-[#F3EFEC] top-0 left-0 w-full h-[50%] md:h-1/2 overflow-hidden z-20 flex items-center justify-center">
+                          <video
+                            ref={videoRef}
+                            className="w-full h-full object-cover md:rounded-t-2xl"
+                            autoPlay
+                            muted
+                            loop
+                            playsInline
+                          >
+                            <source src="/videos/herovideo.mp4" type="video/mp4" />
+                            Your browser does not support the video tag.
+                          </video>
+                        </div>
+                      )}
 
-                {/* Image container - always present, but hidden when accordion is expanded */}
-                <div
-                  className={`relative w-full h-full transition-all duration-700 ease-in-out ${
-                    expandedCard === slide.id && index === currentIndex
-                      ? "opacity-0"
-                      : "opacity-100"
-                  }`}
-                >
-                  <Image
-                    src={slide.image}
-                    alt={slide.title}
-                    className="w-full h-full object-cover rounded-t-2xl"
-                    width={483}
-                    height={603}
-                  />
-                  {/* White overlay for inactive cards */}
-                  {index !== currentIndex && (
-                    <div
-                      className="absolute inset-0 bg-white rounded-t-2xl"
-                      style={{
-                        mixBlendMode: "lighten",
-                        opacity: 0.6,
-                      }}
-                    />
-                  )}
-                </div>
-
-                {/* Content - only visible on active card when NOT expanded */}
-                {index === currentIndex && expandedCard !== slide.id && (
-                  <div
-                    className="absolute bottom-0 left-0 w-full h-16 bg-[#F3EFEC] flex items-center justify-between px-4 rounded-b-2xl cursor-grab transition-all duration-300 hover:bg-[#ece3dc] z-30"
-                    onClick={(e) => handleDetailsClick(e, slide.id)}
-                  >
-                    <h3 className="font-poppins text-[18px] font-medium leading-[1.41em] tracking-[-0.23%] text-black">
-                      {slide.title}
-                    </h3>
-                    <p className="text-black font-dm-sans text-base font-normal leading-[1.625em] flex items-center gap-2">
-                      <span className="hidden md:block">Details</span>
-                      <FaArrowRight />
-                    </p>
-                  </div>
-                )}
-
-                {/* Expanded Accordion - slides up from bottom as overlay */}
-                <div
-                  className={`absolute bottom-0 left-0 w-full bg-[#F3EFEC] rounded-b-2xl transition-all duration-500 ease-in-out z-25 ${
-                    expandedCard === slide.id && index === currentIndex
-                      ? "h-1/2 translate-y-0 opacity-100"
-                      : "h-0 translate-y-full opacity-0"
-                  }`}
-                >
-                  {expandedCard === slide.id && index === currentIndex && (
-                    <div className="h-full flex flex-col">
-                      {/* Header with title and close button - now at top of accordion */}
+                      {/* Image container - always present, but hidden when accordion is expanded */}
                       <div
-                        className="h-14 bg-[#F3EFEC] flex items-center justify-between px-4 cursor-grab transition-all duration-300 hover:bg-[#ece3dc] flex-shrink-0"
-                        onClick={(e) => handleDetailsClick(e, slide.id)}
+                        className={`relative w-full h-full transition-all duration-700 ease-in-out ${
+                          isExpanded ? "opacity-0" : "opacity-100"
+                        }`}
                       >
-                        <h3 className="font-poppins text-[22px] font-medium leading-[1.41em] tracking-[-0.23%] text-black">
-                          {slide.title}
-                        </h3>
-                        <p className="text-black font-dm-sans text-base font-normal leading-[1.625em] flex items-center gap-2">
-                          Details
-                          <FaArrowRight className="rotate-90" />
-                        </p>
+                        <Image
+                          src={slide.image}
+                          alt={slide.title}
+                          className="w-full h-full object-cover rounded-t-2xl"
+                          width={483}
+                          height={603}
+                        />
+                        {/* White overlay for inactive cards */}
+                        {index !== currentIndex && (
+                          <div
+                            className="absolute inset-0 bg-white rounded-t-2xl"
+                            style={{
+                              mixBlendMode: "lighten",
+                              opacity: 0.6,
+                            }}
+                          />
+                        )}
                       </div>
 
-                      {/* Accordion content below the header */}
-                      <div className="flex-1 p-5 pt-0 overflow-y-auto">
-                        <div className="space-y-6">
-                          {/* Description */}
-                          <p className="text-black mb-2 font-dm-sans text-base leading-[1.625em] max-w-[342px]">
-                            {slide.description}
+                      {/* Content - only visible on active card when NOT expanded */}
+                      {index === currentIndex && !isExpanded && (
+                        <div
+                          className="absolute bottom-0 left-0 w-full h-16 bg-[#F3EFEC] flex items-center justify-between px-4 rounded-b-2xl cursor-grab transition-all duration-300 hover:bg-[#ece3dc] z-30"
+                          onClick={(e) => handleDetailsClick(e, originalSlideId)}
+                        >
+                          <h3 className="font-poppins text-[18px] font-medium leading-[1.41em] tracking-[-0.23%] text-black">
+                            {slide.title}
+                          </h3>
+                          <p className="text-black font-dm-sans text-base font-normal leading-[1.625em] flex items-center gap-2">
+                            <span className="hidden md:block">Details</span>
+                            <FaArrowRight />
                           </p>
+                        </div>
+                      )}
 
-                          {/* Content grid with vertical divider */}
-                          <div className="relative">
-                            {/* Vertical divider line */}
+                      {/* Expanded Accordion - slides up from bottom as overlay */}
+                      <div
+                        className={`absolute bottom-0 left-0 w-full bg-[#F3EFEC] rounded-b-2xl transition-all duration-500 ease-in-out z-25 ${
+                          isExpanded
+                            ? "h-1/2 translate-y-0 opacity-100"
+                            : "h-0 translate-y-full opacity-0"
+                        }`}
+                      >
+                        {isExpanded && (
+                    <div className="h-full flex flex-col">
+                      {/* Header with title and close button - now at top of accordion */}
+                          <div
+                            className="h-14 bg-[#F3EFEC] flex items-center justify-between px-4 cursor-grab transition-all duration-300 hover:bg-[#ece3dc] flex-shrink-0"
+                            onClick={(e) => handleDetailsClick(e, originalSlideId)}
+                          >
+                            <h3 className="font-poppins text-[22px] font-medium leading-[1.41em] tracking-[-0.23%] text-black">
+                              {slide.title}
+                            </h3>
+                            <p className="text-black font-dm-sans text-base font-normal leading-[1.625em] flex items-center gap-2">
+                              Details
+                              <FaArrowRight className="rotate-90" />
+                            </p>
+                          </div>
 
-                            {/* Left Column */}
-                            <div className="flex justify-between border-b border-[#DBD7D4]">
-                              {/* Allenamenti Section */}
-                              <div className="w-1/2 py-2">
-                                <h4 className="text-black font-dm-sans text-sm font-normal leading-[1.5em] opacity-40">
-                                  Allenamenti
-                                </h4>
-                                <div className="flex items-baseline gap-2">
-                                  <span className="text-black font-dm-sans text-base font-normal leading-[1.625em] text-center">
-                                    {slide.duration}
-                                  </span>
-                                  <span className="text-black font-dm-sans text-xs font-normal leading-[1.5em] tracking-[0.83%] text-center">
-                                    minuti
-                                  </span>
+                          {/* Accordion content below the header */}
+                          <div className="flex-1 p-5 pt-0 overflow-y-auto">
+                            <div className="space-y-6">
+                              {/* Description */}
+                              <p className="text-black mb-2 font-dm-sans text-base leading-[1.625em] max-w-[342px]">
+                                {slide.description}
+                              </p>
+
+                              {/* Content grid with vertical divider */}
+                              <div className="relative">
+                                {/* Vertical divider line */}
+
+                                {/* Left Column */}
+                                <div className="flex justify-between border-b border-[#DBD7D4]">
+                                  {/* Allenamenti Section */}
+                                  <div className="w-1/2 py-2">
+                                    <h4 className="text-black font-dm-sans text-sm font-normal leading-[1.5em] opacity-40">
+                                      Allenamenti
+                                    </h4>
+                                    <div className="flex items-baseline gap-2">
+                                      <span className="text-black font-dm-sans text-base font-normal leading-[1.625em] text-center">
+                                        {slide.duration}
+                                      </span>
+                                      <span className="text-black font-dm-sans text-xs font-normal leading-[1.5em] tracking-[0.83%] text-center">
+                                        minuti
+                                      </span>
+                                    </div>
+                                    <p className="text-black font-dm-sans text-sm font-normal leading-[1.5em]">
+                                      {slide.frequency}
+                                    </p>
+                                  </div>
+
+                                  {/* Livello Section */}
+                                  <div className="w-1/2 py-2 border-l border-[#DBD7D4] pl-4">
+                                    <h4 className="text-black font-dm-sans text-sm font-normal leading-[1.5em] opacity-40">
+                                      Livello
+                                    </h4>
+                                    <p className="text-black font-dm-sans text-base font-normal leading-[1.625em]">
+                                      {slide.level}
+                                    </p>
+                                  </div>
                                 </div>
-                                <p className="text-black font-dm-sans text-sm font-normal leading-[1.5em]">
-                                  {slide.frequency}
-                                </p>
-                              </div>
 
-                              {/* Livello Section */}
-                              <div className="w-1/2 py-2 border-l border-[#DBD7D4] pl-4">
-                                <h4 className="text-black font-dm-sans text-sm font-normal leading-[1.5em] opacity-40">
-                                  Livello
-                                </h4>
-                                <p className="text-black font-dm-sans text-base font-normal leading-[1.625em]">
-                                  {slide.level}
-                                </p>
-                              </div>
-                            </div>
-
-                            {/* Right Column */}
-                            <div className="flex justify-between">
-                              {/* Obiettivi Section */}
-                              <div className="w-1/2 py-2">
-                                <h4 className="text-black font-dm-sans text-sm font-normal leading-[1.5em] opacity-40">
-                                  Obiettivi
-                                </h4>
-                                <p className="text-black font-dm-sans text-base font-normal leading-[1.625em] max-w-[155px]">
-                                  {slide.objectives}
-                                </p>
-                              </div>
-                              {/* Attrezzi Section */}
-                              <div className="w-1/2 py-2 border-l border-[#DBD7D4] pl-4">
-                                <h4 className="text-black font-dm-sans text-sm font-normal leading-[1.5em] opacity-40">
-                                  Attrezzi
-                                </h4>
-                                <p className="text-black font-dm-sans text-base font-normal leading-[1.625em] max-w-[117px]">
-                                  {slide.equipment}
-                                </p>
+                                {/* Right Column */}
+                                <div className="flex justify-between">
+                                  {/* Obiettivi Section */}
+                                  <div className="w-1/2 py-2">
+                                    <h4 className="text-black font-dm-sans text-sm font-normal leading-[1.5em] opacity-40">
+                                      Obiettivi
+                                    </h4>
+                                    <p className="text-black font-dm-sans text-base font-normal leading-[1.625em] max-w-[155px]">
+                                      {slide.objectives}
+                                    </p>
+                                  </div>
+                                  {/* Attrezzi Section */}
+                                  <div className="w-1/2 py-2 border-l border-[#DBD7D4] pl-4">
+                                    <h4 className="text-black font-dm-sans text-sm font-normal leading-[1.5em] opacity-40">
+                                      Attrezzi
+                                    </h4>
+                                    <p className="text-black font-dm-sans text-base font-normal leading-[1.625em] max-w-[117px]">
+                                      {slide.equipment}
+                                    </p>
+                                  </div>
+                                </div>
                               </div>
                             </div>
                           </div>
                         </div>
+                        )}
                       </div>
-                    </div>
-                  )}
-                </div>
+                    </>
+                  );
+                })()}
               </div>
             </div>
           ))}
