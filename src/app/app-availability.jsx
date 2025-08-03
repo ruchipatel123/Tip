@@ -45,7 +45,7 @@ export default function AppAvailabilitySection() {
           
           {/* Device Mockups */}
           {/* iPad Silver - Top Right */}
-          <div className="absolute top-[40%] right-[5%] w-[285px] h-[372px] drop-shadow-lg">
+          <div className="absolute -bottom-5 right-[10%] w-[285px] h-[372px] drop-shadow-lg">
             <div className="relative w-full h-full">
               <Image
                 src="/mockup/ipad-silver-56586a.png"
@@ -66,7 +66,7 @@ export default function AppAvailabilitySection() {
           </div>
 
           {/* Phone Mockup - Bottom Center Right */}
-          <div className="absolute bottom-[10%] right-[12%] w-[110px] h-[234px] drop-shadow-lg">
+          <div className="absolute -bottom-5 right-[6%] w-[110px] h-[234px] drop-shadow-lg">
             <div className="relative w-full h-full">
               <Image
                 src="/mockup/phone-mockup-56586a.png"
@@ -87,7 +87,7 @@ export default function AppAvailabilitySection() {
           </div>
 
           {/* iPhone Space Black - Bottom Right */}
-          <div className="absolute bottom-[8%] right-[2%] w-[109px] h-[222px] drop-shadow-lg">
+          <div className="absolute -bottom-5 right-[2.5%] w-[109px] h-[222px] drop-shadow-lg">
             <div className="relative w-full h-full">
               <Image
                 src="/mockup/iphone-space-black-56586a.png"

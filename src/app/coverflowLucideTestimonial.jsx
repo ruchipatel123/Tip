@@ -205,19 +205,14 @@ const coverflowLucideTestimonial = () => {
                     className="w-full h-full object-cover rounded-2xl"
                     width={483}
                     height={603}
-                    style={{
-                      filter:
-                        index !== currentIndex
-                          ? "saturate(0.2) brightness(0.7) contrast(0.8)"
-                          : "none",
-                    }}
+                     
                   />
                   {/* White overlay for inactive cards */}
                   {index !== currentIndex && (
                     <div
                       className="absolute inset-0 bg-white rounded-2xl"
                       style={{
-                        mixBlendMode: "overlay",
+                        mixBlendMode: "lighten",
                         opacity: 0.6,
                       }}
                     />

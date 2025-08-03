@@ -17,10 +17,10 @@ export default function PricingSection() {
         </div>
 
         {/* Pricing Cards */}
-        <div className="flex flex-col lg:flex-row items-center lg:items-stretch gap-6 lg:gap-8 w-full max-w-[1200px]">
+        <div className="flex flex-col lg:flex-row items-center gap-6 lg:gap-8 w-full max-w-[1200px]">
           {/* Monthly Card */}
-          <div className="w-full max-w-sm lg:w-[350px] bg-white rounded-2xl shadow-[0px_4px_20px_0px_rgba(0,0,0,0.1)] border border-black/10 p-4 sm:p-6">
-            <div className="flex flex-col justify-between gap-8 sm:gap-10 lg:gap-14 h-full min-h-[320px] lg:min-h-[360px]">
+          <div className="w-full max-w-sm lg:w-[350px] bg-white rounded-2xl shadow-[0px_4px_20px_0px_rgba(0,0,0,0.1)] border border-black/10 p-4 sm:p-6  max-h-[326px]">
+            <div className="flex flex-col justify-between gap-8 sm:gap-10 h-full max-h-[326px]">
               <div className="flex flex-col gap-3 sm:gap-4">
                 <h3 className="font-['Poppins'] text-[24px] sm:text-[28px] font-medium leading-[32px] sm:leading-[36px] tracking-[-0.1px] text-black">
                   Mensile
@@ -61,8 +61,8 @@ export default function PricingSection() {
             </div>
             
             {/* Card Content */}
-            <div className="bg-white rounded-b-2xl shadow-[0px_4px_20px_0px_rgba(0,0,0,0.1)] border border-black/10 p-4 sm:p-6 relative flex-1 min-h-[380px] lg:min-h-[430px]">
-              <div className="flex flex-col justify-between h-full gap-8 sm:gap-10 lg:gap-14">
+            <div className="bg-white rounded-b-2xl shadow-[0px_4px_20px_0px_rgba(0,0,0,0.1)] border border-black/10 p-4 sm:p-6 relative min-h-[380px] h-[430px]">
+              <div className="flex flex-col justify-between h-full gap-8">
                 <div className="flex flex-col gap-3 sm:gap-4">
                   <h3 className="font-['Poppins'] text-[24px] sm:text-[28px] font-medium leading-[32px] sm:leading-[36px] tracking-[-0.1px] text-black">
                     Semestrale
@@ -101,8 +101,8 @@ export default function PricingSection() {
           </div>
 
           {/* Annual Card */}
-          <div className="w-full max-w-sm lg:w-[350px] bg-white rounded-2xl shadow-[0px_4px_20px_0px_rgba(0,0,0,0.1)] border border-black/10 p-4 sm:p-6 relative">
-            <div className="flex flex-col justify-between gap-8 sm:gap-10 lg:gap-14 h-full min-h-[320px] lg:min-h-[360px]">
+          <div className="w-full max-w-sm lg:w-[350px] bg-white rounded-2xl shadow-[0px_4px_20px_0px_rgba(0,0,0,0.1)] border border-black/10 p-4 sm:p-6 relative max-h-[326px]">
+            <div className="flex flex-col justify-between gap-8 sm:gap-10 h-full max-h-[326px]">
               <div className="flex flex-col gap-3 sm:gap-4">
                 <h3 className="font-['Poppins'] text-[24px] sm:text-[28px] font-medium leading-[32px] sm:leading-[36px] tracking-[-0.1px] text-black">
                   Annuale

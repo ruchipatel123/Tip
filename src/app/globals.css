@@ -38,8 +38,8 @@ body {
 @media (max-width: 768px) {
   /* Improve touch targets */
   button, a, input, select, textarea {
-    min-height: 44px;
-    min-width: 44px;
+    /* min-height: 44px;
+    min-width: 44px; */
   }
   
   /* Prevent zoom on input focus */
@@ -157,5 +157,21 @@ select:focus-visible {
   .mobile-menu {
     transition: none !important;
   }
+}
+
+/* Accordion slide-up animation */
+@keyframes slideUp {
+  from {
+    opacity: 0;
+    transform: translateY(20px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.animate-slideUp {
+  animation: slideUp 0.4s ease-out forwards;
 }
 
