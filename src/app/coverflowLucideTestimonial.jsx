@@ -18,7 +18,7 @@ const coverflowLucideTestimonial = () => {
       id: 2,
       name: "Valentina C.",
       userName:"@vale_corno92",
-      image: "/images/testimonialCarouselTwo.png",
+      image: "/images/testimonialCarouseltwo.png",
       description: "Testimonial TBC + picture",
       profile: "/images/carouselDpTwo.png",
     },
