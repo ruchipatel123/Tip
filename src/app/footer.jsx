@@ -301,7 +301,7 @@ export default function Footer() {
 
 
       {/* Copyright Section */}
-      <div className="flex md:hidden items-center justify-center gap-1 mt-10">
+      <div className="flex xl:hidden items-center justify-center gap-1 mt-10">
                 {/* Instagram */}
                 <a
                   href="#"

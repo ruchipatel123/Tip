@@ -235,9 +235,9 @@ export default function MobileSection() {
                     size={20}
                   />
                   <span className="text-[17.5px] text-[#737373] font-medium text-center leading-5">
-                    4.8/5 stelle
+                    4.9/5 stelle
                     <br />
-                    1.500+ recensioni{" "}
+                    150+ recensioni{" "}
                   </span>
                 </div>
                 <Image
@@ -266,7 +266,7 @@ export default function MobileSection() {
                     className=" mb-2"
                   />
                   <span className="text-[17.5px] text-[#737373] font-medium text-center leading-5">
-                    4.8/5 stelle
+                    5/5 stelle
                     <br />
                     1.500+ recensioni{" "}
                   </span>
@@ -295,9 +295,9 @@ export default function MobileSection() {
                     className=" mb-2"
                   />
                   <span className="text-[17.5px] text-[#737373] font-medium text-center leading-5">
-                    4.8/5 stelle
+                    4.9/5 stelle
                     <br />
-                    1.500+ recensioni{" "}
+                    600+ recensioni{" "}
                   </span>
                 </div>
                 <Image
@@ -537,7 +537,7 @@ export default function MobileSection() {
                     alt="dotLineTwo"
                     width={612}
                     height={184}
-                    className="absolute hidden md:block top-[110%] left-[20%] -translate-x-[20%]"
+                    className="absolute hidden md:block top-[100%] left-[20%] -translate-x-[20%]"
                   />
                 )}
                 {index === 1 && (
@@ -546,7 +546,7 @@ export default function MobileSection() {
                     alt="dotLineThree"
                     width={612}
                     height={184}
-                    className="absolute hidden md:block top-[80%] -right-12"
+                    className="absolute hidden md:block top-[85%] -right-12"
                   />
                 )}
 

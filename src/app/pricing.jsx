@@ -5,12 +5,12 @@ export default function PricingSection() {
     <section className="bg-[#F1EBE7] px-4 sm:px-8 lg:px-6 xl:px-16 py-8 sm:py-12 lg:py-16 flex flex-col items-center overflow-hidden">
       <div className="w-full max-w-[1114px] flex flex-col items-center gap-8 sm:gap-10 lg:gap-12">
         {/* Header */}
-        <div className="flex flex-col items-center text-center gap-4 sm:gap-6">
+        <div className="flex flex-col items-center text-center gap-7 sm:gap-6">
           <h2 className="text-2xl-up-custom relative lg:text-[36px] leading-[32px] sm:leading-[38px] lg:leading-[47px] tracking-[-0.15px] font-normal text-black font-poppins px-4">
             Ti garantiamo i risultati:{' '}
             <br className="hidden md:block"/>
             soddisfatta o rimborsata
-            <Image src="/dotLineFour.svg" alt="dotLineFour" width={2} height={20} className="absolute -top-30 left-[53.2%] hidden lg:block" />
+            <Image src="/dotLineFour.svg" alt="dotLineFour" width={2} height={20} className="absolute -top-30 left-[50%] md:left-[53.2%] lg:block" />
           </h2>
           <p className="hidden md:block font-dm-sans text-lg sm:text-base leading-[22px] sm:leading-[26px] text-black max-w-md lg:max-w-[442px] px-4 md:px-2">
             Un unico piano con accesso a tutti gli allenamenti e la nutrizione Traininpink™. Tutto incluso disdici quando vuoi.
@@ -149,7 +149,7 @@ export default function PricingSection() {
         {/* Guarantee Section */}
         <div className="flex flex-col items-center justify-center gap-4 sm:gap-6 w-full max-w-xs lg:max-w-[273.33px]">
           <div className="flex items-center gap-3 sm:gap-[13px] w-full justify-center">
-            <Image src='/logo/guarateeICon.svg' alt='starIcon' width={60} height={60} className="sm:w-[74px] sm:h-[74px]" style={{ filter: 'drop-shadow(0px 0px 20px #A0736540)' }} />
+            <Image src='/logo/guarateeICon.svg' alt='starIcon' width={74} height={74} className="sm:w-[74px] sm:h-[74px]" style={{ filter: 'drop-shadow(0px 0px 20px #A0736540)' }} />
             <div className="font-dm-sans text-[16px] sm:text-base leading-5 sm:leading-6 text-[#684744]">
               <div className="font-bold w-fit">GARANZIA 30 GIORNI</div>
               <div className="font-normal w-fit">Soddisfata o rimborsata</div>
