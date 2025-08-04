@@ -94,19 +94,11 @@ export default function MobileSection() {
       const sectionProgress = (relativeScroll % sectionHeight) / sectionHeight;
       
       // Debug logging
-      console.log('MobileSection Snap Debug:', {
-        scrollTop,
-        containerTop,
-        stickyTriggerPoint,
-        relativeScroll,
-        sectionIndex,
-        currentSection
-      });
+      
 
       // Immediately activate the correct section based on scroll position
       if (sectionIndex !== currentSection && sectionIndex >= 0 && sectionIndex < sections.length) {
-        console.log(`Activating section ${sectionIndex} from ${currentSection}`);
-        setCurrentSection(sectionIndex);
+         setCurrentSection(sectionIndex);
       }
 
       // Clear existing timeout
@@ -490,8 +482,7 @@ export default function MobileSection() {
           const scaleValue = isActive ? 0.8 : 1; // All slides: 0.8 when active, 1 when inactive
           
           // Debug logging for scale
-          console.log(`MobileSection ${index}: isActive=${isActive}, scale=${scaleValue}, currentSection=${currentSection}`);
-
+       
           return (
             <motion.section
               key={section.id}

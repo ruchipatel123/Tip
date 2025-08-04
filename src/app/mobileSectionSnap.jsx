@@ -94,19 +94,11 @@ export default function MobileSectionSnap() {
       const sectionProgress = (relativeScroll % sectionHeight) / sectionHeight;
 
       // Debug logging
-      console.log('Section Snap Debug:', {
-        scrollTop,
-        containerTop,
-        stickyTriggerPoint,
-        relativeScroll,
-        sectionIndex,
-        currentSection
-      });
+     
 
       // Immediately activate the correct section based on scroll position
       if (sectionIndex !== currentSection && sectionIndex >= 0 && sectionIndex < sections.length) {
-        console.log(`Activating section ${sectionIndex} from ${currentSection}`);
-        setCurrentSection(sectionIndex);
+         setCurrentSection(sectionIndex);
       }
 
       // Clear existing timeout

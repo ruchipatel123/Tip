@@ -30,13 +30,13 @@ export default function TestimonialsSection({ testimonials: testimonialsProp }) 
       // Try desktop first
       if (videoRefs.current[0]) {
         videoRefs.current[0].play().catch(() => {
-          console.log('Autoplay prevented for desktop initial video');
+        
         });
       }
       // Then mobile
       if (mobileVideoRefs.current[0]) {
         mobileVideoRefs.current[0].play().catch(() => {
-          console.log('Autoplay prevented for mobile initial video');
+           
         });
       }
 
@@ -312,7 +312,7 @@ export default function TestimonialsSection({ testimonials: testimonialsProp }) 
         if (index === newIndex) {
           video.currentTime = 0;
           video.play().catch(() => {
-            console.log('Desktop autoplay prevented for video', index);
+             
           });
         } else {
           video.pause();
@@ -339,7 +339,7 @@ export default function TestimonialsSection({ testimonials: testimonialsProp }) 
         if (index === newIndex) {
           video.currentTime = 0;
           video.play().catch(() => {
-            console.log('Mobile autoplay prevented for video', index);
+           
           });
         } else {
           video.pause();
