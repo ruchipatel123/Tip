@@ -59,7 +59,7 @@ const MobileTrustSection = () => {
         </p>
       </div>
       <div className="flex flex-wrap gap-4 justify-center mt-10 px-2">
-        <div className="flex flex-row gap-8">
+        <div className="flex flex-row gap-4">
           <div className="flex items-center gap-2">
             <Image
               src="/logo/wreath-left.svg.svg"
@@ -69,7 +69,7 @@ const MobileTrustSection = () => {
             />
             <div className="flex flex-col items-center">
               <FaApple className="text-4xl mb-2" color="#000" size={20} />
-              <span className="text-[16.36px] font-dm-sans font-medium text-[#737373] text-center leading-5">
+              <span className="text-sm font-dm-sans font-medium text-[#737373] text-center leading-5">
                 4.8/5 stelle
                 <br />
                 1.500+ recensioni{" "}
@@ -83,31 +83,6 @@ const MobileTrustSection = () => {
               className="scale-x-[-1]"
             />
           </div>
-          <div className="flex items-center gap-2">
-            <Image
-              src="/logo/wreath-left.svg.svg"
-              alt="left wreath"
-              width={30}
-              height={100}
-            />
-            <div className="flex flex-col items-center">
-              <FaFacebook className="text-4xl mb-2" color="#1877F2" size={20} />
-              <span className="text-[16.36px] font-dm-sans font-medium text-[#737373] text-center leading-5">
-                4.8/5 stelle
-                <br />
-                1.500+ recensioni{" "}
-              </span>
-            </div>
-            <Image
-              src="/logo/wreath-left.svg.svg"
-              alt="left wreath"
-              width={30}
-              height={100}
-              className="scale-x-[-1]"
-            />
-          </div>
-        </div>
-        <div className="flex flex-row gap-8">
           <div className="flex items-center gap-2">
             <Image
               src="/logo/wreath-left.svg.svg"
@@ -123,10 +98,36 @@ const MobileTrustSection = () => {
                 height={20}
                 className=" mb-2"
               />
-              <span className="text-[16.36px] font-dm-sans font-medium text-[#737373] text-center leading-5">
-                4.8/5 stelle
+              <span className="text-sm font-dm-sans font-medium text-[#737373] text-center leading-5">
+                5/5 stelle
                 <br />
                 1.500+ recensioni{" "}
+              </span>
+            </div>
+            <Image
+              src="/logo/wreath-left.svg.svg"
+              alt="left wreath"
+              width={30}
+              height={100}
+              className="scale-x-[-1]"
+            />
+          </div>
+        </div>
+        <div className="flex flex-row gap-4">
+          
+        <div className="flex items-center gap-2">
+            <Image
+              src="/logo/wreath-left.svg.svg"
+              alt="left wreath"
+              width={30}
+              height={100}
+            />
+            <div className="flex flex-col items-center">
+              <FaFacebook className="text-4xl mb-2" color="#1877F2" size={20} />
+              <span className="text-sm font-dm-sans font-medium text-[#737373] text-center leading-5">
+                4.9/5 stelle
+                <br />
+                150+ recensioni{" "}
               </span>
             </div>
             <Image
@@ -152,10 +153,10 @@ const MobileTrustSection = () => {
                 height={20}
                 className=" mb-2 object-contain"
               />
-              <span className="text-[16.36px] font-dm-sans font-medium text-[#737373] text-center leading-5">
-                4.8/5 stelle
+              <span className="text-sm font-dm-sans font-medium text-[#737373] text-center leading-5">
+                4.9/5 stelle
                 <br />
-                1.500+ recensioni{" "}
+                600+ recensioni{" "}
               </span>
             </div>
             <Image

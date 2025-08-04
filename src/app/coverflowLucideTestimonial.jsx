@@ -9,42 +9,42 @@ const coverflowLucideTestimonial = () => {
     {
       id: 1,
       name: "Giulia S.",
-      userName:"@_giuliasarno_",
-      image: "/images/testimonialCarouselOne.png",
+      userName:"_giuliasarno_",
+      image: "/images/coverflortestimonial/giulia-s-post.png",
       description: "Ho perso circa 6kg e mezzo ma la cosa più bella è che mi aiuta molto anche con la gestione del lipedema,  ho migliorato tantissimo la postura ed eliminato la diastasi (ho partorito a ottobre 2023)",
-      profile: "/images/carouselDp.png",
+      profile: "/images/coverflortestimonial/giulia-s-profile.png",
     },
     {
       id: 2,
-      name: "Valentina C.",
-      userName:"@vale_corno92",
-      image: "/images/testimonialCarouseltwo.png",
-      description: "Testimonial TBC + picture",
-      profile: "/images/carouselDpTwo.png",
+      name: "Veronica G.",
+      userName:"vero.ni.c.ag",
+      image: "/images/coverflortestimonial/veronica-g-post-4a6fe0.png",
+      description: "Ho rimesso oggi un pantalone della scorsa estate... Ecco la differenza... Dovrò donarlo... Ora è davvero troppo largo! Pronta x linfodrenante refomer!",
+      profile: "/images/coverflortestimonial/veronica-g-profile.png",
     },
     {
       id: 3,
-      name: "Pilates Linfodrenante™",
-      userName:"test",
-      image: "/images/testimonialCarouselThree.jpeg",
-      description: "Ho perso circa 6kg e mezzo ma la cosa più bella è che mi aiuta molto anche con la gestione del lipedema,  ho migliorato tantissimo la postura ed eliminato la diastasi (ho partorito a ottobre 2023)",
-      profile: "/images/carouselDp.png",
+      name: "Giulia M.",
+      userName:"giulia.murolo",
+      image: "/images/coverflortestimonial/giulia-m-post.png",
+      description: "A distanza di 9 mesi ho perso 28 chili. Ci tenevo a ringraziarti anche perché grazie a Traininpink ho iniziato ad amare l'allenamento!",
+      profile: "/images/coverflortestimonial/giulia-m-profile.png",
     },
     {
       id: 4,
-      name: "Pilates Linfodrenante™",
-      userName:"test",
-      image: "/images/testimonialCarouselFour.png",
-      description: "Ho perso circa 6kg e mezzo ma la cosa più bella è che mi aiuta molto anche con la gestione del lipedema,  ho migliorato tantissimo la postura ed eliminato la diastasi (ho partorito a ottobre 2023)",
-      profile: "/images/carouselDp.png",
+      name: "Angela",
+      userName:"_angj_",
+      image: "/images/coverflortestimonial/angela-post.png",
+      description: "Eccomi bellissima nel mio abito da sposa grazie a Traininpink! Sono quasi 3 anni che mi alleno con te: quasi 30 kg in meno e tantissima autostima in più! Grazie Traininpink!",
+      profile: "/images/coverflortestimonial/angela-profile.png",
     },
     {
       id: 5,
-      name: "Pilates Linfodrenante™",
-      userName:"test",
-      image: "/images/testimonialCarouselFive.png",
-      description: "Ho perso circa 6kg e mezzo ma la cosa più bella è che mi aiuta molto anche con la gestione del lipedema,  ho migliorato tantissimo la postura ed eliminato la diastasi (ho partorito a ottobre 2023)",
-      profile: "/images/carouselDp.png",
+      name: "Elisa Z.",
+      userName:"elisazadro",
+      image: "/images/coverflortestimonial/elisa-z-post.png",
+      description: "Traininpink mi ha cambiata dentro, e di conseguenza mi ha cambiato la vita, non ti ringrazierò mai abbastanza!",
+      profile: "/images/coverflortestimonial/sandy-s-profile.png",
     },
   ];
 
@@ -302,7 +302,7 @@ const coverflowLucideTestimonial = () => {
                     <div className="flex items-center gap-3 mb-3">
                       <div className="w-12 h-12 rounded-full overflow-hidden bg-gray-200">
                         <Image
-                          src={slide.image}
+                          src={slide.profile}
                           alt={slide.userName}
                           className="w-full h-full object-cover"
                           width={48}

@@ -261,7 +261,7 @@ export default function HeroSection() {
       </div>
 
       {/* Hero Content */}
-      <div className="absolute inset-0 flex items-end justify-center pb-3 sm:pb-10 z-10">
+      <div className="absolute inset-0 flex items-end justify-center pb-8 sm:pb-10 z-10">
         <div className="text-center px-2  sm:px-6">
           {/* Main Headline */}
           <div className="mb-8 sm:mb-10">
@@ -293,7 +293,7 @@ export default function HeroSection() {
             </span>
 
             {/* Secondary CTA */}
-            <button className="secondary-cta flex items-center justify-center gap-3 bg-[#684744] border border-[rgba(243,239,236,0.20)] rounded-lg shadow-[0_2px_20px_0_rgba(0,0,0,0.15)] text-white text-xl font-medium leading-[1.45em] px-4 py-[10px] w-full lg:min-w-[273.33px] h-[54px]">
+            <button className="secondary-cta flex items-center justify-center gap-3 bg-[#684744] border border-[rgba(243,239,236,0.20)] rounded-lg shadow-[0_2px_20px_0_rgba(0,0,0,0.15)] text-white text-lg md:text-xl font-medium leading-[1.45em] px-14 md:px-4 py-[10px] w-full lg:min-w-[273.33px] h-[54px]">
               <span className="font-bold font-dm-sans">Inizia la prova gratuita</span>
               <FaArrowRight size={13.33} />
             </button>

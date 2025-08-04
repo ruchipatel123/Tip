@@ -173,7 +173,7 @@ export default function MobileSectionSnap() {
 
   return (
     <section className="bg-[#F1EBE7] md:pt-10">
-      <div className="block md:hidden sticky top-5 left-[5%] xl:left-[18%] z-[100] w-full mx-auto ">
+      <div className="block md:hidden sticky top-15 left-[5%] xl:left-[18%] z-[100] w-full mx-auto ">
         <Image
           src="/images/mobileMockup.png"
           alt="mobileMockup"

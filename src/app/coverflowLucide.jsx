@@ -750,14 +750,14 @@ const CarouselCoverLucide = () => {
           alt="dotLineSeven"
           width={348}
           height={106}
-          className="absolute -top-30 left-1/2 hidden md:block"
+          className="absolute -top-30 left-1/2 hidden xl:block"
         />
         <Image
           src="/dotLineFour.svg"
           alt="dotLineFour"
           width={2}
           height={106}
-          className="absolute -top-35 left-1/2 block md:hidden"
+          className="absolute -top-35 left-1/2 block xl:hidden"
         />
       </h1>
       {/* Tab bar - responsive flex layout */}
@@ -840,7 +840,7 @@ const CarouselCoverLucide = () => {
                             playsInline
                           >
                             <source
-                              src="/videos/herovideo.mp4"
+                              src="https://res.cloudinary.com/dga6g9bws/video/upload/Video_sample_for_TIP_Website_1_inbebe.mp4"
                               type="video/mp4"
                             />
                             Your browser does not support the video tag.
@@ -1050,7 +1050,7 @@ const CarouselCoverLucide = () => {
           alt="dotLineSix"
           width={270}
           height={207}
-          className="absolute bottom-13 left-[51%] hidden md:block"
+          className="absolute bottom-52 lg:bottom-13 left-[51%] hidden md:block"
         />
         <Image
           src="/dotLineFour.svg"
