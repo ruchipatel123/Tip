@@ -11,6 +11,7 @@ export default function MobileSection() {
   const containerRef = useRef(null);
   const [currentSection, setCurrentSection] = useState(0);
   const [isScrolling, setIsScrolling] = useState(false);
+  const [isHydrated, setIsHydrated] = useState(false);
   const lastScrollY = useRef(0);
 
   const sections = [
@@ -51,17 +52,38 @@ export default function MobileSection() {
     offset: ["start start", "end end"],
   });
 
+  // Handle hydration
+  useEffect(() => {
+    setIsHydrated(true);
+  }, []);
+
   // Handle custom scroll behavior with threshold
   useEffect(() => {
+    // Don't run scroll logic until hydrated
+    if (!isHydrated) return;
     let timeout;
 
     const handleScroll = () => {
-      if (isScrolling) return;
+      if (isScrolling || !isHydrated) return;
+
+      // Safety check for browser APIs
+      if (typeof window === 'undefined') return;
 
       const scrollTop = window.scrollY;
       const containerTop = containerRef.current?.offsetTop || 0;
-      const relativeScroll = scrollTop - containerTop;
       const sectionHeight = window.innerHeight;
+      
+      // Calculate when sticky mobile mockup becomes sticky (top-10 = 40px from top)
+      // The sticky trigger should be when the section bg arrives and sticky element sticks  
+      const stickyTriggerPoint = containerTop - sectionHeight; // Account for top-10
+      
+      // Only start section snapping when sticky element is in sticky position
+      if (scrollTop < stickyTriggerPoint) {
+        return;
+      }
+      
+      // Calculate relative scroll from when sticky element becomes sticky
+      const relativeScroll = scrollTop - stickyTriggerPoint;
 
       // Detect scroll direction
       const scrollDirection = scrollTop > lastScrollY.current ? "down" : "up";
@@ -70,6 +92,22 @@ export default function MobileSection() {
       // Calculate which section we're in and how far through it
       const sectionIndex = Math.floor(relativeScroll / sectionHeight);
       const sectionProgress = (relativeScroll % sectionHeight) / sectionHeight;
+      
+      // Debug logging
+      console.log('MobileSection Snap Debug:', {
+        scrollTop,
+        containerTop,
+        stickyTriggerPoint,
+        relativeScroll,
+        sectionIndex,
+        currentSection
+      });
+
+      // Immediately activate the correct section based on scroll position
+      if (sectionIndex !== currentSection && sectionIndex >= 0 && sectionIndex < sections.length) {
+        console.log(`Activating section ${sectionIndex} from ${currentSection}`);
+        setCurrentSection(sectionIndex);
+      }
 
       // Clear existing timeout
       clearTimeout(timeout);
@@ -83,14 +121,14 @@ export default function MobileSection() {
           if (
             scrollDirection === "down" &&
             sectionProgress > SCROLL_THRESHOLD &&
-            currentSection < sections.length - 1
+            currentSection < sections.length + 1
           ) {
             // Scrolling down - go to next section
             targetSection = currentSection + 1;
           } else if (
             scrollDirection === "up" &&
             sectionProgress < 0.9 &&
-            currentSection > 0
+            currentSection > 3
           ) {
             // Scrolling up - go to previous section
             targetSection = currentSection - 1;
@@ -101,7 +139,7 @@ export default function MobileSection() {
             setIsScrolling(true);
             setCurrentSection(targetSection);
 
-            const targetScroll = containerTop + targetSection * sectionHeight;
+            const targetScroll = stickyTriggerPoint + targetSection * sectionHeight;
             window.scrollTo({
               top: targetScroll,
               behavior: "smooth",
@@ -111,6 +149,18 @@ export default function MobileSection() {
             setTimeout(() => setIsScrolling(false), 600);
           }
         }
+        // Handle case when scrolling back before first section
+        else if (sectionIndex < 0 && currentSection !== 0) {
+          setIsScrolling(true);
+          setCurrentSection(0);
+          
+          window.scrollTo({
+            top: stickyTriggerPoint,
+            behavior: "smooth",
+          });
+          
+          setTimeout(() => setIsScrolling(false), 600);
+        }
       }, 25);
     };
 
@@ -119,10 +169,12 @@ export default function MobileSection() {
       window.removeEventListener("scroll", handleScroll);
       clearTimeout(timeout);
     };
-  }, [isScrolling, sections.length]);
+  }, [isScrolling, sections.length, currentSection, isHydrated]);
 
   return (
     <section className="bg-[#F1EBE7] pt-10">
+    
+      
       <div className="hidden md:block sticky top-10 left-[5%] xl:left-[18%] z-[100] w-1/2 ">
         <Image
           src="/images/mobileMockup.png"
@@ -430,6 +482,10 @@ export default function MobileSection() {
 
         {sections.map((section, index) => {
           const isActive = currentSection === index;
+          const scaleValue = isActive ? 0.8 : 1; // All slides: 0.8 when active, 1 when inactive
+          
+          // Debug logging for scale
+          console.log(`MobileSection ${index}: isActive=${isActive}, scale=${scaleValue}, currentSection=${currentSection}`);
 
           return (
             <motion.section
@@ -452,7 +508,7 @@ export default function MobileSection() {
               <motion.div
                 className="relative z-20 w-full mx-auto max-w-[1360px]"
                 animate={{
-                  scale: isActive ? 1 : 0.8,
+                  scale: scaleValue,
                 }}
                 transition={{
                   duration: 0.6,
@@ -497,11 +553,11 @@ export default function MobileSection() {
                     className={`overflow-hidden rounded-lg mx-auto shadow-2xl relative ${
                       section.width > 1000
                         ? isActive
-                          ? "max-w-[1360px] max-h-[598px]"
-                          : "max-w-5xl max-h-[480px]"
+                          ? "max-w-5xl max-h-[480px]"
+                          : "max-w-[1360px] max-h-[598px]"
                         : isActive
-                        ? "max-w-[1360px] max-h-[598px]"
-                        : "max-w-5xl max-h-[480px]"
+                        ? "max-w-5xl max-h-[480px]"
+                        : "max-w-[1360px] max-h-[598px]"
                     } w-full h-auto transition-all duration-600`}
                   >
                     <Image
