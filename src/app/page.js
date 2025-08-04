@@ -20,7 +20,7 @@ import MobileSectionSnap from "./mobileSectionSnap";
 
 export default function Home() {
 
-  const [isMobile, setIsMobile] = useState(false);
+  const [isMobile, setIsMobile] = useState(true);
 
   useEffect(() => {
     setIsMobile(window.innerWidth < 768);
@@ -148,11 +148,11 @@ const MobileTrustSection = () => {
             />
             <div className="flex flex-col items-center">
               <Image
-                src="/logo/trustPilotLogo.png"
+                src="/trustpilotSvg.svg"
                 alt="appStore"
                 width={83}
                 height={20}
-                className=" mb-2"
+                className=" mb-2 object-contain"
               />
               <span className="text-[16.36px] font-dm-sans font-medium text-[#737373] text-center leading-5">
                 4.8/5 stelle
@@ -171,24 +171,22 @@ const MobileTrustSection = () => {
         </div>
       </div>
 
-      <div>
-        <div className="flex flex-wrap flex-row gap-4 items-center justify-center my-10">
+      <div className="flex md:hidden flex-row-reverse sm:flex-row gap-4 items-center justify-center mt-10">
           <Image
             src="/logo/playStoreIcon.svg"
             alt="playStoreIcon"
             width={185}
             height={55}
-            
+            className="w-[140px] sm:w-[160px] lg:w-[185px] h-[41px]"
           />
           <Image
             src="/logo/appStoreIcon.svg"
             alt="appStoreIcon"
             width={185}
             height={55}
-           
+            className="w-[140px] sm:w-[160px] lg:w-[185px] h-[41px]"
           />
         </div>
-      </div>
     </div>
   );
 };

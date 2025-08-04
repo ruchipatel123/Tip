@@ -98,7 +98,7 @@ export default function HeroSection() {
             />
           </div>
           <div className="flex items-center gap-2 sm:gap-4">
-          <button className="w-fit bg-[#684744] cursor-grab border border-[rgba(243,239,236,0.20)] rounded-lg shadow-[0_2px_20px_0_rgba(0,0,0,0.15)] px-1 sm:px-4 py-3 text-white text-lg font-medium leading-snug h-12 hover:bg-[#7a5653] transition-colors flex items-center justify-center gap-3">
+          <button className="w-fit bg-[#684744] cursor-grab border border-[rgba(243,239,236,0.20)] rounded-lg shadow-[0_2px_20px_0_rgba(0,0,0,0.15)] px-3 sm:px-4 py-3 text-white text-lg font-medium leading-snug h-12 hover:bg-[#7a5653] transition-colors flex items-center justify-center gap-3">
             <p className="font-dm-sans font-bold">Prova gratis</p>
              <FaArrowRight />
           </button>
@@ -144,7 +144,7 @@ export default function HeroSection() {
                 priority
               />
             </div>
-            <p className="text-[#f3efec] font-poppins text-xl font-normal leading-relaxed tracking-tight mt-4">
+            <p className="text-[#f3efec] font-poppins text-xl-custom font-normal leading-relaxed tracking-tight mt-4">
               L'app di Pilates e <br /> allenamento n. 1 in Italia
             </p>
           </div>
@@ -262,7 +262,7 @@ export default function HeroSection() {
 
       {/* Hero Content */}
       <div className="absolute inset-0 flex items-end justify-center pb-3 sm:pb-10 z-10">
-        <div className="text-center max-w-4xl px-4 sm:px-6">
+        <div className="text-center px-2  sm:px-6">
           {/* Main Headline */}
           <div className="mb-8 sm:mb-10">
             <h1 className="text-white font-dm-sans text-lg sm:text-xl lg:text-xl max-w-[400px] mx-auto font-medium leading-6 sm:leading-7 ">
@@ -270,7 +270,7 @@ export default function HeroSection() {
                 Dal 2019 abbiamo aiutato 159.000 donne ad ottenere il corpo dei
                 loro sogni
               </span>
-              <span className="block font-poppins lg:hidden text-2xl-up-custom leading-8 font-normal">
+              <span className="block text-[#F3EFEC] font-poppins lg:hidden text-2xl-up-custom leading-8 font-normal">
               L'app di Pilates e <br/> allenamento<br/>
               n. 1 in Italia
               </span>
@@ -278,24 +278,24 @@ export default function HeroSection() {
           </div>
 
           {/* CTA Buttons */}
-          <div className="flex flex-col lg:flex-row items-center justify-center gap-6 sm:gap-8">
+          <div className="flex flex-col lg:flex-row items-center justify-center gap-6 lg:gap-8">
             {/* Primary CTA */}
-            <button className="primary-cta hidden cursor-grab  lg:flex items-center justify-center gap-3 bg-[#f3efec] border border-[rgba(0,0,0,0.10)] rounded-lg shadow-[0_2px_20px_0_rgba(0,0,0,0.15)] px-4 py-3 text-[#684744] text-lg sm:text-xl font-medium leading-snug w-full sm:min-w-60 sm:w-auto h-14">
+            <button className="primary-cta font-dm-sans hidden cursor-grab lg:flex items-center justify-center gap-3 bg-[#f3efec] border border-[rgba(0,0,0,0.10)] rounded-lg shadow-[0_2px_20px_0_rgba(0,0,0,0.15)] px-4 py-[10px] text-[#684744] text-xl font-bold leading-[1.45em] h-[54px] whitespace-nowrap">
               <span className="font-bold text-center">
                 Parlaci dei tuoi obiettivi
               </span>
-              <FaArrowRight size={15} />
+              <FaArrowRight size={13.33} />
             </button>
 
             {/* OR Text */}
-            <span className="text-white font-dm-sans hidden lg:block text-lg font-normal opacity-90">
+            <span className="text-white font-dm-sans hidden lg:block text-[18px] font-normal leading-[1.61em] opacity-90">
               oppure
             </span>
 
             {/* Secondary CTA */}
-            <button className="secondary-cta flex items-center justify-center gap-3 bg-[#684744] border border-[rgba(243,239,236,0.20)] rounded-lg shadow-[0_2px_20px_0_rgba(0,0,0,0.15)] px-4 py-3 text-white text-lg sm:text-xl font-medium leading-snug w-full sm:min-w-60 sm:w-auto h-14">
+            <button className="secondary-cta flex items-center justify-center gap-3 bg-[#684744] border border-[rgba(243,239,236,0.20)] rounded-lg shadow-[0_2px_20px_0_rgba(0,0,0,0.15)] text-white text-xl font-medium leading-[1.45em] px-4 py-[10px] w-full lg:min-w-[273.33px] h-[54px]">
               <span className="font-bold font-dm-sans">Inizia la prova gratuita</span>
-              <FaArrowRight size={15} />
+              <FaArrowRight size={13.33} />
             </button>
           </div>
         </div>

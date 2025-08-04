@@ -122,20 +122,21 @@ export default function AppAvailabilitySection() {
           />
         </div>
       </div>
-      <div className="flex md:hidden flex-row sm:flex-row gap-4 items-center justify-center mt-10">
+
+      <div className="flex md:hidden flex-row-reverse sm:flex-row gap-4 items-center justify-center mt-10">
           <Image
             src="/logo/playStoreIcon.svg"
             alt="playStoreIcon"
             width={185}
             height={55}
-            className="w-[140px] sm:w-[160px] lg:w-[185px] h-auto"
+            className="w-[140px] sm:w-[160px] lg:w-[185px] h-[41px]"
           />
           <Image
             src="/logo/appStoreIcon.svg"
             alt="appStoreIcon"
             width={185}
             height={55}
-            className="w-[140px] sm:w-[160px] lg:w-[185px] h-auto"
+            className="w-[140px] sm:w-[160px] lg:w-[185px] h-[41px]"
           />
         </div>
     </section>

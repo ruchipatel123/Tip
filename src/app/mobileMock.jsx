@@ -110,7 +110,7 @@ export default function MobileMock() {
             />
             <div className="flex flex-col items-center">
               <Image
-                src="/logo/trustPilotLogo.png"
+                src="/trustpilotSvg.svg"
                 alt="appStore"
                 width={83}
                 height={20}

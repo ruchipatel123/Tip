@@ -155,7 +155,7 @@ export default function MobileSection() {
                 />
                 <div className="flex flex-col items-center">
                   <FaApple className="text-4xl mb-2" color="#000" size={20} />
-                  <span className="text-[17.5px] text-[#737373] font-bold text-center leading-5">
+                  <span className="text-[17.5px] text-[#737373] font-medium text-center leading-5">
                     4.8/5 stelle
                     <br />
                     1.500+ recensioni{" "}
@@ -182,7 +182,7 @@ export default function MobileSection() {
                     color="#1877F2"
                     size={20}
                   />
-                  <span className="text-[17.5px] text-[#737373] font-bold text-center leading-5">
+                  <span className="text-[17.5px] text-[#737373] font-medium text-center leading-5">
                     4.8/5 stelle
                     <br />
                     1.500+ recensioni{" "}
@@ -213,7 +213,7 @@ export default function MobileSection() {
                     height={20}
                     className=" mb-2"
                   />
-                  <span className="text-[17.5px] text-[#737373] font-bold text-center leading-5">
+                  <span className="text-[17.5px] text-[#737373] font-medium text-center leading-5">
                     4.8/5 stelle
                     <br />
                     1.500+ recensioni{" "}
@@ -236,13 +236,13 @@ export default function MobileSection() {
                 />
                 <div className="flex flex-col items-center">
                   <Image
-                    src="/logo/trustPilotLogo.png"
+                    src="/trustpilotSvg.svg"
                     alt="appStore"
                     width={83}
                     height={20}
                     className=" mb-2"
                   />
-                  <span className="text-[17.5px] text-[#737373] font-bold text-center leading-5">
+                  <span className="text-[17.5px] text-[#737373] font-medium text-center leading-5">
                     4.8/5 stelle
                     <br />
                     1.500+ recensioni{" "}
@@ -261,17 +261,20 @@ export default function MobileSection() {
 
           <div>
             <div className="flex flex-col md:flex-row gap-4 items-center justify-center mt-10">
-              <Image
-                src="/logo/playStoreIcon.svg"
-                alt="playStoreIcon"
-                width={185}
-                height={55}
-              />
+             
               <Image
                 src="/logo/appStoreIcon.svg"
                 alt="appStoreIcon"
                 width={185}
                 height={55}
+                className='object-contain h-[55px]'
+              />
+               <Image
+                src="/logo/playStoreIcon.svg"
+                alt="playStoreIcon"
+                width={185}
+                height={55}
+                className='object-contain h-[55px]'
               />
             </div>
           </div>
@@ -299,7 +302,7 @@ export default function MobileSection() {
                 />
                 <div className="flex flex-col items-center">
                   <FaApple className="text-4xl mb-2" color="#000" size={20} />
-                  <span className="text-[17.5px] text-[#737373] font-bold text-center leading-5">
+                  <span className="text-[17.5px] text-[#737373] font-medium text-center leading-5">
                     4.8/5 stelle
                     <br />
                     1.500+ recensioni{" "}
@@ -326,7 +329,7 @@ export default function MobileSection() {
                     color="#1877F2"
                     size={20}
                   />
-                  <span className="text-[17.5px] text-[#737373] font-bold text-center leading-5">
+                  <span className="text-[17.5px] text-[#737373] font-medium text-center leading-5">
                     4.8/5 stelle
                     <br />
                     1.500+ recensioni{" "}
@@ -357,7 +360,7 @@ export default function MobileSection() {
                     height={20}
                     className=" mb-2"
                   />
-                  <span className="text-[17.5px] text-[#737373] font-bold text-center leading-5">
+                  <span className="text-[17.5px] text-[#737373] font-medium text-center leading-5">
                     4.8/5 stelle
                     <br />
                     1.500+ recensioni{" "}
@@ -380,13 +383,13 @@ export default function MobileSection() {
                 />
                 <div className="flex flex-col items-center">
                   <Image
-                    src="/logo/trustPilotLogo.png"
+                    src="/trustpilotSvg.svg"
                     alt="appStore"
                     width={83}
                     height={20}
                     className=" mb-2"
                   />
-                  <span className="text-[17.5px] text-[#737373] font-bold text-center leading-5">
+                  <span className="text-[17.5px] text-[#737373] font-medium text-center leading-5">
                     4.8/5 stelle
                     <br />
                     1.500+ recensioni{" "}
@@ -410,12 +413,14 @@ export default function MobileSection() {
                 alt="playStoreIcon"
                 width={185}
                 height={55}
+                
               />
               <Image
                 src="/logo/appStoreIcon.svg"
                 alt="appStoreIcon"
                 width={185}
                 height={55}
+                
               />
             </div>
           </div>

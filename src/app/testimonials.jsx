@@ -162,6 +162,13 @@ export default function TestimonialsSection() {
             height={413}
             className="absolute -top-20 -left-[20%] hidden md:block"
           />
+          <Image
+            src="/dotLineFour.svg"
+            alt="dotLineFour"
+            width={1}
+            height={20}
+            className="absolute -top-14 sm:-top-20 block md:hidden"
+          />
           <h2 className="font-poppins text-2xl-up-custom sm:text-[32px] lg:text-[36px] leading-[32px] sm:leading-[42px] lg:leading-[47px] tracking-[-0.15px] font-normal text-black text-center">
             I risultati delle
             <br />
@@ -175,7 +182,7 @@ export default function TestimonialsSection() {
 
         {/* CTA Button */}
         <button className="bg-[#684744] border border-[rgba(243,239,236,0.2)] shadow-[0px_2px_20px_0px_rgba(0,0,0,0.2)] rounded-lg py-3 px-6 flex items-center justify-center gap-3 w-full max-w-xs sm:max-w-sm h-12 sm:h-[54px]">
-          <span className="font-['DM_Sans'] text-lg sm:text-xl font-medium leading-[24px] sm:leading-[29px] text-white">
+          <span className="font-dm-sans text-lg sm:text-xl font-bold leading-[24px] sm:leading-[29px] text-white">
             Inizia la prova gratuita
           </span>
           <svg
@@ -227,9 +234,9 @@ export default function TestimonialsSection() {
                   {isMuted ? (
                     <PiSpeakerXLight color="white" size={20} />
                   ) : (
-                    <PiSpeakerHighThin color="white" size={20} />
+                    <PiSpeakerHighThin className='stroke-[6px]' color="white" size={20} />
                   )}
-                  <span className="font-['DM_Sans'] text-base leading-[26px] text-white">
+                  <span className="font-dm-sans text-base leading-[26px] text-white">
                     {isMuted ? "Tap to unmute" : "Tap to mute"}
                   </span>
                 </button>
@@ -331,7 +338,7 @@ export default function TestimonialsSection() {
       </div>
 
       {/* Mobile Layout */}
-      <div className="lg:hidden px-2 sm:px-6 space-y-8 sm:space-y-12">
+      <div className="lg:hidden px-4 sm:px-6 space-y-8 sm:space-y-12">
         {/* Mobile Intro Video */}
         <div className="w-full">
           <div className="mb-4 sm:mb-6">
@@ -339,7 +346,7 @@ export default function TestimonialsSection() {
               Cinzia lost 37kg with Traininpink
             </h3>
           </div>
-          <div className="max-w-md mx-auto rounded-2xl overflow-hidden bg-black">
+          <div className="max-w-[354px] mx-auto rounded-2xl overflow-hidden bg-black">
             <div className="relative w-full h-full">
               <video
                 className="w-full h-full object-cover"
@@ -361,7 +368,7 @@ export default function TestimonialsSection() {
                   {isMuted ? (
                     <PiSpeakerXLight color="white" size={18} />
                   ) : (
-                    <PiSpeakerHighThin color="white" size={18} />
+                    <PiSpeakerHighThin className='stroke-[6px]' color="white" size={18} />
                   )}
                   <span className="font-dm-sans text-[15px] sm:text-base leading-[20px] sm:leading-[26px] text-white">
                     {isMuted ? "Tap to unmute" : "Tap to mute"}

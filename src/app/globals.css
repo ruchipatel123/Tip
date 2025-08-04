@@ -328,3 +328,33 @@ select:focus-visible {
 button {
   cursor: grab;
 }
+
+.speaker-high {
+  stroke-width: 8px;
+
+}
+
+.speaker-high svg {
+  stroke-width: 8px;
+}
+
+/* Marquee Animation for Brand Strip */
+@keyframes marquee {
+  0% {
+    transform: translateX(0);
+  }
+  100% {
+    transform: translateX(-50%);
+  }
+}
+
+.animate-marquee {
+  animation: marquee 20s linear infinite;
+  width: 200%;
+  transform: translateZ(0); /* Force GPU acceleration */
+}
+
+/* Pause animation on hover */
+.animate-marquee:hover {
+  animation-play-state: paused;
+}
