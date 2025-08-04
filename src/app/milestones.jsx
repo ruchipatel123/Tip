@@ -124,12 +124,12 @@ export default function MilestonesSection() {
         </div>
 
         {/* Mobile Stats Cards - Horizontal Scrollable */}
-        <div className="lg:hidden absolute bottom-8 left-0 right-0 z-10 px-4">
-          <div className="flex gap-6 overflow-x-auto scrollbar-hide snap-x snap-mandatory pb-4">
+        <div className="lg:hidden absolute bottom-12 left-0 right-0 z-10 px-4">
+          <div className="flex gap-4 overflow-x-auto scrollbar-hide snap-x snap-mandatory pb-4">
             {/* Card 1 - 40 thousand+ */}
-            <div className="bg-white/10 backdrop-blur-sm rounded-2xl p-6 min-w-[280px] snap-start flex-shrink-0">
-              <div className="flex flex-col gap-4">
-                <div className="flex items-end gap-2 pb-4 border-b border-white/16">
+            <div className="bg-white/10  rounded-2xl p-10 py-12 min-w-[280px] snap-start flex-shrink-0">
+              <div className="flex flex-col gap-7">
+                <div className="flex items-end gap-2 pb-5 border-b border-white/16">
                   <span className="font-poppins text-5xl font-medium leading-[44px] tracking-[-2px] text-white">
                     4.3
                   </span>
@@ -150,12 +150,12 @@ export default function MilestonesSection() {
             
 
             {/* Card 3 - 117 thousand */}
-            <div className="bg-white/10 backdrop-blur-sm rounded-2xl p-6 min-w-[280px] snap-start flex-shrink-0">
-              <div className="flex flex-col gap-4">
-                <div className="flex items-end gap-2 pb-4 border-b border-white/16">
+            <div className="bg-white/10  rounded-2xl p-10 py-12 min-w-[280px] snap-start flex-shrink-0">
+              <div className="flex flex-col gap-7">
+                <div className="flex items-end gap-2 pb-5 border-b border-white/16">
                   <span className="font-poppins text-5xl font-medium leading-[44px] tracking-[-2px] text-white">
                     117
-                  </span>
+                  </span> 
                   <span className="font-poppins text-[24px] font-medium leading-[32px] tracking-[-0.6px] text-white pb-1">
                     thousand
                   </span>
@@ -167,9 +167,9 @@ export default function MilestonesSection() {
                 </p>
               </div>
             </div>
-            <div className="bg-white/10 backdrop-blur-sm rounded-2xl p-6 min-w-[280px] snap-start flex-shrink-0">
-              <div className="flex flex-col gap-4">
-                <div className="flex items-end gap-2 pb-4 border-b border-white/16">
+            <div className="bg-white/10  rounded-2xl p-10 py-12 min-w-[280px] snap-start flex-shrink-0">
+              <div className="flex flex-col gap-7">
+                <div className="flex items-end gap-2 pb-5 border-b border-white/16">
                   <span className="font-poppins text-5xl font-medium leading-[44px] tracking-[-2px] text-[#F3EFEC]">
                     40
                   </span>

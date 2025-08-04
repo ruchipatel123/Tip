@@ -6,10 +6,10 @@ import {
   FaInstagram,
   FaSpotify,
   FaTiktok,
-  FaTwitter,
+
   FaYoutube,
 } from "react-icons/fa";
-import { FaRegCopyright } from "react-icons/fa6";
+import { FaRegCopyright,FaXTwitter } from "react-icons/fa6";
 export default function Footer() {
   const [showChatMessage, setShowChatMessage] = useState(true);
   return (
@@ -20,8 +20,8 @@ export default function Footer() {
           {/* Mobile Layout */}
           <div className="xl:hidden space-y-8">
             {/* Logo and Social Media */}
-            <div className="flex flex-col items-center gap-6">
-              <div className="w-[140px] sm:w-[166px] h-7 sm:h-8">
+            <div className="flex flex-col items-center lg:items-start xl:items-center gap-6">
+              <div className="w-[160px] sm:w-[166px] h-7 sm:h-8">
                 <Image
                   src="/logo-vector-2.svg"
                   alt="traininpink"
@@ -32,55 +32,7 @@ export default function Footer() {
               </div>
 
               {/* Social Media Icons */}
-              <div className="flex items-center justify-center gap-1">
-                {/* Instagram */}
-                <a
-                  href="#"
-                  className="p-1 opacity-90 hover:opacity-100 transition-opacity"
-                >
-                  <FaInstagram size={20} />
-                </a>
-
-                {/* TikTok */}
-                <a
-                  href="#"
-                  className="p-1 opacity-90 hover:opacity-100 transition-opacity"
-                >
-                  <FaTiktok size={20} />
-                </a>
-
-                {/* Facebook */}
-                <a
-                  href="#"
-                  className="p-1 opacity-90 hover:opacity-100 transition-opacity"
-                >
-                  <FaFacebook size={20} />
-                </a>
-
-                {/* Twitter */}
-                <a
-                  href="#"
-                  className="p-1 opacity-90 hover:opacity-100 transition-opacity"
-                >
-                  <FaTwitter size={20} />
-                </a>
-
-                {/* YouTube */}
-                <a
-                  href="#"
-                  className="p-1 opacity-90 hover:opacity-100 transition-opacity"
-                >
-                  <FaYoutube size={20} />
-                </a>
-
-                {/* Spotify */}
-                <a
-                  href="#"
-                  className="p-1 opacity-90 hover:opacity-100 transition-opacity"
-                >
-                  <FaSpotify size={20} />
-                </a>
-              </div>
+             
             </div>
 
             {/* Links Grid */}
@@ -93,13 +45,13 @@ export default function Footer() {
                 <div className="flex flex-col items-center lg:items-start gap-2">
                   <a
                     href="#"
-                    className="font-dm-sans text-sm sm:text-base leading-[20px] sm:leading-[22px] text-white hover:opacity-80 transition-opacity"
+                    className="font-dm-sans text-base sm:text-base leading-[20px] sm:leading-[22px] text-white hover:opacity-80 transition-opacity"
                   >
                     Buoni regalo Traininpink
                   </a>
                   <a
                     href="#"
-                    className="font-dm-sans text-sm sm:text-base leading-[20px] sm:leading-[22px] text-white hover:opacity-80 transition-opacity"
+                    className="font-dm-sans text-base sm:text-base leading-[20px] sm:leading-[22px] text-white hover:opacity-80 transition-opacity"
                   >
                     Contattaci
                   </a>
@@ -114,25 +66,25 @@ export default function Footer() {
                 <div className="flex flex-col items-center lg:items-start gap-2">
                   <a
                     href="#"
-                    className="font-dm-sans text-sm sm:text-base leading-[20px] sm:leading-[22px] text-white hover:opacity-80 transition-opacity"
+                    className="font-dm-sans text-base sm:text-base leading-[20px] sm:leading-[22px] text-white hover:opacity-80 transition-opacity"
                   >
                     Gestire il tuo account
                   </a>
                   <a
                     href="#"
-                    className="font-dm-sans text-sm sm:text-base leading-[20px] sm:leading-[22px] text-white hover:opacity-80 transition-opacity"
+                    className="font-dm-sans text-base sm:text-base leading-[20px] sm:leading-[22px] text-white hover:opacity-80 transition-opacity"
                   >
                     Centro di supporto
                   </a>
                   <a
                     href="#"
-                    className="font-dm-sans text-sm sm:text-base leading-[20px] sm:leading-[22px] text-white hover:opacity-80 transition-opacity"
+                    className="font-dm-sans text-base sm:text-base leading-[20px] sm:leading-[22px] text-white hover:opacity-80 transition-opacity"
                   >
                     Privacy and cookie policy
                   </a>
                   <a
                     href="#"
-                    className="font-dm-sans text-sm sm:text-base leading-[20px] sm:leading-[22px] text-white hover:opacity-80 transition-opacity"
+                    className="font-dm-sans text-base sm:text-base leading-[20px] sm:leading-[22px] text-white hover:opacity-80 transition-opacity"
                   >
                     Termini e Condizioni
                   </a>
@@ -140,7 +92,7 @@ export default function Footer() {
               </div>
 
               {/* App Store Buttons - Desktop and Tablet */}
-              <div className="col-span-full lg:col-span-2 flex flex-col lg:flex-row items-center lg:justify-center gap-3 lg:gap-4">
+              <div className="col-span-full hidden  lg:col-span-2 md:flex flex-col lg:flex-row items-center lg:justify-center gap-3 lg:gap-4">
                 <Image
                   src="/logo/appStoreLogoDark.svg"
                   alt="appStoreIcon"
@@ -204,7 +156,7 @@ export default function Footer() {
                   href="#"
                   className="p-1 opacity-90 hover:opacity-100 transition-opacity"
                 >
-                  <FaTwitter size={20} />
+                  <FaXTwitter size={20} />
                 </a>
 
                 {/* YouTube */}
@@ -349,10 +301,61 @@ export default function Footer() {
 
 
       {/* Copyright Section */}
-      <div className="border-t border-white/10 py-4 sm:py-6 flex justify-center px-4">
+      <div className="flex md:hidden items-center justify-center gap-1 mt-10">
+                {/* Instagram */}
+                <a
+                  href="#"
+                  className="p-1 opacity-90 hover:opacity-100 transition-opacity"
+                >
+                  <FaFacebook size={25} />
+                </a>
+                <a
+                  href="#"
+                  className="p-1 opacity-90 hover:opacity-100 transition-opacity"
+                >
+                  <FaInstagram size={25} />
+                </a>
+
+                {/* TikTok */}
+              
+
+                {/* Facebook */}
+              
+
+                {/* Twitter */}
+                <a
+                  href="#"
+                  className="p-1 opacity-90 hover:opacity-100 transition-opacity"
+                >
+                  <FaXTwitter size={25} />
+                </a>
+                <a
+                  href="#"
+                  className="p-1 opacity-90 hover:opacity-100 transition-opacity"
+                >
+                  <FaTiktok size={25} />
+                </a>
+                {/* YouTube */}
+                <a
+                  href="#"
+                  className="p-1 opacity-90 hover:opacity-100 transition-opacity"
+                >
+                  <FaYoutube size={25} />
+                </a>
+
+                {/* Spotify */}
+                <a
+                  href="#"
+                  className="p-1 opacity-90 hover:opacity-100 transition-opacity"
+                >
+                  <FaSpotify size={25} />
+                </a>
+              </div>
+      <div className="py-4 sm:py-6 flex justify-center px-4">
+      
         <p className="font-dm-sans text-sm sm:text-sm leading-4 sm:leading-5 text-white text-center flex items-center gap-2">
           <FaRegCopyright />
-          2024 Traininpink | Tutti i diritti riservati.
+          2025 Traininpink | Tutti i diritti riservati.
         </p>
       </div>
     </footer>

@@ -150,7 +150,7 @@ export default function HeroSection() {
           </div>
 
           {/* Desktop Navigation */}
-          <div className="flex items-center gap-10 justify-between xl:w-[55%]">
+          <div className="flex items-center gap-6 lg:gap-10 justify-between xl:w-[55%] flex-shrink-0">
             <div className="flex items-end gap-7 font-dm-sans text-white font-extrabold whitespace-nowrap">
               <div className="flex items-center gap-2 cursor-grab hover:opacity-80 transition-opacity">
                 <span className="text-base">L'APP</span>
@@ -167,13 +167,13 @@ export default function HeroSection() {
             </div>
 
             {/* Desktop Login and CTA */}
-            <div className="flex items-center gap-6 font-dm-sans">
+            <div className="flex items-center gap-4 lg:gap-6 font-dm-sans flex-shrink-0">
               <div className="login-link border-b border-[#f3efec] pb-1 cursor-grab hover:opacity-80 transition-opacity">
                 <span className="text-white text-lg font-bold tracking-tight leading-none">
                   Accedi
                 </span>
               </div>
-              <button className="cta-button cursor-grab flex items-center justify-center gap-3 bg-[#684744] border border-[rgba(243,239,236,0.20)] rounded-lg shadow-[0_2px_20px_0_rgba(0,0,0,0.15)] px-4 py-3 text-white text-xl font-medium leading-snug min-w-60 h-14 hover:bg-[#7a5653] transition-colors">
+              <button className="cta-button cursor-grab flex items-center justify-center gap-3 bg-[#684744] border border-[rgba(243,239,236,0.20)] rounded-lg shadow-[0_2px_20px_0_rgba(0,0,0,0.15)] px-4 py-3 text-white text-xl font-medium leading-snug min-w-60 h-14 hover:bg-[#7a5653] transition-colors whitespace-nowrap">
                 <span className="font-bold font-dm-sans">
                   Inizia la prova gratuita
                 </span>

@@ -333,7 +333,7 @@ const coverflowLucideTestimonial = () => {
           onClick={prevSlide}
           disabled={isAnimating}
           className=" z-20 bg-white backdrop-blur-sm cursor-grab hover:bg-[#ece3dc] disabled:opacity-50 disabled:cursor-not-allowed rounded-full p-3 transition-all duration-300"
-          style={{ border: "1px solid #6847441A" }}
+          style={{ border: "1px solid #6847441A", boxShadow: "0px 2px 20px 0px #00000026" }}
         >
           <ChevronLeft className="w-6 h-6 text-black" />
         </button>
@@ -341,7 +341,7 @@ const coverflowLucideTestimonial = () => {
           onClick={nextSlide}
           disabled={isAnimating}
           className=" z-20 bg-white backdrop-blur-sm hover:bg-[#ece3dc] disabled:opacity-50 disabled:cursor-not-allowed rounded-full p-3 transition-all duration-300 border border-white/20"
-          style={{ border: "1px solid #6847441A" }}
+          style={{ border: "1px solid #6847441A", boxShadow: "0px 2px 20px 0px #00000026" }}
         >
           <ChevronRight className="w-6 h-6 text-black" />
         </button>

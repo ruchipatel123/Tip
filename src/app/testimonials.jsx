@@ -152,7 +152,7 @@ export default function TestimonialsSection() {
   const currentTestimonial = testimonials[currentSlide];
 
   return (
-    <section className="bg-white w-full py-12 sm:py-16 lg:py-20 overflow-hidden relative">
+    <section className="bg-white w-full py-18 sm:py-16 lg:py-20 overflow-hidden relative">
       {/* Header Section */}
       <div className="flex flex-col items-center gap-6 sm:gap-8 px-4 sm:px-6 lg:px-8 mb-12 sm:mb-16 lg:mb-20">
         <div className="flex flex-col items-center gap-4 sm:gap-6 w-full max-w-lg relative">
@@ -161,14 +161,14 @@ export default function TestimonialsSection() {
             alt="dotLineFive"
             width={361}
             height={413}
-            className="absolute -top-20 -left-[20%] hidden md:block"
+            className="absolute -top-20 -left-[20%] hidden lg:block"
           />
           <Image
             src="/dotLineFour.svg"
             alt="dotLineFour"
             width={1}
             height={20}
-            className="absolute -top-14 sm:-top-20 block md:hidden"
+            className="absolute -top-18 sm:-top-20 block md:hidden"
           />
           <h2 className="font-poppins text-2xl-up-custom sm:text-[32px] lg:text-[36px] leading-[32px] sm:leading-[42px] lg:leading-[47px] tracking-[-0.15px] font-normal text-black text-center">
             I risultati delle
