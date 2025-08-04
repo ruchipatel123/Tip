@@ -26,16 +26,16 @@ export default function PricingSection() {
                   Mensile
                 </h3>
                 <div className="text-[#684744]">
-                  <span className="font-poppins text-lg sm:text-[28px] leading-[32px] sm:leading-[36px] tracking-[-0.1px]">€23.99</span>
-                  <span className="font-dm-sans text-[15px] sm:text-[28px] leading-[32px] sm:leading-[36px] tracking-[-0.1px]"> / month</span>
+                  <span className="font-poppins text-lg sm:text-xl-custom leading-[32px] sm:leading-[36px] tracking-[-0.1px]">€23.99</span>
+                  <span className="font-dm-sans text-[15px] sm:text-base  leading-[32px] sm:leading-[36px] tracking-[-0.1px]"> / month</span>
                 </div>
-                <div className="font-['DM_Sans'] text-sm sm:text-base leading-[20px] sm:leading-[26px] text-[#404040]">
+                <div className="font-dm-sans text-sm sm:text-base leading-[20px] sm:leading-[26px] text-[#404040]">
                   dopo la <b>prova</b><br />
                   <span className="font-bold"> gratuita di 7 giorni</span>
                 </div>
               </div>
               <button className="bg-[#F3EFEC] border border-black/10 shadow-[0px_2px_20px_0px_rgba(0,0,0,0.08)] rounded-lg py-[10px] px-4 flex items-center justify-center gap-3 w-full h-12 sm:h-auto">
-                <span className="font-['DM_Sans'] text-lg sm:text-xl font-medium leading-[24px] sm:leading-[29px] text-[#684744]">
+                <span className="font-dm-sans text-lg sm:text-xl font-bold leading-[24px] sm:leading-[29px] text-[#684744]">
                   Inizia la prova gratuita
                 </span>
                 <svg width="13.33" height="10" viewBox="0 0 14 10" fill="none" className="flex-shrink-0">
@@ -51,11 +51,11 @@ export default function PricingSection() {
             <div 
               className="rounded-t-2xl shadow-[0px_0px_20px_0px_rgba(0,0,0,0.1)] px-2 py-3 flex items-center justify-center gap-2"
               style={{
-                background: 'linear-gradient(90deg, #98685E 0%, #32221F 100%)'
+                background: 'linear-gradient(270deg, #98685E 36%, #32221F 100%)'
               }}
             >
               <Image src='/logo/Sparkle.svg' alt='starIcon' width={20} height={20} />
-              <span className="font-dm-sans text-[15px] sm:text-base leading-[20px] sm:leading-[26px] text-white font-normal">
+              <span className="font-dm-sans text-[15px] sm:text-base leading-[20px] sm:leading-[26px] text-white font-bold">
                 BEST VALUE
               </span>
             </div>
@@ -68,8 +68,8 @@ export default function PricingSection() {
                     Semestrale
                   </h3>
                   <div className="text-[#684744]">
-                    <span className="font-poppins text-lg sm:text-[28px] leading-[32px] sm:leading-[36px] tracking-[-0.1px]">€13.33</span>
-                    <span className="font-dm-sans text-[15px] sm:text-[28px] leading-[32px] sm:leading-[36px] tracking-[-0.1px]"> / month</span>
+                    <span className="font-poppins text-lg sm:text-xl-custom leading-[32px] sm:leading-[36px] tracking-[-0.1px]">€13.33</span>
+                    <span className="font-dm-sans text-[15px] sm:text-base leading-[32px] sm:leading-[36px] tracking-[-0.1px]"> / month</span>
                   </div>
                   <div className="flex flex-wrap items-baseline gap-1.5 font-dm-sans text-[15px] sm:text-sm leading-[18px] sm:leading-[21px]">
                     <span className="text-[#684744] opacity-40 line-through">€143.94 </span>
@@ -82,7 +82,7 @@ export default function PricingSection() {
                   </div>
                 </div>
                 <button className="bg-[#684744] border border-[rgba(243,239,236,0.2)] shadow-[0px_2px_20px_0px_rgba(0,0,0,0.2)] rounded-lg py-[10px] px-4 flex items-center justify-center gap-3 w-full h-12 sm:h-auto">
-                  <span className="font-['DM_Sans'] text-lg sm:text-xl font-medium leading-[24px] sm:leading-[29px] text-white">
+                  <span className="font-dm-sans text-lg sm:text-xl font-bold leading-[24px] sm:leading-[29px] text-white">
                     Inizia la prova gratuita
                   </span>
                   <svg width="13.33" height="10" viewBox="0 0 14 10" fill="none" className="flex-shrink-0">
@@ -108,8 +108,8 @@ export default function PricingSection() {
                   Annuale
                 </h3>
                 <div className="text-[#684744]">
-                  <span className="font-poppins text-lg sm:text-[28px] leading-[32px] sm:leading-[36px] tracking-[-0.1px]">€13.33</span>
-                  <span className="font-dm-sans text-[15px] sm:text-[28px] leading-[32px] sm:leading-[36px] tracking-[-0.1px]"> / month</span>
+                  <span className="font-poppins text-lg sm:text-xl-custom leading-[32px] sm:leading-[36px] tracking-[-0.1px]">€13.33</span>
+                  <span className="font-dm-sans text-[15px] sm:text-base leading-[32px] sm:leading-[36px] tracking-[-0.1px]"> / month</span>
                 </div>
                 <div className="flex flex-wrap items-baseline gap-1.5 font-dm-sans text-[15px] sm:text-sm leading-[18px] sm:leading-[21px]">
                   <span className="text-[#684744]">€159.99</span>
@@ -121,7 +121,7 @@ export default function PricingSection() {
                 </div>
               </div>
               <button className="bg-[#F3EFEC] border border-black/10 shadow-[0px_2px_20px_0px_rgba(0,0,0,0.08)] rounded-lg py-[10px] px-4 flex items-center justify-center gap-3 w-full h-12 sm:h-auto">
-                <span className="font-dm-sans text-lg sm:text-xl font-medium leading-[24px] sm:leading-[29px] text-[#684744]">
+                <span className="font-dm-sans text-lg sm:text-xl font-bold leading-[24px] sm:leading-[29px] text-[#684744]">
                   Inizia la prova gratuita
                 </span>
                 <svg width="13.33" height="10" viewBox="0 0 14 10" fill="none" className="flex-shrink-0">

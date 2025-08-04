@@ -10,7 +10,6 @@ export default function MilestonesSection() {
   const containerRef = useRef(null);
   const [isLocked, setIsLocked] = useState(false);
   const [scrollPhase, setScrollPhase] = useState(0); // 0: before lock, 1: locked, 2: after lock
-  const [windowHeight, setWindowHeight] = useState(800);
   const [isDesktop, setIsDesktop] = useState(false);
 
   const { scrollYProgress } = useScroll({
@@ -20,16 +19,13 @@ export default function MilestonesSection() {
 
   // Transform values for smooth transitions - only on desktop
   const cardsProgress = useTransform(scrollYProgress, [0, 0.8], [0, 1]);
-  const sectionY = useTransform(scrollYProgress, [0.8, 1], [0, -windowHeight]);
 
   useEffect(() => {
-    // Set window height and detect desktop on client side
+    // Detect desktop on client side
     if (typeof window !== "undefined") {
-      setWindowHeight(window.innerHeight);
       setIsDesktop(window.innerWidth >= 1024);
 
       const handleResize = () => {
-        setWindowHeight(window.innerHeight);
         setIsDesktop(window.innerWidth >= 1024);
       };
 
@@ -43,14 +39,11 @@ export default function MilestonesSection() {
     if (!isDesktop) return;
 
     const unsubscribe = scrollYProgress.onChange((progress) => {
-      if (progress >= 0 && progress < 0.8) {
+      if (progress >= 0 && progress <= 0.8) {
         setScrollPhase(1); // Locked phase
         setIsLocked(true);
-      } else if (progress >= 0.8) {
-        setScrollPhase(2); // Transition out phase
-        setIsLocked(false);
       } else {
-        setScrollPhase(0); // Before lock
+        setScrollPhase(0); // Not locked
         setIsLocked(false);
       }
     });
@@ -58,9 +51,9 @@ export default function MilestonesSection() {
     return () => unsubscribe();
   }, [scrollYProgress, isDesktop]);
 
-  // Card animation transforms - increased travel distance
+  // Card animation transforms - increased travel distance by 60%
   const getCardTransform = (index) => {
-    return useTransform(cardsProgress, [0, 1], [0, -500 - index * 80]);
+    return useTransform(cardsProgress, [0, 1], [0, -800 - index * 128]);
   };
 
   const card1Y = getCardTransform(0);
@@ -71,14 +64,13 @@ export default function MilestonesSection() {
     <div
       ref={containerRef}
       className="relative"
-      style={{ height: isDesktop ? "300vh" : "auto" }}
+      style={{ height: isDesktop ? "200vh" : "auto" }}
     >
       <motion.section
         ref={sectionRef}
         className={`w-full h-screen overflow-hidden border-t border-black/10 ${
           isDesktop ? "sticky top-0" : "relative"
         }`}
-        style={{ y: isDesktop && scrollPhase === 2 ? sectionY : 0 }}
       >
         {/* Background Image with Overlay */}
         <div className="absolute inset-0">
@@ -122,7 +114,7 @@ export default function MilestonesSection() {
             </p>
 
             {/* CTA Button */}
-            <button className="md:bg-[#684744] bg-[#F3EFEC] border border-[rgba(243,239,236,0.2)] shadow-[0px_2px_20px_0px_rgba(0,0,0,0.2)] rounded-lg py-3 px-4 sm:py-[10px] sm:px-2 flex items-center justify-center gap-3 w-full sm:max-w-[251px] h-12 sm:h-[54px] hover:bg-[#7a5653] transition-colors">
+            <button className="md:bg-[#684744] bg-[#F3EFEC] border border-[rgba(243,239,236,0.2)] shadow-[0px_2px_20px_0px_rgba(0,0,0,0.2)] rounded-lg py-3 px-4 sm:py-[10px] sm:px-2 flex items-center justify-center gap-3 w-full sm:max-w-[251px] h-12 sm:h-[54px]  transition-colors">
               <span className="font-dm-sans font-bold text-lg sm:text-lg leading-[24px] sm:leading-[29px] md:text-white text-[#684744]">
                 Inizia la prova gratuita
               </span>
@@ -152,58 +144,43 @@ export default function MilestonesSection() {
                 </p>
               </div>
             </div>
-            <div className="bg-white/10 backdrop-blur-sm rounded-2xl p-6 min-w-[280px] snap-start flex-shrink-0">
-              <div className="flex flex-col gap-4">
-                <div className="flex items-end gap-2 pb-4 border-b border-white/16">
-                  <span className="font-['Poppins'] text-5xl font-medium leading-[44px] tracking-[-2px] text-[#F3EFEC]">
-                    40
-                  </span>
-                  <span className="font-['Poppins'] text-[24px] font-medium leading-[32px] tracking-[-0.6px] text-[#F3EFEC] pb-1">
-                    thousand+
-                  </span>
-                </div>
-                <p className="font-['Poppins'] text-[16px] leading-[22px] tracking-[-0.05px] text-white">
-                  Currently
-                  <br />
-                  subscribed users
-                </p>
-              </div>
-            </div>
+           
 
             {/* Card 2 - 4.3 months */}
-            <div className="bg-white/10 backdrop-blur-sm rounded-2xl p-6 min-w-[280px] snap-start flex-shrink-0">
-              <div className="flex flex-col gap-4">
-                <div className="flex items-end gap-2 pb-4 border-b border-white/16">
-                  <span className="font-['Poppins'] text-5xl font-medium leading-[44px] tracking-[-2px] text-white">
-                    4.3
-                  </span>
-                  <span className="font-['Poppins'] text-[24px] font-medium leading-[32px] tracking-[-0.6px] text-white pb-1">
-                    months
-                  </span>
-                </div>
-                <p className="font-['Poppins'] text-[16px] leading-[22px] tracking-[-0.05px] text-white">
-                  High loyalty
-                  <br />
-                  retention rate
-                </p>
-              </div>
-            </div>
+            
 
             {/* Card 3 - 117 thousand */}
             <div className="bg-white/10 backdrop-blur-sm rounded-2xl p-6 min-w-[280px] snap-start flex-shrink-0">
               <div className="flex flex-col gap-4">
                 <div className="flex items-end gap-2 pb-4 border-b border-white/16">
-                  <span className="font-['Poppins'] text-5xl font-medium leading-[44px] tracking-[-2px] text-white">
+                  <span className="font-poppins text-5xl font-medium leading-[44px] tracking-[-2px] text-white">
                     117
                   </span>
-                  <span className="font-['Poppins'] text-[24px] font-medium leading-[32px] tracking-[-0.6px] text-white pb-1">
+                  <span className="font-poppins text-[24px] font-medium leading-[32px] tracking-[-0.6px] text-white pb-1">
                     thousand
                   </span>
                 </div>
-                <p className="font-['Poppins'] text-[16px] leading-[22px] tracking-[-0.05px] text-white">
+                <p className="font-poppins text-[16px] leading-[22px] tracking-[-0.05px] text-white">
                   Followers on
                   <br />
                   social media
+                </p>
+              </div>
+            </div>
+            <div className="bg-white/10 backdrop-blur-sm rounded-2xl p-6 min-w-[280px] snap-start flex-shrink-0">
+              <div className="flex flex-col gap-4">
+                <div className="flex items-end gap-2 pb-4 border-b border-white/16">
+                  <span className="font-poppins text-5xl font-medium leading-[44px] tracking-[-2px] text-[#F3EFEC]">
+                    40
+                  </span>
+                  <span className="font-poppins text-[24px] font-medium leading-[32px] tracking-[-0.6px] text-[#F3EFEC] pb-1">
+                    thousand+
+                  </span>
+                </div>
+                <p className="font-poppins text-[16px] leading-[22px] tracking-[-0.05px] text-white">
+                  Currently
+                  <br />
+                  subscribed users
                 </p>
               </div>
             </div>
@@ -217,17 +194,17 @@ export default function MilestonesSection() {
           style={{ y: isDesktop ? card1Y : 0 }}
         >
           <div className="bg-white/10 backdrop-blur-sm rounded-[32px] p-4 xl:p-10 h-[319px]">
-            <div className="flex flex-col gap-[60px] h-full">
-              <div className="flex items-end gap-[14px] pb-[25px] border-b border-white/16">
-                <span className="font-['Poppins'] text-[80px] font-medium leading-[88px] tracking-[-4px] text-[#F3EFEC]">
+            <div className="flex flex-col gap-[20px] xl:gap-[60px] h-full">
+              <div className="flex flex-wrap xl:flex-nowrap items-end xl:gap-[14px] pb-[25px] border-b border-white/16">
+                <span className="font-poppins text-[80px] font-medium leading-[88px] tracking-[-4px] text-[#F3EFEC]">
                   40
                 </span>
-                <span className="font-['Poppins'] text-[48px] font-medium leading-[66px] tracking-[-1.2px] text-[#F3EFEC] pb-2">
+                <span className="font-poppins text-[48px] font-medium leading-[66px] tracking-[-1.2px] text-[#F3EFEC] pb-2">
                   thousand+
                 </span>
               </div>
               <div className="h-[66px]">
-                <p className="font-['Poppins'] text-[28px] leading-[36px] tracking-[-0.1px] text-white">
+                <p className="font-poppins text-[28px] leading-[36px] tracking-[-0.1px] text-white">
                   Currently
                   <br />
                   subscribed users
@@ -243,17 +220,17 @@ export default function MilestonesSection() {
           style={{ y: isDesktop ? card2Y : 0 }}
         >
           <div className="bg-white/10 backdrop-blur-sm rounded-[32px] p-4 xl:p-10 h-[319px]">
-            <div className="flex flex-col gap-[60px] h-full">
-              <div className="flex items-end gap-[14px] pb-[25px] border-b border-[rgba(22,42,65,0.16)]">
-                <span className="font-['Poppins'] text-[80px] font-medium leading-[88px] tracking-[-4px] text-white">
+            <div className="flex flex-col gap-[20px] xl:gap-[60px] h-full">
+              <div className="flex flex-wrap xl:flex-nowrap items-end xl:gap-[14px] pb-[25px] border-b border-[rgba(22,42,65,0.16)]">
+                <span className="font-poppins text-[80px] font-medium leading-[88px] tracking-[-4px] text-white">
                   4.3
                 </span>
-                <span className="font-['Poppins'] text-[48px] font-medium leading-[66px] tracking-[-1.2px] text-white pb-2">
+                <span className="font-poppins text-[48px] font-medium leading-[66px] tracking-[-1.2px] text-white pb-2">
                   months
                 </span>
               </div>
               <div className="h-[66px]">
-                <p className="font-['Poppins'] text-[28px] leading-[36px] tracking-[-0.1px] text-white">
+                <p className="font-poppins text-[28px] leading-[36px] tracking-[-0.1px] text-white">
                   High loyalty
                   <br />
                   retention rate
@@ -269,17 +246,17 @@ export default function MilestonesSection() {
           style={{ y: isDesktop ? card3Y : 0 }}
         >
           <div className="bg-white/10 backdrop-blur-sm rounded-[32px] p-4 xl:p-10 h-[319px]">
-            <div className="flex flex-col gap-[60px] h-full">
-              <div className="flex items-end gap-[14px] pb-[25px] border-b border-[rgba(22,42,65,0.16)]">
-                <span className="font-['Poppins'] text-[80px] font-medium leading-[88px] tracking-[-4px] text-white">
+            <div className="flex flex-col gap-[20px] xl:gap-[60px] h-full">
+              <div className="flex flex-wrap xl:flex-nowrap items-end xl:gap-[14px] pb-[25px] border-b border-[rgba(22,42,65,0.16)]">
+                <span className="font-poppins text-[80px] font-medium leading-[88px] tracking-[-4px] text-white">
                   117
                 </span>
-                <span className="font-['Poppins'] text-[48px] font-medium leading-[66px] tracking-[-1.2px] text-white pb-2">
+                <span className="font-poppins text-[48px] font-medium leading-[66px] tracking-[-1.2px] text-white pb-2">
                   thousand
                 </span>
               </div>
               <div className="h-[66px]">
-                <p className="font-['Poppins'] text-[28px] leading-[36px] tracking-[-0.1px] text-white">
+                <p className="font-poppins text-[28px] leading-[36px] tracking-[-0.1px] text-white">
                   Followers on
                   <br />
                   social media

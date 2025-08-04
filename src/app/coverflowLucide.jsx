@@ -4,8 +4,8 @@ import { ChevronLeft, ChevronRight } from "lucide-react";
 import Image from "next/image";
 import { FaArrowRight } from "react-icons/fa6";
 const CarouselCoverLucide = () => {
-  // Create extended slides array with clones for infinite effect
-  const originalSlides = [
+  // Base slides data
+  const baseSlides = [
     {
       id: 1,
       title: "Pilates Linfodrenante™",
@@ -17,6 +17,7 @@ const CarouselCoverLucide = () => {
       level: "principiante",
       objectives: "ritenzione, sgonfiare, tonificare",
       equipment: "nessun attrezzo richiesto",
+      category: "Pilates",
     },
     {
       id: 2,
@@ -29,6 +30,7 @@ const CarouselCoverLucide = () => {
       level: "intermedio",
       objectives: "tonificare, rinforzare, definire",
       equipment: "elastici, pesi leggeri",
+      category: "Tonificazione",
     },
     {
       id: 3,
@@ -41,6 +43,7 @@ const CarouselCoverLucide = () => {
       level: "avanzato",
       objectives: "dimagrire, resistenza, energia",
       equipment: "tappetino, palla pilates",
+      category: "Cardio",
     },
     {
       id: 4,
@@ -53,6 +56,7 @@ const CarouselCoverLucide = () => {
       level: "principiante",
       objectives: "postura, flessibilità, benessere",
       equipment: "cuscino, rullo foam",
+      category: "Yoga",
     },
     {
       id: 5,
@@ -65,8 +69,425 @@ const CarouselCoverLucide = () => {
       level: "adattato",
       objectives: "forza core, recupero, benessere",
       equipment: "palla, fasce elastiche",
+      category: "Pre e post parto",
     },
   ];
+
+  // Create 5 separate static data arrays with different arrangements
+  const tuttiSlides = [
+    {
+      id: 1,
+      title: "Pilates Linfodrenante™",
+      image: "/images/carouselleft1.png",
+      description: "L'esclusivo Pilates per eliminare la ritenzione, migliorare la circolazione e tonificare",
+      duration: "5-25",
+      frequency: "3 volte a settimana",
+      level: "principiante",
+      objectives: "ritenzione, sgonfiare, tonificare",
+      equipment: "nessun attrezzo richiesto",
+      category: "Pilates",
+    },
+    {
+      id: 2,
+      title: "Pilates Cardio™",
+      image: "/images/carouselcenter.jpg",
+      description: "Combinazione dinamica di Pilates e cardio per bruciare calorie e migliorare la resistenza",
+      duration: "20-40",
+      frequency: "3-4 volte a settimana",
+      level: "avanzato",
+      objectives: "dimagrire, resistenza, energia",
+      equipment: "tappetino, palla pilates",
+      category: "Cardio",
+    },
+    {
+      id: 3,
+      title: "Pilates Tonificante™",
+      image: "/images/carouselleft2.jpeg",
+      description: "Pilates intensivo per sviluppare forza muscolare e definizione corporea",
+      duration: "15-30",
+      frequency: "4 volte a settimana",
+      level: "intermedio",
+      objectives: "tonificare, rinforzare, definire",
+      equipment: "elastici, pesi leggeri",
+      category: "Tonificazione",
+    },
+    {
+      id: 4,
+      title: "Pilates Pre/Post Parto™",
+      image: "/images/carouselright2.png",
+      description: "Programma specializzato per supportare il corpo durante e dopo la gravidanza",
+      duration: "15-25",
+      frequency: "2-3 volte a settimana",
+      level: "adattato",
+      objectives: "forza core, recupero, benessere",
+      equipment: "palla, fasce elastiche",
+      category: "Pre e post parto",
+    },
+    {
+      id: 5,
+      title: "Pilates Posturale™",
+      image: "/images/carouselright1.png",
+      description: "Esercizi mirati per migliorare la postura e alleviare tensioni della colonna vertebrale",
+      duration: "10-20",
+      frequency: "5 volte a settimana",
+      level: "principiante",
+      objectives: "postura, flessibilità, benessere",
+      equipment: "cuscino, rullo foam",
+      category: "Yoga",
+    },
+    {
+      id: 6,
+      title: "Pilates Intenso™",
+      image: "/images/carouselleft2.jpeg",
+      description: "Allenamento intensivo per chi vuole risultati rapidi e sfidanti",
+      duration: "25-35",
+      frequency: "5 volte a settimana",
+      level: "avanzato",
+      objectives: "forza, resistenza, definizione",
+      equipment: "pesi, elastici, palla",
+      category: "Tonificazione",
+    },
+    {
+      id: 7,
+      title: "Pilates Dolce™",
+      image: "/images/carouselright1.png",
+      description: "Approccio delicato per principianti e chi preferisce movimenti più soft",
+      duration: "15-20",
+      frequency: "3 volte a settimana",
+      level: "principiante",
+      objectives: "flessibilità, rilassamento, benessere",
+      equipment: "tappetino, cuscino",
+      category: "Yoga",
+    },
+    {
+      id: 8,
+      title: "Pilates Brucia Grassi™",
+      image: "/images/carouselcenter.jpg",
+      description: "Sequenze ad alta intensità per massimizzare il consumo calorico",
+      duration: "30-45",
+      frequency: "4 volte a settimana",
+      level: "intermedio",
+      objectives: "dimagrimento, tono, energia",
+      equipment: "pesi leggeri, tappetino",
+      category: "Cardio",
+    },
+    {
+      id: 9,
+      title: "Pilates Riabilitativo™",
+      image: "/images/carouselleft1.png",
+      description: "Programma specifico per il recupero post-infortunio e riabilitazione",
+      duration: "20-30",
+      frequency: "3-4 volte a settimana",
+      level: "adattato",
+      objectives: "recupero, forza, mobilità",
+      equipment: "fasce elastiche, palla",
+      category: "Pre e post parto",
+    },
+    {
+      id: 10,
+      title: "Pilates Core Focus™",
+      image: "/images/carouselright2.png",
+      description: "Concentrato esclusivamente sul rinforzo del core e della stabilità",
+      duration: "15-25",
+      frequency: "5 volte a settimana",
+      level: "intermedio",
+      objectives: "core stability, forza addominale",
+      equipment: "palla pilates, rullo",
+      category: "Tonificazione",
+    }
+  ];
+
+  const pilatesSlides = [
+    {
+      id: 11,
+      title: "Pilates Classico™",
+      image: "/images/carouselright1.png",
+      description: "Il vero Pilates secondo i principi originali di Joseph Pilates",
+      duration: "20-30",
+      frequency: "4 volte a settimana",
+      level: "intermedio",
+      objectives: "controllo, precisione, fluidità",
+      equipment: "tappetino, magic circle",
+      category: "Pilates",
+    },
+    {
+      id: 12,
+      title: "Pilates Reformer Style™",
+      image: "/images/carouselleft2.jpeg",
+      description: "Movimenti ispirati al reformer ma eseguibili a corpo libero",
+      duration: "25-35",
+      frequency: "3 volte a settimana",
+      level: "avanzato",
+      objectives: "forza, coordinazione, equilibrio",
+      equipment: "elastici, palla",
+      category: "Pilates",
+    },
+    {
+      id: 13,
+      title: "Pilates Flow™",
+      image: "/images/carouselcenter.jpg",
+      description: "Sequenze fluide che combinano respirazione e movimento continuo",
+      duration: "18-28",
+      frequency: "4 volte a settimana",
+      level: "intermedio",
+      objectives: "fluidità, concentrazione, benessere",
+      equipment: "tappetino",
+      category: "Pilates",
+    },
+    {
+      id: 14,
+      title: "Pilates Mat Work™",
+      image: "/images/carouselleft1.png",
+      description: "Lavoro completo a terra per sviluppare forza e controllo",
+      duration: "22-32",
+      frequency: "5 volte a settimana",
+      level: "principiante",
+      objectives: "fondamenta, controllo, stabilità",
+      equipment: "tappetino, cuscino",
+      category: "Pilates",
+    },
+    {
+      id: 15,
+      title: "Pilates Advanced™",
+      image: "/images/carouselright2.png",
+      description: "Sfide avanzate per praticanti esperti che vogliono progredire",
+      duration: "30-40",
+      frequency: "3-4 volte a settimana",
+      level: "avanzato",
+      objectives: "challenge, progressione, maestria",
+      equipment: "palla, pesi, elastici",
+      category: "Pilates",
+    }
+  ];
+
+  const tonificazioneSlides = [
+    {
+      id: 16,
+      title: "Toning Express™",
+      image: "/images/carouselleft2.jpeg",
+      description: "Allenamenti brevi ma intensi per tonificare tutto il corpo",
+      duration: "15-20",
+      frequency: "5 volte a settimana",
+      level: "intermedio",
+      objectives: "tono muscolare, definizione",
+      equipment: "pesi leggeri, elastici",
+      category: "Tonificazione",
+    },
+    {
+      id: 17,
+      title: "Sculpt & Shape™",
+      image: "/images/carouselright1.png",
+      description: "Modellare e scolpire ogni distretto muscolare con precisione",
+      duration: "25-35",
+      frequency: "4 volte a settimana",
+      level: "avanzato",
+      objectives: "sculpting, definizione, forma",
+      equipment: "pesi, bande elastiche",
+      category: "Tonificazione",
+    },
+    {
+      id: 18,
+      title: "Resistance Training™",
+      image: "/images/carouselcenter.jpg",
+      description: "Allenamento di resistenza per aumentare forza e massa magra",
+      duration: "20-30",
+      frequency: "4 volte a settimana",
+      level: "intermedio",
+      objectives: "forza, massa magra, resistenza",
+      equipment: "elastici, pesi",
+      category: "Tonificazione",
+    },
+    {
+      id: 19,
+      title: "Body Sculpting™",
+      image: "/images/carouselleft1.png",
+      description: "Programma completo per rimodellare la silhouette",
+      duration: "30-40",
+      frequency: "3 volte a settimana",
+      level: "avanzato",
+      objectives: "rimodellamento, tono, forma",
+      equipment: "pesi, palla, elastici",
+      category: "Tonificazione",
+    }
+  ];
+
+  const cardioSlides = [
+    {
+      id: 20,
+      title: "Cardio Blast™",
+      image: "/images/carouselcenter.jpg",
+      description: "Esplosioni cardio ad alta intensità per bruciare al massimo",
+      duration: "20-30",
+      frequency: "4 volte a settimana",
+      level: "avanzato",
+      objectives: "bruciare calorie, resistenza cardiovascolare",
+      equipment: "tappetino",
+      category: "Cardio",
+    },
+    {
+      id: 21,
+      title: "Dance Cardio™",
+      image: "/images/carouselleft2.jpeg",
+      description: "Cardio divertente con movimenti ispirati alla danza",
+      duration: "25-35",
+      frequency: "3-4 volte a settimana",
+      level: "intermedio",
+      objectives: "divertimento, cardio, coordinazione",
+      equipment: "nessuno",
+      category: "Cardio",
+    },
+    {
+      id: 22,
+      title: "HIIT Pilates™",
+      image: "/images/carouselright1.png",
+      description: "Combinazione di HIIT e Pilates per massimi risultati",
+      duration: "18-25",
+      frequency: "4 volte a settimana",
+      level: "avanzato",
+      objectives: "intensità, forza, cardio",
+      equipment: "tappetino, pesi",
+      category: "Cardio",
+    },
+    {
+      id: 23,
+      title: "Low Impact Cardio™",
+      image: "/images/carouselleft1.png",
+      description: "Cardio a basso impatto per proteggere le articolazioni",
+      duration: "25-30",
+      frequency: "5 volte a settimana",
+      level: "principiante",
+      objectives: "cardio sicuro, resistenza, benessere",
+      equipment: "tappetino",
+      category: "Cardio",
+    },
+    {
+      id: 24,
+      title: "Fat Burn Zone™",
+      image: "/images/carouselright2.png",
+      description: "Allenamenti mirati alla zona brucia grassi ottimale",
+      duration: "30-40",
+      frequency: "4 volte a settimana",
+      level: "intermedio",
+      objectives: "brucia grassi, definizione, energia",
+      equipment: "fascia cardio (opzionale)",
+      category: "Cardio",
+    }
+  ];
+
+  const yogaSlides = [
+    {
+      id: 25,
+      title: "Yoga Flow™",
+      image: "/images/carouselright1.png",
+      description: "Sequenze fluide che uniscono movimento, respiro e mindfulness",
+      duration: "20-30",
+      frequency: "4 volte a settimana",
+      level: "intermedio",
+      objectives: "flessibilità, equilibrio, calma",
+      equipment: "tappetino, blocchi",
+      category: "Yoga",
+    },
+    {
+      id: 26,
+      title: "Yin Yoga™",
+      image: "/images/carouselleft1.png",
+      description: "Pratica meditativa con posture tenute a lungo per il rilassamento profondo",
+      duration: "30-45",
+      frequency: "2-3 volte a settimana",
+      level: "principiante",
+      objectives: "rilassamento, flessibilità, meditazione",
+      equipment: "tappetino, cuscini, coperta",
+      category: "Yoga",
+    },
+    {
+      id: 27,
+      title: "Power Yoga™",
+      image: "/images/carouselcenter.jpg",
+      description: "Yoga dinamico e vigoroso per forza e resistenza",
+      duration: "25-35",
+      frequency: "3 volte a settimana",
+      level: "avanzato",
+      objectives: "forza, flessibilità, concentrazione",
+      equipment: "tappetino, blocchi",
+      category: "Yoga",
+    },
+    {
+      id: 28,
+      title: "Restorative Yoga™",
+      image: "/images/carouselright2.png",
+      description: "Yoga riparatore per il recupero e il benessere del sistema nervoso",
+      duration: "35-45",
+      frequency: "2 volte a settimana",
+      level: "principiante",
+      objectives: "recupero, calma, rigenerazione",
+      equipment: "tappetino, cuscini, coperta",
+      category: "Yoga",
+    }
+  ];
+
+  const prePostPartoSlides = [
+    {
+      id: 29,
+      title: "Prenatal Safe™",
+      image: "/images/carouselright2.png",
+      description: "Esercizi sicuri e benefici durante tutti i trimestri di gravidanza",
+      duration: "15-25",
+      frequency: "3 volte a settimana",
+      level: "adattato",
+      objectives: "benessere in gravidanza, forza, preparazione parto",
+      equipment: "palla gravidanza, cuscino",
+      category: "Pre e post parto",
+    },
+    {
+      id: 30,
+      title: "Postnatal Recovery™",
+      image: "/images/carouselleft1.png",
+      description: "Recupero graduale post-parto per ripristinare forza e benessere",
+      duration: "12-20",
+      frequency: "4 volte a settimana",
+      level: "adattato",
+      objectives: "recupero post-parto, core recovery",
+      equipment: "tappetino, fascia elastica",
+      category: "Pre e post parto",
+    },
+    {
+      id: 31,
+      title: "Mamma & Baby™",
+      image: "/images/carouselright1.png",
+      description: "Allenamenti che puoi fare insieme al tuo bambino",
+      duration: "15-25",
+      frequency: "3-4 volte a settimana",
+      level: "principiante",
+      objectives: "bonding, fitness mamma, divertimento",
+      equipment: "tappetino, giochi baby",
+      category: "Pre e post parto",
+    }
+  ];
+
+  // Map tabs to their respective static data arrays
+  const slidesData = {
+    "Tutti": tuttiSlides,
+    "Pilates": pilatesSlides,
+    "Tonificazione": tonificazioneSlides,
+    "Cardio": cardioSlides,
+    "Yoga": yogaSlides,
+    "Pre e post parto": prePostPartoSlides
+  };
+
+  // Tab configuration array
+  const tabs = [
+    { key: "Tutti", label: "Tutti" },
+    { key: "Pilates", label: "Pilates" },
+    { key: "Tonificazione", label: "Tonificazione" },
+    { key: "Cardio", label: "Cardio" },
+    { key: "Yoga", label: "Yoga" },
+    { key: "Pre e post parto", label: "Pre e post parto" }
+  ];
+
+  const [activeCard, setActiveCard] = useState("Tutti");
+  
+  // Get current slides based on active tab
+  const originalSlides = slidesData[activeCard];
 
   // Create infinite slides by cloning first and last slides
   const slides = [
@@ -89,12 +510,18 @@ const CarouselCoverLucide = () => {
   const videoRef = useRef(null);
   const [isTransitioning, setIsTransitioning] = useState(true);
 
-  const [activeCard, setActiveCard] = useState("Tutti");
-
   // Close accordion when slide changes
   useEffect(() => {
     setExpandedCard(null);
   }, [currentIndex]);
+
+  // Reset carousel when active tab changes
+  useEffect(() => {
+    setCurrentIndex(2 + 2); // Reset to first slide (accounting for clones)
+    setExpandedCard(null);
+    setIsAnimating(false);
+    setIsTransitioning(true);
+  }, [activeCard]);
 
   const nextSlide = () => {
     if (isAnimating) return;
@@ -296,56 +723,32 @@ const CarouselCoverLucide = () => {
         className="absolute -top-30 left-1/2 hidden md:block"
       />
       </h1>
-      {/* Main carousel container */}
-      <div className="flex flex-wrap items-center justify-between md:justify-center gap-2 sm:gap-6 mt-10 text-xl font-poppins md:text-3xl font-normal px-4">
-        <p
-          className={`${
-            activeCard === "Tutti" ? "text-black" : "opacity-20"
-          } cursor-grab`}
-          onClick={() => setActiveCard("Tutti")}
-        >
-          Tutti <span className="text-black align-super text-xl">10</span>
-        </p>
-        <p
-          className={`${
-            activeCard === "Pilates" ? "text-black" : "opacity-20"
-          } cursor-grab`}
-          onClick={() => setActiveCard("Pilates")}
-        >
-          Pilates
-        </p>
-        <p
-          className={`${
-            activeCard === "Tonificazione" ? "text-black" : "opacity-20"
-          } cursor-grab`}
-          onClick={() => setActiveCard("Tonificazione")}
-        >
-          Tonificazione
-        </p>
-        <p
-          className={`${
-            activeCard === "Cardio" ? "text-black" : "opacity-20"
-          } cursor-grab`}
-          onClick={() => setActiveCard("Cardio")}
-        >
-          Cardio
-        </p>
-        <p
-          className={`${
-            activeCard === "Yoga" ? "text-black" : "opacity-20"
-          } cursor-grab`}
-          onClick={() => setActiveCard("Yoga")}
-        >
-          Yoga
-        </p>
-        <p
-          className={`${
-            activeCard === "Pre e post parto" ? "text-black" : "opacity-20"
-          } cursor-grab`}
-          onClick={() => setActiveCard("Pre e post parto")}
-        >
-          Pre e post parto
-        </p>
+      {/* Tab bar - responsive flex layout */}
+      <div className="flex items-center justify-center flex-wrap gap-[35px] md:gap-10 mt-8 md:mt-10 px-4 md:px-0">
+        {tabs.map((tab) => (
+          <p
+            key={tab.key}
+            className={`${
+              activeCard === tab.key ? "text-black" : "opacity-20"
+            } cursor-grab relative font-poppins text-xl md:text-2xl-custom font-normal leading-[1.4em] tracking-[-0.25%] ${
+              tab.key === "Tutti" ? "text-center" : "text-left"
+            }`}
+            onClick={() => setActiveCard(tab.key)}
+          >
+            {tab.label}
+            {activeCard === tab.key && (
+              <span 
+                className="absolute text-black font-poppins text-[18px] md:text-xl font-normal leading-[1.44em] -top-3 md:-top-3"
+                style={{
+
+                  right: tab.key !== "Tutti" ? "-10px" : "auto"
+                }}
+              >
+                {slidesData[tab.key].length}
+              </span>
+            )}
+          </p>
+        ))}
       </div>
       <div className="relative h-full flex items-center justify-center px-4 mt-10">
         {/* Carousel container */}
@@ -431,6 +834,11 @@ const CarouselCoverLucide = () => {
                         <div
                           className="absolute bottom-0 left-0 w-full h-16 bg-[#F3EFEC] flex items-center justify-between px-4 rounded-b-2xl cursor-grab transition-all duration-300 hover:bg-[#ece3dc] z-30"
                           onClick={(e) => handleDetailsClick(e, originalSlideId)}
+                          style={{
+                            borderWidth: '0px 1px 1px 1px',
+                            borderStyle: 'solid',
+                            borderColor: '#0000001A'
+                          }}
                         >
                           <h3 className="font-poppins text-[18px] font-medium leading-[1.41em] tracking-[-0.23%] text-black">
                             {slide.title}
@@ -449,61 +857,64 @@ const CarouselCoverLucide = () => {
                             ? "h-1/2 translate-y-0 opacity-100"
                             : "h-0 translate-y-full opacity-0"
                         }`}
+                        style={{
+                          borderWidth: '0px 1px 1px 1px',
+                          borderStyle: 'solid',
+                          borderColor: '#0000001A'
+                        }}
                       >
                         {isExpanded && (
                     <div className="h-full flex flex-col">
                       {/* Header with title and close button - now at top of accordion */}
                           <div
-                            className="h-14 bg-[#F3EFEC] flex items-center justify-between px-4 cursor-grab transition-all duration-300 hover:bg-[#ece3dc] flex-shrink-0"
+                            className="h-12 md:h-14 bg-[#F3EFEC] flex items-center justify-between px-4 cursor-grab transition-all duration-300 hover:bg-[#ece3dc] flex-shrink-0"
                             onClick={(e) => handleDetailsClick(e, originalSlideId)}
                           >
-                            <h3 className="font-poppins text-[22px] font-medium leading-[1.41em] tracking-[-0.23%] text-black">
+                            <h3 className="font-poppins text-[18px] md:text-[22px] font-medium leading-[1.41em] tracking-[-0.23%] text-black">
                               {slide.title}
                             </h3>
-                            <p className="text-black font-dm-sans text-base font-normal leading-[1.625em] flex items-center gap-2">
+                            <p className="text-black font-dm-sans text-sm md:text-base font-normal leading-[1.625em] flex items-center gap-2">
                               Details
                               <FaArrowRight className="rotate-90" />
                             </p>
                           </div>
 
                           {/* Accordion content below the header */}
-                          <div className="flex-1 p-5 pt-0 overflow-y-auto">
-                            <div className="space-y-6">
+                          <div className="flex-1 p-3 md:p-5 md:pt-0 pt-0 overflow-hidden">
+                            <div className="space-y-3 md:space-y-4">
                               {/* Description */}
-                              <p className="text-black mb-2 font-dm-sans text-base leading-[1.625em] max-w-[342px]">
+                              <p className="text-black mb-2 font-dm-sans text-sm md:text-base leading-[1.5em] md:leading-[1.625em] max-w-[342px]">
                                 {slide.description}
                               </p>
 
                               {/* Content grid with vertical divider */}
                               <div className="relative">
-                                {/* Vertical divider line */}
-
                                 {/* Left Column */}
                                 <div className="flex justify-between border-b border-[#DBD7D4]">
                                   {/* Allenamenti Section */}
-                                  <div className="w-1/2 py-2">
-                                    <h4 className="text-black font-dm-sans text-sm font-normal leading-[1.5em] opacity-40">
+                                  <div className="w-1/2 py-1 md:py-2">
+                                    <h4 className="text-black font-dm-sans text-xs md:text-sm font-normal leading-[1.5em] opacity-40">
                                       Allenamenti
                                     </h4>
-                                    <div className="flex items-baseline gap-2">
-                                      <span className="text-black font-dm-sans text-base font-normal leading-[1.625em] text-center">
+                                    <div className="flex items-baseline gap-1 md:gap-2">
+                                      <span className="text-black font-dm-sans text-sm md:text-base font-normal leading-[1.625em] text-center">
                                         {slide.duration}
                                       </span>
                                       <span className="text-black font-dm-sans text-xs font-normal leading-[1.5em] tracking-[0.83%] text-center">
                                         minuti
                                       </span>
                                     </div>
-                                    <p className="text-black font-dm-sans text-sm font-normal leading-[1.5em]">
+                                    <p className="text-black font-dm-sans text-xs md:text-sm font-normal leading-[1.5em]">
                                       {slide.frequency}
                                     </p>
                                   </div>
 
                                   {/* Livello Section */}
-                                  <div className="w-1/2 py-2 border-l border-[#DBD7D4] pl-4">
-                                    <h4 className="text-black font-dm-sans text-sm font-normal leading-[1.5em] opacity-40">
+                                  <div className="w-1/2 py-1 md:py-2 border-l border-[#DBD7D4] pl-3 md:pl-4">
+                                    <h4 className="text-black font-dm-sans text-xs md:text-sm font-normal leading-[1.5em] opacity-40">
                                       Livello
                                     </h4>
-                                    <p className="text-black font-dm-sans text-base font-normal leading-[1.625em]">
+                                    <p className="text-black font-dm-sans text-sm md:text-base font-normal leading-[1.625em]">
                                       {slide.level}
                                     </p>
                                   </div>
@@ -512,20 +923,20 @@ const CarouselCoverLucide = () => {
                                 {/* Right Column */}
                                 <div className="flex justify-between">
                                   {/* Obiettivi Section */}
-                                  <div className="w-1/2 py-2">
-                                    <h4 className="text-black font-dm-sans text-sm font-normal leading-[1.5em] opacity-40">
+                                  <div className="w-1/2 py-1 md:py-2">
+                                    <h4 className="text-black font-dm-sans text-xs md:text-sm font-normal leading-[1.5em] opacity-40">
                                       Obiettivi
                                     </h4>
-                                    <p className="text-black font-dm-sans text-base font-normal leading-[1.625em] max-w-[155px]">
+                                    <p className="text-black font-dm-sans text-sm md:text-base font-normal leading-[1.625em] max-w-[155px]">
                                       {slide.objectives}
                                     </p>
                                   </div>
                                   {/* Attrezzi Section */}
-                                  <div className="w-1/2 py-2 border-l border-[#DBD7D4] pl-4">
-                                    <h4 className="text-black font-dm-sans text-sm font-normal leading-[1.5em] opacity-40">
+                                  <div className="w-1/2 py-1 md:py-2 border-l border-[#DBD7D4] pl-3 md:pl-4">
+                                    <h4 className="text-black font-dm-sans text-xs md:text-sm font-normal leading-[1.5em] opacity-40">
                                       Attrezzi
                                     </h4>
-                                    <p className="text-black font-dm-sans text-base font-normal leading-[1.625em] max-w-[117px]">
+                                    <p className="text-black font-dm-sans text-sm md:text-base font-normal leading-[1.625em] max-w-[117px]">
                                       {slide.equipment}
                                     </p>
                                   </div>
@@ -544,7 +955,7 @@ const CarouselCoverLucide = () => {
           ))}
         </div>
       </div>
-      <div className="flex items-center justify-center gap-2 mt-12">
+      <div className="flex items-center justify-center gap-2 md:mt-12">
         <button
           onClick={prevSlide}
           disabled={isAnimating}
