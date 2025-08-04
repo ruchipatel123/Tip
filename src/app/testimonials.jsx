@@ -13,6 +13,7 @@ import 'swiper/css';
 import 'swiper/css/navigation';
 import 'swiper/css/pagination';
 import 'swiper/css/effect-creative';
+import InstagramMessage from "./instaMessage";
 export default function TestimonialsSection() {
   const [currentSlide, setCurrentSlide] = useState(0);
   const [isMuted, setIsMuted] = useState(true);
@@ -485,6 +486,7 @@ export default function TestimonialsSection() {
           </div>
         </div>
       </div>
+      {/* <InstagramMessage /> */}
       {/* <Image
         src="/dotLineFour.svg"
         alt="dotLineFour"

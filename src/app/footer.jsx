@@ -18,7 +18,7 @@ export default function Footer() {
       <div className="px-4 sm:px-6 lg:px-8 pt-12 sm:pt-16 lg:pt-20 pb-8 sm:pb-10">
         <div className="max-w-7xl mx-auto">
           {/* Mobile Layout */}
-          <div className="lg:hidden space-y-8">
+          <div className="xl:hidden space-y-8">
             {/* Logo and Social Media */}
             <div className="flex flex-col items-center gap-6">
               <div className="w-[140px] sm:w-[166px] h-7 sm:h-8">
@@ -32,16 +32,65 @@ export default function Footer() {
               </div>
 
               {/* Social Media Icons */}
+              <div className="flex items-center justify-center gap-1">
+                {/* Instagram */}
+                <a
+                  href="#"
+                  className="p-1 opacity-90 hover:opacity-100 transition-opacity"
+                >
+                  <FaInstagram size={20} />
+                </a>
+
+                {/* TikTok */}
+                <a
+                  href="#"
+                  className="p-1 opacity-90 hover:opacity-100 transition-opacity"
+                >
+                  <FaTiktok size={20} />
+                </a>
+
+                {/* Facebook */}
+                <a
+                  href="#"
+                  className="p-1 opacity-90 hover:opacity-100 transition-opacity"
+                >
+                  <FaFacebook size={20} />
+                </a>
+
+                {/* Twitter */}
+                <a
+                  href="#"
+                  className="p-1 opacity-90 hover:opacity-100 transition-opacity"
+                >
+                  <FaTwitter size={20} />
+                </a>
+
+                {/* YouTube */}
+                <a
+                  href="#"
+                  className="p-1 opacity-90 hover:opacity-100 transition-opacity"
+                >
+                  <FaYoutube size={20} />
+                </a>
+
+                {/* Spotify */}
+                <a
+                  href="#"
+                  className="p-1 opacity-90 hover:opacity-100 transition-opacity"
+                >
+                  <FaSpotify size={20} />
+                </a>
+              </div>
             </div>
 
             {/* Links Grid */}
-            <div className="grid grid-cols-1 sm:grid-cols-2 gap-8">
+            <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-8 lg:gap-6">
               {/* Traininpink Links */}
-              <div className="flex flex-col items-center sm:items-start gap-3">
+              <div className="flex flex-col items-center lg:items-start gap-3">
                 <h3 className="font-dm-sans text-base font-bold leading-[22px] text-white">
                   Traininpink
                 </h3>
-                <div className="flex flex-col items-center sm:items-start gap-2">
+                <div className="flex flex-col items-center lg:items-start gap-2">
                   <a
                     href="#"
                     className="font-dm-sans text-sm sm:text-base leading-[20px] sm:leading-[22px] text-white hover:opacity-80 transition-opacity"
@@ -58,11 +107,11 @@ export default function Footer() {
               </div>
 
               {/* Resources Section */}
-              <div className="flex flex-col items-center sm:items-start gap-3">
+              <div className="flex flex-col items-center lg:items-start gap-3">
                 <h3 className="font-dm-sans text-base font-bold leading-[22px] text-white">
                   Risorse
                 </h3>
-                <div className="flex flex-col items-center sm:items-start gap-2">
+                <div className="flex flex-col items-center lg:items-start gap-2">
                   <a
                     href="#"
                     className="font-dm-sans text-sm sm:text-base leading-[20px] sm:leading-[22px] text-white hover:opacity-80 transition-opacity"
@@ -89,31 +138,31 @@ export default function Footer() {
                   </a>
                 </div>
               </div>
-            </div>
 
-            {/* App Store Buttons */}
-            <div className="hidden md:flex flex-col items-center gap-3">
-              <Image
-                src="/logo/appStoreLogoDark.svg"
-                alt="appStoreIcon"
-                width={185}
-                height={55}
-                className="w-[160px] sm:w-[185px] h-auto"
-              />
-              <Image
-                src="/logo/playStoreLogoDark.svg"
-                alt="playStoreIcon"
-                width={185}
-                height={55}
-                className="w-[160px] sm:w-[185px] h-auto"
-              />
+              {/* App Store Buttons - Desktop and Tablet */}
+              <div className="col-span-full lg:col-span-2 flex flex-col lg:flex-row items-center lg:justify-center gap-3 lg:gap-4">
+                <Image
+                  src="/logo/appStoreLogoDark.svg"
+                  alt="appStoreIcon"
+                  width={185}
+                  height={55}
+                  className="w-[160px] sm:w-[185px] h-auto"
+                />
+                <Image
+                  src="/logo/playStoreLogoDark.svg"
+                  alt="playStoreIcon"
+                  width={185}
+                  height={55}
+                  className="w-[160px] sm:w-[185px] h-auto"
+                />
+              </div>
             </div>
           </div>
 
           {/* Desktop Layout */}
-          <div className="hidden lg:flex lg:flex-wrap lg:justify-center lg:gap-8">
+          <div className="hidden xl:flex xl:flex-wrap xl:justify-center xl:gap-8">
             {/* Left Section - Logo and Social Media */}
-            <div className="flex flex-col gap-[14px] w-[354px]">
+            <div className="flex flex-col gap-[14px] flex-1 max-w-[354px]">
               {/* Logo */}
               <div className="w-[166px] h-8">
                 <Image
@@ -177,7 +226,7 @@ export default function Footer() {
             </div>
 
             {/* Middle Section - Traininpink Links */}
-            <div className="flex flex-col gap-2 w-[313px]">
+            <div className="flex flex-col gap-2 flex-1 max-w-[313px]">
               <h3 className="font-['DM_Sans'] text-[15.75px] font-bold leading-[22px] text-white">
                 Traininpink
               </h3>
@@ -198,7 +247,7 @@ export default function Footer() {
             </div>
 
             {/* Resources Section */}
-            <div className="flex flex-col gap-2 w-[325px]">
+            <div className="flex flex-col gap-2 flex-1 max-w-[325px]">
               <h3 className="font-['DM_Sans'] text-[15.875px] font-bold leading-[22px] text-white">
                 Risorse
               </h3>
@@ -297,55 +346,7 @@ export default function Footer() {
         </div>
       </div>
 
-      <div className="flex items-center justify-center gap-2">
-        {/* Instagram */}
-        <a
-          href="#"
-          className="p-2 opacity-90 hover:opacity-100 transition-opacity"
-        >
-          <FaInstagram />
-        </a>
 
-        {/* TikTok */}
-        <a
-          href="#"
-          className="p-2 opacity-90 hover:opacity-100 transition-opacity"
-        >
-          <FaTiktok />
-        </a>
-
-        {/* Facebook */}
-        <a
-          href="#"
-          className="p-2 opacity-90 hover:opacity-100 transition-opacity"
-        >
-          <FaFacebook />
-        </a>
-
-        {/* Twitter */}
-        <a
-          href="#"
-          className="p-2 opacity-90 hover:opacity-100 transition-opacity"
-        >
-          <FaTwitter />
-        </a>
-
-        {/* YouTube */}
-        <a
-          href="#"
-          className="p-2 opacity-90 hover:opacity-100 transition-opacity"
-        >
-          <FaYoutube />
-        </a>
-
-        {/* Spotify */}
-        <a
-          href="#"
-          className="p-2 opacity-90 hover:opacity-100 transition-opacity"
-        >
-          <FaSpotify />
-        </a>
-      </div>
 
       {/* Copyright Section */}
       <div className="border-t border-white/10 py-4 sm:py-6 flex justify-center px-4">
