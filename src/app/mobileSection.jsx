@@ -129,12 +129,12 @@ export default function MobileSection() {
           alt="mobileMockup"
           width={348}
           height={714}
-          className="w-[348px] top-10 left-0 z-[100]  h-[714px] "
+          className="w-[240px] h-[5`0px] lg:w-[348px] top-10 left-0 z-[100] lg:h-[714px] "
         />
       </div>
 
       <div ref={containerRef} className="mt-10 md:mt-50 relative">
-        <div className="hidden md:block w-full md:w-1/2 absolute -top-200 right-0 md:right-20">
+        <div className="hidden md:block w-full md:w-1/2 absolute md:-top-155 lg:-top-200 right-0 md:right-20">
           <div className="max-w-[477px] mx-auto flex flex-col gap-4">
             <h2 className="text-4xl font-normal text-center">
               Ottieni i risultati <br /> che meriti
@@ -144,7 +144,7 @@ export default function MobileSection() {
               consiglierebbe Traininpink™ ad una propria amica.
             </p>
           </div>
-          <div className="flex flex-wrap gap-4 justify-center mt-10">
+          <div className="flex lg:flex-wrap gap-4 justify-center mt-10">
             <div className="flex flex-col gap-8">
               <div className="flex items-center gap-2">
                 <Image
@@ -512,10 +512,10 @@ export default function MobileSection() {
                       className={`w-full h-full object-cover
                       ${
                         index === 0
-                          ? "object-[0px_-14rem]"
+                          ? "xl:object-[0px_-14rem]"
                           : index === 1
-                          ? "object-[0px_-32rem]"
-                          : "object-[0px_-32rem]"
+                          ? "xl:object-[0px_-32rem]"
+                          : "xl:object-[0px_-32rem]"
                       }
                       `}
                       priority={index === 0}

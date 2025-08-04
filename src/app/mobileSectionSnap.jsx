@@ -180,10 +180,10 @@ export default function MobileSectionSnap() {
                       className={`w-full h-screen md:h-full object-cover transition-all duration-600
                       ${
                         index === 0
-                          ? "md:object-[0px_-14rem]"
+                          ? "xl:object-[0px_-14rem]"
                           : index === 1
-                          ? "md:object-[0px_-32rem]"
-                          : "md:object-[0px_-32rem]"
+                          ? "xl:object-[0px_-32rem]"
+                          : "xl:object-[0px_-32rem]"
                       }
                       ${isActive ? "blur-sm" : ""}
                       `}
