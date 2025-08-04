@@ -188,9 +188,7 @@ export default function MobileSectionSnap() {
           const isActive = currentSection === index;
           const scaleValue = isActive ? 0.8 : 1; // All slides: 1 when active, 0.8 when inactive
           
-          // Debug logging for scale
-          console.log(`Section ${index}: isActive=${isActive}, scale=${scaleValue}, currentSection=${currentSection}`);
-
+          
           return (
             <motion.section
               key={section.id}
@@ -199,6 +197,8 @@ export default function MobileSectionSnap() {
               whileInView={{ opacity: 1 }}
               transition={{ duration: 0.6 }}
             >
+        <Image src='/dotLineFour.svg' alt='dotLineFour' width={1} height={100} className="absolute block md:hidden left-1/2 -top-[0%]" />
+
               {/* Animated Image */}
               <motion.div
                 className="relative z-20 w-full mx-auto max-w-[1360px] h-screen md:h-full"

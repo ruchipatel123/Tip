@@ -19,20 +19,18 @@ import { useState, useEffect } from "react";
 import MobileSectionSnap from "./mobileSectionSnap";
 
 export default function Home() {
-
   const [isMobile, setIsMobile] = useState(true);
 
   useEffect(() => {
     setIsMobile(window.innerWidth < 768);
   }, []);
 
-
   return (
     <main>
       <HeroSection />
       <BradStrip />
       {/* <MobileMock /> */}
-      {isMobile ?  <MobileTrustSection /> : null }
+      {isMobile ? <MobileTrustSection /> : null}
       {isMobile ? <MobileSectionSnap /> : <MobileSection />}
       <TestimonialsSection />
       {/* <CarouselCover /> */}
@@ -50,7 +48,7 @@ export default function Home() {
 
 const MobileTrustSection = () => {
   return (
-    <div className="block md:hidden w-full bg-[#F1EBE7] py-10">
+    <div className="block md:hidden w-full bg-[#F1EBE7] py-10 relative">
       <div className="max-w-[477px] mx-auto flex flex-col gap-4">
         <h2 className="text-2xl-up-custom font-poppins font-normal leading-9 text-center">
           Ottieni i risultati <br /> che meriti
@@ -172,21 +170,28 @@ const MobileTrustSection = () => {
       </div>
 
       <div className="flex md:hidden flex-row-reverse sm:flex-row gap-4 items-center justify-center mt-10">
-          <Image
-            src="/logo/playStoreIcon.svg"
-            alt="playStoreIcon"
-            width={185}
-            height={55}
-            className="w-[140px] sm:w-[160px] lg:w-[185px] h-[41px]"
-          />
-          <Image
-            src="/logo/appStoreIcon.svg"
-            alt="appStoreIcon"
-            width={185}
-            height={55}
-            className="w-[140px] sm:w-[160px] lg:w-[185px] h-[41px]"
-          />
-        </div>
+        <Image
+          src="/logo/playStoreIcon.svg"
+          alt="playStoreIcon"
+          width={185}
+          height={55}
+          className="w-[140px] sm:w-[160px] lg:w-[185px] h-[41px]"
+        />
+        <Image
+          src="/logo/appStoreIcon.svg"
+          alt="appStoreIcon"
+          width={185}
+          height={55}
+          className="w-[140px] sm:w-[160px] lg:w-[185px] h-[41px]"
+        />
+      </div>
+      {/* <Image
+        src="/logo/largeLine.svg"
+        alt="largeLine"
+        width={1}
+        height={400}
+        className="mx-auto absolute left-1/2 top-[180%]"
+      /> */}
     </div>
   );
 };
