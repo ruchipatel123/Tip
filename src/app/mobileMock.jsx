@@ -16,10 +16,10 @@ export default function MobileMock() {
       </div>
       <div className="w-full md:w-1/2">
         <div className="max-w-[477px] mx-auto flex flex-col gap-4">
-          <h2 className="text-4xl font-normal text-center">
+          <h2 className="text-4xl font-normal text-center font-poppins">
             Ottieni i risultati <br /> che meriti
           </h2>
-          <p className="text-lg text-center font-normal text-bold">
+          <p className="text-lg text-center font-normal text-bold font-dm-sans">
             Chi usa la nostra app è entusiasta: il 99,2% delle nostre utenti
             consiglierebbe Traininpink™ ad una propria amica.
           </p>
@@ -58,9 +58,9 @@ export default function MobileMock() {
             <div className="flex flex-col items-center">
               <FaFacebook className="text-4xl mb-2" color="#1877F2" size={20} />
               <span className="text-[17.5px] text-[#737373] font-bold text-center leading-5">
-                4.8/5 stelle
+                4.9/5 stelle
                 <br />
-                1.500+ recensioni{" "}
+                150+ recensioni{" "}
               </span>
             </div>
             <Image

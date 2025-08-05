@@ -405,6 +405,19 @@ button {
   animation-play-state: paused;
 }
 
+@media (min-width: 1200px) {
+  .xxl\:left-\[47\.4\%\] {
+    left: 290px;
+  }
+} 
+@media (min-width: 1336px) {
+  .xxl\:left-\[47\.4\%\] {
+    left: 315px;
+  }
+}
+
+
+
 /* Flowing Gradient Animation for Best Value Badge */
 @keyframes flowingGradient {
   0% {

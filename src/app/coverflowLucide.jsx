@@ -799,7 +799,7 @@ const CarouselCoverLucide = () => {
         {/* Carousel container */}
         <div
           ref={containerRef}
-          className="relative w-full h-[603px] flex rounded-2xl items-center justify-center perspective-1000"
+          className="relative w-full h-[673px] flex rounded-2xl items-center justify-center perspective-1000"
           onTouchStart={handleTouchStart}
           onTouchMove={handleTouchMove}
           onTouchEnd={handleTouchEnd}
@@ -872,7 +872,7 @@ const CarouselCoverLucide = () => {
                           alt={slide.title}
                           className="w-full h-full object-cover rounded-t-2xl"
                           width={483}
-                          height={603}
+                          height={673}
                         />
                         {/* White overlay for inactive cards */}
                         {index !== currentIndex && (

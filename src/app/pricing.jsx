@@ -9,13 +9,7 @@ export default function PricingSection() {
           <h2 className="text-2xl-up-custom relative lg:text-[36px] leading-[32px] sm:leading-[38px] lg:leading-[47px] tracking-[-0.15px] font-normal text-black font-poppins px-4">
             Ti garantiamo i risultati: <br className="hidden md:block" />
             soddisfatta o rimborsata
-            <Image
-              src="/dotLineFour.svg"
-              alt="dotLineFour"
-              width={2}
-              height={20}
-              className="absolute -top-30 left-[50%] md:left-[53.2%] lg:block"
-            />
+            <Image src="/dotLineFour.svg" alt="dotLineFour" width={2} height={20} className="absolute -top-30 left-[50%] md:left-[54%] lg:block" />
           </h2>
           <p className="hidden md:block font-dm-sans text-lg sm:text-base leading-[22px] sm:leading-[26px] text-black max-w-md lg:max-w-[442px] px-4 md:px-2">
             Un unico piano con accesso a tutti gli allenamenti e la nutrizione
@@ -51,7 +45,7 @@ export default function PricingSection() {
                   <span className="font-bold"> gratuita di 7 giorni</span>
                 </div>
               </div>
-              <button className="bg-[#F3EFEC] border border-black/10 shadow-[0px_2px_20px_0px_rgba(0,0,0,0.08)] rounded-lg py-[10px] px-4 flex items-center justify-center gap-3 w-full h-12 sm:h-auto whitespace-nowrap">
+              <button className="bg-[#F3EFEC] xl:mt-[40px] border border-black/10 shadow-[0px_2px_20px_0px_rgba(0,0,0,0.08)] rounded-lg py-[10px] px-4 flex items-center justify-center gap-3 w-full h-12 sm:h-auto whitespace-nowrap">
                 <span className="font-dm-sans text-lg sm:text-xl font-bold leading-[24px] sm:leading-[29px] text-[#684744]">
                   Inizia la prova gratuita
                 </span>
