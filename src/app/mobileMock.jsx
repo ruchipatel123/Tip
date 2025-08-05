@@ -16,10 +16,10 @@ export default function MobileMock() {
       </div>
       <div className="w-full md:w-1/2">
         <div className="max-w-[477px] mx-auto flex flex-col gap-4">
-          <h2 className="text-4xl font-normal text-center">
+          <h2 className="text-4xl font-normal text-center font-poppins">
             Ottieni i risultati <br /> che meriti
           </h2>
-          <p className="text-lg text-center font-normal text-bold">
+          <p className="text-lg text-center font-normal text-bold font-dm-sans">
             Chi usa la nostra app è entusiasta: il 99,2% delle nostre utenti
             consiglierebbe Traininpink™ ad una propria amica.
           </p>

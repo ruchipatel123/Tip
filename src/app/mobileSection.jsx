@@ -180,10 +180,10 @@ export default function MobileSection() {
       <div ref={containerRef} className="mt-10 md:mt-50 relative">
         <div className="hidden md:block w-full md:w-1/2 absolute md:-top-155 lg:-top-200 right-0 md:right-20">
           <div className="max-w-[477px] mx-auto flex flex-col gap-4">
-            <h2 className="text-4xl font-normal text-center">
+            <h2 className="text-4xl font-normal text-center font-poppins">
               Ottieni i risultati <br /> che meriti
             </h2>
-            <p className="text-lg text-center font-normal text-bold hidden md:block">
+            <p className="text-lg text-center font-normal text-bold hidden md:block font-dm-sans">
               Chi usa la nostra app è entusiasta: il 99,2% delle nostre utenti
               consiglierebbe Traininpink™ ad una propria amica.
             </p>
@@ -199,7 +199,7 @@ export default function MobileSection() {
                 />
                 <div className="flex flex-col w-full items-center">
                   <FaApple className="text-4xl mb-2" color="#000" size={20} />
-                  <span className="text-[12px] md:text-[14px] lg:text-[17.5px] text-[#737373] font-medium text-center leading-5">
+                  <span className="text-[14px] lg:text-[17.5px] text-[#737373] font-medium text-center leading-5   font-dm-sans">
                     4.8/5 stelle
                     <br />
                     1.500+ recensioni{" "}
@@ -226,7 +226,7 @@ export default function MobileSection() {
                     color="#1877F2"
                     size={20}
                   />
-                  <span className="text-[12px] md:text-[14px] lg:text-[17.5px] text-[#737373] font-medium text-center leading-5">
+                  <span className="text-[14px] lg:text-[17.5px] text-[#737373] font-medium text-center leading-5 font-dm-sans">
                     4.9/5 stelle
                     <br />
                     150+ recensioni{" "}
@@ -257,7 +257,7 @@ export default function MobileSection() {
                     height={20}
                     className=" mb-2"
                   />
-                  <span className="text-[12px] md:text-[14px] lg:text-[17.5px] text-[#737373] font-medium text-center leading-5">
+                  <span className="text-[14px] lg:text-[17.5px] text-[#737373] font-medium text-center leading-5 font-dm-sans">
                     5/5 stelle
                     <br />
                     1.500+ recensioni{" "}
@@ -286,7 +286,7 @@ export default function MobileSection() {
                     height={20}
                     className=" mb-2"
                   />
-                  <span className="text-[12px] md:text-[14px] lg:text-[17.5px] text-[#737373] font-medium text-center leading-5">
+                  <span className="text-[14px] lg:text-[17.5px] text-[#737373] font-medium text-center leading-5 font-dm-sans">
                     4.9/5 stelle
                     <br />
                     600+ recensioni{" "}
@@ -327,10 +327,10 @@ export default function MobileSection() {
         
         <div className="block md:hidden w-full px-5">
           <div className="max-w-[477px] mx-auto flex flex-col gap-4">
-            <h2 className="text-4xl font-normal text-center">
+            <h2 className="text-4xl font-normal text-center font-poppins">
               Ottieni i risultati <br /> che meriti
             </h2>
-            <p className="text-lg text-center font-normal text-bold hidden md:block">
+            <p className="text-lg text-center font-normal text-bold hidden md:block font-dm-sans">
               Chi usa la nostra app è entusiasta: il 99,2% delle nostre utenti
               consiglierebbe Traininpink™ ad una propria amica.
             </p>
@@ -346,7 +346,7 @@ export default function MobileSection() {
                 />
                 <div className="flex flex-col w-full items-center">
                   <FaApple className="text-4xl mb-2" color="#000" size={20} />
-                  <span className="text-[12px] md:text-[14px] lg:text-[17.5px] text-[#737373] font-medium text-center leading-5">
+                  <span className="text-[14px] lg:text-[17.5px] text-[#737373] font-medium text-center leading-5 font-dm-sans">
                     4.8/5 stelle
                     <br />
                     1.500+ recensioni{" "}
@@ -373,7 +373,7 @@ export default function MobileSection() {
                     color="#1877F2"
                     size={20}
                   />
-                  <span className="text-[12px] md:text-[14px] lg:text-[17.5px] text-[#737373] font-medium text-center leading-5">
+                  <span className="text-[14px] lg:text-[17.5px] text-[#737373] font-medium text-center leading-5 font-dm-sans">
                     4.8/5 stelle
                     <br />
                     1.500+ recensioni{" "}
@@ -404,7 +404,7 @@ export default function MobileSection() {
                     height={20}
                     className=" mb-2"
                   />
-                  <span className="text-[12px] md:text-[14px] lg:text-[17.5px] text-[#737373] font-medium text-center leading-5">
+                  <span className="text-[14px] lg:text-[17.5px] text-[#737373] font-medium text-center leading-5 font-dm-sans">
                     4.8/5 stelle
                     <br />
                     1.500+ recensioni{" "}
@@ -433,7 +433,7 @@ export default function MobileSection() {
                     height={20}
                     className=" mb-2"
                   />
-                  <span className="text-[12px] md:text-[14px] lg:text-[17.5px] text-[#737373] font-medium text-center leading-5">
+                  <span className="text-[14px] lg:text-[17.5px] text-[#737373] font-medium text-center leading-5 font-dm-sans">
                     4.8/5 stelle
                     <br />
                     1.500+ recensioni{" "}
