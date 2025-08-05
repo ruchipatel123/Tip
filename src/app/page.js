@@ -53,7 +53,7 @@ const MobileTrustSection = () => {
         <h2 className="text-2xl-up-custom font-poppins font-normal leading-9 text-center">
           Ottieni i risultati <br /> che meriti
         </h2>
-        <p className="text-lg text-center font-normal text-bold hidden md:block">
+        <p className="text-lg text-center font-normal text-bold hidden md:block font-dm-sans">
           Chi usa la nostra app è entusiasta: il 99,2% delle nostre utenti
           consiglierebbe Traininpink™ ad una propria amica.
         </p>

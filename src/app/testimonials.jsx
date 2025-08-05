@@ -357,7 +357,7 @@ export default function TestimonialsSection({ testimonials: testimonialsProp }) 
   const currentTestimonial = testimonials[currentSlide];
 
   return (
-    <section className="bg-white w-full py-18 sm:py-16 lg:pt-20 lg:pb-[66px] overflow-hidden relative">
+    <section className="bg-white w-full py-18 sm:py-16 lg:pt-20 lg:pb-[66px] xl:pb-[75px] overflow-hidden relative">
       <Image
           src="/dotLineFour.svg"
           alt="dotLineFour"
@@ -388,13 +388,13 @@ export default function TestimonialsSection({ testimonials: testimonialsProp }) 
             nostre donne
           </h2>
           <p className="font-dm-sans text-lg sm:text-lg leading-[24px] sm:leading-[29px] text-black text-center max-w-sm sm:max-w-md">
-            Più di 180.000 donne sono felici nel proprio corpo grazie a
+            Più di 180.000 donne sono felici nel<br/> proprio corpo grazie a
             Traininpink™
           </p>
         </div>
 
         {/* CTA Button */}
-        <button className="bg-[#684744] border border-[rgba(243,239,236,0.2)] shadow-[0px_2px_20px_0px_rgba(0,0,0,0.2)] rounded-lg py-3 px-6 flex items-center justify-center gap-3 w-full max-w-xs sm:max-w-sm h-12 sm:h-[54px]">
+        <button className="bg-[#684744] border border-[rgba(243,239,236,0.2)] shadow-[0px_2px_20px_0px_rgba(0,0,0,0.2)] rounded-lg py-3 px-2 flex items-center justify-center gap-3 w-full max-w-xs sm:max-w-[273px] h-12 sm:h-[54px]">
           <span className="font-dm-sans text-lg sm:text-xl font-bold leading-[24px] sm:leading-[29px] text-white">
             Inizia la prova gratuita
           </span>
@@ -417,7 +417,7 @@ export default function TestimonialsSection({ testimonials: testimonialsProp }) 
       </div>
 
       {/* Desktop Layout */}
-      <div className="hidden lg:flex lg:flex-row lg:gap-8 xl:gap-12 px-4 sm:px-6 lg:px-8 max-w-[1360px] mx-auto">
+      <div className="hidden lg:flex lg:flex-row lg:gap-4 xl:gap-4 px-4 sm:px-6 lg:px-8 max-w-[1360px] mx-auto">
         {/* Left Testimonial Card - Intro Video */}
         <div className="flex-1 max-w-2xl">
           <div className="mb-6">
@@ -425,7 +425,7 @@ export default function TestimonialsSection({ testimonials: testimonialsProp }) 
               Cinzia lost 37kg with Traininpink
             </h3>
           </div>
-          <div className="aspect-[4/5] rounded-2xl overflow-hidden bg-black">
+          <div className="aspect-[4/5] rounded-2xl overflow-hidden bg-black xl:min-h-[830px]">
             <div className="relative w-full h-full">
               <video
                 className="w-full h-full object-cover"
@@ -465,14 +465,14 @@ export default function TestimonialsSection({ testimonials: testimonialsProp }) 
               From our Inbox
             </h3>
           </div>
-          <div className="aspect-[4/5] rounded-2xl bg-[#F3EFEC]">
+          <div className="aspect-[4/5] rounded-2xl bg-[#F3EFEC] xl:min-h-[830px]">
             <div className="relative w-full h-full flex items-center justify-center gap-6 py-4">
               <Image
                     src="/dotLineFour.svg"
                     alt="dotLineFour"
                     width={2}
                     height={70}
-                    className="absolute -bottom-30 left-[52%] hidden xl:block"
+                    className="absolute -bottom-30 left-[52%] xxl:left-[47.4%] hidden xl:block"
                   />
                   
               {/* Navigation Buttons */}
