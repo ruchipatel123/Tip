@@ -22,7 +22,7 @@ const CarouselCoverLucide = () => {
     {
       id: 2,
       title: "Pilates Cardio™",
-      image: "/images/carouselcenter.jpg",
+      image: "/images/yoga.jpg",
       description:
         "Combinazione dinamica di Pilates e cardio per bruciare calorie e migliorare la resistenza",
       duration: "20-40",
@@ -106,13 +106,13 @@ const CarouselCoverLucide = () => {
     {
       id: 3,
       title: "Pilates Linfodrenante™",
-      image: "/images/carouselcenter.jpg",
+      image: "/images/yoga.jpg",
       description:
         "L'esclusivo Pilates per eliminare la ritenzione, migliorare la circolazione e tonificare",
       duration: "5-25",
       frequency: "3 volte a settimana",
-      level: "principiante",
-      objectives: "ritenzione, sgonfiare, tonificare",
+      level: "avanzato",
+      objectives: "ritenzione, sgonifiare, tonificare",
       equipment: "nessun attrezzo richiesto",
       category: "Pilates",
     },
@@ -172,7 +172,7 @@ const CarouselCoverLucide = () => {
     {
       id: 8,
       title: "Pilates Brucia Grassi™",
-      image: "/images/carouselcenter.jpg",
+      image: "/images/yoga.jpg",
       description:
         "Sequenze ad alta intensità per massimizzare il consumo calorico",
       duration: "30-45",
@@ -240,7 +240,7 @@ const CarouselCoverLucide = () => {
     {
       id: 13,
       title: "Pilates Flow™",
-      image: "/images/carouselcenter.jpg",
+      image: "/images/yoga.jpg",
       description:
         "Sequenze fluide che combinano respirazione e movimento continuo",
       duration: "18-28",
@@ -306,7 +306,7 @@ const CarouselCoverLucide = () => {
     {
       id: 18,
       title: "Resistance Training™",
-      image: "/images/carouselcenter.jpg",
+      image: "/images/yoga.jpg",
       description:
         "Allenamento di resistenza per aumentare forza e massa magra",
       duration: "20-30",
@@ -334,7 +334,7 @@ const CarouselCoverLucide = () => {
     {
       id: 20,
       title: "Cardio Blast™",
-      image: "/images/carouselcenter.jpg",
+      image: "/images/yoga.jpg",
       description:
         "Esplosioni cardio ad alta intensità per bruciare al massimo",
       duration: "20-30",
@@ -424,7 +424,7 @@ const CarouselCoverLucide = () => {
     {
       id: 27,
       title: "Power Yoga™",
-      image: "/images/carouselcenter.jpg",
+      image: "/images/yoga.jpg",
       description: "Yoga dinamico e vigoroso per forza e resistenza",
       duration: "25-35",
       frequency: "3 volte a settimana",
@@ -872,7 +872,7 @@ const CarouselCoverLucide = () => {
                           src={slide.image}
                           alt={slide.title}
                           className="w-full h-full object-cover rounded-t-2xl"
-                          width={483}
+                          width={400}
                           height={673}
                         />
                         {/* White overlay for inactive cards */}
