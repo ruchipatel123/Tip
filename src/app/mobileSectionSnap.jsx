@@ -240,7 +240,7 @@ export default function MobileSectionSnap() {
                           ? "xl:object-[0px_-32rem]"
                           : "xl:object-[0px_-32rem]"
                       }
-                      ${isActive ? "" : "blur-sm"}
+                      ${isActive ? "blur-sm" : ""}
                       `}
                       priority={index === 0}
                     />
