@@ -25,7 +25,7 @@ const coverflowLucideTestimonial = () => {
     {
       id: 3,
       name: "Chiara",
-      userName:"@chiaraga27",
+      userName:"chiaraga27",
       image: "/images/testimonials/chitra.png",
       description: "1 mese di Pilates e alimentazione sana senza troppe rinunce 🍃🧘‍♀️",
       profile: "/images/testimonials/chitra-profile.png",
@@ -33,7 +33,7 @@ const coverflowLucideTestimonial = () => {
     {
       id: 4,
       name: "Maria",
-      userName:"@mariapalmi29",
+      userName:"mariapalmi29",
       image: "/images/testimonials/marina.png",
       description: "Pilates, prima Sculpt ora Linfodrenante… mai avuto un addome così. Grazie!!! 😅🔝",
       profile: "/images/testimonials/maria.png",
@@ -41,7 +41,7 @@ const coverflowLucideTestimonial = () => {
     {
       id: 5,
       name: "Maria",
-      userName:"@mariapalmi29",
+      userName:"mariapalmi29",
       image: "/images/testimonials/image_3.png",
       description: "Carlotta scusa, ma che magia mi hai combinato? 💀 Ero scettica sul pilates linfodrenante, ma ti chiedo umilmente perdono!!!",
       profile: "/images/testimonials/maria-2.png",
@@ -49,7 +49,7 @@ const coverflowLucideTestimonial = () => {
     {
       id: 6,
       name: "Federica",
-      userName:"@federicalove12",
+      userName:"federicalove12",
       image: "/images/testimonials/febrica.png",
       description: "1 mese di pilates ti ringrazio sono rinata tosto ma finalmente mi sento più sgonfia 🙏",
       profile: "/images/testimonials/febrica-profile.png",
@@ -57,7 +57,7 @@ const coverflowLucideTestimonial = () => {
     {
       id: 7,
       name: "Sandy S.",
-      userName:"@sandyspurrey",
+      userName:"sandyspurrey",
       image: "/images/testimonials/sandy.png",
       description: "- 5 cm in vita, - 3 in tutto il resto. 💜☀️",
       profile: "/images/testimonials/sandy-profile.png",
@@ -65,7 +65,7 @@ const coverflowLucideTestimonial = () => {
     {
       id: 8,
       name: "Lilo S.",
-      userName:"@lilosnowbubble",
+      userName:"lilosnowbubble",
       image: "/images/testimonials/lilosnowbubble.webp.png",
       description: "Traininpink mi ha cambiato la vita.",
       profile: "/images/testimonials/lilo-profile.png",
@@ -73,7 +73,7 @@ const coverflowLucideTestimonial = () => {
     {
       id: 9,
       name: "Giulia M.",
-      userName:"@giulia.murolo",
+      userName:"giulia.murolo",
       image: "/images/testimonials/giulia-murolo.webp.png",
       description: "A distanza di 9 mesi ho perso 28 chili. Ci tenevo a ringraziarti anche perché grazie a Traininpink ho iniziato ad amare l'allenamento!",
       profile: "/images/testimonials/giulia-profile.png",
@@ -81,7 +81,7 @@ const coverflowLucideTestimonial = () => {
     {
       id: 10,
       name: "Giulia M.",
-      userName:"@_angj_",
+      userName:"_angj_",
       image: "/images/testimonials/angj.webp.png",
       description: "Eccomi bellissima nel mio abito da sposa grazie a Traininpink! Sono quasi 3 anni che mi alleno con te: quasi 30 kg in meno e tantissima autostima in più! Grazie Traininpink!",
       profile: "/images/testimonials/angela.png",
@@ -89,7 +89,7 @@ const coverflowLucideTestimonial = () => {
     {
       id: 11,
       name: "Elisa Z.",
-      userName:"@elisazadro",
+      userName:"elisazadro",
       image: "/images/testimonials/elisazadro.webp.png",
       description: "Traininpink mi ha cambiata dentro, e di conseguenza mi ha cambiato la vita, non ti ringrazierò mai abbastanza!",
       profile: "/images/testimonials/angela.png",
