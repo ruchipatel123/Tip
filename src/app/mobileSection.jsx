@@ -608,7 +608,7 @@ export default function MobileSection() {
                       whileInView={{ y: 0, opacity: 1 }}
                       transition={{ duration: 0.8, delay: 0.2 }}
                     >
-                      <h2 className="text-2xl md:text-3xl font-normal text-white text-right">
+                      <h2 className="text-2xl md:text-4xl font-poppins font-normal text-white text-right">
                         {section.title}
                       </h2>
                     </motion.div>

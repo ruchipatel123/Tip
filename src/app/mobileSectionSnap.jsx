@@ -231,7 +231,7 @@ export default function MobileSectionSnap() {
                           ? "xl:object-[0px_-32rem]"
                           : "xl:object-[0px_-32rem]"
                       }
-                      ${isActive ? "blur-sm" : ""}
+                      ${isActive ? "" : "blur-sm"}
                       `}
                       priority={index === 0}
                     />
@@ -270,7 +270,7 @@ export default function MobileSectionSnap() {
                       whileInView={{ y: 0, opacity: 1 }}
                       transition={{ duration: 0.8, delay: 0.2 }}
                     >
-                      <h2 className="text-2xl md:text-3xl font-normal text-white text-right">
+                      <h2 className="text-2xl md:text-3xl font-poppins font-normal text-white text-right">
                         {section.title}
                       </h2>
                     </motion.div>
