@@ -18,7 +18,7 @@ export default function MobileSectionSnap() {
   const sections = [
     {
       id: 0,
-      image: "/images/progresstracking.jpg",
+      image: "/images/allenamento.jpg",
       alt: "allenamento",
       width: 1352,
       height: 598,
@@ -28,7 +28,7 @@ export default function MobileSectionSnap() {
     },
     {
       id: 1,
-      image: "/images/progresstracking.jpg",
+      image: "/images/nutrizone.jpg",
       alt: "nutrizone",
       width: 888,
       height: 393,
