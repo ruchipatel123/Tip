@@ -266,7 +266,7 @@ export default function HeroSection() {
       </div>
 
       {/* Hero Content */}
-      <div className="absolute inset-0 flex items-end justify-center pb-8 sm:pb-10 w-full z-10">
+      <div className="absolute inset-0 flex items-end justify-center pb-12 sm:pb-10 w-full z-10">
         <div className="text-center px-2  sm:px-6 w-full md:w-auto mx-auto">
           {/* Main Headline */}
           <div className="mb-8 sm:mb-10">
