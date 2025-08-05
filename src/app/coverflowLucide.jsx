@@ -93,7 +93,7 @@ const CarouselCoverLucide = () => {
     {
       id: 2,
       title: "Pilates Cardio™",
-      image: "/images/carouselleft1.jpg",
+      image: "/images/carouselleft1.png",
       description:
         "Combinazione dinamica di Pilates e cardio per bruciare calorie e migliorare la resistenza",
       duration: "20-40",
@@ -106,7 +106,7 @@ const CarouselCoverLucide = () => {
     {
       id: 3,
       title: "Pilates Linfodrenante™",
-      image: "/images/carouselcenter.png",
+      image: "/images/carouselcenter.jpg",
       description:
         "L'esclusivo Pilates per eliminare la ritenzione, migliorare la circolazione e tonificare",
       duration: "5-25",
