@@ -21,19 +21,6 @@ const CarouselCoverLucide = () => {
     },
     {
       id: 2,
-      title: "Pilates Tonificante™",
-      image: "/images/carouselleft2.jpeg",
-      description:
-        "Pilates intensivo per sviluppare forza muscolare e definizione corporea",
-      duration: "15-30",
-      frequency: "4 volte a settimana",
-      level: "intermedio",
-      objectives: "tonificare, rinforzare, definire",
-      equipment: "elastici, pesi leggeri",
-      category: "Tonificazione",
-    },
-    {
-      id: 3,
       title: "Pilates Cardio™",
       image: "/images/carouselcenter.jpg",
       description:
@@ -45,6 +32,20 @@ const CarouselCoverLucide = () => {
       equipment: "tappetino, palla pilates",
       category: "Cardio",
     },
+    {
+      id: 3,
+      title: "Pilates Tonificante™",
+      image: "/images/carouselleft2.jpeg",
+      description:
+        "Pilates intensivo per sviluppare forza muscolare e definizione corporea",
+      duration: "15-30",
+      frequency: "4 volte a settimana",
+      level: "intermedio",
+      objectives: "tonificare, rinforzare, definire",
+      equipment: "elastici, pesi leggeri",
+      category: "Tonificazione",
+    },
+ 
     {
       id: 4,
       title: "Pilates Posturale™",
@@ -88,21 +89,9 @@ const CarouselCoverLucide = () => {
       equipment: "nessun attrezzo richiesto",
       category: "Pilates",
     },
+   
     {
       id: 2,
-      title: "Pilates Cardio™",
-      image: "/images/carouselcenter.jpg",
-      description:
-        "Combinazione dinamica di Pilates e cardio per bruciare calorie e migliorare la resistenza",
-      duration: "20-40",
-      frequency: "3-4 volte a settimana",
-      level: "avanzato",
-      objectives: "dimagrire, resistenza, energia",
-      equipment: "tappetino, palla pilates",
-      category: "Cardio",
-    },
-    {
-      id: 3,
       title: "Pilates Tonificante™",
       image: "/images/carouselleft2.jpeg",
       description:
@@ -113,6 +102,19 @@ const CarouselCoverLucide = () => {
       objectives: "tonificare, rinforzare, definire",
       equipment: "elastici, pesi leggeri",
       category: "Tonificazione",
+    },
+    {
+      id: 3,
+      title: "Pilates Cardio™",
+      image: "/images/carouselcenter.jpg",
+      description:
+        "Combinazione dinamica di Pilates e cardio per bruciare calorie e migliorare la resistenza",
+      duration: "20-40",
+      frequency: "3-4 volte a settimana",
+      level: "avanzato",
+      objectives: "dimagrire, resistenza, energia",
+      equipment: "tappetino, palla pilates",
+      category: "Cardio",
     },
     {
       id: 4,
@@ -750,7 +752,7 @@ const CarouselCoverLucide = () => {
           alt="dotLineSeven"
           width={348}
           height={106}
-          className="absolute -top-30 left-1/2 hidden xl:block"
+          className="absolute -top-30 left-1/2 ml-[1px] hidden xl:block"
         />
         <Image
           src="/dotLineFour.svg"

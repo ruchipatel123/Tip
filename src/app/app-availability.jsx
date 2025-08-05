@@ -12,20 +12,21 @@ export default function AppAvailabilitySection() {
 
         {/* App Store Buttons */}
         <div className="hidden md:flex flex-col sm:flex-row gap-4 items-center justify-center">
+        <Image
+            src="/logo/appStoreIcon.svg"
+            alt="appStoreIcon"
+            width={185}
+            height={55}
+            className="w-[140px] sm:w-[160px] lg:w-[185px] h-[54px] object-contain"
+          />
           <Image
             src="/logo/playStoreIcon.svg"
             alt="playStoreIcon"
             width={185}
             height={55}
-            className="w-[140px] sm:w-[160px] lg:w-[185px] h-auto"
+            className="w-[140px] sm:w-[160px] lg:w-[185px] h-[54px] object-contain"
           />
-          <Image
-            src="/logo/appStoreIcon.svg"
-            alt="appStoreIcon"
-            width={185}
-            height={55}
-            className="w-[140px] sm:w-[160px] lg:w-[185px] h-auto"
-          />
+         
         </div>
       </div>
 

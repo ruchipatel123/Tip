@@ -2,6 +2,7 @@
 import React, { useState, useEffect } from "react";
 import Image from "next/image";
 import { FaArrowRight } from "react-icons/fa6";
+import Link from "next/link";
 export default function HeroSection() {
   const [videoLoaded, setVideoLoaded] = useState(false);
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
@@ -88,7 +89,8 @@ export default function HeroSection() {
         <nav className="lg:hidden flex items-center justify-between pt-2.5">
           {/* Mobile Logo */}
           <div className="h-12 w-32">
-            <Image
+            <Link href="/" className="cursor-pointer">           
+             <Image
               src="/logo-vector-2.svg"
               alt="TraininPink Logo"
               width={536}
@@ -96,6 +98,7 @@ export default function HeroSection() {
               className="w-full h-full object-contain"
               priority
             />
+            </Link>
           </div>
           <div className="flex items-center gap-2 sm:gap-4">
           <button className="w-fit bg-[#684744] cursor-grab border border-[rgba(243,239,236,0.20)] rounded-lg shadow-[0_2px_20px_0_rgba(0,0,0,0.15)] px-3 sm:px-4 py-3 text-white text-lg font-medium leading-snug h-12 hover:bg-[#7a5653] transition-colors flex items-center justify-center gap-3">
@@ -135,6 +138,7 @@ export default function HeroSection() {
           {/* Logo and Tagline */}
           <div className="flex flex-col min-w-60 w-full max-w-lg">
             <div className="h-20 w-full">
+            <Link href="/" className="cursor-pointer">           
               <Image
                 src="/logo-vector-2.svg"
                 alt="TraininPink Logo"
@@ -143,6 +147,7 @@ export default function HeroSection() {
                 className="object-contain"
                 priority
               />
+              </Link>
             </div>
             <p className="text-[#f3efec] font-poppins text-xl-custom font-normal leading-relaxed tracking-tight mt-4">
               L'app di Pilates e <br /> allenamento n. 1 in Italia

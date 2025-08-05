@@ -189,7 +189,7 @@ export default function MobileSection() {
             </p>
           </div>
           <div className="flex lg:flex-wrap gap-4 justify-center mt-10">
-            <div className="flex flex-col gap-8">
+            <div className="flex md:flex-col gap-2 md:gap-8">
               <div className="flex items-center gap-2">
                 <Image
                   src="/logo/wreath-left.svg.svg"
@@ -197,9 +197,9 @@ export default function MobileSection() {
                   width={30}
                   height={100}
                 />
-                <div className="flex flex-col items-center">
+                <div className="flex flex-col w-full items-center">
                   <FaApple className="text-4xl mb-2" color="#000" size={20} />
-                  <span className="text-[17.5px] text-[#737373] font-medium text-center leading-5">
+                  <span className="text-[12px] md:text-[14px] lg:text-[17.5px] text-[#737373] font-medium text-center leading-5">
                     4.8/5 stelle
                     <br />
                     1.500+ recensioni{" "}
@@ -220,13 +220,13 @@ export default function MobileSection() {
                   width={30}
                   height={100}
                 />
-                <div className="flex flex-col items-center">
+                <div className="flex flex-col w-full items-center">
                   <FaFacebook
                     className="text-4xl mb-2"
                     color="#1877F2"
                     size={20}
                   />
-                  <span className="text-[17.5px] text-[#737373] font-medium text-center leading-5">
+                  <span className="text-[12px] md:text-[14px] lg:text-[17.5px] text-[#737373] font-medium text-center leading-5">
                     4.9/5 stelle
                     <br />
                     150+ recensioni{" "}
@@ -241,7 +241,7 @@ export default function MobileSection() {
                 />
               </div>
             </div>
-            <div className="flex flex-col gap-8">
+            <div className="flex md:flex-col gap-2 md:gap-8">
               <div className="flex items-center gap-2">
                 <Image
                   src="/logo/wreath-left.svg.svg"
@@ -249,7 +249,7 @@ export default function MobileSection() {
                   width={30}
                   height={100}
                 />
-                <div className="flex flex-col items-center">
+                <div className="flex flex-col w-full items-center">
                   <Image
                     src="/logo/playstore.svg"
                     alt="googlePlay"
@@ -257,7 +257,7 @@ export default function MobileSection() {
                     height={20}
                     className=" mb-2"
                   />
-                  <span className="text-[17.5px] text-[#737373] font-medium text-center leading-5">
+                  <span className="text-[12px] md:text-[14px] lg:text-[17.5px] text-[#737373] font-medium text-center leading-5">
                     5/5 stelle
                     <br />
                     1.500+ recensioni{" "}
@@ -278,7 +278,7 @@ export default function MobileSection() {
                   width={30}
                   height={100}
                 />
-                <div className="flex flex-col items-center">
+                <div className="flex flex-col w-full items-center">
                   <Image
                     src="/trustpilotSvg.svg"
                     alt="appStore"
@@ -286,7 +286,7 @@ export default function MobileSection() {
                     height={20}
                     className=" mb-2"
                   />
-                  <span className="text-[17.5px] text-[#737373] font-medium text-center leading-5">
+                  <span className="text-[12px] md:text-[14px] lg:text-[17.5px] text-[#737373] font-medium text-center leading-5">
                     4.9/5 stelle
                     <br />
                     600+ recensioni{" "}
@@ -325,7 +325,7 @@ export default function MobileSection() {
         </div>
 
         
-        <div className="block md:hidden w-full">
+        <div className="block md:hidden w-full px-5">
           <div className="max-w-[477px] mx-auto flex flex-col gap-4">
             <h2 className="text-4xl font-normal text-center">
               Ottieni i risultati <br /> che meriti
@@ -336,7 +336,7 @@ export default function MobileSection() {
             </p>
           </div>
           <div className="flex flex-wrap gap-4 justify-center mt-10">
-            <div className="flex flex-col gap-8">
+            <div className="flex md:flex-col gap-1 md:gap-8">
               <div className="flex items-center gap-2">
                 <Image
                   src="/logo/wreath-left.svg.svg"
@@ -344,9 +344,9 @@ export default function MobileSection() {
                   width={30}
                   height={100}
                 />
-                <div className="flex flex-col items-center">
+                <div className="flex flex-col w-full items-center">
                   <FaApple className="text-4xl mb-2" color="#000" size={20} />
-                  <span className="text-[17.5px] text-[#737373] font-medium text-center leading-5">
+                  <span className="text-[12px] md:text-[14px] lg:text-[17.5px] text-[#737373] font-medium text-center leading-5">
                     4.8/5 stelle
                     <br />
                     1.500+ recensioni{" "}
@@ -367,13 +367,13 @@ export default function MobileSection() {
                   width={30}
                   height={100}
                 />
-                <div className="flex flex-col items-center">
+                <div className="flex flex-col w-full items-center">
                   <FaFacebook
                     className="text-4xl mb-2"
                     color="#1877F2"
                     size={20}
                   />
-                  <span className="text-[17.5px] text-[#737373] font-medium text-center leading-5">
+                  <span className="text-[12px] md:text-[14px] lg:text-[17.5px] text-[#737373] font-medium text-center leading-5">
                     4.8/5 stelle
                     <br />
                     1.500+ recensioni{" "}
@@ -388,7 +388,7 @@ export default function MobileSection() {
                 />
               </div>
             </div>
-            <div className="flex flex-col gap-8">
+            <div className="flex md:flex-col gap-1 md:gap-8">
               <div className="flex items-center gap-2">
                 <Image
                   src="/logo/wreath-left.svg.svg"
@@ -396,7 +396,7 @@ export default function MobileSection() {
                   width={30}
                   height={100}
                 />
-                <div className="flex flex-col items-center">
+                <div className="flex flex-col w-full items-center">
                   <Image
                     src="/logo/playstore.svg"
                     alt="googlePlay"
@@ -404,7 +404,7 @@ export default function MobileSection() {
                     height={20}
                     className=" mb-2"
                   />
-                  <span className="text-[17.5px] text-[#737373] font-medium text-center leading-5">
+                  <span className="text-[12px] md:text-[14px] lg:text-[17.5px] text-[#737373] font-medium text-center leading-5">
                     4.8/5 stelle
                     <br />
                     1.500+ recensioni{" "}
@@ -425,7 +425,7 @@ export default function MobileSection() {
                   width={30}
                   height={100}
                 />
-                <div className="flex flex-col items-center">
+                <div className="flex flex-col w-full items-center">
                   <Image
                     src="/trustpilotSvg.svg"
                     alt="appStore"
@@ -433,7 +433,7 @@ export default function MobileSection() {
                     height={20}
                     className=" mb-2"
                   />
-                  <span className="text-[17.5px] text-[#737373] font-medium text-center leading-5">
+                  <span className="text-[12px] md:text-[14px] lg:text-[17.5px] text-[#737373] font-medium text-center leading-5">
                     4.8/5 stelle
                     <br />
                     1.500+ recensioni{" "}
@@ -457,6 +457,7 @@ export default function MobileSection() {
                 alt="playStoreIcon"
                 width={185}
                 height={55}
+                className="object-contain w-[140px] sm:w-[160px] lg:w-[185px] h-[44px]  md:h-[55px]"
                 
               />
               <Image
@@ -464,7 +465,7 @@ export default function MobileSection() {
                 alt="appStoreIcon"
                 width={185}
                 height={55}
-                
+                className="object-contain w-[140px] sm:w-[160px] lg:w-[185px] h-[44px]  md:h-[55px]"
               />
             </div>
           </div>

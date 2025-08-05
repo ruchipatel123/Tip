@@ -15,32 +15,79 @@ export default function FAQSection() {
   const faqItems = [
     {
       question: "Come faccio a sapere qual è l'allenamento più adatto a me?",
-      answer: "Un test dettagliato ti suggerirà l'allenamento più adatto a te prima dell'inizio della prova gratuita. Puoi fare il test cliccando qui.\n\nHai dei dubbi sull'allenamento assegnato? Non preoccuparti, tutti gli allenamenti sono inclusi nell'abbonamento, puoi cambiare in qualsiasi momento.\n\nSe hai dubbi o domande in merito all'allenamento suggerito scrivici attraverso la funzione Supporto e saremo felici di aiutarti. Siamo disponibili 7 giorni su 7, festivi inclusi e garantiamo la risposta in 24 ore.\n\nVuoi una consulenza personalizzata gratuita dal nostro team sulla tua situazione prima di iniziare? Clicca qui e saremo felici di consigliarti"
+      answer: (
+        <>
+        <p>Un test dettagliato ti suggerirà l'allenamento più adatto a te prima dell'inizio della prova gratuita. Puoi fare il test <a href="https://app.traininpink.net/test-e-prova-gratuita" className='text-[#000000] underline hover:text-[#404040]' target="_blank" rel="noopener noreferrer">cliccando qui</a>. </p>
+          <p>Hai dei dubbi sull'allenamento assegnato? Non preoccuparti, tutti gli allenamenti sono inclusi nell'abbonamento, puoi cambiare in qualsiasi momento.
+          </p>
+          <p>Se hai dubbi o domande in merito all'allenamento suggerito scrivici attraverso la funzione <a href="https://traininpink.zendesk.com/hc/it" className='text-[#000000] underline hover:text-[#404040]' target="_blank" rel="noopener noreferrer">Supporto</a> e saremo felici di aiutarti. Siamo disponibili 7 giorni su 7, festivi inclusi e garantiamo la risposta in 24 ore.
+          </p>
+          <p>Vuoi una consulenza personalizzata gratuita dal nostro team sulla tua situazione prima di iniziare? <a href="https://traininpink.zendesk.com/hc/it" className='text-[#000000] underline hover:text-[#404040]' target="_blank" rel="noopener noreferrer">Clicca qui</a> e saremo felici di consigliarti
+          </p>
+    </>
+      )
     },
     {
-      question: "Gli allenamenti sono tutti inclusi nell'abbonamento o devo sceglierne uno prima di iscrivermi?",
-      answer: "Tutti gli allenamenti che trovi sull'app traininpink sono inclusi nell'abbonamento, puoi cambiare in qualsiasi momento.\n\nIl test iniziale ti suggerirà l'allenamento che riteniamo più adatto a te, ma questo suggerimento non è in alcun modo vincolante.\n\nPuoi cambiare il tuo allenamento in qualsiasi momento e provare anche le Classi (allenamenti singoli da abbinare al tuo allenamento, ne trovi più di 100) e le Sfide."
+      question: "Gli allenamenti sono tutti inclusi nell'abbonamento o devo sceglierne uno prima di iscrivermi?", 
+      answer: (
+        <>
+        <p>Tutti gli allenamenti che trovi sull'app traininpink sono inclusi nell'abbonamento, puoi cambiare in qualsiasi momento.
+          </p>
+          <p>Il test iniziale ti suggerirà l'allenamento che riteniamo più adatto a te, ma questo suggerimento non è in alcun modo vincolante.
+          </p>
+          <p>Puoi cambiare il tuo allenamento in qualsiasi momento e provare anche le Classi (allenamenti singoli da abbinare al tuo allenamento, ne trovi più di 100) e le Sfide.
+          </p>
+    </>
+      )
     },
     {
       question: "Esiste una prova gratuita?",
-      answer: "Sì, se è la prima volta che ti iscrivi a traininpink hai diritto ad una prova gratuita di 7 giorni prima di abbonarti.\n\nSe non sei convinta, ti basta disdire prima del termine della prova gratuita e non pagherai nulla!"
+      answer: (
+        <>
+        <p>Sì, se è la prima volta che ti iscrivi a traininpink hai diritto ad una prova gratuita di 7 giorni prima di abbonarti.
+          </p>
+          <p>Se non sei convinta, ti basta disdire prima del termine della prova gratuita e non pagherai nulla!
+          </p>
+    </>
+      )
     },
     {
       question: "Posso disdire quando voglio?",
-      answer: "Assolutamente sì, non sei vincolata ad un periodo minimo di abbonamento, puoi disdire in qualsiasi momento dalla sezione Profilo -> Abbonamenti dell'app Traininpink"
+      answer: (
+        <>
+                 <p>Assolutamente sì, non sei vincolata ad un periodo minimo di abbonamento, puoi disdire in qualsiasi momento dalla sezione Profilo {'->'}  Abbonamenti dell'app Traininpink
+           </p>
+    </>
+      )
     },
     {
       question: "È vero che garantite i risultati? Come funziona la garanzia \"30 giorni soddisfatta o rimborsata\"?",
-      answer: "Grazie alla nostra esperienza con più di 157.000 donne che hanno raggiunto i loro obiettivi con noi, siamo così convinte che con traininpink otterrai risultati che offriamo a tutte le nostre nuove iscritte la garanzia \"30 giorni soddisfatta o rimborsata\": se non sei soddisfatta dei risultati raggiunti in un mese dall'iscrizione ti faremo il rimborso integrale di quanto hai pagato senza chiederti alcuna domanda.\n\nTi basta scriverci attraverso la funzione Supporto e saremo felici di aiutarti. Siamo disponibili 7 giorni su 7, festivi inclusi e garantiamo la risposta in 24 ore."
+      answer: (
+        <>
+        <p>Grazie alla nostra esperienza con più di 157.000 donne che hanno raggiunto i loro obiettivi con noi, siamo così convinte che con traininpink otterrai risultati che offriamo a tutte le nostre nuove iscritte la garanzia "30 giorni soddisfatta o rimborsata": se non sei soddisfatta dei risultati raggiunti in un mese dall'iscrizione ti faremo il rimborso integrale di quanto hai pagato senza chiederti alcuna domanda.
+          </p>
+          <p>Ti basta scriverci attraverso la funzione <a href="https://traininpink.zendesk.com/hc/it" className='text-[#000000] underline hover:text-[#404040]' target="_blank" rel="noopener noreferrer">Supporto</a> e saremo felici di aiutarti. Siamo disponibili 7 giorni su 7, festivi inclusi e garantiamo la risposta in 24 ore.
+          </p>
+    </>
+      )
     },
     {
       question: "Come funziona la Nutrizione? Si tratta di consigli o è un piano alimentare vero e proprio?",
-      answer: "Nel tuo abbonamento è incluso un piano alimentare personalizzato sulle tue esigenze con più di 4000 ricette facili, veloci e gustose, che cambiano ogni mese per rispettare la stagionalità degli ingredienti.\n\nTroverai piani onnivori, pescetariani, vegetariani o vegani, senza glutine e/o lattosio.\n\nNella nutrizione, oltre al piano nutrizionale assegnato avrai accesso alle nutrizioniste del team traininpink per fare check-up, personalizzare ulteriormente il piano in caso di patologie o condizioni particolari e in caso di domande!"
+        answer: (
+        <>
+        <p>Nel tuo abbonamento è incluso un piano alimentare personalizzato sulle tue esigenze con più di 4000 ricette facili, veloci e gustose, che cambiano ogni mese per rispettare la stagionalità degli ingredienti.
+          </p>
+          <p>Troverai piani onnivori, pescetariani, vegetariani o vegani, senza glutine e/o lattosio.
+          </p>
+          <p>Nella nutrizione, oltre al piano nutrizionale assegnato avrai accesso alle nutrizioniste del team traininpink per fare check-up, personalizzare ulteriormente il piano in caso di patologie o condizioni particolari e in caso di domande!
+          </p>
+    </>
+      )
     }
   ];
 
   return (
-    <section className="bg-white py-12 sm:py-16 lg:py-[84px] px-4 sm:px-8 lg:px-16 xl:px-[228px] flex flex-col items-center">
+    <section className="bg-white py-16 lg:py-[84px] px-4 sm:px-8 lg:px-16 xl:px-[228px] flex flex-col items-center">
       <div className="w-full max-w-[984px] flex flex-col items-center gap-12 sm:gap-16 lg:gap-[69px]">
         {/* Title */}
         <div className="flex flex-col items-center gap-3 sm:gap-[13px]">
@@ -120,11 +167,15 @@ export default function FAQSection() {
                 <div className="px-4 sm:px-6">
                   <div className="border-t border-[#DFD1C9] pt-3 sm:pt-4">
                     <div className="font-['DM_Sans'] text-sm sm:text-base leading-5 sm:leading-6 text-[#404040] space-y-3">
-                      {item.answer.split('\n\n').map((paragraph, paragraphIndex) => (
-                        <p key={paragraphIndex}>
-                          {paragraph}
-                        </p>
-                      ))}
+                      {typeof item.answer === 'string' ? (
+                        item.answer.split('\n\n').map((paragraph, paragraphIndex) => (
+                          <p key={paragraphIndex}>
+                            {paragraph}
+                          </p>
+                        ))
+                      ) : (
+                        item.answer
+                      )}
                     </div>
                   </div>
                 </div>

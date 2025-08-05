@@ -238,7 +238,7 @@ const coverflowLucideTestimonial = () => {
 
   return (
     <div className="relative w-full bg-[#F3EFEC] py-20 overflow-hidden">
-      <h1 className="text-center text-2xl-up-custom font-normal font-poppins">
+      <h1 className="text-center text-2xl-up-custom leading-10 md:text-4xl font-normal font-poppins">
         Le loro storie,
         <br />
         la tua ispirazione.

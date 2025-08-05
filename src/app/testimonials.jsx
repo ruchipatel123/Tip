@@ -357,7 +357,7 @@ export default function TestimonialsSection({ testimonials: testimonialsProp }) 
   const currentTestimonial = testimonials[currentSlide];
 
   return (
-    <section className="bg-white w-full py-18 sm:py-16 lg:py-20 overflow-hidden relative">
+    <section className="bg-white w-full py-18 sm:py-16 lg:pt-20 lg:pb-[66px] overflow-hidden relative">
       <Image
           src="/dotLineFour.svg"
           alt="dotLineFour"

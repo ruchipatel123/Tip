@@ -237,14 +237,14 @@ export default function Footer() {
               <Image
                 src="/logo/appStoreLogoDark.svg"
                 alt="appStoreIcon"
-                width={185}
-                height={55}
+                width={132}
+                height={44}
               />
               <Image
                 src="/logo/playStoreLogoDark.svg"
                 alt="playStoreIcon"
-                width={185}
-                height={55}
+                width={132}
+                height={44}
               />
             </div>
           </div>

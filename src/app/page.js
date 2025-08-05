@@ -69,7 +69,7 @@ const MobileTrustSection = () => {
             />
             <div className="flex flex-col items-center">
               <FaApple className="text-4xl mb-2" color="#000" size={20} />
-              <span className="text-sm font-dm-sans font-medium text-[#737373] text-center leading-5">
+              <span className="text-xs font-dm-sans font-medium text-[#737373] text-center leading-5">
                 4.8/5 stelle
                 <br />
                 1.500+ recensioni{" "}

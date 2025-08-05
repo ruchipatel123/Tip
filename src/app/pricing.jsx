@@ -73,7 +73,7 @@ export default function PricingSection() {
                     Semestrale
                   </h3>
                   <div className="text-[#684744]">
-                    <span className="font-poppins text-lg sm:text-xl-custom leading-[32px] sm:leading-[36px] tracking-[-0.1px]">€14.99</span>
+                    <span className="font-poppins text-lg sm:text-xl-custom leading-[32px] sm:leading-[36px] tracking-[-0.1px]">€13.33</span>
                     <span className="font-dm-sans text-[15px] sm:text-base leading-[32px] sm:leading-[36px] tracking-[-0.1px]"> / month</span>
                   </div>
                   <div className="flex flex-wrap items-baseline gap-1.5 font-dm-sans text-[15px] sm:text-sm leading-[18px] sm:leading-[21px]">
