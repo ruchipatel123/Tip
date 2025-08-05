@@ -298,7 +298,7 @@ export default function HeroSection() {
             </span>
 
             {/* Secondary CTA */}
-            <button className="secondary-cta flex items-center justify-center gap-3 bg-[#684744] border border-[rgba(243,239,236,0.20)] rounded-lg shadow-[0_2px_20px_0_rgba(0,0,0,0.15)] text-white text-lg md:text-xl font-medium leading-[1.45em] px-14 md:px-4 py-[10px] w-full lg:min-w-[273.33px] h-[54px]">
+            <button className="secondary-cta flex items-center justify-center gap-3 bg-[#684744] border border-[rgba(243,239,236,0.20)] max-w-[358px] rounded-lg shadow-[0_2px_20px_0_rgba(0,0,0,0.15)] text-white text-lg md:text-xl font-medium leading-[1.45em] px-14 md:px-4 py-[10px] w-full lg:min-w-[273.33px] h-[54px]">
               <span className="font-bold font-dm-sans">Inizia la prova gratuita</span>
               <FaArrowRight size={13.33} />
             </button>

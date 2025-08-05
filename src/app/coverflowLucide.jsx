@@ -76,22 +76,9 @@ const CarouselCoverLucide = () => {
 
   // Create 5 separate static data arrays with different arrangements
   const tuttiSlides = [
+    
     {
-      id: 1,
-      title: "Pilates Linfodrenante™",
-      image: "/images/carouselleft1.png",
-      description:
-        "L'esclusivo Pilates per eliminare la ritenzione, migliorare la circolazione e tonificare",
-      duration: "5-25",
-      frequency: "3 volte a settimana",
-      level: "principiante",
-      objectives: "ritenzione, sgonfiare, tonificare",
-      equipment: "nessun attrezzo richiesto",
-      category: "Pilates",
-    },
-   
-    {
-      id: 2,
+        id: 1,
       title: "Pilates Tonificante™",
       image: "/images/carouselleft2.jpeg",
       description:
@@ -104,9 +91,9 @@ const CarouselCoverLucide = () => {
       category: "Tonificazione",
     },
     {
-      id: 3,
+      id: 2,
       title: "Pilates Cardio™",
-      image: "/images/carouselcenter.jpg",
+      image: "/images/carouselleft1.jpg",
       description:
         "Combinazione dinamica di Pilates e cardio per bruciare calorie e migliorare la resistenza",
       duration: "20-40",
@@ -116,6 +103,20 @@ const CarouselCoverLucide = () => {
       equipment: "tappetino, palla pilates",
       category: "Cardio",
     },
+    {
+      id: 3,
+      title: "Pilates Linfodrenante™",
+      image: "/images/carouselcenter.png",
+      description:
+        "L'esclusivo Pilates per eliminare la ritenzione, migliorare la circolazione e tonificare",
+      duration: "5-25",
+      frequency: "3 volte a settimana",
+      level: "principiante",
+      objectives: "ritenzione, sgonfiare, tonificare",
+      equipment: "nessun attrezzo richiesto",
+      category: "Pilates",
+    },
+   
     {
       id: 4,
       title: "Pilates Pre/Post Parto™",
