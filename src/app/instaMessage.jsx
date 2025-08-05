@@ -128,23 +128,25 @@ export default function InstaMessage({ triggerAnimation = false, isActive = fals
   // Reset when not active
   useEffect(() => {
     if (!isActive) {
-      // Delay reset to avoid flickering during slide transitions
+      // Immediately hide elements to prevent visual glitch during slide transitions
+      setShowImage(false);
+      setShowFirstMessage(false);
+      setShowSecondMessage(false);
+      
+      // Delay full reset and scroll position reset until after slide transition completes
       const resetTimer = setTimeout(() => {
         setAnimationsStarted(false);
-        setShowImage(false);
-        setShowFirstMessage(false);
-        setShowSecondMessage(false);
         setShouldScrollUp(false);
         setHasScrollableContent(false);
         
-        // Reset scroll position when becoming inactive
+        // Reset scroll position after slide transition is complete
         if (messagesContainerRef.current) {
           messagesContainerRef.current.scrollTo({
             top: 0,
             behavior: 'instant'
           });
         }
-      }, 100);
+      }, 850); // Wait for Swiper slide transition (800ms) to complete + 50ms buffer
       
       return () => clearTimeout(resetTimer);
     }
