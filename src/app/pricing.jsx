@@ -160,3 +160,6 @@ export default function PricingSection() {
     </section>
   );
 }
+
+
+// €14.99
