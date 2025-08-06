@@ -25,6 +25,7 @@ export default function MobileSectionSnap() {
       title: "Allenamento",
       description:
         "Programmi di allenamento personalizzati per raggiungere i tuoi obiettivi",
+      video: "/scrollvideos/Homepage_ cropped.mp4",
     },
     {
       id: 1,
@@ -35,6 +36,7 @@ export default function MobileSectionSnap() {
       title: "Nutrizione",
       description:
         "Piani nutrizionali studiati per supportare il tuo percorso fitness",
+      video: "/scrollvideos/Nutrizione_cropped_.mp4",
     },
     {
       id: 2,
@@ -45,8 +47,22 @@ export default function MobileSectionSnap() {
       title: "Progress Tracking",
       description:
         "Monitora i tuoi progressi e celebra ogni traguardo raggiunto",
+      video: "/scrollvideos/Progress Tracking_cropped.mp4",
     },
   ];
+
+  // Default video for homepage/initial state
+  const defaultVideo = "/scrollvideos/Homepage_ cropped.mp4";
+
+  // Function to get current video based on active section
+  const getCurrentVideo = () => {
+    // Note: currentSection === index+1 logic in this component
+    const adjustedSection = currentSection - 1;
+    if (adjustedSection >= 0 && adjustedSection < sections.length) {
+      return sections[adjustedSection].video;
+    }
+    return defaultVideo;
+  };
 
   const { scrollY } = useScroll({
     target: containerRef,
@@ -65,6 +81,21 @@ export default function MobileSectionSnap() {
     window.addEventListener('resize', handleResize);
     return () => window.removeEventListener('resize', handleResize);
   }, []);
+
+  // Handle video transitions when section changes
+  useEffect(() => {
+    if (!isHydrated) return;
+    
+    // Small delay to ensure smooth transitions
+    const timer = setTimeout(() => {
+      const video = document.querySelector('video');
+      if (video) {
+        video.load(); // Reload video with new source
+      }
+    }, 100);
+
+    return () => clearTimeout(timer);
+  }, [currentSection, isHydrated]);
 
   // Handle custom scroll behavior with threshold
   useEffect(() => {
@@ -174,14 +205,47 @@ export default function MobileSectionSnap() {
 
   return (
     <section className="bg-[#F1EBE7] md:pt-10">
-      <div className="block md:hidden sticky top-[10vh] left-[5%] xl:left-[18%] z-[100] w-full mx-auto ">
-        <Image
-          src="/images/mobileMockup.png"
-          alt="mobileMockup"
-          width={348}
-          height={714}
-          className="w-[min(300px,80vw)] h-auto max-h-[min(648px,80vh)] sm:w-[min(348px,85vw)] sm:max-h-[min(714px,85vh)] top-5 left-0 z-[100] mx-auto object-contain"
-        />
+      {/* Mobile iPhone Frame with Video */}
+      <div className="block md:hidden sticky top-[10vh] z-[100] w-full mx-auto">
+        <div 
+          className="relative mx-auto"
+          style={{
+            '--frame-width': 'clamp(280px, 75vw, 348px)',
+            '--frame-height': 'calc(var(--frame-width) * 2.05)',
+            width: 'var(--frame-width)',
+            height: 'var(--frame-height)',
+            maxHeight: '85vh'
+          }}
+        >
+          <Image
+            src="/iPhone bezel.png"
+            alt="mobileMockup"
+            width={348}
+            height={714}
+            className="w-full h-full z-[102] relative object-fill"
+          />
+          <video
+            key={getCurrentVideo()} // Force re-render when video changes
+            className="rounded-2xl rounded-t-[1.5rem] object-cover absolute z-[100]"
+            style={{
+              width: 'calc(var(--frame-width) * 0.89)',      // 89% of frame width
+              height: 'calc(var(--frame-height) * 0.96)',    // 96% of frame height  
+              top: 'calc(var(--frame-height) * 0.02)',       // 2% from top
+              left: '50%',
+              transform: 'translateX(-50%)'
+            }}
+            autoPlay
+            muted
+            loop
+            playsInline
+          >
+            <source
+              src={getCurrentVideo()}
+              type="video/mp4"
+            />
+            Your browser does not support the video tag.
+          </video>
+        </div>
       </div>
 
       <div ref={containerRef} className="md:mt-50 relative">

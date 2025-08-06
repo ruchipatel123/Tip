@@ -1044,7 +1044,9 @@ const CarouselCoverLucide = () => {
           <span className="font-bold text-center font-dm-sans">
             Parlaci dei tuoi obiettivi
           </span>
-          <FaArrowRight size={15} />
+          <div className="arrow-container">
+            <FaArrowRight size={15} className="arrow-slide" />
+          </div>
         </button>
 
         {/* OR Text */}
@@ -1057,7 +1059,9 @@ const CarouselCoverLucide = () => {
           <span className="font-bold font-dm-sans">
             Inizia la prova gratuita
           </span>
-          <FaArrowRight size={15} />
+          <div className="arrow-container">
+            <FaArrowRight size={15} className="arrow-slide" />
+          </div>
         </button>
         <Image
           src="/dotLineSix.svg"

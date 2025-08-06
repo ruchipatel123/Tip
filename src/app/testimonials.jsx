@@ -448,21 +448,23 @@ export default function TestimonialsSection({ testimonials: testimonialsProp }) 
           <span className="font-dm-sans text-lg sm:text-xl font-bold leading-[24px] sm:leading-[29px] text-white">
             Inizia la prova gratuita
           </span>
-          <svg
-            width="13.33"
-            height="10"
-            viewBox="0 0 14 10"
-            fill="none"
-            className="flex-shrink-0"
-          >
-            <path
-              d="M1 5H13M13 5L9 1M13 5L9 9"
-              stroke="white"
-              strokeWidth="1.5"
-              strokeLinecap="round"
-              strokeLinejoin="round"
-            />
-          </svg>
+          <div className="arrow-container">
+            <svg
+              width="13.33"
+              height="10"
+              viewBox="0 0 14 10"
+              fill="none"
+              className="flex-shrink-0 arrow-slide"
+            >
+              <path
+                d="M1 5H13M13 5L9 1M13 5L9 9"
+                stroke="white"
+                strokeWidth="1.5"
+                strokeLinecap="round"
+                strokeLinejoin="round"
+              />
+            </svg>
+          </div>
         </button>
       </div>
 

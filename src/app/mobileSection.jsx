@@ -25,6 +25,7 @@ export default function MobileSection() {
       title: "Allenamento",
       description:
         "Programmi di allenamento personalizzati per raggiungere i tuoi obiettivi",
+      video: "/scrollvideos/Homepage_ cropped.mp4",
     },
     {
       id: 1,
@@ -35,6 +36,7 @@ export default function MobileSection() {
       title: "Nutrizione",
       description:
         "Piani nutrizionali studiati per supportare il tuo percorso fitness",
+      video: "/scrollvideos/Homepage_ cropped.mp4",
     },
     {
       id: 2,
@@ -45,8 +47,20 @@ export default function MobileSection() {
       title: "Progress Tracking",
       description:
         "Monitora i tuoi progressi e celebra ogni traguardo raggiunto",
+      video: "/scrollvideos/Nutrizione_cropped_.mp4",
     },
   ];
+
+  // Default video for homepage/initial state
+  const defaultVideo = "/scrollvideos/Progress Tracking_cropped.mp4";
+
+  // Function to get current video based on active section
+  const getCurrentVideo = () => {
+    if (currentSection >= 0 && currentSection < sections.length) {
+      return sections[currentSection].video;
+    }
+    return defaultVideo;
+  };
 
   const { scrollY } = useScroll({
     target: containerRef,
@@ -58,6 +72,21 @@ export default function MobileSection() {
     setIsHydrated(true);
   }, []);
 
+  // Handle video transitions when section changes
+  useEffect(() => {
+    if (!isHydrated) return;
+    
+    // Small delay to ensure smooth transitions
+    const timer = setTimeout(() => {
+      const video = document.querySelector('video');
+      if (video) {
+        video.load(); // Reload video with new source
+      }
+    }, 100);
+
+    return () => clearTimeout(timer);
+  }, [currentSection, isHydrated]);
+
   // Handle custom scroll behavior with threshold
   useEffect(() => {
     // Don't run scroll logic until hydrated
@@ -68,21 +97,21 @@ export default function MobileSection() {
       if (isScrolling || !isHydrated) return;
 
       // Safety check for browser APIs
-      if (typeof window === 'undefined') return;
+      if (typeof window === "undefined") return;
 
       const scrollTop = window.scrollY;
       const containerTop = containerRef.current?.offsetTop || 0;
       const sectionHeight = window.innerHeight;
-      
+
       // Calculate when sticky mobile mockup becomes sticky (top-20 = 80px from top)
-      // The sticky trigger should be when the section bg arrives and sticky element sticks  
+      // The sticky trigger should be when the section bg arrives and sticky element sticks
       const stickyTriggerPoint = containerTop - sectionHeight; // Account for top-20
-      
+
       // Only start section snapping when sticky element is in sticky position
       if (scrollTop < stickyTriggerPoint) {
         return;
       }
-      
+
       // Calculate relative scroll from when sticky element becomes sticky
       const relativeScroll = scrollTop - stickyTriggerPoint;
 
@@ -93,13 +122,16 @@ export default function MobileSection() {
       // Calculate which section we're in and how far through it
       const sectionIndex = Math.floor(relativeScroll / sectionHeight);
       const sectionProgress = (relativeScroll % sectionHeight) / sectionHeight;
-      
+
       // Debug logging
-      
 
       // Immediately activate the correct section based on scroll position
-      if (sectionIndex !== currentSection && sectionIndex >= 0 && sectionIndex < sections.length) {
-         setCurrentSection(sectionIndex);
+      if (
+        sectionIndex !== currentSection &&
+        sectionIndex >= 0 &&
+        sectionIndex < sections.length
+      ) {
+        setCurrentSection(sectionIndex);
       }
 
       // Clear existing timeout
@@ -132,7 +164,8 @@ export default function MobileSection() {
             setIsScrolling(true);
             setCurrentSection(targetSection);
 
-            const targetScroll = stickyTriggerPoint + targetSection * sectionHeight;
+            const targetScroll =
+              stickyTriggerPoint + targetSection * sectionHeight;
             window.scrollTo({
               top: targetScroll,
               behavior: "smooth",
@@ -146,12 +179,12 @@ export default function MobileSection() {
         else if (sectionIndex < 0 && currentSection !== 0) {
           setIsScrolling(true);
           setCurrentSection(0);
-          
+
           window.scrollTo({
             top: stickyTriggerPoint,
             behavior: "smooth",
           });
-          
+
           setTimeout(() => setIsScrolling(false), 600);
         }
       }, 25);
@@ -166,19 +199,45 @@ export default function MobileSection() {
 
   return (
     <section className="bg-[#F1EBE7] pt-10">
-    
-      
-      <div className="hidden md:block sticky top-24 left-[5%] xl:left-[18%] z-[100] w-1/2">
-      <div className="relative w-[240px]  lg:w-[348px]">
-        <Image
-          src="/images/mobileMockup.png"
-          alt="mobileMockup"
-          width={348}
-          height={714}
-          className="w-[240px] h-[500px] lg:w-[348px] top-10 left-0 z-[100] lg:h-[714px] mobileMockup"
-        />
-        <Image src="/dotLineFour.svg" alt="dotLineFour" width={2} height={20} className={`absolute hidden md:block -bottom-24 left-[51%] md:left-[51%] lg:block md:sticky:hidden ${isScrolling ? 'hidden' : ''}`} />
-
+      <div className="hidden md:block sticky top-12 left-[5%] xl:left-[18%] z-[100] w-1/2">
+        <div className="relative w-[240px]  lg:w-[348px]">
+          <Image
+            src="/iPhone bezel.png"
+            alt="mobileMockup"
+            width={348}
+            height={714}
+            className="w-[240px] h-[500px]
+             lg:w-[354px] lg:h-[720px]  top-10 left-0 z-[102] relative mobileMockup"
+          />
+          <video
+            key={getCurrentVideo()} // Force re-render when video changes
+            className="
+            
+            w-[210px] h-[480px] lg:w-[318px] lg:h-[684px]
+            rounded-3xl
+            rounded-t-[2rem]
+            lg:rounded-t-[3rem]
+            object-cover absolute top-12 left-4 lg:top-14 lg:left-4 z-[100]"
+            autoPlay
+            muted
+            loop
+            playsInline
+          >
+            <source
+              src={getCurrentVideo()}
+              type="video/mp4"
+            />
+            Your browser does not support the video tag.
+          </video>
+          {/* <Image
+            src="/dotLineFour.svg"
+            alt="dotLineFour"
+            width={2}
+            height={20}
+            className={`absolute hidden md:block -bottom-24 left-[51%] md:left-[51%] lg:block md:sticky:hidden ${
+              isScrolling ? "hidden" : ""
+            }`}
+          /> */}
         </div>
       </div>
 
@@ -310,31 +369,36 @@ export default function MobileSection() {
 
           <div>
             <div className="flex flex-col md:flex-row gap-4 items-center justify-center mt-10">
-             
-             <Link href="https://apps.apple.com/us/app/traininpink-fitness-femminile/id1641650616" target="_blank" rel="noopener noreferrer">
-              <Image
-                src="/logo/appStoreIcon.svg"
-                alt="appStoreIcon"
-                width={185}
-                height={55}
-                className='object-contain h-[55px]'
-              />
+              <Link
+                href="https://apps.apple.com/us/app/traininpink-fitness-femminile/id1641650616"
+                target="_blank"
+                rel="noopener noreferrer"
+              >
+                <Image
+                  src="/logo/appStoreIcon.svg"
+                  alt="appStoreIcon"
+                  width={185}
+                  height={55}
+                  className="object-contain h-[55px]"
+                />
               </Link>
-              <Link href="https://play.google.com/store/apps/details?id=com.traininpink.mobile" target="_blank" rel="noopener noreferrer">  
-
-               <Image
-                src="/logo/playStoreIcon.svg"
-                alt="playStoreIcon"
-                width={185}
-                height={55}
-                className='object-contain h-[55px]'
-              />
+              <Link
+                href="https://play.google.com/store/apps/details?id=com.traininpink.mobile"
+                target="_blank"
+                rel="noopener noreferrer"
+              >
+                <Image
+                  src="/logo/playStoreIcon.svg"
+                  alt="playStoreIcon"
+                  width={185}
+                  height={55}
+                  className="object-contain h-[55px]"
+                />
               </Link>
             </div>
           </div>
         </div>
 
-        
         <div className="block md:hidden w-full px-5">
           <div className="max-w-[477px] mx-auto flex flex-col gap-4">
             <h2 className="text-4xl font-normal text-center font-poppins">
@@ -462,28 +526,35 @@ export default function MobileSection() {
 
           <div>
             <div className="flex flex-row gap-4 items-center justify-center my-10">
-              <Link href="https://play.google.com/store/apps/details?id=com.traininpink.mobile" target="_blank" rel="noopener noreferrer">            
-              <Image
-                src="/logo/playStoreIcon.svg"
-                alt="playStoreIcon"
-                width={185}
-                height={55}
-                className="object-contain w-[140px] sm:w-[160px] lg:w-[185px] h-[44px]  md:h-[55px]"
-                
-              />
+              <Link
+                href="https://play.google.com/store/apps/details?id=com.traininpink.mobile"
+                target="_blank"
+                rel="noopener noreferrer"
+              >
+                <Image
+                  src="/logo/playStoreIcon.svg"
+                  alt="playStoreIcon"
+                  width={185}
+                  height={55}
+                  className="object-contain w-[140px] sm:w-[160px] lg:w-[185px] h-[44px]  md:h-[55px]"
+                />
               </Link>
-              <Link href="https://apps.apple.com/us/app/traininpink-fitness-femminile/id1641650616" target="_blank" rel="noopener noreferrer">
-              <Image
-                src="/logo/appStoreIcon.svg"
-                alt="appStoreIcon"
-                width={185}
-                height={55}
-                className="object-contain w-[140px] sm:w-[160px] lg:w-[185px] h-[44px]  md:h-[55px]"
-              />
+              <Link
+                href="https://apps.apple.com/us/app/traininpink-fitness-femminile/id1641650616"
+                target="_blank"
+                rel="noopener noreferrer"
+              >
+                <Image
+                  src="/logo/appStoreIcon.svg"
+                  alt="appStoreIcon"
+                  width={185}
+                  height={55}
+                  className="object-contain w-[140px] sm:w-[160px] lg:w-[185px] h-[44px]  md:h-[55px]"
+                />
               </Link>
             </div>
           </div>
-        </div>  
+        </div>
         <Image
           src="/images/mobileMockup.png"
           alt="mobileMockup"
@@ -495,9 +566,9 @@ export default function MobileSection() {
         {sections.map((section, index) => {
           const isActive = currentSection === index;
           const scaleValue = isActive ? 0.8 : 1; // All slides: 0.8 when active, 1 when inactive
-          
+
           // Debug logging for scale
-       
+
           return (
             <motion.section
               key={section.id}

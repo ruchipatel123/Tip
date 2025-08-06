@@ -150,9 +150,9 @@ body {
   
   /* Better video handling on mobile */
   video {
-    width: 100%;
-    height: auto;
-    max-width: 100%;
+    /* width: 100%; */
+    /* height: auto; */
+    /* max-width: 100%; */
   }
   
   /* Improve image loading on mobile */
@@ -429,4 +429,48 @@ button {
   100% {
     background-position: 0% 50%;
   }
+}
+
+/* Arrow Slide Animation - moves right then comes back from left */
+@keyframes arrowSlide {
+  0% {
+    transform: translateX(0);
+    opacity: 1;
+  }
+  50% {
+    transform: translateX(20px);
+    opacity: 0;
+  }
+  51% {
+    transform: translateX(-20px);
+    opacity: 0;
+  }
+  100% {
+    transform: translateX(0);
+    opacity: 1;
+  }
+}
+
+/* Arrow container for overflow hidden */
+.arrow-container {
+  position: relative;
+  overflow: hidden;
+  width: 20px;
+  height: 20px;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+}
+
+/* Arrow slide animation class */
+.arrow-slide {
+  transition: transform 0.3s ease-in-out, opacity 0.3s ease-in-out;
+}
+
+/* Trigger animation on button hover */
+.cta-button:hover .arrow-slide,
+.primary-cta:hover .arrow-slide,
+.secondary-cta:hover .arrow-slide,
+button:hover .arrow-slide {
+  animation: arrowSlide 0.6s ease-in-out;
 }
