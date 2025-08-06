@@ -1064,7 +1064,7 @@ const CarouselCoverLucide = () => {
           alt="dotLineSix"
           width={270}
           height={207}
-          className="absolute bottom-52 lg:bottom-13 left-[51%] hidden md:block"
+          className="absolute bottom-52 lg:bottom-15 left-[51%] hidden md:block"
         />
         <Image
           src="/dotLineFour.svg"

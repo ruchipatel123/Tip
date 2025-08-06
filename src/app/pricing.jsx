@@ -5,7 +5,7 @@ export default function PricingSection() {
     <section className="bg-[#F1EBE7] relative px-4 sm:px-8 lg:px-6 xl:px-16 pt-20 pb-8 sm:py-12 lg:py-16 flex flex-col items-center overflow-hidden">
               <Image src="/dotLineFour.svg" alt="dotLineFour" width={2} height={20} className="absolute hidden md:block -top-12 left-[51%] md:left-[51%] lg:block" />
 
-      <div className="w-full max-w-[1114px] relative flex flex-col items-center gap-12 sm:gap-10 lg:gap-12 px-4">
+      <div className="w-full max-w-[1114px] bg-[#F1EBE7] pt-4 flex flex-col items-center gap-12 sm:gap-10 relative z-10 lg:gap-12 px-4">
         {/* Header */}
         <div className="flex flex-col items-center text-center gap-7 sm:gap-6">
           <h2 className="text-2xl-up-custom relative lg:text-[36px] leading-[32px] sm:leading-[38px] lg:leading-[47px] tracking-[-0.15px] font-normal text-black font-poppins px-4">
