@@ -6,6 +6,18 @@ import Link from "next/link";
 export default function HeroSection() {
   const [videoLoaded, setVideoLoaded] = useState(false);
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
+  const [isScrolled, setIsScrolled] = useState(false);
+
+  // Handle scroll detection for sticky navbar
+  useEffect(() => {
+    const handleScroll = () => {
+      const scrollPosition = window.scrollY;
+      setIsScrolled(scrollPosition > 100); // Show sticky nav after 100px scroll
+    };
+
+    window.addEventListener("scroll", handleScroll, { passive: true });
+    return () => window.removeEventListener("scroll", handleScroll);
+  }, []);
 
   // Close mobile menu when clicking outside or on escape key
   useEffect(() => {
@@ -263,6 +275,96 @@ export default function HeroSection() {
             </nav>
           </div>
         </div>
+      </div>
+
+      {/* Sticky Navigation */}
+      <div
+        className={`fixed top-0 left-0 right-0 z-[200] transition-all duration-300 ease-in-out ${
+          isScrolled 
+            ? "translate-y-0 opacity-100" 
+            : "-translate-y-full opacity-0"
+        }`}
+      >
+        <nav className="bg-white/95 backdrop-blur-md border-b border-gray-200/20 shadow-lg">
+          {/* Mobile Sticky Nav */}
+          <div className="lg:hidden flex items-center justify-between px-4 py-3">
+            <div className="h-12 w-32">
+              <Link href="/" className="cursor-pointer">
+                <Image
+                  src="/logo-vector-1.svg"
+                  alt="TraininPink Logo"
+                  width={536}
+                  height={81}
+                  className="w-full h-full object-contain"
+                  priority
+                />
+              </Link>
+            </div>
+            <div className="flex items-center gap-2">
+              <button className="w-fit bg-[#684744] cursor-grab border border-[rgba(243,239,236,0.20)] rounded-lg shadow-[0_2px_20px_0_rgba(0,0,0,0.15)] px-3 sm:px-4 py-3 text-white text-lg font-medium leading-snug h-12 hover:bg-[#7a5653] transition-colors flex items-center justify-center gap-3">
+                <span>Prova gratis</span>
+                <FaArrowRight size={12} />
+              </button>
+              <button
+                className="flex items-center justify-center w-8 h-8 text-[#684744]"
+                onClick={() => setIsMobileMenuOpen(!isMobileMenuOpen)}
+                aria-label="Toggle mobile menu"
+              >
+                <div className="relative w-5 h-5 flex flex-col justify-center items-center">
+                  <span className="block h-0.5 w-5 bg-[#684744]" />
+                  <span className="block h-0.5 w-5 bg-[#684744] mt-1" />
+                  <span className="block h-0.5 w-5 bg-[#684744] mt-1" />
+                </div>
+              </button>
+            </div>
+          </div>
+
+          {/* Desktop Sticky Nav */}
+          <div className="hidden lg:flex lg:items-center lg:justify-between px-6 lg:px-10 py-4">
+            <div className="flex items-center gap-8">
+              <div className="h-10 w-54">
+                <Link href="/" className="cursor-pointer">
+                  <Image
+                    src="/logo-vector-1.svg"
+                    alt="TraininPink Logo"
+                    width={536}
+                    height={81}
+                    className="w-full h-full object-contain"
+                    priority
+                  />
+                </Link>
+              </div>
+             
+            </div>
+            <div className="flex items-center gap-6 font-dm-sans text-[#684744] text-[16px] font-[900]">
+                <div className="flex items-center gap-1 cursor-pointer hover:opacity-70 transition-opacity">
+                  <span>L'APP</span>
+                  <FaArrowRight size={12} />
+                </div>
+                <div className="flex items-center gap-1 cursor-pointer hover:opacity-70 transition-opacity">
+                  <span>PREZZI</span>
+                  <FaArrowRight size={12} />
+                </div>
+                <div className="flex items-center gap-1 cursor-pointer hover:opacity-70 transition-opacity">
+                  <span>BLOG</span>
+                  <FaArrowRight size={12} />
+                </div>
+              </div>
+            <div className="flex items-center gap-4 font-dm-sans">
+            <div className="login-link border-b border-[#684744] pb-1 cursor-grab hover:opacity-80 transition-opacity">
+                <span className="text-[#684744] text-lg font-bold tracking-tight leading-none">
+                  Accedi
+                </span>
+              </div>
+              <button className="cta-button cursor-grab flex items-center justify-center gap-3 bg-[#684744] border border-[rgba(243,239,236,0.20)] rounded-lg shadow-[0_2px_20px_0_rgba(0,0,0,0.15)] px-3 py-2 text-white text-xl font-medium leading-snug min-w-[273px] h-[54px] hover:bg-[#7a5653] transition-colors whitespace-nowrap">
+                <span className="font-bold font-dm-sans">
+                  Inizia la prova gratuita
+                </span>
+                <FaArrowRight size={15} />
+              </button>
+            </div>
+          </div>
+        </nav>
       </div>
 
       {/* Hero Content */}

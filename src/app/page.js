@@ -17,6 +17,7 @@ import CoverflowLucideTestimonial from "./coverflowLucideTestimonial";
 import { FaApple, FaFacebook } from "react-icons/fa";
 import { useState, useEffect } from "react";
 import MobileSectionSnap from "./mobileSectionSnap";
+import Link from "next/link";
 
 export default function Home() {
   const [isMobile, setIsMobile] = useState(true);
@@ -171,6 +172,8 @@ const MobileTrustSection = () => {
       </div>
 
       <div className="flex md:hidden flex-row-reverse sm:flex-row gap-4 items-center justify-center mt-10">
+        <Link href="https://play.google.com/store/apps/details?id=com.traininpink.mobile" target="_blank" rel="noopener noreferrer">
+        
         <Image
           src="/logo/playStoreIcon.svg"
           alt="playStoreIcon"
@@ -178,6 +181,8 @@ const MobileTrustSection = () => {
           height={55}
           className="w-[140px] sm:w-[160px] lg:w-[185px] h-[41px]"
         />
+        </Link>
+        <Link href="https://apps.apple.com/us/app/traininpink-fitness-femminile/id1641650616" target="_blank" rel="noopener noreferrer">
         <Image
           src="/logo/appStoreIcon.svg"
           alt="appStoreIcon"
@@ -185,6 +190,7 @@ const MobileTrustSection = () => {
           height={55}
           className="w-[140px] sm:w-[160px] lg:w-[185px] h-[41px]"
         />
+        </Link>
       </div>
       {/* <Image
         src="/logo/largeLine.svg"

@@ -2,15 +2,15 @@ import Image from "next/image";
 
 export default function PricingSection() {
   return (
-    <section className="bg-[#F1EBE7] px-4 sm:px-8 lg:px-6 xl:px-16 py-8 sm:py-12 lg:py-16 flex flex-col items-center overflow-hidden">
-      <div className="w-full max-w-[1114px] flex flex-col items-center gap-8 sm:gap-10 lg:gap-12">
+    <section className="bg-[#F1EBE7] px-4 sm:px-8 lg:px-6 xl:px-16 pt-20 pb-8 sm:py-12 lg:py-16 flex flex-col items-center overflow-hidden">
+      <div className="w-full max-w-[1114px] flex flex-col items-center gap-12 sm:gap-10 lg:gap-12">
         {/* Header */}
         <div className="flex flex-col items-center text-center gap-7 sm:gap-6">
           <h2 className="text-2xl-up-custom relative lg:text-[36px] leading-[32px] sm:leading-[38px] lg:leading-[47px] tracking-[-0.15px] font-normal text-black font-poppins px-4">
             Ti garantiamo i risultati:{' '}
             <br className="hidden md:block"/>
             soddisfatta o rimborsata
-            <Image src="/dotLineFour.svg" alt="dotLineFour" width={2} height={20} className="absolute -top-30 left-[50%] md:left-[54%] lg:block" />
+            <Image src="/dotLineFour.svg" alt="dotLineFour" width={2} height={20} className="absolute hidden md:block -top-30 left-[50%] md:left-[54%] lg:block" />
           </h2>
           <p className="hidden md:block font-dm-sans text-lg sm:text-base leading-[22px] sm:leading-[26px] text-black max-w-md lg:max-w-[442px] px-4 md:px-2">
             Un unico piano con accesso a tutti gli allenamenti e la nutrizione Traininpink™. Tutto incluso disdici quando vuoi.
@@ -25,7 +25,7 @@ export default function PricingSection() {
         <div className="flex flex-col lg:flex-row items-center justify-center gap-6 xl:gap-8 w-full max-w-[1200px]">
           {/* Monthly Card */}
           <div className="w-full max-w-sm lg:w-[310px] xl:w-[350px] bg-white rounded-2xl shadow-[0px_4px_20px_0px_rgba(0,0,0,0.1)] border border-black/10 p-4 lg:p-5 xl:p-6 max-h-[326px]">
-            <div className="flex flex-col justify-between gap-8 sm:gap-10 h-full max-h-[326px]">
+            <div className="flex flex-col justify-between gap-6 sm:gap-10 h-full max-h-[326px]">
               <div className="flex flex-col gap-3 sm:gap-4">
                 <h3 className="font-poppins text-lg lg:text-xl xl:text-[28px] font-medium leading-[32px] sm:leading-[36px] tracking-[-0.1px] text-black">
                   Mensile
@@ -54,14 +54,29 @@ export default function PricingSection() {
           <div className="w-full max-w-sm lg:w-[310px] xl:w-[350px] flex flex-col">
             {/* Best Value Badge */}
             <div 
-              className="rounded-t-2xl shadow-[0px_0px_20px_0px_rgba(0,0,0,0.1)] px-2 py-3 flex items-center justify-center gap-2"
+              className="rounded-t-2xl shadow-[0px_0px_20px_0px_rgba(0,0,0,0.1)] px-2 py-3 flex items-center justify-center gap-2 relative overflow-hidden"
               style={{
-                background: 'linear-gradient(270deg, #98685E 36%, #32221F 100%)'
+                background: '#32221F'
               }}
             >
-              <Image src='/logo/Sparkle.svg' alt='starIcon' width={20} height={20} />
-              <span className="font-dm-sans text-[15px] sm:text-base leading-[20px] sm:leading-[26px] text-white font-bold">
-                BEST VALUE
+              <div
+                className="absolute inset-0"
+                style={{
+                  background: 'linear-gradient(90deg, #32221F 0%, #98685E 50%, #32221F 100%)',
+                  backgroundSize: '200% 100%',
+                  animation: 'gradientFlow 5s ease-in-out infinite'
+                }}
+              />
+              <style jsx>{`
+                @keyframes gradientFlow {
+                  0% { background-position: 100% 0; opacity: 0.8; }
+                  50% { background-position: 0 0; opacity: 1; }
+                  100% { background-position: -100% 0; opacity: 0.8; }
+                }
+              `}</style>
+              <Image src='/logo/Sparkle.svg' alt='starIcon' width={20} height={20} className="relative z-10 animate-pulse" />
+              <span className="font-dm-sans uppercase text-[15px] sm:text-base leading-[20px] sm:leading-[26px] text-white font-bold relative z-10">
+                Più Popolare
               </span>
             </div>
             
@@ -73,7 +88,7 @@ export default function PricingSection() {
                     Semestrale
                   </h3>
                   <div className="text-[#684744]">
-                    <span className="font-poppins text-lg sm:text-xl-custom leading-[32px] sm:leading-[36px] tracking-[-0.1px]">€13.33</span>
+                    <span className="font-poppins text-lg sm:text-xl-custom leading-[32px] sm:leading-[36px] tracking-[-0.1px]">€14.99</span>
                     <span className="font-dm-sans text-[15px] sm:text-base leading-[32px] sm:leading-[36px] tracking-[-0.1px]"> / month</span>
                   </div>
                   <div className="flex flex-wrap items-baseline gap-1.5 font-dm-sans text-[15px] sm:text-sm leading-[18px] sm:leading-[21px]">
@@ -107,7 +122,7 @@ export default function PricingSection() {
 
           {/* Annual Card */}
           <div className="w-full max-w-sm lg:w-[310px] xl:w-[350px] bg-white rounded-2xl shadow-[0px_4px_20px_0px_rgba(0,0,0,0.1)] border border-black/10 p-4 lg:p-5 xl:p-6 relative max-h-[326px]">
-            <div className="flex flex-col justify-between gap-8 sm:gap-10 h-full max-h-[326px]">
+            <div className="flex flex-col justify-between gap-6 sm:gap-10 h-full max-h-[326px]">
               <div className="flex flex-col gap-3 sm:gap-4">
                 <h3 className="font-poppins text-lg lg:text-xl xl:text-[28px] font-medium leading-[32px] sm:leading-[36px] tracking-[-0.1px] text-black">
                   Annuale
@@ -149,7 +164,7 @@ export default function PricingSection() {
         {/* Guarantee Section */}
         <div className="flex flex-col items-center justify-center gap-4 sm:gap-6 w-full max-w-xs lg:max-w-[273.33px]">
           <div className="flex items-center gap-3 sm:gap-[13px] w-full justify-center">
-            <Image src='/logo/guarateeICon.svg' alt='starIcon' width={74} height={74} className="sm:w-[74px] sm:h-[74px]" style={{ filter: 'drop-shadow(0px 0px 20px #A0736540)' }} />
+            <Image src='/logo/guarateeICon.svg' alt='starIcon' width={74} height={74} objectFit="contain" quality={90}  style={{ filter: 'drop-shadow(0px 0px 20px #A0736540)' }} />
             <div className="font-dm-sans text-[16px] sm:text-base leading-5 sm:leading-6 text-[#684744]">
               <div className="font-bold w-fit">GARANZIA 30 GIORNI</div>
               <div className="font-normal w-fit">Soddisfata o rimborsata</div>

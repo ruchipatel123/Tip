@@ -1,5 +1,6 @@
 "use client";
 import Image from "next/image";
+import Link from "next/link";
 import { useState } from "react";
 import {
   FaFacebook,
@@ -129,7 +130,9 @@ export default function Footer() {
               <div className="flex items-center gap-1">
                 {/* Instagram */}
                 <a
-                  href="#"
+                  href="https://www.instagram.com/traininpink"
+                  target="_blank"
+                  rel="noopener noreferrer"
                   className="p-1 opacity-90 hover:opacity-100 transition-opacity"
                 >
                   <FaInstagram size={20} />
@@ -137,7 +140,9 @@ export default function Footer() {
 
                 {/* TikTok */}
                 <a
-                  href="#"
+                  href="https://www.tiktok.com/@traininpink"
+                  target="_blank"
+                  rel="noopener noreferrer"
                   className="p-1 opacity-90 hover:opacity-100 transition-opacity"
                 >
                   <FaTiktok size={20} />
@@ -145,7 +150,9 @@ export default function Footer() {
 
                 {/* Facebook */}
                 <a
-                  href="#"
+                  href="https://www.facebook.com/CarlottaGagna"
+                  target="_blank"
+                  rel="noopener noreferrer"
                   className="p-1 opacity-90 hover:opacity-100 transition-opacity"
                 >
                   <FaFacebook size={20} />
@@ -153,7 +160,9 @@ export default function Footer() {
 
                 {/* Twitter */}
                 <a
-                  href="#"
+                  href="https://twitter.com/traininpink"
+                  target="_blank"
+                  rel="noopener noreferrer"
                   className="p-1 opacity-90 hover:opacity-100 transition-opacity"
                 >
                   <FaXTwitter size={20} />
@@ -161,7 +170,9 @@ export default function Footer() {
 
                 {/* YouTube */}
                 <a
-                  href="#"
+                  href="https://www.youtube.com/channel/UCQi88PzqD9_d0xdYTFHngYQ"
+                  target="_blank"
+                  rel="noopener noreferrer"
                   className="p-1 opacity-90 hover:opacity-100 transition-opacity"
                 >
                   <FaYoutube size={20} />
@@ -169,7 +180,9 @@ export default function Footer() {
 
                 {/* Spotify */}
                 <a
-                  href="#"
+                  href="https://open.spotify.com/show/5Rrg5MXU2OMGEvHFARhRKT"
+                  target="_blank"
+                  rel="noopener noreferrer"
                   className="p-1 opacity-90 hover:opacity-100 transition-opacity"
                 >
                   <FaSpotify size={20} />
@@ -234,18 +247,22 @@ export default function Footer() {
             {/* Right Section - App Store Buttons */}
             <div className="flex flex-col items-end gap-1.5 pb-1.5">
               {/* App Store */}
+              <Link href="https://apps.apple.com/us/app/traininpink-fitness-femminile/id1641650616" target="_blank" rel="noopener noreferrer"> 
               <Image
                 src="/logo/appStoreLogoDark.svg"
                 alt="appStoreIcon"
                 width={132}
                 height={44}
               />
+              </Link>
+              <Link href="https://play.google.com/store/apps/details?id=com.traininpink.mobile" target="_blank" rel="noopener noreferrer"> 
               <Image
                 src="/logo/playStoreLogoDark.svg"
                 alt="playStoreIcon"
                 width={132}
                 height={44}
               />
+              </Link>
             </div>
           </div>
         </div>
