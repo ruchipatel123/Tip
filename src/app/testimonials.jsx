@@ -17,27 +17,53 @@ import InstaMessage from "./instaMessage";
 
 export default function TestimonialsSection({ testimonials: testimonialsProp }) {
   const [currentSlide, setCurrentSlide] = useState(0);
-  const [isMuted, setIsMuted] = useState(true);
+  const [isDesktopMuted, setIsDesktopMuted] = useState(true);
+  const [isMobileMuted, setIsMobileMuted] = useState(true);
   const [animationTrigger, setAnimationTrigger] = useState({});
+  const [isClient, setIsClient] = useState(false);
   const swiperRef = useRef(null);
   const mobileSwiperRef = useRef(null);
   const videoRefs = useRef([]);
   const mobileVideoRefs = useRef([]);
+  // Add refs for the intro videos
+  const desktopIntroVideoRef = useRef(null);
+  const mobileIntroVideoRef = useRef(null);
 
-  // Initialize first video on component mount
+  // Helper function to manage video playback based on screen size
+  const manageVideoPlayback = () => {
+    if (!isClient) return; // Only run on client side
+    
+    const isDesktop = window.innerWidth >= 1024; // lg breakpoint
+    
+    if (isDesktop && desktopIntroVideoRef.current && mobileIntroVideoRef.current) {
+      // On desktop, play desktop video and pause mobile
+      desktopIntroVideoRef.current.play().catch(() => {});
+      mobileIntroVideoRef.current.pause();
+    } else if (!isDesktop && mobileIntroVideoRef.current && desktopIntroVideoRef.current) {
+      // On mobile, play mobile video and pause desktop  
+      mobileIntroVideoRef.current.play().catch(() => {});
+      desktopIntroVideoRef.current.pause();
+    }
+  };
+
+  // Client-side hydration effect
   useEffect(() => {
+    setIsClient(true);
+  }, []);
+
+  // Initialize videos on component mount
+  useEffect(() => {
+    if (!isClient) return;
+    
     const timer = setTimeout(() => {
-      // Try desktop first
+      manageVideoPlayback();
+
+      // Handle carousel videos (existing logic)
       if (videoRefs.current[0]) {
-        videoRefs.current[0].play().catch(() => {
-        
-        });
+        videoRefs.current[0].play().catch(() => {});
       }
-      // Then mobile
       if (mobileVideoRefs.current[0]) {
-        mobileVideoRefs.current[0].play().catch(() => {
-           
-        });
+        mobileVideoRefs.current[0].play().catch(() => {});
       }
 
       // Trigger initial animations for the first slide
@@ -48,6 +74,31 @@ export default function TestimonialsSection({ testimonials: testimonialsProp }) 
     }, 500);
 
     return () => clearTimeout(timer);
+  }, [isClient]);
+
+  // Handle window resize to manage video playback
+  useEffect(() => {
+    if (!isClient) return;
+    
+    const handleResize = () => {
+      manageVideoPlayback();
+    };
+
+    window.addEventListener('resize', handleResize);
+    return () => window.removeEventListener('resize', handleResize);
+  }, [isClient]);
+
+  // Cleanup videos on component unmount
+  useEffect(() => {
+    return () => {
+      // Pause all videos when component unmounts
+      if (desktopIntroVideoRef.current) {
+        desktopIntroVideoRef.current.pause();
+      }
+      if (mobileIntroVideoRef.current) {
+        mobileIntroVideoRef.current.pause();
+      }
+    };
   }, []);
 
   // Default testimonials data based on Figma
@@ -276,8 +327,22 @@ export default function TestimonialsSection({ testimonials: testimonialsProp }) 
     }
   };
 
-  const toggleMute = () => {
-    setIsMuted(!isMuted);
+  const toggleDesktopMute = () => {
+    const newMutedState = !isDesktopMuted;
+    setIsDesktopMuted(newMutedState);
+    
+    if (desktopIntroVideoRef.current) {
+      desktopIntroVideoRef.current.muted = newMutedState;
+    }
+  };
+
+  const toggleMobileMute = () => {
+    const newMutedState = !isMobileMuted;
+    setIsMobileMuted(newMutedState);
+    
+    if (mobileIntroVideoRef.current) {
+      mobileIntroVideoRef.current.muted = newMutedState;
+    }
   };
 
   // Desktop slide change handler
@@ -413,9 +478,10 @@ export default function TestimonialsSection({ testimonials: testimonialsProp }) 
           <div className="aspect-[4/5] rounded-2xl overflow-hidden bg-black xl:min-h-[830px]">
             <div className="relative w-full h-full">
               <video
+                ref={desktopIntroVideoRef}
                 className="w-full h-full object-cover"
                 autoPlay
-                muted={isMuted}
+                muted={isDesktopMuted}
                 playsInline
                 loop
               >
@@ -426,16 +492,16 @@ export default function TestimonialsSection({ testimonials: testimonialsProp }) 
               {/* Mute/Unmute button */}
               <div className="absolute bottom-8 left-1/2 transform -translate-x-1/2">
                 <button
-                  onClick={toggleMute}
+                  onClick={toggleDesktopMute}
                   className="bg-[#553B39] border border-white/20 shadow-[0px_4px_20px_0px_rgba(0,0,0,0.25)] rounded-full px-4 py-3 flex items-center gap-3 hover:bg-[#6a544f] transition-colors"
                 >
-                  {isMuted ? (
+                  {isDesktopMuted ? (
                     <PiSpeakerXLight color="white" size={20} />
                   ) : (
                     <PiSpeakerHighThin className='stroke-[6px]' color="white" size={20} />
                   )}
                   <span className="font-dm-sans text-base leading-[26px] text-white">
-                    {isMuted ? "Tap to unmute" : "Tap to mute"}
+                    {isDesktopMuted ? "Tap to unmute" : "Tap to mute"}
                   </span>
                 </button>
               </div>
@@ -550,9 +616,10 @@ export default function TestimonialsSection({ testimonials: testimonialsProp }) 
           <div className="max-w-[354px] mx-auto rounded-2xl overflow-hidden bg-black">
             <div className="relative w-full h-full">
               <video
+                ref={mobileIntroVideoRef}
                 className="w-full h-full object-cover"
                 autoPlay
-                muted={isMuted}
+                muted={isMobileMuted}
                 playsInline
                 loop
               >
@@ -563,16 +630,16 @@ export default function TestimonialsSection({ testimonials: testimonialsProp }) 
               {/* Mute/Unmute button */}
               <div className="absolute bottom-6 left-1/2 transform -translate-x-1/2">
                 <button
-                  onClick={toggleMute}
+                  onClick={toggleMobileMute}
                   className="bg-[#553B39] border border-white/20 shadow-[0px_4px_20px_0px_rgba(0,0,0,0.25)] rounded-full px-3 py-2 sm:px-4 sm:py-3 flex items-center gap-2 sm:gap-3 hover:bg-[#6a544f] transition-colors"
                 >
-                  {isMuted ? (
+                  {isMobileMuted ? (
                     <PiSpeakerXLight color="white" size={18} />
                   ) : (
                     <PiSpeakerHighThin className='stroke-[6px]' color="white" size={18} />
                   )}
                   <span className="font-dm-sans text-[15px] sm:text-base leading-[20px] sm:leading-[26px] text-white">
-                    {isMuted ? "Tap to unmute" : "Tap to mute"}
+                    {isMobileMuted ? "Tap to unmute" : "Tap to mute"}
                   </span>
                 </button>
               </div>
