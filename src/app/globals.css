@@ -431,8 +431,8 @@ button {
   }
 }
 
-/* Arrow Slide Animation - moves right then comes back from left */
-@keyframes arrowSlide {
+/* Arrow Slide Animation - moves right then comes back from left (hover in) */
+@keyframes arrowSlideIn {
   0% {
     transform: translateX(0);
     opacity: 1;
@@ -443,6 +443,26 @@ button {
   }
   51% {
     transform: translateX(-20px);
+    opacity: 0;
+  }
+  100% {
+    transform: translateX(0);
+    opacity: 1;
+  }
+}
+
+/* Arrow Slide Animation - moves left then comes back from right (hover out) */
+@keyframes arrowSlideOut {
+  0% {
+    transform: translateX(0);
+    opacity: 1;
+  }
+  50% {
+    transform: translateX(-20px);
+    opacity: 0;
+  }
+  51% {
+    transform: translateX(20px);
     opacity: 0;
   }
   100% {
@@ -467,10 +487,18 @@ button {
   transition: transform 0.3s ease-in-out, opacity 0.3s ease-in-out;
 }
 
-/* Trigger animation on button hover */
+/* Trigger animation on button hover in */
 .cta-button:hover .arrow-slide,
 .primary-cta:hover .arrow-slide,
 .secondary-cta:hover .arrow-slide,
 button:hover .arrow-slide {
-  animation: arrowSlide 0.6s ease-in-out;
+  animation: arrowSlideIn 0.4s ease-in-out;
+}
+
+/* Trigger reverse animation on button hover out */
+.cta-button:not(:hover) .arrow-slide,
+.primary-cta:not(:hover) .arrow-slide,
+.secondary-cta:not(:hover) .arrow-slide,
+button:not(:hover) .arrow-slide {
+  animation: arrowSlideOut 0.4s ease-in-out;
 }
