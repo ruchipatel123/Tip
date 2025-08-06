@@ -251,7 +251,7 @@ export default function MobileSection() {
           <video
             ref={videoRef}
             className={`
-            w-[210px] h-[480px] lg:w-[318px] lg:h-[684px]
+            w-[210px] h-[480px] lg:w-[318px] lg:h-[688px]
             rounded-3xl
             rounded-t-[2rem]
             lg:rounded-t-[3rem]
@@ -639,7 +639,7 @@ export default function MobileSection() {
             <motion.section
               key={section.id}
               className="h-screen flex flex-col justify-center items-center px-4 md:px-20 relative max-h-[850px]"
-              initial={{ opacity: 0 }}
+              initial={{ opacity: 1 }}
               whileInView={{ opacity: 1 }}
               transition={{ duration: 0.6 }}
             >
@@ -666,11 +666,11 @@ export default function MobileSection() {
                 {/* Section Indicator */}
                 {index === 0 && (
                   <Image
-                    src="/dotLineOne.svg"
+                    src="/dotLineOneUpdated.svg"
                     alt="dotLineOne"
                     width={412}
                     height={184}
-                    className="absolute hidden md:block -top-[35%] left-[42%] -translate-x-[42%]"
+                    className="absolute hidden md:block -top-[88%] left-[42%] -translate-x-[42%]"
                   />
                 )}
 
