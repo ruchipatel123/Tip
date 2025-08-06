@@ -9,7 +9,7 @@ const CarouselCoverLucide = () => {
     {
       id: 1,
       title: "Pilates Linfodrenante™",
-      image: "/images/carouselleft1.png",
+      image: "/images/PilatesLinfodrenant.png",
       description:
         "L'esclusivo Pilates per eliminare la ritenzione, migliorare la cricolazione e tonificare",
       duration: "5-25",
@@ -22,7 +22,7 @@ const CarouselCoverLucide = () => {
     {
       id: 2,
       title: "Pilates Cardio™",
-      image: "/images/yoga.jpg",
+      image: "/images/ReformerPilates.jpeg",
       description:
         "Combinazione dinamica di Pilates e cardio per bruciare calorie e migliorare la resistenza",
       duration: "20-40",
@@ -76,39 +76,35 @@ const CarouselCoverLucide = () => {
 
   // Create 5 separate static data arrays with different arrangements
   const tuttiSlides = [
-    
     {
-        id: 1,
-      title: "Pilates Tonificante™",
-      image: "/images/carouselleft2.jpeg",
-      description:
-        "Pilates intensivo per sviluppare forza muscolare e definizione corporea",
-      duration: "15-30",
-      frequency: "4 volte a settimana",
-      level: "intermedio",
-      objectives: "tonificare, rinforzare, definire",
-      equipment: "elastici, pesi leggeri",
-      category: "Tonificazione",
+      id: 15,
+      title: "Easy Pilates™",
+      image: "/images/easyPilates.jpeg",
+      description: "Il Pilates pensato per te che vuoi (ri)cominciare ad allenarti.",
+      duration: "30",
+      frequency: "3 volte a settimana",
+      level: "principiante",
+      objectives: "dimagrire, tonificare, mobilità, postura",
+      equipment: "nessun attrezzo richiesto",
+      category: "Pilates",
     },
     {
-      id: 2,
-      title: "Pilates Cardio™",
-      image: "/images/carouselleft1.png",
-      description:
-        "Combinazione dinamica di Pilates e cardio per bruciare calorie e migliorare la resistenza",
-      duration: "20-40",
-      frequency: "3-4 volte a settimana",
-      level: "avanzato",
-      objectives: "dimagrire, resistenza, energia",
-      equipment: "tappetino, palla pilates",
+      id: 16,
+      title: "Dance & Sculpt™",
+      image: "/images/Dance&Sculp.png",
+      description: "Tonifica e divertiti ballando",
+      duration: "30",
+      frequency: "3 volte a settimana",
+      level: "intermedio",
+      objectives: "tonificare, dimagrire",
+      equipment: "nessun attrezzo richiesto",
       category: "Cardio",
     },
     {
-      id: 3,
+      id: 1,
       title: "Pilates Linfodrenante™",
-      image: "/images/yoga.jpg",
-      description:
-        "L'esclusivo Pilates per eliminare la ritenzione, migliorare la circolazione e tonificare",
+      image: "/images/PilatesLinfodrenante.jpg",
+      description: "L'esclusivo Pilates per eliminare la ritenzione, migliorare la cricolazione e tonificare.",
       duration: "5-25",
       frequency: "3 volte a settimana",
       level: "avanzato",
@@ -116,98 +112,165 @@ const CarouselCoverLucide = () => {
       equipment: "nessun attrezzo richiesto",
       category: "Pilates",
     },
+    {
+      id: 2,
+      title: "Reformer Pilates™",
+      image: "/images/ReformerPilates.jpeg",
+      description: "Il Pilates Reformer efficace, come in studio a casa tua.",
+      duration: "30",
+      frequency: "3 volte a settimana",
+      level: "avanzato",
+      objectives: "dimagrire, tonificare, mobilità, postura",
+      equipment: "palla da yoga/pilates + cavigliere",
+      category: "Pilates",
+    },
+    {
+      id: 3,
+      title: "Sculpt Pilates™",
+      image: "/images/sculptPilates.png",
+      description: "Il Pilates come in studio nella comodità di casa tua.",
+      duration: "30",
+      frequency: "3 volte a settimana",
+      level: "intermedio-avanzato",
+      objectives: "dimagrire, tonificare, mobilità, postura",
+      equipment: "nessun attrezzo richiesto",
+      category: "Pilates",
+    },
+   
    
     {
       id: 4,
-      title: "Pilates Pre/Post Parto™",
-      image: "/images/carouselright2.png",
-      description:
-        "Programma specializzato per supportare il corpo durante e dopo la gravidanza",
-      duration: "15-25",
-      frequency: "2-3 volte a settimana",
-      level: "adattato",
-      objectives: "forza core, recupero, benessere",
-      equipment: "palla, fasce elastiche",
-      category: "Pre e post parto",
+      title: "Cardio Burn™",
+      image: "/images/cardioBurn.png",
+      description: "Il programma per te che ami il cardio ad alta intensità.",
+      duration: "12-30",
+      frequency: "3 volte a settimana",
+      level: "intermedio-avanzato",
+      objectives: "dimagrire, tonificare",
+      equipment: "nessun attrezzo richiesto",
+      category: "Cardio",
     },
     {
       id: 5,
-      title: "Pilates Posturale™",
-      image: "/images/carouselright1.png",
-      description:
-        "Esercizi mirati per migliorare la postura e alleviare tensioni della colonna vertebrale",
-      duration: "10-20",
-      frequency: "5 volte a settimana",
-      level: "principiante",
-      objectives: "postura, flessibilità, benessere",
-      equipment: "cuscino, rullo foam",
-      category: "Yoga",
+      title: "Home Pump™",
+      image: "/images/HomePump.png",
+      description: "L'adrenalina dei corsi in palestra nella comodità di casa tua.",
+      duration: "30",
+      frequency: "3 volte a settimana",
+      level: "intermedio-avanzato",
+      objectives: "dimagrire, tonificare, massa muscolare",
+      equipment: "manubri (consigliati)",
+      category: "Tonificazione",
     },
     {
       id: 6,
-      title: "Pilates Intenso™",
-      image: "/images/carouselleft2.jpeg",
-      description:
-        "Allenamento intensivo per chi vuole risultati rapidi e sfidanti",
-      duration: "25-35",
-      frequency: "5 volte a settimana",
-      level: "avanzato",
-      objectives: "forza, resistenza, definizione",
-      equipment: "pesi, elastici, palla",
+      title: "Easy Pump™",
+      image: "/images/easyPump.png",
+      description: "Il programma pensato per te che vuoi (ri)cominciare ad allenarti, divertendoti.",
+      duration: "30",
+      frequency: "3 volte a settimana",
+      level: "principiante",
+      objectives: "dimagrire, tonificare, massa muscolare",
+      equipment: "manubri (consigliati)",
       category: "Tonificazione",
     },
     {
       id: 7,
-      title: "Pilates Dolce™",
-      image: "/images/carouselright1.png",
-      description:
-        "Approccio delicato per principianti e chi preferisce movimenti più soft",
-      duration: "15-20",
+      title: "Gym Power™",
+      image: "/images/GymPower.jpg",
+      description: "Ottieni il massimo dal abbonamento in palestra o dalla tua home gym.",
+      duration: "50",
       frequency: "3 volte a settimana",
-      level: "principiante",
-      objectives: "flessibilità, rilassamento, benessere",
-      equipment: "tappetino, cuscino",
-      category: "Yoga",
+      level: "intermedio-avanzato",
+      objectives: "dimagrire, tonificare, massa muscolare",
+      equipment: "abbonamento in palestra o home gym",
+      category: "Tonificazione",
     },
     {
       id: 8,
-      title: "Pilates Brucia Grassi™",
-      image: "/images/yoga.jpg",
-      description:
-        "Sequenze ad alta intensità per massimizzare il consumo calorico",
-      duration: "30-45",
-      frequency: "4 volte a settimana",
+      title: "Pilates Linfodrenante™ Gravidanza",
+      image: "/images/PilatesLinfodrenante Gravidanza.jpg",
+      description: "L'esclusivo Pilates per tonificare, drenare e sgonfiare in gravidanza.",
+      duration: "20-30",
+      frequency: "3 volte a settimana",
       level: "intermedio",
-      objectives: "dimagrimento, tono, energia",
-      equipment: "pesi leggeri, tappetino",
-      category: "Cardio",
+      objectives: "dimagrire, tonificare, drenare",
+      equipment: "Primo trimestre - nessun attrezzo, Secondo trimestre - Palla da Pilates + elastico lungo aperto, Terzo trimestre - Attrezzi secondo trimestre + Fitness/Birthing Ball",
+      category: "Pre e post parto",
     },
     {
       id: 9,
-      title: "Pilates Riabilitativo™",
-      image: "/images/carouselleft1.png",
-      description:
-        "Programma specifico per il recupero post-infortunio e riabilitazione",
+      title: "Pilates Post-Parto & Diastasi™",
+      image: "/images/nutrizone.jpg",
+      description: "Il Pilates per tonificare dopo il parto e ridurre la diastasi.",
       duration: "20-30",
-      frequency: "3-4 volte a settimana",
-      level: "adattato",
-      objectives: "recupero, forza, mobilità",
-      equipment: "fasce elastiche, palla",
+      frequency: "3 volte a settimana",
+      level: "principiante-intermedio",
+      objectives: "tonificare, sgonfiare, ridurre diastasi",
+      equipment: "palla da pilates + elastico lungo aperto",
       category: "Pre e post parto",
     },
     {
       id: 10,
-      title: "Pilates Core Focus™",
-      image: "/images/carouselright2.png",
-      description:
-        "Concentrato esclusivamente sul rinforzo del core e della stabilità",
-      duration: "15-25",
-      frequency: "5 volte a settimana",
+      title: "Yoga Circle™",
+      image: "/images/YogaCircle.png",
+      description: "Il tuo circolo privato di Yoga 5.",
+      duration: "30",
+      frequency: "3 volte a settimana",
       level: "intermedio",
-      objectives: "core stability, forza addominale",
-      equipment: "palla pilates, rullo",
+      objectives: "flessibilità, mobilità, serenità mentale",
+      equipment: "nessun attrezzo richiesto",
+      category: "Yoga",
+    },
+    {
+      id: 11,
+      title: "Easy Yoga",
+      image: "/images/EasyYoga.png",
+      description: "Il Percorso di introduzione allo Yoga per principianti",
+      duration: "30",
+      frequency: "3 volte a settimana",
+      level: "principiante",
+      objectives: "flessibilità, mobilità, serenità mentale",
+      equipment: "nessun attrezzo richiesto",
+      category: "Yoga",
+    },
+    {
+      id: 12,
+      title: "Funzionale con Lucrezia",
+      image: "/images/FunzionaleconLucrezia.png",
+      description: "Per le amanti dell'allenamento con pesi a casa",
+      duration: "30",
+      frequency: "3 volte a settimana",
+      level: "intermedio",
+      objectives: "dimagrire, tonificare, massa muscolare",
+      equipment: "manubri",
       category: "Tonificazione",
     },
+    {
+      id: 13,
+      title: "Pilates Linfodrenante™ Principianti",
+      image: "/images/PilatesLinfodrenantePrincipianti.jpg",
+      description: "Il Percorso di introduzione al Pilates Linfodrenante",
+      duration: "5-25",
+      frequency: "tutti i giorni",
+      level: "principiante",
+      objectives: "ritenzione, sgonifiare, tonificare",
+      equipment: "nessun attrezzo richiesto",
+      category: "Pilates",
+    },
+    {
+      id: 14,
+      title: "Funzionale con Carlotta",
+      image: "/images/FunzionaleconCarlotta.png",
+      description: "Per le amanti dell'allenamento con pesi a casa",
+      duration: "30",
+      frequency: "3 volte a settimana",
+      level: "intermedio",
+      objectives: "dimagrire, tonificare, massa muscolare",
+      equipment: "manubri",
+      category: "Tonificazione",
+    },
+   
   ];
 
   const pilatesSlides = [
@@ -890,7 +953,7 @@ const CarouselCoverLucide = () => {
                       {/* Content - only visible on active card when NOT expanded */}
                       {index === currentIndex && !isExpanded && (
                         <div
-                          className="absolute bottom-0 left-0 w-full h-16 bg-[#F3EFEC] flex items-center justify-between px-4 rounded-b-2xl cursor-grab transition-all duration-300 hover:bg-[#ece3dc] z-30"
+                          className="absolute bottom-0 left-0 w-full h-16 bg-[#F3EFEC] flex items-center justify-between px-4 rounded-b-2xl cursor-grab transition-all duration-300 hover:bg-[#ece3dc] z-30 gap-5"
                           onClick={(e) =>
                             handleDetailsClick(e, originalSlideId)
                           }
@@ -925,83 +988,95 @@ const CarouselCoverLucide = () => {
                         }}
                       >
                         {isExpanded && (
-                          <div className="h-full flex flex-col">
-                            {/* Header with title and close button - now at top of accordion */}
-                            <div
-                              className="h-12 md:h-14 bg-[#F3EFEC] flex items-center justify-between px-4 cursor-grab transition-all duration-300 hover:bg-[#ece3dc] flex-shrink-0"
-                              onClick={(e) =>
-                                handleDetailsClick(e, originalSlideId)
-                              }
-                            >
+                          <div className="h-full flex flex-col p-3 md:p-5 md:pb-0">
+                            {/* Header with title and close button */}
+                            <div className="flex items-center justify-between mb-[6px]">
                               <h3 className="font-poppins text-[18px] md:text-[22px] font-medium leading-[1.41em] tracking-[-0.23%] text-black">
                                 {slide.title}
                               </h3>
-                              <p className="text-black font-dm-sans text-sm md:text-base font-normal leading-[1.625em] flex items-center gap-2">
-                                Details
-                                <FaArrowRight className="rotate-90" />
-                              </p>
+                              <div 
+                                className="flex items-center gap-[5px] cursor-pointer"
+                                onClick={(e) => handleDetailsClick(e, originalSlideId)}
+                              >
+                                <span className="text-black font-dm-sans text-sm md:text-base font-normal leading-[1.625em]">
+                                  Details
+                                </span>
+                                <div className="w-5 h-5 md:w-6 md:h-6 flex items-center justify-center">
+                                  <FaArrowRight className="w-2 h-2.5 md:w-2.5 md:h-3.5 rotate-90" />
+                                </div>
+                              </div>
                             </div>
 
-                            {/* Accordion content below the header */}
-                            <div className="flex-1 p-3 md:p-5 md:pt-0 pt-0 overflow-hidden">
-                              <div className="space-y-3 md:space-y-4">
+                            {/* Content container with gradient line */}
+                            <div className="flex items-start gap-3 md:gap-[18px] mt-2 md:mt-2">
+                              {/* Vertical gradient line */}
+                              <div 
+                                className="w-1 h-full md:h-full rounded-sm flex-shrink-0"
+                                style={{
+                                  background: 'linear-gradient(180deg, #DFD1C9 0%, #553B39 100%)'
+                                }}
+                              ></div>
+
+                              {/* Content sections */}
+                              <div className="flex-1 min-w-0">
                                 {/* Description */}
-                                <p className="text-black mb-2 font-dm-sans text-sm md:text-base leading-[1.5em] md:leading-[1.625em] max-w-[342px]">
+                                <p className="text-black font-dm-sans text-sm md:text-base leading-[1.5em] md:leading-[1.625em] max-w-[342px] mb-2 md:mb-2">
                                   {slide.description}
                                 </p>
 
-                                {/* Content grid with vertical divider */}
-                                <div className="relative">
-                                  {/* Left Column */}
-                                  <div className="flex justify-between border-b border-[#DBD7D4]">
-                                    {/* Allenamenti Section */}
-                                    <div className="w-1/2 py-1 md:py-2">
-                                      <h4 className="text-black font-dm-sans text-xs md:text-sm font-normal leading-[1.5em] opacity-40">
-                                        Allenamenti
-                                      </h4>
-                                      <div className="flex items-baseline gap-1 md:gap-2">
-                                        <span className="text-black font-dm-sans text-sm md:text-base font-normal leading-[1.625em] text-center">
-                                          {slide.duration}
-                                        </span>
-                                        <span className="text-black font-dm-sans text-xs font-normal leading-[1.5em] tracking-[0.83%] text-center">
-                                          minuti
-                                        </span>
-                                      </div>
-                                      <p className="text-black font-dm-sans text-xs md:text-sm font-normal leading-[1.5em]">
+                                {/* Vertical sections layout */}
+                                <div className="space-y-2 md:space-y-[9px]">
+                                  {/* Allenamenti Section */}
+                                  <div className="w-full mb-2">
+                                    <h4 className="text-black font-dm-sans text-xs md:text-sm font-medium leading-[1.5em] mb-0">
+                                      Allenamenti
+                                    </h4>
+                                    <div className="flex items-center gap-1.5 md:gap-[7px] opacity-40 flex-wrap">
+                                      <span className="text-black font-dm-sans text-sm md:text-base font-normal leading-[1.625em]">
+                                        {slide.duration}
+                                      </span>
+                                      <span className="text-black font-dm-sans text-xs font-normal leading-[1.5em] tracking-[0.83%]">
+                                        minuti,
+                                      </span>
+                                      <span className="text-black font-dm-sans text-xs md:text-sm font-normal leading-[1.5em]">
                                         {slide.frequency}
-                                      </p>
-                                    </div>
-
-                                    {/* Livello Section */}
-                                    <div className="w-1/2 py-1 md:py-2 border-l border-[#DBD7D4] pl-3 md:pl-4">
-                                      <h4 className="text-black font-dm-sans text-xs md:text-sm font-normal leading-[1.5em] opacity-40">
-                                        Livello
-                                      </h4>
-                                      <p className="text-black font-dm-sans text-sm md:text-base font-normal leading-[1.625em]">
-                                        {slide.level}
-                                      </p>
+                                      </span>
                                     </div>
                                   </div>
 
-                                  {/* Right Column */}
-                                  <div className="flex justify-between">
-                                    {/* Obiettivi Section */}
-                                    <div className="w-1/2 py-1 md:py-2">
-                                      <h4 className="text-black font-dm-sans text-xs md:text-sm font-normal leading-[1.5em] opacity-40">
-                                        Obiettivi
-                                      </h4>
-                                      <p className="text-black font-dm-sans text-sm md:text-base font-normal leading-[1.625em] max-w-[155px]">
-                                        {slide.objectives}
-                                      </p>
+                                  {/* Livello Section */}
+                                  <div className="w-full mb-2">
+                                    <h4 className="text-black font-dm-sans text-xs md:text-sm font-medium leading-[1.5em] mb-0">
+                                      Livello
+                                    </h4>
+                                    <div className="flex items-center gap-1.5 md:gap-[7px] opacity-40">
+                                      <span className="text-black font-dm-sans text-sm md:text-base font-normal leading-[1.625em]">
+                                        {slide.level}
+                                      </span>
                                     </div>
-                                    {/* Attrezzi Section */}
-                                    <div className="w-1/2 py-1 md:py-2 border-l border-[#DBD7D4] pl-3 md:pl-4">
-                                      <h4 className="text-black font-dm-sans text-xs md:text-sm font-normal leading-[1.5em] opacity-40">
-                                        Attrezzi
-                                      </h4>
-                                      <p className="text-black font-dm-sans text-sm md:text-base font-normal leading-[1.625em] max-w-[117px]">
+                                  </div>
+
+                                  {/* Obiettivi Section */}
+                                  <div className="w-full mb-2">
+                                    <h4 className="text-black font-dm-sans text-xs md:text-sm font-medium leading-[1.5em] mb-0">
+                                      Obiettivi
+                                    </h4>
+                                    <div className="flex items-center gap-1.5 md:gap-[7px] opacity-40">
+                                      <span className="text-black font-dm-sans text-xs md:text-sm font-normal leading-[1.5em]">
+                                        {slide.objectives}
+                                      </span>
+                                    </div>
+                                  </div>
+
+                                  {/* Attrezzi Section */}
+                                  <div className="w-full mb-2">
+                                    <h4 className="text-black font-dm-sans text-xs md:text-sm font-medium leading-[1.5em] mb-0">
+                                      Attrezzi
+                                    </h4>
+                                    <div className="flex items-center gap-1.5 md:gap-[7px] opacity-40">
+                                      <span className="text-black font-dm-sans text-xs md:text-sm font-normal leading-[1.5em]">
                                         {slide.equipment}
-                                      </p>
+                                      </span>
                                     </div>
                                   </div>
                                 </div>
