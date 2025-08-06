@@ -602,11 +602,11 @@ export default function MobileSection() {
                       }}
                       initial={{ opacity: 1 }}
                       animate={{
-                        opacity: isActive ? 0 : 1,
+                        opacity: isActive ? 1 : 0,
                       }}
                       transition={{
                         duration: 0.6,
-                        delay: isActive ? 0.3 : 0,
+                        delay: isActive ? 0 : 0.3,
                         ease: "easeInOut",
                       }}
                     />

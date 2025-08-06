@@ -23,6 +23,7 @@ export default function InstaMessage({ triggerAnimation = false, isActive = fals
   const [showFirstMessage, setShowFirstMessage] = useState(false);
   const [showSecondMessage, setShowSecondMessage] = useState(false);
   const [shouldScrollUp, setShouldScrollUp] = useState(false);
+  const [hasScrollableContent, setHasScrollableContent] = useState(false);
   const containerRef = useRef(null);
   const messagesContainerRef = useRef(null);
 
@@ -48,6 +49,42 @@ export default function InstaMessage({ triggerAnimation = false, isActive = fals
 
   const currentTestimonial = testimonial || defaultTestimonial;
 
+  // Check if content needs scrolling based on message length
+  const checkScrollableContent = () => {
+    if (messagesContainerRef.current && currentTestimonial) {
+      const container = messagesContainerRef.current;
+      const containerHeight = container.clientHeight;
+      
+      // Calculate estimated height based on message content
+      const imageHeight = 300; // Image height
+      const messageBaseHeight = 60; // Base height per message bubble
+      const characterThreshold = 50; // Lower threshold for earlier detection
+      
+      // Check for very long messages (like the pilates message - 143 chars)
+      const hasVeryLongMessage = currentTestimonial.messages.some(message => 
+        message.text.length > 90 // Lowered threshold to catch the pilates message
+      );
+      
+      // Check if any message is particularly long
+      const hasLongMessage = currentTestimonial.messages.some(message => 
+        message.text.length > characterThreshold
+      );
+      
+      // Calculate total estimated height with better accuracy
+      let totalEstimatedHeight = imageHeight + 100; // Image + padding
+      currentTestimonial.messages.forEach(message => {
+        const lines = Math.ceil(message.text.length / 35); // More accurate characters per line
+        const messageHeight = messageBaseHeight + (lines > 1 ? (lines - 1) * 24 : 0);
+        totalEstimatedHeight += messageHeight + 16; // Message + margin
+      });
+      
+      const needsScroll = hasLongMessage || hasVeryLongMessage || totalEstimatedHeight > containerHeight;
+      setHasScrollableContent(needsScroll);
+      return needsScroll;
+    }
+    return false;
+  };
+
   // Reset animations when triggerAnimation changes
   useEffect(() => {
     if (triggerAnimation && isActive) {
@@ -57,49 +94,122 @@ export default function InstaMessage({ triggerAnimation = false, isActive = fals
       setShowSecondMessage(false);
       setShouldScrollUp(false);
       
-      // Start animation sequence
+      // Reset scroll position to top when starting new animation
+      if (messagesContainerRef.current) {
+        messagesContainerRef.current.scrollTo({
+          top: 0,
+          behavior: 'instant'
+        });
+      }
+      
+      // Check if scrolling is needed
+      const needsScroll = checkScrollableContent();
+      
+      // Start animation sequence: Image → First Message → (Scroll if needed) → Second Message
       const timer1 = setTimeout(() => setShowImage(true), 300);
       const timer2 = setTimeout(() => setShowFirstMessage(true), 1000);
-      const timer3 = setTimeout(() => setShowSecondMessage(true), 1600);
-      const timer4 = setTimeout(() => setShouldScrollUp(true), 2200); // Scroll after all messages are shown
+      
+      // If scrolling is needed, scroll before showing second message with better timing
+      const timer3 = needsScroll 
+        ? setTimeout(() => setShouldScrollUp(true), 1400) // Start scroll earlier
+        : null;
+      
+      const timer4 = setTimeout(() => setShowSecondMessage(true), needsScroll ? 2100 : 1600); // Adjusted timing
       
       return () => {
         clearTimeout(timer1);
         clearTimeout(timer2);
-        clearTimeout(timer3);
+        if (timer3) clearTimeout(timer3);
         clearTimeout(timer4);
       };
     }
-  }, [triggerAnimation, isActive]);
+  }, [triggerAnimation, isActive, currentTestimonial]);
 
   // Reset when not active
   useEffect(() => {
     if (!isActive) {
-      setAnimationsStarted(false);
+      // Immediately hide elements to prevent visual glitch during slide transitions
       setShowImage(false);
       setShowFirstMessage(false);
       setShowSecondMessage(false);
-      setShouldScrollUp(false);
+      
+      // Delay full reset and scroll position reset until after slide transition completes
+      const resetTimer = setTimeout(() => {
+        setAnimationsStarted(false);
+        setShouldScrollUp(false);
+        setHasScrollableContent(false);
+        
+        // Reset scroll position after slide transition is complete
+        if (messagesContainerRef.current) {
+          messagesContainerRef.current.scrollTo({
+            top: 0,
+            behavior: 'instant'
+          });
+        }
+      }, 850); // Wait for Swiper slide transition (800ms) to complete + 50ms buffer
+      
+      return () => clearTimeout(resetTimer);
     }
   }, [isActive]);
 
-  // Scroll up animation effect
+  // Calculate optimal scroll amount based on content
+  const calculateScrollAmount = () => {
+    if (!messagesContainerRef.current || !currentTestimonial) return 0;
+    
+    const container = messagesContainerRef.current;
+    const totalScrollable = container.scrollHeight - container.clientHeight;
+    
+    // Check for very long messages that need maximum scroll
+    const hasVeryLongMessage = currentTestimonial.messages.some(message => 
+      message.text.length > 90 // Match the detection threshold
+    );
+    
+    if (hasVeryLongMessage) {
+      // For very long messages (like the pilates one), scroll to 90% of maximum to ensure last message fits perfectly
+      return Math.floor(totalScrollable * 0.9);
+    } else {
+      // For regular long messages, scroll moderately
+      return Math.min(totalScrollable, 160);
+    }
+  };
+
+  // Scroll animation effect - only when needed for long content
   useEffect(() => {
-    if (shouldScrollUp && messagesContainerRef.current) {
+    if (shouldScrollUp && messagesContainerRef.current && hasScrollableContent) {
       const container = messagesContainerRef.current;
       const isOverflowing = container.scrollHeight > container.clientHeight;
       
       if (isOverflowing) {
-        // Smooth scroll to bottom to show the latest message
+        const scrollAmount = calculateScrollAmount();
+        
+        // Smooth scroll with custom animation matching text animation timing
+        const startScrollTop = container.scrollTop;
+        const targetScrollTop = scrollAmount;
+        const duration = 600; // Match text animation timing (smooth but not too slow)
+        const startTime = performance.now();
+        
+        const animateScroll = (currentTime) => {
+          const elapsed = currentTime - startTime;
+          const progress = Math.min(elapsed / duration, 1);
+          
+          // Use easeOutCubic for natural deceleration (starts fast, ends smooth)
+          const easeOutCubic = 1 - Math.pow(1 - progress, 3);
+          
+          const currentScrollTop = startScrollTop + (targetScrollTop - startScrollTop) * easeOutCubic;
+          container.scrollTop = currentScrollTop;
+          
+          if (progress < 1) {
+            requestAnimationFrame(animateScroll);
+          }
+        };
+        
+        // Start animation with slight delay for natural flow
         setTimeout(() => {
-          container.scrollTo({
-            top: container.scrollHeight - container.clientHeight,
-            behavior: 'smooth'
-          });
-        }, 100);
+          requestAnimationFrame(animateScroll);
+        }, 150);
       }
     }
-  }, [shouldScrollUp]);
+  }, [shouldScrollUp, hasScrollableContent, currentTestimonial]);
 
   // Intersection Observer for scroll-based trigger
   useEffect(() => {
@@ -110,11 +220,37 @@ export default function InstaMessage({ triggerAnimation = false, isActive = fals
           setShowImage(false);
           setShowFirstMessage(false);
           setShowSecondMessage(false);
+          setShouldScrollUp(false);
           
-          // Start animation sequence
+          // Reset scroll position to top when starting new animation
+          if (messagesContainerRef.current) {
+            messagesContainerRef.current.scrollTo({
+              top: 0,
+              behavior: 'instant'
+            });
+          }
+          
+          // Check if scrolling is needed
+          const needsScroll = checkScrollableContent();
+          
+          // Start animation sequence: Image → First Message → (Scroll if needed) → Second Message
           const timer1 = setTimeout(() => setShowImage(true), 300);
           const timer2 = setTimeout(() => setShowFirstMessage(true), 1000);
-          const timer3 = setTimeout(() => setShowSecondMessage(true), 1600);
+          
+          // If scrolling is needed, scroll before showing second message with better timing
+          const timer3 = needsScroll 
+            ? setTimeout(() => setShouldScrollUp(true), 1400) // Start scroll earlier
+            : null;
+          
+          const timer4 = setTimeout(() => setShowSecondMessage(true), needsScroll ? 2100 : 1600); // Adjusted timing
+          
+          // Store cleanup function
+          return () => {
+            clearTimeout(timer1);
+            clearTimeout(timer2);
+            if (timer3) clearTimeout(timer3);
+            clearTimeout(timer4);
+          };
         }
       },
       { threshold: 0.3 }
@@ -129,7 +265,7 @@ export default function InstaMessage({ triggerAnimation = false, isActive = fals
         observer.unobserve(containerRef.current);
       }
     };
-  }, [isActive, animationsStarted]);
+  }, [isActive, animationsStarted, currentTestimonial]);
 
   return (
     <div ref={containerRef} className="bg-white h-full rounded-lg shadow-xl overflow-hidden max-w-sm mx-auto flex flex-col relative">
@@ -170,7 +306,8 @@ export default function InstaMessage({ triggerAnimation = false, isActive = fals
         className="bg-white px-2 py-6 flex flex-col overflow-y-auto scrollbar-hide chat-scroll flex-1"
         style={{
           minHeight: '350px',
-          maxHeight: '450px'
+          maxHeight: '450px',
+          scrollBehavior: 'smooth' // Ensure smooth scrolling as fallback
         }}
       >
         {/* Shared Photo */}

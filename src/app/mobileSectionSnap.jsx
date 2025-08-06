@@ -12,12 +12,13 @@ export default function MobileSectionSnap() {
   const [currentSection, setCurrentSection] = useState(0);
   const [isScrolling, setIsScrolling] = useState(false);
   const [isHydrated, setIsHydrated] = useState(false);
+  const [windowHeight, setWindowHeight] = useState(0);
   const lastScrollY = useRef(0);
 
   const sections = [
     {
       id: 0,
-      image: "/images/progresstracking.jpg",
+      image: "/images/allenamento.jpg",
       alt: "allenamento",
       width: 1352,
       height: 598,
@@ -27,7 +28,7 @@ export default function MobileSectionSnap() {
     },
     {
       id: 1,
-      image: "/images/progresstracking.jpg",
+      image: "/images/nutrizone.jpg",
       alt: "nutrizone",
       width: 888,
       height: 393,
@@ -52,9 +53,17 @@ export default function MobileSectionSnap() {
     offset: ["start start", "end end"],
   });
 
-  // Handle hydration
+  // Handle hydration and window height
   useEffect(() => {
     setIsHydrated(true);
+    setWindowHeight(window.innerHeight);
+
+    const handleResize = () => {
+      setWindowHeight(window.innerHeight);
+    };
+
+    window.addEventListener('resize', handleResize);
+    return () => window.removeEventListener('resize', handleResize);
   }, []);
 
   // Handle custom scroll behavior with threshold
@@ -165,20 +174,20 @@ export default function MobileSectionSnap() {
 
   return (
     <section className="bg-[#F1EBE7] md:pt-10">
-      <div className="block md:hidden sticky top-15 left-[5%] xl:left-[18%] z-[100] w-full mx-auto ">
+      <div className="block md:hidden sticky top-[10vh] left-[5%] xl:left-[18%] z-[100] w-full mx-auto ">
         <Image
           src="/images/mobileMockup.png"
           alt="mobileMockup"
           width={348}
           height={714}
-          className=" w-[300px]  h-[648px] sm:w-[348px] top-5 left-0 z-[100]  sm:h-[714px]  mx-auto"
+          className="w-[min(300px,80vw)] h-auto max-h-[min(648px,80vh)] sm:w-[min(348px,85vw)] sm:max-h-[min(714px,85vh)] top-5 left-0 z-[100] mx-auto object-contain"
         />
       </div>
 
       <div ref={containerRef} className="md:mt-50 relative">
         {sections.map((section, index) => {
-          const isActive = currentSection === index;
-          const scaleValue = isActive ? 0.8 : 1; // All slides: 1 when active, 0.8 when inactive
+          const isActive = currentSection === index+1;
+          const scaleValue = isActive ? 1 : 0.8; // All slides: 1 when active, 0.8 when inactive
           
           
           return (
@@ -231,7 +240,7 @@ export default function MobileSectionSnap() {
                           ? "xl:object-[0px_-32rem]"
                           : "xl:object-[0px_-32rem]"
                       }
-                      ${isActive ? "" : "blur-sm"}
+                      ${isActive ? "blur-sm" : ""}
                       `}
                       priority={index === 0}
                     />
@@ -265,12 +274,21 @@ export default function MobileSectionSnap() {
 
                     {/* Title text at bottom right */}
                     <motion.div
-                      className="absolute bottom-10 left-[50%] -translate-x-[50%] z-10"
+                      className="absolute left-[50%] -translate-x-[50%] z-10"
+                      style={{
+                        bottom: windowHeight < 700 
+                          ? '1rem'    // bottom-4
+                          : windowHeight < 800 
+                          ? '2rem'    // bottom-8
+                          : windowHeight < 850 
+                          ? '3rem'    // bottom-12
+                          : '3.75rem' // bottom-15
+                      }}
                       initial={{ y: 20, opacity: 0 }}
                       whileInView={{ y: 0, opacity: 1 }}
                       transition={{ duration: 0.8, delay: 0.2 }}
                     >
-                      <h2 className="text-2xl md:text-3xl font-poppins font-normal text-white text-right">
+                      <h2 className="text-2xl md:text-3xl font-poppins font-normal text-white text-center text-nowrap">
                         {section.title}
                       </h2>
                     </motion.div>

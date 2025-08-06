@@ -731,15 +731,22 @@ const CarouselCoverLucide = () => {
       boxShadow = "0px 4px 10px 0px #00000026";
     }
 
+    // Calculate base z-index to prevent abrupt layering changes during transitions
+    const baseZIndex = 50; // Base layer for all slides
+    const dynamicZIndex = baseZIndex - Math.abs(diff); // Closer slides have higher z-index
+
     return {
-      transform: `${transform} scale(${scale})`,
+      transform: `translate3d(${transform.includes('translateX') ? transform.split('(')[1].split(')')[0] : '0'}, 0, 0) scale3d(${scale}, ${scale}, 1)`,
       opacity,
-      zIndex,
+      zIndex: dynamicZIndex,
       boxShadow,
-      transition:
-        isTransitioning && (isAnimating || diff === 0)
-          ? "all 0.6s cubic-bezier(0.25, 0.46, 0.45, 0.94)"
-          : "none",
+      // Apply consistent transitions to all slides during animation
+      transition: isTransitioning 
+        ? "transform 0.6s cubic-bezier(0.25, 0.46, 0.45, 0.94), opacity 0.6s cubic-bezier(0.25, 0.46, 0.45, 0.94)"
+        : "none",
+      // Ensure hardware acceleration and smooth rendering
+      backfaceVisibility: 'hidden',
+      WebkitBackfaceVisibility: 'hidden',
     };
   };
 
@@ -803,7 +810,11 @@ const CarouselCoverLucide = () => {
             <div
               key={slide.id}
               className="absolute w-80 md:w-100 h-[90%] md:h-full  cursor-grab rounded-2xl preserve-3d"
-              style={getSlideStyle(index)}
+              style={{
+                ...getSlideStyle(index),
+                // Ensure smooth width/scale transitions by using will-change
+                willChange: isAnimating ? 'transform, opacity' : 'auto'
+              }}
               onClick={() => {
                 // For cloned slides, calculate the equivalent original slide index
                 if (slide.id.toString().includes("clone")) {
