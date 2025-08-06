@@ -321,13 +321,13 @@ export default function Footer() {
       <div className="flex xl:hidden items-center justify-center gap-1 mt-10">
                 {/* Instagram */}
                 <a
-                  href="#"
+                  href="https://www.facebook.com/CarlottaGagna"
                   className="p-1 opacity-90 hover:opacity-100 transition-opacity"
                 >
                   <FaFacebook size={25} />
                 </a>
                 <a
-                  href="#"
+                  href="https://www.instagram.com/traininpink"
                   className="p-1 opacity-90 hover:opacity-100 transition-opacity"
                 >
                   <FaInstagram size={25} />
@@ -341,20 +341,20 @@ export default function Footer() {
 
                 {/* Twitter */}
                 <a
-                  href="#"
+                   href="https://twitter.com/traininpink"
                   className="p-1 opacity-90 hover:opacity-100 transition-opacity"
                 >
                   <FaXTwitter size={25} />
                 </a>
                 <a
-                  href="#"
+                  href="https://www.tiktok.com/@traininpink"
                   className="p-1 opacity-90 hover:opacity-100 transition-opacity"
                 >
                   <FaTiktok size={25} />
                 </a>
                 {/* YouTube */}
                 <a
-                  href="#"
+                  href="https://www.youtube.com/channel/UCQi88PzqD9_d0xdYTFHngYQ"
                   className="p-1 opacity-90 hover:opacity-100 transition-opacity"
                 >
                   <FaYoutube size={25} />
@@ -362,7 +362,7 @@ export default function Footer() {
 
                 {/* Spotify */}
                 <a
-                  href="#"
+                 href="https://open.spotify.com/show/5Rrg5MXU2OMGEvHFARhRKT"
                   className="p-1 opacity-90 hover:opacity-100 transition-opacity"
                 >
                   <FaSpotify size={25} />
