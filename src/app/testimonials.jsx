@@ -53,7 +53,83 @@ export default function TestimonialsSection({ testimonials: testimonialsProp }) 
   // Default testimonials data based on Figma
   const defaultTestimonials = [
     {
-      id: 1,
+      id: 1,  
+      user: {
+        name: "Angela Borzacchelli",
+        username: "angy_borzacchelli",
+        profileImage: "/images/testimonial/image27.png"
+      },
+      postImage: "/images/testimonial/post6.png",
+      messages: [
+        {
+          type: "received",
+          text: "Non avrei mai immaginato di raggiungere questi risultati!"
+        },
+        {
+          type: "sent",
+          text: "Quando credi in te stessa, tutto è possibile! 🌈"
+        }
+      ]
+    },
+    {
+      id: 10,
+      user: {
+        name: "Alessandra Ferrari",
+        username: "aleferrari94",
+        profileImage: "/images/testimonial/allesandra.png"
+      },
+      postImage: "/images/testimonial/post5.png",
+      messages: [
+        {
+          type: "received",
+          text: "Ogni sessione è una scoperta, il mio corpo si trasforma sempre di più"
+        },
+        {
+          type: "sent",
+          text: "Questo è solo l'inizio del tuo potenziale! 🚀"
+        }
+      ]
+    },
+    {
+      id: 2,
+      user: {
+        name: "Lanternarosa",
+        username: "paola.persico",
+        profileImage: "/images/testimonial/profile.png"
+      },
+      postImage: "/images/testimonial/post7.png",
+      messages: [
+        {
+          type: "received",
+          text: "TBC..."
+        },
+        {
+          type: "sent",
+          text: "TBC Message from Carlotta"
+        }
+      ]
+    },
+    {
+      id: 3,
+      user: {
+        name: "Alice Artioli",
+        username: "aliartioli",
+        profileImage: "/images/testimonial/lanterosadp.png"
+      },
+      postImage: "/images/testimonial/lanternarosa-post2-618d32.png",
+      messages: [
+        {
+          type: "received",
+          text: "😱 Volevo condividerlo con te! Sono incredula"
+        },
+        {
+          type: "sent",
+          text: "TBC Message from Carlotta"
+        }
+      ]
+    },    
+    {
+      id: 4,
       user: {
         name: "Irene Diresta",
         username: "irene_diresta",
@@ -72,7 +148,27 @@ export default function TestimonialsSection({ testimonials: testimonialsProp }) 
       ]
     },
     {
-      id: 2,
+      id: 5,
+      user: {
+        name: "Lanternarosa",
+        username: "_lanternarosa_",
+        profileImage: "/images/testimonial/lanternarosa-profile-6bfc89.png"
+      },
+      postImage: "/images/testimonial/lanternarosa-post1-34e0d8.png",
+      messages: [
+        {
+          type: "received",
+          text: "😱 Volevo condividerlo con te! Sono incredula"
+        },
+        {
+          type: "sent",
+          text: "I risultati parlano da soli! Continua così! 🔥"
+        }
+      ]
+    },
+   
+    {
+      id: 6,
       user: {
         name: "Asia Veronica",
         username: "asia_veronica2012",
@@ -90,46 +186,9 @@ export default function TestimonialsSection({ testimonials: testimonialsProp }) 
         }
       ]
     },
+ 
     {
-      id: 3,
-      user: {
-        name: "Gaia",
-        username: "gaia0910",
-        profileImage: "/images/testimonial/gaia-profile-7494b5.png"
-      },
-      postImage: "/images/testimonial/gaia-post-57eb2c.png",
-      messages: [
-        {
-          type: "received",
-          text: "Mi si legge di nuovo il tatuaggio 😂"
-        },
-        {
-          type: "sent",
-          text: "Questo sì che è un risultato tangibile! 🎉"
-        }
-      ]
-    },
-    {
-      id: 4,
-      user: {
-        name: "Miri",
-        username: "mirimiry",
-        profileImage: "/images/testimonial/miri-profile-476ee5.png"
-      },
-      postImage: "/images/testimonial/miri-post.png",
-      messages: [
-        {
-          type: "received",
-          text: "A distanza di due anni ❤️"
-        },
-        {
-          type: "sent",
-          text: "La costanza premia sempre! Bravissima! 💜"
-        }
-      ]
-    },
-    {
-      id: 5,
+      id: 7,
       user: {
         name: "Elena",
         username: "elenafree94",
@@ -148,119 +207,45 @@ export default function TestimonialsSection({ testimonials: testimonialsProp }) 
       ]
     },
     {
-      id: 6,
-      user: {
-        name: "Lanternarosa",
-        username: "_lanternarosa_",
-        profileImage: "/images/testimonial/lanternarosa-profile-6bfc89.png"
-      },
-      postImage: "/images/testimonial/lanternarosa-post1-34e0d8.png",
-      messages: [
-        {
-          type: "received",
-          text: "😱 Volevo condividerlo con te! Sono incredula"
-        },
-        {
-          type: "sent",
-          text: "I risultati parlano da soli! Continua così! 🔥"
-        }
-      ]
-    },
-    {
-      id: 7,
-      user: {
-        name: "Lanternarosa",
-        username: "_lanternarosa_",
-        profileImage: "/images/testimonial/lanternarosa-profile-6bfc89.png"
-      },
-      postImage: "/images/testimonial/lanternarosa-post2-618d32.png",
-      messages: [
-        {
-          type: "received",
-          text: "Non riesco a credere ai miei occhi! Il cambiamento è incredibile"
-        },
-        {
-          type: "sent",
-          text: "Il tuo impegno è quello che fa la differenza! 💪✨"
-        }
-      ]
-    },
-    {
       id: 8,
       user: {
-        name: "Lanternarosa",
-        username: "_lanternarosa_",
-        profileImage: "/images/testimonial/lanternarosa-profile-6bfc89.png"
+        name: "Gaia",
+        username: "gaia0910",
+        profileImage: "/images/testimonial/gaia-profile-7494b5.png"
       },
-      postImage: "/images/testimonial/post3.png",
+      postImage: "/images/testimonial/gaia-post-57eb2c.png",
       messages: [
         {
           type: "received",
-          text: "Grazie per tutto quello che fai per noi! Il percorso è stato fantastico"
+          text: "Mi si legge di nuovo il tatuaggio 😂"
         },
         {
           type: "sent",
-          text: "È un piacere accompagnarvi in questo viaggio! 🌟"
+          text: "Questo sì che è un risultato tangibile! 🎉"
         }
       ]
     },
     {
       id: 9,
       user: {
-        name: "Lanternarosa",
-        username: "_lanternarosa_",
-        profileImage: "/images/testimonial/lanternarosa-profile-6bfc89.png"
+        name: "Miri",
+        username: "mirimiry",
+        profileImage: "/images/testimonial/miri-profile-476ee5.png"
       },
-      postImage: "/images/testimonial/post4.png",
+      postImage: "/images/testimonial/miri-post.png",
       messages: [
         {
           type: "received",
-          text: "I progressi sono evidenti e mi sento sempre più forte!"
+          text: "A distanza di due anni ❤️"
         },
         {
           type: "sent",
-          text: "La forza viene da dentro, tu l'hai solo risvegliata! 💗"
+          text: "La costanza premia sempre! Bravissima! 💜"
         }
       ]
     },
-    {
-      id: 10,
-      user: {
-        name: "Lanternarosa",
-        username: "_lanternarosa_",
-        profileImage: "/images/testimonial/lanternarosa-profile-6bfc89.png"
-      },
-      postImage: "/images/testimonial/post5.png",
-      messages: [
-        {
-          type: "received",
-          text: "Ogni sessione è una scoperta, il mio corpo si trasforma sempre di più"
-        },
-        {
-          type: "sent",
-          text: "Questo è solo l'inizio del tuo potenziale! 🚀"
-        }
-      ]
-    },
-    {
-      id: 11,
-      user: {
-        name: "Lanternarosa",
-        username: "_lanternarosa_",
-        profileImage: "/images/testimonial/lanternarosa-profile-6bfc89.png"
-      },
-      postImage: "/images/testimonial/post6.png",
-      messages: [
-        {
-          type: "received",
-          text: "Non avrei mai immaginato di raggiungere questi risultati!"
-        },
-        {
-          type: "sent",
-          text: "Quando credi in te stessa, tutto è possibile! 🌈"
-        }
-      ]
-    }
+
+
   ];
 
   const testimonials = testimonialsProp || defaultTestimonials;

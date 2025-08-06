@@ -4,6 +4,7 @@ import Image from "next/image";
 import React, { useEffect, useRef, useState } from "react";
 import { motion, useScroll, useTransform } from "framer-motion";
 import { FaApple, FaFacebook } from "react-icons/fa";
+import Link from "next/link";
 
 const SCROLL_THRESHOLD = 0.05; // 5% threshold for very responsive transitions
 
@@ -73,9 +74,9 @@ export default function MobileSection() {
       const containerTop = containerRef.current?.offsetTop || 0;
       const sectionHeight = window.innerHeight;
       
-      // Calculate when sticky mobile mockup becomes sticky (top-10 = 40px from top)
+      // Calculate when sticky mobile mockup becomes sticky (top-20 = 80px from top)
       // The sticky trigger should be when the section bg arrives and sticky element sticks  
-      const stickyTriggerPoint = containerTop - sectionHeight; // Account for top-10
+      const stickyTriggerPoint = containerTop - sectionHeight; // Account for top-20
       
       // Only start section snapping when sticky element is in sticky position
       if (scrollTop < stickyTriggerPoint) {
@@ -167,7 +168,7 @@ export default function MobileSection() {
     <section className="bg-[#F1EBE7] pt-10">
     
       
-      <div className="hidden md:block sticky top-10 left-[5%] xl:left-[18%] z-[100] w-1/2 ">
+      <div className="hidden md:block sticky top-20 left-[5%] xl:left-[18%] z-[100] w-1/2 ">
         <Image
           src="/images/mobileMockup.png"
           alt="mobileMockup"
@@ -178,7 +179,7 @@ export default function MobileSection() {
       </div>
 
       <div ref={containerRef} className="mt-10 md:mt-50 relative">
-        <div className="hidden md:block w-full md:w-1/2 absolute md:-top-155 lg:-top-200 right-0 md:right-20">
+        <div className="hidden md:block w-full md:w-1/2 absolute md:-top-155 lg:-top-200 right-0 md:right-20 z-[101]">
           <div className="max-w-[477px] mx-auto flex flex-col gap-4">
             <h2 className="text-4xl font-normal text-center font-poppins">
               Ottieni i risultati <br /> che meriti
@@ -188,7 +189,7 @@ export default function MobileSection() {
               consiglierebbe Traininpink™ ad una propria amica.
             </p>
           </div>
-          <div className="flex lg:flex-wrap gap-4 justify-center mt-10">
+          <div className="flex lg:flex-wrap gap-4 justify-center relative z-1 mt-10">
             <div className="flex md:flex-col gap-2 md:gap-8">
               <div className="flex items-center gap-2">
                 <Image
@@ -306,6 +307,7 @@ export default function MobileSection() {
           <div>
             <div className="flex flex-col md:flex-row gap-4 items-center justify-center mt-10">
              
+             <Link href="https://apps.apple.com/us/app/traininpink-fitness-femminile/id1641650616" target="_blank" rel="noopener noreferrer">
               <Image
                 src="/logo/appStoreIcon.svg"
                 alt="appStoreIcon"
@@ -313,6 +315,9 @@ export default function MobileSection() {
                 height={55}
                 className='object-contain h-[55px]'
               />
+              </Link>
+              <Link href="https://play.google.com/store/apps/details?id=com.traininpink.mobile" target="_blank" rel="noopener noreferrer">  
+
                <Image
                 src="/logo/playStoreIcon.svg"
                 alt="playStoreIcon"
@@ -320,6 +325,7 @@ export default function MobileSection() {
                 height={55}
                 className='object-contain h-[55px]'
               />
+              </Link>
             </div>
           </div>
         </div>
@@ -452,6 +458,7 @@ export default function MobileSection() {
 
           <div>
             <div className="flex flex-row gap-4 items-center justify-center my-10">
+              <Link href="https://play.google.com/store/apps/details?id=com.traininpink.mobile" target="_blank" rel="noopener noreferrer">            
               <Image
                 src="/logo/playStoreIcon.svg"
                 alt="playStoreIcon"
@@ -460,6 +467,8 @@ export default function MobileSection() {
                 className="object-contain w-[140px] sm:w-[160px] lg:w-[185px] h-[44px]  md:h-[55px]"
                 
               />
+              </Link>
+              <Link href="https://apps.apple.com/us/app/traininpink-fitness-femminile/id1641650616" target="_blank" rel="noopener noreferrer">
               <Image
                 src="/logo/appStoreIcon.svg"
                 alt="appStoreIcon"
@@ -467,9 +476,10 @@ export default function MobileSection() {
                 height={55}
                 className="object-contain w-[140px] sm:w-[160px] lg:w-[185px] h-[44px]  md:h-[55px]"
               />
+              </Link>
             </div>
           </div>
-        </div>
+        </div>  
         <Image
           src="/images/mobileMockup.png"
           alt="mobileMockup"

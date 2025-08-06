@@ -1078,7 +1078,7 @@ const CarouselCoverLucide = () => {
           alt="dotLineFour"
           width={1}
           height={106}
-          className="absolute -bottom-28 left-1/2 block md:hidden"
+          className="absolute -bottom-24 left-1/2 block md:hidden"
         />
       </div>
     </div>

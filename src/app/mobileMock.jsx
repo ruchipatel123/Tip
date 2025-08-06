@@ -1,4 +1,5 @@
 import Image from "next/image";
+import Link from "next/link";
 import React from "react";
 import { FaApple, FaFacebook } from "react-icons/fa";
 
@@ -134,18 +135,23 @@ export default function MobileMock() {
 
         <div>
           <div className="flex flex-col md:flex-row gap-4 items-center justify-center mt-10">
-            <Image
+           
+            <Link href="https://play.google.com/store/apps/details?id=com.traininpink.app" target="_blank" rel="noopener noreferrer">
+            <Image 
               src="/logo/playStoreIcon.svg"
               alt="playStoreIcon"
               width={185}
               height={55}
             />
-            <Image
+            </Link>
+            <Link href="https://apps.apple.com/it/app/traininpink/id1644444444444444" target="_blank" rel="noopener noreferrer">
+            <Image 
               src="/logo/appStoreIcon.svg"
               alt="appStoreIcon"
               width={185}
               height={55}
             />
+            </Link>
           </div>
         </div>
       </div>

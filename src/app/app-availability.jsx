@@ -1,4 +1,5 @@
 import Image from "next/image";
+import Link from "next/link";
 
 export default function AppAvailabilitySection() {
   return (
@@ -12,6 +13,8 @@ export default function AppAvailabilitySection() {
 
         {/* App Store Buttons */}
         <div className="hidden md:flex flex-col sm:flex-row gap-4 items-center justify-center">
+       <Link href="https://apps.apple.com/us/app/traininpink-fitness-femminile/id1641650616" target="_blank" rel="noopener noreferrer">
+       
         <Image
             src="/logo/appStoreIcon.svg"
             alt="appStoreIcon"
@@ -19,6 +22,8 @@ export default function AppAvailabilitySection() {
             height={55}
             className="w-[140px] sm:w-[160px] lg:w-[185px] h-[54px] object-contain"
           />
+          </Link>
+          <Link href="https://play.google.com/store/apps/details?id=com.traininpink.mobile" target="_blank" rel="noopener noreferrer">
           <Image
             src="/logo/playStoreIcon.svg"
             alt="playStoreIcon"
@@ -26,7 +31,7 @@ export default function AppAvailabilitySection() {
             height={55}
             className="w-[140px] sm:w-[160px] lg:w-[185px] h-[54px] object-contain"
           />
-         
+          </Link>         
         </div>
       </div>
 
@@ -34,11 +39,12 @@ export default function AppAvailabilitySection() {
       <div className="hidden md:block relative px-4 sm:px-6 lg:px-8">
         {/* Main Background Image - Samsung TV */}
         <div className="relative mx-auto max-w-7xl">
-          <div className="relative w-full aspect-[16/9] max-w-[1254px] mx-auto">
+          <div className="relative w-full max-w-[1254px] h-[719px] mx-auto">
             <Image
               src="/mockup/samsung-tv-6050db.png"
               alt="Woman doing yoga on TV"
               fill
+              quality={100}
               className="object-contain"
               priority
             />
@@ -125,6 +131,7 @@ export default function AppAvailabilitySection() {
       </div>
 
       <div className="flex md:hidden flex-row-reverse sm:flex-row gap-4 items-center justify-center mt-10">
+        <Link href="https://play.google.com/store/apps/details?id=com.traininpink.mobile" target="_blank" rel="noopener noreferrer"> 
           <Image
             src="/logo/playStoreIcon.svg"
             alt="playStoreIcon"
@@ -132,6 +139,8 @@ export default function AppAvailabilitySection() {
             height={55}
             className="w-[140px] sm:w-[160px] lg:w-[185px] h-[41px]"
           />
+          </Link>
+          <Link href="https://apps.apple.com/us/app/traininpink-fitness-femminile/id1641650616" target="_blank" rel="noopener noreferrer">
           <Image
             src="/logo/appStoreIcon.svg"
             alt="appStoreIcon"
@@ -139,6 +148,7 @@ export default function AppAvailabilitySection() {
             height={55}
             className="w-[140px] sm:w-[160px] lg:w-[185px] h-[41px]"
           />
+          </Link>
         </div>
     </section>
   );

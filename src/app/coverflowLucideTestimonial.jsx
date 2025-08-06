@@ -40,8 +40,8 @@ const coverflowLucideTestimonial = () => {
     },
     {
       id: 5,
-      name: "Maria",
-      userName:"mariapalmi29",
+      name: "Barbara Tomasi",
+      userName:"barbaratomasi",
       image: "/images/testimonials/image_3.png",
       description: "Carlotta scusa, ma che magia mi hai combinato? 💀 Ero scettica sul pilates linfodrenante, ma ti chiedo umilmente perdono!!!",
       profile: "/images/testimonials/maria-2.png",
@@ -293,7 +293,7 @@ const coverflowLucideTestimonial = () => {
   };
 
   return (
-    <div className="relative w-full bg-[#F3EFEC] py-20 overflow-hidden">
+    <div className="relative w-full bg-[#F3EFEC] py-12 sm:py-20 overflow-hidden">
       <h1 className="text-center text-2xl-up-custom leading-10 md:text-4xl font-normal font-poppins">
         Le loro storie,
         <br />
