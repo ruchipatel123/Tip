@@ -168,7 +168,7 @@ export default function MobileSection() {
     <section className="bg-[#F1EBE7] pt-10">
     
       
-      <div className="hidden md:block sticky top-20 left-[5%] xl:left-[18%] z-[100] w-1/2">
+      <div className="hidden md:block sticky top-24 left-[5%] xl:left-[18%] z-[100] w-1/2">
       <div className="relative w-[240px]  lg:w-[348px]">
         <Image
           src="/images/mobileMockup.png"
@@ -489,7 +489,7 @@ export default function MobileSection() {
           alt="mobileMockup"
           width={348}
           height={714}
-          className="w-[348px] z-[100] block md:hidden h-[714px] sticky top-10 mx-auto"
+          className="w-[348px] z-[100] block md:hidden h-[714px] sticky top-20 mx-auto"
         />
 
         {sections.map((section, index) => {
