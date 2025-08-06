@@ -168,14 +168,18 @@ export default function MobileSection() {
     <section className="bg-[#F1EBE7] pt-10">
     
       
-      <div className="hidden md:block sticky top-20 left-[5%] xl:left-[18%] z-[100] w-1/2 ">
+      <div className="hidden md:block sticky top-24 left-[5%] xl:left-[18%] z-[100] w-1/2">
+      <div className="relative w-[240px]  lg:w-[348px]">
         <Image
           src="/images/mobileMockup.png"
           alt="mobileMockup"
           width={348}
           height={714}
-          className="w-[240px] h-[5`0px] lg:w-[348px] top-10 left-0 z-[100] lg:h-[714px] "
+          className="w-[240px] h-[500px] lg:w-[348px] top-10 left-0 z-[100] lg:h-[714px] mobileMockup"
         />
+        <Image src="/dotLineFour.svg" alt="dotLineFour" width={2} height={20} className={`absolute hidden md:block -bottom-24 left-[51%] md:left-[51%] lg:block md:sticky:hidden ${isScrolling ? 'hidden' : ''}`} />
+
+        </div>
       </div>
 
       <div ref={containerRef} className="mt-10 md:mt-50 relative">
@@ -485,7 +489,7 @@ export default function MobileSection() {
           alt="mobileMockup"
           width={348}
           height={714}
-          className="w-[348px] z-[100] block md:hidden h-[714px] sticky top-10 mx-auto"
+          className="w-[348px] z-[100] block md:hidden h-[714px] sticky top-20 mx-auto"
         />
 
         {sections.map((section, index) => {
@@ -602,11 +606,11 @@ export default function MobileSection() {
                       }}
                       initial={{ opacity: 1 }}
                       animate={{
-                        opacity: isActive ? 1 : 0,
+                        opacity: isActive ? 0 : 1,
                       }}
                       transition={{
                         duration: 0.6,
-                        delay: isActive ? 0 : 0.3,
+                        delay: isActive ? 0.3 : 0,
                         ease: "easeInOut",
                       }}
                     />

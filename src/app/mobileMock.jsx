@@ -6,7 +6,7 @@ import { FaApple, FaFacebook } from "react-icons/fa";
 export default function MobileMock() {
   return (
     <section className="flex flex-col md:flex-row bg-[#F1EBE7] justify-betwen items-center p-2  md:p-20">
-      <div className="w-full md:w-1/2 flex justify-center">
+      <div className="w-full md:w-1/2 flex justify-center relative">
         <Image
           src="/images/mobileMockup.png"
           alt="mobileMockup"
@@ -14,6 +14,7 @@ export default function MobileMock() {
           height={714}
           className="w-full h-full object-contain max-w-[348px] max-h-[714px]"
         />
+
       </div>
       <div className="w-full md:w-1/2">
         <div className="max-w-[477px] mx-auto flex flex-col gap-4">
