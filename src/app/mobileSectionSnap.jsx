@@ -25,7 +25,7 @@ export default function MobileSectionSnap() {
       title: "Allenamento",
       description:
         "Programmi di allenamento personalizzati per raggiungere i tuoi obiettivi",
-      video: "/scrollvideos/Homepage_ cropped.mp4",
+      video: "https://res.cloudinary.com/dga6g9bws/video/upload/v1754478663/Homepage__cropped_bmbpww.mp4",
     },
     {
       id: 1,
@@ -36,7 +36,7 @@ export default function MobileSectionSnap() {
       title: "Nutrizione",
       description:
         "Piani nutrizionali studiati per supportare il tuo percorso fitness",
-      video: "/scrollvideos/Nutrizione_cropped_.mp4",
+      video: "https://res.cloudinary.com/dga6g9bws/video/upload/v1754478663/Nutrizione_cropped__szpdvx.mp4",
     },
     {
       id: 2,
@@ -47,12 +47,12 @@ export default function MobileSectionSnap() {
       title: "Progress Tracking",
       description:
         "Monitora i tuoi progressi e celebra ogni traguardo raggiunto",
-      video: "/scrollvideos/Progress Tracking_cropped.mp4",
+      video: "https://res.cloudinary.com/dga6g9bws/video/upload/v1754478662/Progress_Tracking_cropped_cqhtn5.mp4",
     },
   ];
 
   // Default video for homepage/initial state
-  const defaultVideo = "/scrollvideos/Homepage_ cropped.mp4";
+  const defaultVideo = "https://res.cloudinary.com/dga6g9bws/video/upload/v1754478663/Homepage__cropped_bmbpww.mp4";
 
   // Function to get current video based on active section
   const getCurrentVideo = () => {
@@ -82,20 +82,59 @@ export default function MobileSectionSnap() {
     return () => window.removeEventListener('resize', handleResize);
   }, []);
 
-  // Handle video transitions when section changes
+  // Handle video source changes and loading with caching
+  const [currentVideoSrc, setCurrentVideoSrc] = useState(defaultVideo);
+  const [videoLoaded, setVideoLoaded] = useState(true); // Start as loaded for initial video
+  const [loadedVideos, setLoadedVideos] = useState(new Set([defaultVideo])); // Cache loaded videos
+  const [pendingVideoSrc, setPendingVideoSrc] = useState(null);
+  const videoRef = useRef(null);
+  
   useEffect(() => {
     if (!isHydrated) return;
     
-    // Small delay to ensure smooth transitions
-    const timer = setTimeout(() => {
-      const video = document.querySelector('video');
-      if (video) {
-        video.load(); // Reload video with new source
+    const newVideoSrc = getCurrentVideo();
+    if (newVideoSrc !== currentVideoSrc) {
+      // Check if video is already loaded
+      if (loadedVideos.has(newVideoSrc)) {
+        // Video already loaded, switch immediately
+        setCurrentVideoSrc(newVideoSrc);
+        setVideoLoaded(true);
+      } else {
+        // Video not loaded yet, need to load it
+        setPendingVideoSrc(newVideoSrc);
+        setVideoLoaded(false);
       }
-    }, 100);
+    }
+  }, [currentSection, isHydrated, currentVideoSrc, loadedVideos]);
 
-    return () => clearTimeout(timer);
-  }, [currentSection, isHydrated]);
+  // Handle video loading events
+  const handleVideoLoaded = () => {
+    setVideoLoaded(true);
+    // Add current video to loaded cache
+    if (currentVideoSrc) {
+      setLoadedVideos(prev => new Set(prev).add(currentVideoSrc));
+    }
+  };
+
+  const handleVideoLoadStart = () => {
+    // Only set loading to false if video is not already cached
+    if (!loadedVideos.has(currentVideoSrc)) {
+      setVideoLoaded(false);
+    }
+  };
+
+  const handleVideoError = () => {
+    setVideoLoaded(false);
+    console.warn('Video failed to load:', pendingVideoSrc || currentVideoSrc);
+  };
+
+  // Effect to handle pending video changes
+  useEffect(() => {
+    if (pendingVideoSrc && pendingVideoSrc !== currentVideoSrc) {
+      setCurrentVideoSrc(pendingVideoSrc);
+      setPendingVideoSrc(null);
+    }
+  }, [pendingVideoSrc, currentVideoSrc, loadedVideos]);
 
   // Handle custom scroll behavior with threshold
   useEffect(() => {
@@ -208,43 +247,61 @@ export default function MobileSectionSnap() {
       {/* Mobile iPhone Frame with Video */}
       <div className="block md:hidden sticky top-[10vh] z-[100] w-full mx-auto">
         <div 
-          className="relative mx-auto"
+          className="mx-auto flex items-center justify-center relative"
           style={{
-            '--frame-width': 'clamp(280px, 75vw, 348px)',
-            '--frame-height': 'calc(var(--frame-width) * 2.05)',
-            width: 'var(--frame-width)',
-            height: 'var(--frame-height)',
-            maxHeight: '85vh'
+            '--safe-width': 'min(348px, 85vw, calc(85vh / 2.05))',
+            '--safe-height': 'min(714px, 85vh, calc(85vw * 2.05))',
+            width: 'var(--safe-width)',
+            height: 'var(--safe-height)'
           }}
         >
-          <Image
-            src="/iPhone bezel.png"
-            alt="mobileMockup"
-            width={348}
-            height={714}
-            className="w-full h-full z-[102] relative object-fill"
-          />
-          <video
-            key={getCurrentVideo()} // Force re-render when video changes
-            className="rounded-2xl rounded-t-[1.5rem] object-cover absolute z-[100]"
+          {/* Background placeholder to prevent empty space */}
+          <div 
+            className="rounded-2xl rounded-t-[1.5rem] bg-[#F1EBE7] z-[0]"
             style={{
-              width: 'calc(var(--frame-width) * 0.89)',      // 89% of frame width
-              height: 'calc(var(--frame-height) * 0.96)',    // 96% of frame height  
-              top: 'calc(var(--frame-height) * 0.02)',       // 2% from top
-              left: '50%',
-              transform: 'translateX(-50%)'
+              width: '90%',
+              height: '95%'
+            }}
+          />
+          
+          {/* Video Layer (above background) */}
+          <video
+            ref={videoRef}
+            className={`rounded-2xl rounded-t-[1.5rem] object-cover absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 z-[1] transition-opacity duration-300 ${videoLoaded ? 'opacity-100' : 'opacity-0'}`}
+            style={{
+              width: '90%',
+              height: '95%'
             }}
             autoPlay
             muted
             loop
             playsInline
+            src={currentVideoSrc}
+            onLoadedData={handleVideoLoaded}
+            onLoadStart={handleVideoLoadStart}
+            onError={handleVideoError}
+            onCanPlay={handleVideoLoaded}
           >
-            <source
-              src={getCurrentVideo()}
-              type="video/mp4"
-            />
             Your browser does not support the video tag.
           </video>
+          
+          {/* Loading spinner when video is not loaded */}
+          {!videoLoaded && (
+            <div className="absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 z-[2] flex items-center justify-center">
+              <div className="animate-spin rounded-full h-8 w-8 border-b-2 border-gray-600"></div>
+            </div>
+          )}
+          
+          {/* iPhone Frame Overlay (above) */}
+          <div 
+            className="absolute inset-0 pointer-events-none z-[3]"
+            style={{
+              backgroundImage: 'url("/iPhone bezel.png")',
+              backgroundSize: 'contain',
+              backgroundPosition: 'center',
+              backgroundRepeat: 'no-repeat'
+            }}
+          />
         </div>
       </div>
 

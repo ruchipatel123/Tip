@@ -10,6 +10,7 @@ const SCROLL_THRESHOLD = 0.05; // 5% threshold for very responsive transitions
 
 export default function MobileSection() {
   const containerRef = useRef(null);
+  const videoRef = useRef(null);
   const [currentSection, setCurrentSection] = useState(0);
   const [isScrolling, setIsScrolling] = useState(false);
   const [isHydrated, setIsHydrated] = useState(false);
@@ -25,7 +26,7 @@ export default function MobileSection() {
       title: "Allenamento",
       description:
         "Programmi di allenamento personalizzati per raggiungere i tuoi obiettivi",
-      video: "/scrollvideos/Homepage_ cropped.mp4",
+      video: "https://res.cloudinary.com/dga6g9bws/video/upload/v1754478663/Homepage__cropped_bmbpww.mp4",
     },
     {
       id: 1,
@@ -36,7 +37,7 @@ export default function MobileSection() {
       title: "Nutrizione",
       description:
         "Piani nutrizionali studiati per supportare il tuo percorso fitness",
-      video: "/scrollvideos/Homepage_ cropped.mp4",
+      video: "https://res.cloudinary.com/dga6g9bws/video/upload/v1754478663/Nutrizione_cropped__szpdvx.mp4",
     },
     {
       id: 2,
@@ -47,12 +48,12 @@ export default function MobileSection() {
       title: "Progress Tracking",
       description:
         "Monitora i tuoi progressi e celebra ogni traguardo raggiunto",
-      video: "/scrollvideos/Nutrizione_cropped_.mp4",
+      video: "https://res.cloudinary.com/dga6g9bws/video/upload/v1754478662/Progress_Tracking_cropped_cqhtn5.mp4",
     },
   ];
 
   // Default video for homepage/initial state
-  const defaultVideo = "/scrollvideos/Progress Tracking_cropped.mp4";
+  const defaultVideo = "https://res.cloudinary.com/dga6g9bws/video/upload/v1754478662/Progress_Tracking_cropped_cqhtn5.mp4";
 
   // Function to get current video based on active section
   const getCurrentVideo = () => {
@@ -72,20 +73,58 @@ export default function MobileSection() {
     setIsHydrated(true);
   }, []);
 
-  // Handle video transitions when section changes
+  // Handle video source changes and loading with caching
+  const [currentVideoSrc, setCurrentVideoSrc] = useState(defaultVideo);
+  const [videoLoaded, setVideoLoaded] = useState(true); // Start as loaded for initial video
+  const [loadedVideos, setLoadedVideos] = useState(new Set([defaultVideo])); // Cache loaded videos
+  const [pendingVideoSrc, setPendingVideoSrc] = useState(null);
+  
   useEffect(() => {
     if (!isHydrated) return;
     
-    // Small delay to ensure smooth transitions
-    const timer = setTimeout(() => {
-      const video = document.querySelector('video');
-      if (video) {
-        video.load(); // Reload video with new source
+    const newVideoSrc = getCurrentVideo();
+    if (newVideoSrc !== currentVideoSrc) {
+      // Check if video is already loaded
+      if (loadedVideos.has(newVideoSrc)) {
+        // Video already loaded, switch immediately
+        setCurrentVideoSrc(newVideoSrc);
+        setVideoLoaded(true);
+      } else {
+        // Video not loaded yet, need to load it
+        setPendingVideoSrc(newVideoSrc);
+        setVideoLoaded(false);
       }
-    }, 100);
+    }
+  }, [currentSection, isHydrated, currentVideoSrc, loadedVideos]);
 
-    return () => clearTimeout(timer);
-  }, [currentSection, isHydrated]);
+  // Handle video loading events
+  const handleVideoLoaded = () => {
+    setVideoLoaded(true);
+    // Add current video to loaded cache
+    if (currentVideoSrc) {
+      setLoadedVideos(prev => new Set(prev).add(currentVideoSrc));
+    }
+  };
+
+  const handleVideoLoadStart = () => {
+    // Only set loading to false if video is not already cached
+    if (!loadedVideos.has(currentVideoSrc)) {
+      setVideoLoaded(false);
+    }
+  };
+
+  const handleVideoError = () => {
+    setVideoLoaded(false);
+    console.warn('Video failed to load:', pendingVideoSrc || currentVideoSrc);
+  };
+
+  // Effect to handle pending video changes
+  useEffect(() => {
+    if (pendingVideoSrc && pendingVideoSrc !== currentVideoSrc) {
+      setCurrentVideoSrc(pendingVideoSrc);
+      setPendingVideoSrc(null);
+    }
+  }, [pendingVideoSrc, currentVideoSrc, loadedVideos]);
 
   // Handle custom scroll behavior with threshold
   useEffect(() => {
@@ -210,25 +249,52 @@ export default function MobileSection() {
              lg:w-[354px] lg:h-[720px]  top-10 left-0 z-[102] relative mobileMockup"
           />
           <video
-            key={getCurrentVideo()} // Force re-render when video changes
-            className="
-            
+            ref={videoRef}
+            className={`
             w-[210px] h-[480px] lg:w-[318px] lg:h-[684px]
             rounded-3xl
             rounded-t-[2rem]
             lg:rounded-t-[3rem]
-            object-cover absolute top-12 left-4 lg:top-14 lg:left-4 z-[100]"
+            object-cover absolute top-12 left-4 lg:top-14 lg:left-4 z-[100]
+            transition-opacity duration-300
+            ${videoLoaded ? 'opacity-100' : 'opacity-0'}
+            `}
             autoPlay
             muted
             loop
             playsInline
+            src={currentVideoSrc}
+            onLoadedData={handleVideoLoaded}
+            onLoadStart={handleVideoLoadStart}
+            onError={handleVideoError}
+            onCanPlay={handleVideoLoaded}
           >
-            <source
-              src={getCurrentVideo()}
-              type="video/mp4"
-            />
             Your browser does not support the video tag.
           </video>
+          
+          {/* Background placeholder to prevent empty space */}
+          <div className="
+            w-[210px] h-[480px] lg:w-[318px] lg:h-[684px]
+            rounded-3xl
+            rounded-t-[2rem]
+            lg:rounded-t-[3rem]
+            absolute top-12 left-4 lg:top-14 lg:left-4 z-[99]
+            bg-[#F1EBE7]
+          " />
+          
+          {/* Loading spinner when video is not loaded */}
+          {!videoLoaded && (
+            <div className="
+              w-[210px] h-[480px] lg:w-[318px] lg:h-[684px]
+              rounded-3xl
+              rounded-t-[2rem]
+              lg:rounded-t-[3rem]
+              absolute top-12 left-4 lg:top-14 lg:left-4 z-[101]
+              flex items-center justify-center
+            ">
+              <div className="animate-spin rounded-full h-8 w-8 border-b-2 border-gray-600"></div>
+            </div>
+          )}
           {/* <Image
             src="/dotLineFour.svg"
             alt="dotLineFour"
