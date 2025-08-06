@@ -118,7 +118,9 @@ export default function MilestonesSection() {
               <span className="font-dm-sans font-bold text-lg sm:text-lg leading-[24px] sm:leading-[29px] md:text-white text-[#684744]">
                 Inizia la prova gratuita
               </span>
-              <FaArrowRight size={15} className="md:text-white text-[#684744]" />
+              <div className="arrow-container">
+                <FaArrowRight size={15} className="md:text-white text-[#684744] arrow-slide" />
+              </div>
             </button>
           </div>
         </div>
