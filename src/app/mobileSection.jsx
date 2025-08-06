@@ -37,7 +37,7 @@ export default function MobileSection() {
       title: "Nutrizione",
       description:
         "Piani nutrizionali studiati per supportare il tuo percorso fitness",
-      video: "https://res.cloudinary.com/dga6g9bws/video/upload/v1754478663/Nutrizione_cropped__szpdvx.mp4",
+      video: "https://res.cloudinary.com/dga6g9bws/video/upload/v1754514976/Allenamento_New__nvpk58.mp4",
     },
     {
       id: 2,
@@ -78,6 +78,10 @@ export default function MobileSection() {
   const [videoLoaded, setVideoLoaded] = useState(true); // Start as loaded for initial video
   const [loadedVideos, setLoadedVideos] = useState(new Set([defaultVideo])); // Cache loaded videos
   const [pendingVideoSrc, setPendingVideoSrc] = useState(null);
+  
+  // State for rotation animation
+  const [isRotated, setIsRotated] = useState(false);
+  const [videoCurrentTime, setVideoCurrentTime] = useState(0);
   
   useEffect(() => {
     if (!isHydrated) return;
@@ -125,6 +129,38 @@ export default function MobileSection() {
       setPendingVideoSrc(null);
     }
   }, [pendingVideoSrc, currentVideoSrc, loadedVideos]);
+
+  // Handle video time tracking and rotation logic
+  const handleVideoTimeUpdate = () => {
+    if (videoRef.current && currentSection === 1) { // Only for Nutrizione section (id: 1)
+      const currentTime = videoRef.current.currentTime;
+      setVideoCurrentTime(currentTime);
+      
+      // Rotate at 24 seconds
+      if (currentTime >= 24 && !isRotated) {
+        setIsRotated(true);
+      }
+      
+      // Reset rotation when video ends (or loops)
+      if (currentTime < 24 && isRotated) {
+        setIsRotated(false);
+      }
+    }
+  };
+
+  // Reset rotation when changing sections or when not on Nutrizone section
+  useEffect(() => {
+    if (currentSection !== 1 && isRotated) {
+      setIsRotated(false);
+    }
+  }, [currentSection, isRotated]);
+
+  // Handle video end event to reset rotation
+  const handleVideoEnded = () => {
+    if (currentSection === 1) {
+      setIsRotated(false);
+    }
+  };
 
   // Handle custom scroll behavior with threshold
   useEffect(() => {
@@ -238,8 +274,14 @@ export default function MobileSection() {
 
   return (
     <section className="bg-[#F1EBE7] pt-10">
-      <div className="hidden md:block sticky top-12 left-[5%] xl:left-[18%] z-[100] w-1/2">
-        <div className="relative w-[240px]  lg:w-[348px]">
+      <div className={`hidden md:block sticky top-12 z-[100] w-1/2 transition-all duration-1000 ease-in-out ${
+        isRotated ? 'md:left-1/2 md:-translate-x-1/2 xl:left-[18%] xl:translate-x-0' : 'left-[5%] xl:left-[18%]'
+      }`}>
+        <div 
+          className={`relative w-[240px] lg:w-[348px] transition-transform duration-1000 ease-in-out origin-center ${
+            isRotated ? 'rotate-[-90deg]' : 'rotate-0'
+          }`}
+        >
           <Image
             src="/iPhone bezel.png"
             alt="mobileMockup"
@@ -268,6 +310,8 @@ export default function MobileSection() {
             onLoadStart={handleVideoLoadStart}
             onError={handleVideoError}
             onCanPlay={handleVideoLoaded}
+            onTimeUpdate={handleVideoTimeUpdate}
+            onEnded={handleVideoEnded}
           >
             Your browser does not support the video tag.
           </video>

@@ -25,7 +25,7 @@ export default function MobileSectionSnap() {
       title: "Allenamento",
       description:
         "Programmi di allenamento personalizzati per raggiungere i tuoi obiettivi",
-      video: "https://res.cloudinary.com/dga6g9bws/video/upload/v1754478663/Homepage__cropped_bmbpww.mp4",
+      video: "https://res.cloudinary.com/dga6g9bws/video/upload/v1754514976/Allenamento_New__nvpk58.mp4",
     },
     {
       id: 1,
