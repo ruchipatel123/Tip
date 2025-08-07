@@ -388,7 +388,7 @@ const coverflowLucideTestimonial = () => {
           ))}
         </div>
       </div>
-      <div className="flex items-center justify-center gap-2 mt-45">
+      <div className="flex items-center justify-center gap-2 mt-30">
         <button
           onClick={prevSlide}
           disabled={isAnimating}

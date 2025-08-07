@@ -714,7 +714,7 @@ export default function MobileSection() {
                     alt="dotLineOne"
                     width={412}
                     height={184}
-                    className="absolute hidden md:block -top-[88%] left-[42%] -translate-x-[42%]"
+                    className="absolute hidden md:block -top-[98%] left-[32%] xl:left-[35%] xl:-top-[98%]  2xl:left-[22%] 2xl:-top-[100%] -translate-x-[42%]"
                   />
                 )}
 
