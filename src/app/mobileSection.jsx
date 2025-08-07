@@ -276,7 +276,7 @@ export default function MobileSection() {
     <section className="bg-[#F1EBE7] pt-10">
       <div className={`hidden md:block sticky top-12 z-[100] w-1/2 transition-all duration-1000 ease-in-out ${
         isRotated ? 'md:left-1/2 md:-translate-x-1/2 xl:left-[18%] xl:translate-x-0' : 'left-[5%] xl:left-[18%]'
-      }`}>
+      } pb-[3rem]`}>
         <div 
           className={`relative w-[240px] lg:w-[348px] transition-transform duration-1000 ease-in-out origin-center ${
             isRotated ? 'rotate-[-90deg]' : 'rotate-0'
