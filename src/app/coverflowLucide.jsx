@@ -45,7 +45,7 @@ const CarouselCoverLucide = () => {
       equipment: "elastici, pesi leggeri",
       category: "Tonificazione",
     },
- 
+
     {
       id: 4,
       title: "Pilates Posturale™",
@@ -80,7 +80,8 @@ const CarouselCoverLucide = () => {
       id: 15,
       title: "Easy Pilates™",
       image: "/images/easyPilates.jpeg",
-      description: "Il Pilates pensato per te che vuoi (ri)cominciare ad allenarti.",
+      description:
+        "Il Pilates pensato per te che vuoi (ri)cominciare ad allenarti.",
       duration: "30",
       frequency: "3 volte a settimana",
       level: "principiante",
@@ -92,7 +93,7 @@ const CarouselCoverLucide = () => {
       id: 16,
       title: "Dance & Sculpt™",
       image: "/images/Dance&Sculp.png",
-      description: "Tonifica e divertiti ballando",
+      description: "Tonifica e divertiti ballando $",
       duration: "30",
       frequency: "3 volte a settimana",
       level: "intermedio",
@@ -104,7 +105,8 @@ const CarouselCoverLucide = () => {
       id: 1,
       title: "Pilates Linfodrenante™",
       image: "/images/PilatesLinfodrenante.jpg",
-      description: "L'esclusivo Pilates per eliminare la ritenzione, migliorare la cricolazione e tonificare.",
+      description:
+        "L'esclusivo Pilates per eliminare la ritenzione, migliorare la cricolazione e tonificare.",
       duration: "5-25",
       frequency: "3 volte a settimana",
       level: "avanzato",
@@ -136,8 +138,7 @@ const CarouselCoverLucide = () => {
       equipment: "nessun attrezzo richiesto",
       category: "Pilates",
     },
-   
-   
+
     {
       id: 4,
       title: "Cardio Burn™",
@@ -154,7 +155,8 @@ const CarouselCoverLucide = () => {
       id: 5,
       title: "Home Pump™",
       image: "/images/HomePump.png",
-      description: "L'adrenalina dei corsi in palestra nella comodità di casa tua.",
+      description:
+        "L'adrenalina dei corsi in palestra nella comodità di casa tua.",
       duration: "30",
       frequency: "3 volte a settimana",
       level: "intermedio-avanzato",
@@ -166,7 +168,8 @@ const CarouselCoverLucide = () => {
       id: 6,
       title: "Easy Pump™",
       image: "/images/easyPump.png",
-      description: "Il programma pensato per te che vuoi (ri)cominciare ad allenarti, divertendoti.",
+      description:
+        "Il programma pensato per te che vuoi (ri)cominciare ad allenarti, divertendoti.",
       duration: "30",
       frequency: "3 volte a settimana",
       level: "principiante",
@@ -178,7 +181,8 @@ const CarouselCoverLucide = () => {
       id: 7,
       title: "Gym Power™",
       image: "/images/GymPower.jpg",
-      description: "Ottieni il massimo dal abbonamento in palestra o dalla tua home gym.",
+      description:
+        "Ottieni il massimo dal abbonamento in palestra o dalla tua home gym.",
       duration: "50",
       frequency: "3 volte a settimana",
       level: "intermedio-avanzato",
@@ -189,20 +193,27 @@ const CarouselCoverLucide = () => {
     {
       id: 8,
       title: "Pilates Linfodrenante™ Gravidanza",
+      isThreeLines:true,
+      isLarge:true,
       image: "/images/PilatesLinfodrenante Gravidanza.jpg",
-      description: "L'esclusivo Pilates per tonificare, drenare e sgonfiare in gravidanza.",
+      description:
+        "L'esclusivo Pilates per tonificare, drenare e sgonfiare in gravidanza.",
       duration: "20-30",
       frequency: "3 volte a settimana",
       level: "intermedio",
       objectives: "dimagrire, tonificare, drenare",
-      equipment: "Primo trimestre - nessun attrezzo, Secondo trimestre - Palla da Pilates + elastico lungo aperto, Terzo trimestre - Attrezzi secondo trimestre + Fitness/Birthing Ball",
+      equipment:
+        "Primo trimestre - nessun attrezzo, Secondo trimestre - Palla da Pilates + elastico lungo aperto, Terzo trimestre - Attrezzi secondo trimestre + Fitness/Birthing Ball",
       category: "Pre e post parto",
     },
     {
       id: 9,
       title: "Pilates Post-Parto & Diastasi™",
+      isThreeLines:true,
+      isLarge:true,
       image: "/images/nutrizone.jpg",
-      description: "Il Pilates per tonificare dopo il parto e ridurre la diastasi.",
+      description:
+        "Il Pilates per tonificare dopo il parto e ridurre la diastasi.",
       duration: "20-30",
       frequency: "3 volte a settimana",
       level: "principiante-intermedio",
@@ -249,6 +260,8 @@ const CarouselCoverLucide = () => {
     {
       id: 13,
       title: "Pilates Linfodrenante™ Principianti",
+      isThreeLines:true,
+      isLarge:false,
       image: "/images/PilatesLinfodrenantePrincipianti.jpg",
       description: "Il Percorso di introduzione al Pilates Linfodrenante",
       duration: "5-25",
@@ -270,7 +283,6 @@ const CarouselCoverLucide = () => {
       equipment: "manubri",
       category: "Tonificazione",
     },
-   
   ];
 
   const pilatesSlides = [
@@ -799,17 +811,21 @@ const CarouselCoverLucide = () => {
     const dynamicZIndex = baseZIndex - Math.abs(diff); // Closer slides have higher z-index
 
     return {
-      transform: `translate3d(${transform.includes('translateX') ? transform.split('(')[1].split(')')[0] : '0'}, 0, 0) scale3d(${scale}, ${scale}, 1)`,
+      transform: `translate3d(${
+        transform.includes("translateX")
+          ? transform.split("(")[1].split(")")[0]
+          : "0"
+      }, 0, 0) scale3d(${scale}, ${scale}, 1)`,
       opacity,
       zIndex: dynamicZIndex,
       boxShadow,
       // Apply consistent transitions to all slides during animation
-      transition: isTransitioning 
+      transition: isTransitioning
         ? "transform 0.6s cubic-bezier(0.25, 0.46, 0.45, 0.94), opacity 0.6s cubic-bezier(0.25, 0.46, 0.45, 0.94)"
         : "none",
       // Ensure hardware acceleration and smooth rendering
-      backfaceVisibility: 'hidden',
-      WebkitBackfaceVisibility: 'hidden',
+      backfaceVisibility: "hidden",
+      WebkitBackfaceVisibility: "hidden",
     };
   };
 
@@ -859,7 +875,7 @@ const CarouselCoverLucide = () => {
           </p>
         ))}
       </div>
-      <div className="relative h-full flex items-center justify-center px-4 mt-10 md:mt-14">
+      <div className="relative h-full flex items-center justify-center px-4 mt-10 md:mt-14 z-100">
         {/* Carousel container */}
         <div
           ref={containerRef}
@@ -876,7 +892,7 @@ const CarouselCoverLucide = () => {
               style={{
                 ...getSlideStyle(index),
                 // Ensure smooth width/scale transitions by using will-change
-                willChange: isAnimating ? 'transform, opacity' : 'auto'
+                willChange: isAnimating ? "transform, opacity" : "auto",
               }}
               onClick={() => {
                 // For cloned slides, calculate the equivalent original slide index
@@ -984,99 +1000,96 @@ const CarouselCoverLucide = () => {
                           borderWidth: "0px 1px 1px 1px",
                           borderStyle: "solid",
                           borderColor: "#0000001A",
-                          
                         }}
+                        onClick={(e) =>
+                          handleDetailsClick(e, originalSlideId)
+                        }
                       >
                         {isExpanded && (
-                          <div className="h-full flex flex-col p-3 md:p-5 md:pb-0">
-                            {/* Header with title and close button */}
-                            <div className="flex items-center justify-between mb-[6px]">
+                          <div className="h-full flex flex-col">
+                            {/* Header with title and close button - now at top of accordion */}
+                            <div
+                              className={`
+                                ${slide.isThreeLines ? 'pt-10 pb-10 h-18 md:h-20 ' : 'h-12 md:h-14'}
+                                
+                                bg-[#F3EFEC] flex items-center justify-between px-4 cursor-grab transition-all duration-300 hover:bg-[#ece3dc] flex-shrink-0`}
+                              onClick={(e) =>
+                                handleDetailsClick(e, originalSlideId)
+                              }
+                              style={{
+                                paddingTop: "10px",
+                                paddingBottom: "10px",
+                              }}
+                            >
                               <h3 className="font-poppins text-[18px] md:text-[22px] font-medium leading-[1.41em] tracking-[-0.23%] text-black">
                                 {slide.title}
                               </h3>
-                              <div 
-                                className="flex items-center gap-[5px] cursor-pointer"
-                                onClick={(e) => handleDetailsClick(e, originalSlideId)}
-                              >
-                                <span className="text-black font-dm-sans text-sm md:text-base font-normal leading-[1.625em]">
-                                  Details
-                                </span>
-                                <div className="w-5 h-5 md:w-6 md:h-6 flex items-center justify-center">
-                                  <FaArrowRight className="w-2 h-2.5 md:w-2.5 md:h-3.5 rotate-90" />
-                                </div>
-                              </div>
+                              <p className="text-black font-dm-sans text-sm md:text-base font-normal leading-[1.625em] flex items-center gap-2">
+                                Details
+                                <FaArrowRight className="rotate-90" />
+                              </p>
                             </div>
 
-                            {/* Content container with gradient line */}
-                            <div className="flex items-start gap-3 md:gap-[18px] mt-2 md:mt-2">
-                              {/* Vertical gradient line */}
-                              <div 
-                                className="w-1 h-full md:h-full rounded-sm flex-shrink-0"
-                                style={{
-                                  background: 'linear-gradient(180deg, #DFD1C9 0%, #553B39 100%)'
-                                }}
-                              ></div>
-
-                              {/* Content sections */}
-                              <div className="flex-1 min-w-0">
+                            {/* Accordion content below the header */}
+                            <div className={`flex-1 p-3 md:p-5 md:pt-0 pt-0 overflow-hidden ${slide.isLarge ? 'overflow-y-scroll' : ''}`}>
+                              <div className="space-y-3 md:space-y-4">
                                 {/* Description */}
-                                <p className="text-black font-dm-sans text-sm md:text-base leading-[1.5em] md:leading-[1.625em] max-w-[342px] mb-2 md:mb-2">
+                                <p className="text-black mb-2 font-dm-sans text-sm md:text-base leading-[1.5em] md:leading-[1.625em] max-w-[342px]">
                                   {slide.description}
                                 </p>
 
-                                {/* Vertical sections layout */}
-                                <div className="space-y-2 md:space-y-[9px]">
-                                  {/* Allenamenti Section */}
-                                  <div className="w-full mb-2">
-                                    <h4 className="text-black font-dm-sans text-xs md:text-sm font-medium leading-[1.5em] mb-0">
-                                      Allenamenti
-                                    </h4>
-                                    <div className="flex items-center gap-1.5 md:gap-[7px] opacity-40 flex-wrap">
-                                      <span className="text-black font-dm-sans text-sm md:text-base font-normal leading-[1.625em]">
-                                        {slide.duration}
-                                      </span>
-                                      <span className="text-black font-dm-sans text-xs font-normal leading-[1.5em] tracking-[0.83%]">
-                                        minuti,
-                                      </span>
-                                      <span className="text-black font-dm-sans text-xs md:text-sm font-normal leading-[1.5em]">
+                                {/* Content grid with vertical divider */}
+                                <div className="relative">
+                                  {/* Left Column */}
+                                  <div className="flex justify-between border-b border-[#DBD7D4]">
+                                    {/* Allenamenti Section */}
+                                    <div className="w-1/2 py-1 md:py-2">
+                                      <h4 className="text-black font-dm-sans text-xs md:text-sm font-normal leading-[1.5em] opacity-40">
+                                        Allenamenti
+                                      </h4>
+                                      <div className="flex items-baseline gap-1 md:gap-2">
+                                        <span className="text-black font-dm-sans text-sm md:text-base font-normal leading-[1.625em] text-center">
+                                          {slide.duration}
+                                        </span>
+                                        <span className="text-black font-dm-sans text-xs font-normal leading-[1.5em] tracking-[0.83%] text-center">
+                                          minuti
+                                        </span>
+                                      </div>
+                                      <p className="text-black font-dm-sans text-xs md:text-sm font-normal leading-[1.5em]">
                                         {slide.frequency}
-                                      </span>
+                                      </p>
                                     </div>
-                                  </div>
 
-                                  {/* Livello Section */}
-                                  <div className="w-full mb-2">
-                                    <h4 className="text-black font-dm-sans text-xs md:text-sm font-medium leading-[1.5em] mb-0">
-                                      Livello
-                                    </h4>
-                                    <div className="flex items-center gap-1.5 md:gap-[7px] opacity-40">
-                                      <span className="text-black font-dm-sans text-sm md:text-base font-normal leading-[1.625em]">
+                                    {/* Livello Section */}
+                                    <div className="w-1/2 py-1 md:py-2 border-l border-[#DBD7D4] pl-3 md:pl-4">
+                                      <h4 className="text-black font-dm-sans text-xs md:text-sm font-normal leading-[1.5em] opacity-40">
+                                        Livello
+                                      </h4>
+                                      <p className="text-black font-dm-sans text-sm md:text-base font-normal leading-[1.625em]">
                                         {slide.level}
-                                      </span>
+                                      </p>
                                     </div>
                                   </div>
 
-                                  {/* Obiettivi Section */}
-                                  <div className="w-full mb-2">
-                                    <h4 className="text-black font-dm-sans text-xs md:text-sm font-medium leading-[1.5em] mb-0">
-                                      Obiettivi
-                                    </h4>
-                                    <div className="flex items-center gap-1.5 md:gap-[7px] opacity-40">
-                                      <span className="text-black font-dm-sans text-xs md:text-sm font-normal leading-[1.5em]">
+                                  {/* Right Column */}
+                                  <div className="flex justify-between">
+                                    {/* Obiettivi Section */}
+                                    <div className="w-1/2 py-1 md:py-2">
+                                      <h4 className="text-black font-dm-sans text-xs md:text-sm font-normal leading-[1.5em] opacity-40">
+                                        Obiettivi
+                                      </h4>
+                                      <p className="text-black font-dm-sans text-sm md:text-base font-normal leading-[1.625em] max-w-[155px]">
                                         {slide.objectives}
-                                      </span>
+                                      </p>
                                     </div>
-                                  </div>
-
-                                  {/* Attrezzi Section */}
-                                  <div className="w-full mb-2">
-                                    <h4 className="text-black font-dm-sans text-xs md:text-sm font-medium leading-[1.5em] mb-0">
-                                      Attrezzi
-                                    </h4>
-                                    <div className="flex items-center gap-1.5 md:gap-[7px] opacity-40">
-                                      <span className="text-black font-dm-sans text-xs md:text-sm font-normal leading-[1.5em]">
+                                    {/* Attrezzi Section */}
+                                    <div className="w-1/2 py-1 md:py-2 border-l border-[#DBD7D4] pl-3 md:pl-4">
+                                      <h4 className="text-black font-dm-sans text-xs md:text-sm font-normal leading-[1.5em] opacity-40">
+                                        Attrezzi
+                                      </h4>
+                                      <p className="text-black font-dm-sans text-sm md:text-base font-normal leading-[1.625em] max-w-[117px]">
                                         {slide.equipment}
-                                      </span>
+                                      </p>
                                     </div>
                                   </div>
                                 </div>
@@ -1098,8 +1111,10 @@ const CarouselCoverLucide = () => {
           onClick={prevSlide}
           disabled={isAnimating}
           className=" z-20 bg-[#F3EFEC] cursor-grab backdrop-blur-sm hover:bg-[#ece3dc] disabled:opacity-50 disabled:cursor-not-allowed rounded-full p-3 transition-all duration-300"
-          style={{ border: "1px solid #6847441A", boxShadow: "0px 2px 20px 0px #00000026" }}
-
+          style={{
+            border: "1px solid #6847441A",
+            boxShadow: "0px 2px 20px 0px #00000026",
+          }}
         >
           <ChevronLeft className="w-6 h-6 text-black" />
         </button>
@@ -1107,8 +1122,10 @@ const CarouselCoverLucide = () => {
           onClick={nextSlide}
           disabled={isAnimating}
           className=" z-20 bg-[#F3EFEC] cursor-grab backdrop-blur-sm hover:bg-[#ece3dc] disabled:opacity-50 disabled:cursor-not-allowed rounded-full p-3 transition-all duration-300 border border-white/20"
-          style={{ border: "1px solid #6847441A", boxShadow: "0px 2px 20px 0px #00000026" }}
-
+          style={{
+            border: "1px solid #6847441A",
+            boxShadow: "0px 2px 20px 0px #00000026",
+          }}
         >
           <ChevronRight className="w-6 h-6 text-black" />
         </button>

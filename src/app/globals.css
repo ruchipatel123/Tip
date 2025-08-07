@@ -228,7 +228,7 @@ select:focus-visible {
 
 /* Ensure mobile menu is above everything */
 .mobile-menu {
-  z-index: 50;
+  /* z-index: 50; */
 }
 
 /* Smooth scrolling improvements for mobile */

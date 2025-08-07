@@ -271,7 +271,7 @@ export default function Footer() {
       {/* Help Chat Button - Positioned Absolutely */}
 
       {/* Chat Icon - Bottom Right */}
-      <div className="fixed flex flex-col bottom-4 sm:bottom-6 lg:bottom-8 gap-3 sm:gap-4 right-4 sm:right-6 lg:right-8 items-end justify-center z-50">
+      <div className="fixed flex flex-col bottom-4 sm:bottom-6 lg:bottom-8 gap-3 sm:gap-4 right-4 sm:right-6 lg:right-8 items-end justify-center z-[999]">
         {showChatMessage && (
           <div className="flex items-end gap-2">
             {/* Close Button */}

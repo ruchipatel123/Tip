@@ -56,7 +56,7 @@ export default function HeroSection() {
 
   return (
     <section
-      className="relative min-h-screen bg-cover bg-center bg-no-repeat"
+      className="relative min-h-screen bg-cover bg-center bg-no-repeat z-999"
       style={
         !videoLoaded
           ? { backgroundImage: "url('/images/heroBackground.png')" }
@@ -205,12 +205,12 @@ export default function HeroSection() {
 
       {/* Mobile Menu Overlay */}
       {isMobileMenuOpen && (
-        <div className="lg:hidden fixed inset-0 bg-black/50 z-40" />
+        <div className="lg:hidden fixed inset-0 bg-black/50 z-20" />
       )}
 
       {/* Mobile Menu Drawer */}
       <div
-        className={`lg:hidden mobile-menu fixed top-0 right-0 h-full w-80 bg-[#553B39] z-50 transform transition-transform duration-300 ease-in-out ${
+        className={`lg:hidden mobile-menu fixed top-0 right-0 h-full w-80 bg-[#553B39] z-[214] transform transition-transform duration-300 ease-in-out ${
           isMobileMenuOpen ? "translate-x-0" : "translate-x-full"
         }`}
       >
@@ -304,7 +304,7 @@ export default function HeroSection() {
             </div>
             <div className="flex items-center gap-2">
               <button className="w-fit bg-[#684744] cursor-grab border border-[rgba(243,239,236,0.20)] rounded-lg shadow-[0_2px_20px_0_rgba(0,0,0,0.15)] px-3 sm:px-4 py-3 text-white text-lg font-medium leading-snug h-12 hover:bg-[#7a5653] transition-colors flex items-center justify-center gap-3">
-                <span>Prova gratis</span>
+                <span className="font-dm-sans font-bold">Prova gratis</span>
                 <FaArrowRight size={12} />
               </button>
               <button
