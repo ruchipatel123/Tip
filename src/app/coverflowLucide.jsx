@@ -940,7 +940,7 @@ const CarouselCoverLucide = () => {
           {slides.map((slide, index) => (
             <div
               key={slide.id}
-                             className={`absolute w-72 md:w-80 lg:w-88 xl:w-96 xxl:w-100 h-[90%] md:h-full rounded-2xl preserve-3d ${isDragging ? 'cursor-grabbing' : 'cursor-grab'}`}
+                             className={`absolute w-72 lg:w-88 xl:w-96 xxl:w-100 h-[90%] md:h-full rounded-2xl preserve-3d ${isDragging ? 'cursor-grabbing' : 'cursor-grab'}`}
               style={{
                 ...getSlideStyle(index),
                 // Ensure smooth width/scale transitions by using will-change
