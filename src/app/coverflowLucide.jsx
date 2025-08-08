@@ -940,7 +940,7 @@ const CarouselCoverLucide = () => {
           {slides.map((slide, index) => (
             <div
               key={slide.id}
-                             className={`absolute w-72 lg:w-88 xl:w-96 xxl:w-100 h-[90%] md:h-full rounded-2xl preserve-3d ${isDragging ? 'cursor-grabbing' : 'cursor-grab'}`}
+                             className={`absolute w-88 lg:w-88 xl:w-96 xxl:w-100 h-[90%] md:h-full rounded-2xl preserve-3d ${isDragging ? 'cursor-grabbing' : 'cursor-grab'}`}
               style={{
                 ...getSlideStyle(index),
                 // Ensure smooth width/scale transitions by using will-change
@@ -1061,8 +1061,8 @@ const CarouselCoverLucide = () => {
                           <div className="h-full flex flex-col">
                             {/* Header with title and close button - now at top of accordion */}
                             <div
-                              className={`
-                                ${slide.isThreeLines ? 'pt-10 pb-10 h-18 md:h-20 ' : 'h-12 md:h-14'}
+                              className={`  xxl:pt-10 xxl:pb-10
+                                ${slide.isThreeLines ? 'pt-10 pb-10 h-18 xxl:h-20 ' : 'h-12 xxl:h-14'}
                                 
                                 bg-[#F3EFEC] flex items-center justify-between px-4 cursor-grab transition-all duration-300 hover:bg-[#ece3dc] flex-shrink-0`}
                               onClick={(e) =>
@@ -1073,20 +1073,20 @@ const CarouselCoverLucide = () => {
                                 paddingBottom: "10px",
                               }}
                             >
-                              <h3 className="font-poppins text-[18px] md:text-[22px] font-medium leading-[1.41em] tracking-[-0.23%] text-black">
+                              <h3 className="font-poppins text-[18px] xxl:text-[22px] font-medium leading-[1.41em] tracking-[-0.23%] text-black">
                                 {slide.title}
                               </h3>
-                              <p className="text-black font-dm-sans text-sm md:text-base font-normal leading-[1.625em] flex items-center gap-2">
+                              <p className="text-black font-dm-sans text-sm xxl:text-base font-normal leading-[1.625em] flex items-center gap-2">
                                 Details
                                 <FaArrowRight className="rotate-90" />
                               </p>
                             </div>
 
                             {/* Accordion content below the header */}
-                            <div className={`flex-1 p-3 md:p-5 md:pt-0 pt-0 overflow-hidden ${slide.isLarge ? 'overflow-y-scroll' : ''}`}>
-                              <div className="space-y-3 md:space-y-4">
+                            <div className={`flex-1 p-3 xxl:p-5 xxl:pt-0 pt-0 overflow-hidden ${slide.isLarge ? 'overflow-y-scroll' : ''}`}>
+                              <div className="space-y-3 xxl:space-y-4">
                                 {/* Description */}
-                                <p className="text-black mb-2 font-dm-sans text-sm md:text-base leading-[1.5em] md:leading-[1.625em] max-w-[342px]">
+                                <p className="text-black mb-2 font-dm-sans text-sm xxl:text-base leading-[1.5em] xxl:leading-[1.625em] max-w-[342px]">
                                   {slide.description}
                                 </p>
 
@@ -1095,29 +1095,29 @@ const CarouselCoverLucide = () => {
                                   {/* Left Column */}
                                   <div className="flex justify-between border-b border-[#DBD7D4]">
                                     {/* Allenamenti Section */}
-                                    <div className="w-1/2 py-1 md:py-2">
-                                      <h4 className="text-black font-dm-sans text-xs md:text-sm font-normal leading-[1.5em] opacity-40">
+                                    <div className="w-1/2 py-1 xxl:py-2">
+                                      <h4 className="text-black font-dm-sans text-xs xxl:text-sm font-normal leading-[1.5em] opacity-40">
                                         Allenamenti
                                       </h4>
-                                      <div className="flex items-baseline gap-1 md:gap-2">
-                                        <span className="text-black font-dm-sans text-sm md:text-base font-normal leading-[1.625em] text-center">
+                                      <div className="flex items-baseline gap-1 xxl:gap-2">
+                                        <span className="text-black font-dm-sans text-sm xxl:text-base font-normal leading-[1.625em] text-center">
                                           {slide.duration}
                                         </span>
                                         <span className="text-black font-dm-sans text-xs font-normal leading-[1.5em] tracking-[0.83%] text-center">
                                           minuti
                                         </span>
                                       </div>
-                                      <p className="text-black font-dm-sans text-xs md:text-sm font-normal leading-[1.5em]">
+                                      <p className="text-black font-dm-sans text-xs xxl:text-sm font-normal leading-[1.5em]">
                                         {slide.frequency}
                                       </p>
                                     </div>
 
                                     {/* Livello Section */}
-                                    <div className="w-1/2 py-1 md:py-2 border-l border-[#DBD7D4] pl-3 md:pl-4">
-                                      <h4 className="text-black font-dm-sans text-xs md:text-sm font-normal leading-[1.5em] opacity-40">
+                                    <div className="w-1/2 py-1 xxl:py-2 border-l border-[#DBD7D4] pl-3 xxl:pl-4">
+                                      <h4 className="text-black font-dm-sans text-xs xxl:text-sm font-normal leading-[1.5em] opacity-40">
                                         Livello
                                       </h4>
-                                      <p className="text-black font-dm-sans text-sm md:text-base font-normal leading-[1.625em]">
+                                      <p className="text-black font-dm-sans text-sm xxl:text-base font-normal leading-[1.625em]">
                                         {slide.level}
                                       </p>
                                     </div>
@@ -1126,20 +1126,20 @@ const CarouselCoverLucide = () => {
                                   {/* Right Column */}
                                   <div className="flex justify-between">
                                     {/* Obiettivi Section */}
-                                    <div className="w-1/2 py-1 md:py-2">
-                                      <h4 className="text-black font-dm-sans text-xs md:text-sm font-normal leading-[1.5em] opacity-40">
+                                    <div className="w-1/2 py-1 xxl:py-2">
+                                      <h4 className="text-black font-dm-sans text-xs xxl:text-sm font-normal leading-[1.5em] opacity-40">
                                         Obiettivi
                                       </h4>
-                                      <p className="text-black font-dm-sans text-sm md:text-base font-normal leading-[1.625em] max-w-[155px]">
+                                      <p className="text-black font-dm-sans text-sm xxl:text-base font-normal leading-[1.625em] max-w-[155px]">
                                         {slide.objectives}
                                       </p>
                                     </div>
                                     {/* Attrezzi Section */}
-                                    <div className="w-1/2 py-1 md:py-2 border-l border-[#DBD7D4] pl-3 md:pl-4">
-                                      <h4 className="text-black font-dm-sans text-xs md:text-sm font-normal leading-[1.5em] opacity-40">
+                                      <div className="w-1/2 py-1 xxl:py-2 border-l border-[#DBD7D4] pl-3 xxl:pl-4">
+                                      <h4 className="text-black font-dm-sans text-xs xxl:text-sm font-normal leading-[1.5em] opacity-40">
                                         Attrezzi
                                       </h4>
-                                      <p className="text-black font-dm-sans text-sm md:text-base font-normal leading-[1.625em] max-w-[117px]">
+                                      <p className="text-black font-dm-sans text-sm xxl:text-base font-normal leading-[1.625em] max-w-[117px]">
                                         {slide.equipment}
                                       </p>
                                     </div>

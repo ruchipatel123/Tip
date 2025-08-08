@@ -537,7 +537,7 @@ export default function TestimonialsSection({ testimonials: testimonialsProp }) 
               </button>
 
               {/* Fixed Phone Container */}
-              <div className="relative flex-1 h-full max-h-[400px] xl:max-h-[500px] xxl:max-h-[621px] max-w-[330px]">
+              <div className="relative flex-1 h-full max-h-[400px] lg:max-h-[430px] lg:-top-[10px] xxl:top-auto xxl:max-h-[621px] max-w-[330px]">
                 <div className="w-full h-full bg-white rounded-2xl shadow-[0px_4px_10px_0px_rgba(0,0,0,0.25)] overflow-hidden testimonials-fixed-container">
                   {/* Swiper Container - Only content moves inside */}
                   <Swiper

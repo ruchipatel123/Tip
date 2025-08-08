@@ -2,7 +2,7 @@ import Image from "next/image";
 
 export default function PricingSection() {
   return (
-    <section className="bg-[#F1EBE7] relative px-4 sm:px-8 lg:px-6 xxl:px-16 pt-20 pb-8 sm:py-12 lg:py-16 flex flex-col items-center overflow-hidden">
+    <section className="bg-[#F1EBE7] relative px-3 sm:px-8 lg:px-6 xxl:px-16 pt-20 pb-8 sm:py-12 lg:py-16 flex flex-col items-center overflow-hidden">
               <Image src="/dotLineFour.svg" alt="dotLineFour" width={2} height={20} className="absolute hidden md:block -top-12 left-[51%] md:left-[51%] lg:block" />
 
       <div className="w-full max-w-[1114px] bg-[#F1EBE7] pt-10 flex flex-col items-center gap-6 xxl:gap-10 relative z-10  md:px-4">

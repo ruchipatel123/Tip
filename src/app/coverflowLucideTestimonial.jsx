@@ -348,7 +348,7 @@ const coverflowLucideTestimonial = () => {
           {slides.map((slide, index) => (
             <div
               key={slide.id}
-              className="absolute w-80  xxl:w-100 h-full cursor-grab rounded-2xl preserve-3d"
+              className="absolute w-88 lg:w-88 xl:w-96 xxl:w-100 h-full cursor-grab rounded-2xl preserve-3d"
               style={{
                 ...getSlideStyle(index),
                 // Ensure smooth width/scale transitions by using will-change
