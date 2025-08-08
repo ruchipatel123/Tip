@@ -6,7 +6,7 @@ export default function AppAvailabilitySection() {
     <section className="bg-white w-full py-12 sm:py-16 lg:py-20 overflow-hidden">
       {/* Header Content */}
       <div className="flex flex-col items-center gap-6 sm:gap-8 px-4 sm:px-6 lg:px-8 mb-8 sm:mb-12 lg:mb-16">
-        <h2 className="font-poppins leading-9 text-2xl-up-custom sm:text-[28px] lg:text-[36px]  tracking-[-0.15px] font-normal text-black text-center  max-w-[316px] md:max-w-4xl mx-auto px-2">
+        <h2 className="font-poppins  text-2xl-up-custom xxl:text-[36px] lg:text-[28px] leading-tight tracking-[-0.15px] font-normal text-black text-center max-w-[316px] md:max-w-4xl mx-auto px-2">
           Available on your TV, iPhone, or <br className="hidden md:block"/>
           Android—wherever you train.
         </h2>

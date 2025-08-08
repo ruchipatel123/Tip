@@ -54,7 +54,7 @@ export default function TrustPilotSection() {
       <section className="bg-white w-full h-[528px] border-b border-black/10 flex flex-col items-center justify-center">
         <div className="flex flex-col items-center text-center gap-8">
           <div className="flex items-center justify-center">
-            <h2 className="font-['Poppins'] text-[36px] leading-[47px] tracking-[-0.15px] font-normal text-[#2D1E1D]">
+            <h2 className="font-['Poppins'] text-[28px] xxl:text-[36px] leading-[47px] tracking-[-0.15px] font-normal text-[#2D1E1D]">
               Trust Pilot
               <br />
               <div className="min-h-[200px] flex items-center justify-center">
@@ -71,7 +71,7 @@ export default function TrustPilotSection() {
     <section className="bg-white w-full h-[528px] border-b border-black/10 flex flex-col items-center justify-center">
       <div className="flex flex-col items-center text-center gap-8">
         <div className="flex items-center justify-center">
-          <h2 className="font-['Poppins'] text-[36px] leading-[47px] tracking-[-0.15px] font-normal text-[#2D1E1D]">
+          <h2 className="font-['Poppins'] text-[28px] xxl:text-[36px] leading-[47px] tracking-[-0.15px] font-normal text-[#2D1E1D]">
             Trust Pilot
             <br />
             {isLoading ? (

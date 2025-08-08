@@ -354,7 +354,7 @@ export default function MobileSection() {
       <div ref={containerRef} className="mt-10 md:mt-50 relative">
         <div className="hidden md:block w-full md:w-1/2 absolute md:-top-155 lg:-top-200 right-0 md:right-20 z-[101]">
           <div className="max-w-[477px] mx-auto flex flex-col gap-4">
-            <h2 className="text-4xl font-normal text-center font-poppins">
+            <h2 className="text-[28px] xxl:text-4xl font-normal text-center font-poppins">
               Ottieni i risultati <br /> che meriti
             </h2>
             <p className="text-lg text-center font-normal text-bold hidden md:block font-dm-sans">
@@ -511,7 +511,7 @@ export default function MobileSection() {
 
         <div className="block md:hidden w-full px-5">
           <div className="max-w-[477px] mx-auto flex flex-col gap-4">
-            <h2 className="text-4xl font-normal text-center font-poppins">
+            <h2 className="text-[28px] xxl:text-4xl font-normal text-center font-poppins">
               Ottieni i risultati <br /> che meriti
             </h2>
             <p className="text-lg text-center font-normal text-bold hidden md:block font-dm-sans">
@@ -698,7 +698,7 @@ export default function MobileSection() {
               )}
               {/* Animated Image */}
               <motion.div
-                className="relative z-20 w-full mx-auto max-w-[1360px]"
+                className="relative z-20 w-full mx-auto max-w-[1350px]"
                 animate={{
                   scale: scaleValue,
                 }}
@@ -746,10 +746,10 @@ export default function MobileSection() {
                       section.width > 1000
                         ? isActive
                           ? "max-w-5xl max-h-[480px]"
-                          : "max-w-[1360px] max-h-[598px]"
+                          : "max-w-[1350px] max-h-[598px]"
                         : isActive
                         ? "max-w-5xl max-h-[480px]"
-                        : "max-w-[1360px] max-h-[598px]"
+                        : "max-w-[1350px] max-h-[598px]"
                     } w-full h-auto transition-all duration-600`}
                   >
                     <Image

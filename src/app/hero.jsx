@@ -322,7 +322,7 @@ export default function HeroSection() {
           </div>
 
           {/* Desktop Sticky Nav */}
-          <div className="hidden lg:flex lg:items-center lg:justify-between px-6 lg:px-10 py-4">
+          <div className="hidden lg:flex lg:items-center lg:justify-between px-6 lg:px-10 py-2 xxl:py-4">
             <div className="flex items-center gap-8">
               <div className="h-10 w-54">
                 <Link href="/" className="cursor-pointer">

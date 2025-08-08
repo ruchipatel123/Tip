@@ -18,7 +18,7 @@ export default function MobileMock() {
       </div>
       <div className="w-full md:w-1/2">
         <div className="max-w-[477px] mx-auto flex flex-col gap-4">
-          <h2 className="text-4xl font-normal text-center font-poppins">
+          <h2 className="text-[28px] xxl:text-4xl font-normal text-center font-poppins">
             Ottieni i risultati <br /> che meriti
           </h2>
           <p className="text-lg text-center font-normal text-bold font-dm-sans">

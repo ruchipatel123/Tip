@@ -407,7 +407,7 @@ export default function TestimonialsSection({ testimonials: testimonialsProp }) 
   const currentTestimonial = testimonials[currentSlide];
 
   return (
-    <section className="bg-white w-full py-18 sm:py-16 xl:pt-20 xl:pb-[6px] xxl:pb-[75px] overflow-hidden relative">
+    <section className="bg-white w-full py-18 lg:pt-20 lg:pb-[6px] xxl:pb-[75px] overflow-hidden relative">
       <Image
           src="/dotLineFour.svg"
           alt="dotLineFour"
@@ -423,7 +423,7 @@ export default function TestimonialsSection({ testimonials: testimonialsProp }) 
             alt="dotLineFive"
             width={361}
             height={413}
-            className="absolute -top-20 -left-[20%] hidden lg:block"
+            className="absolute -left-[20%] hidden lg:block -top-20 h-[390px] xxl:h-[413px]"
           />
           <Image
             src="/dotLineFour.svg"
@@ -432,7 +432,7 @@ export default function TestimonialsSection({ testimonials: testimonialsProp }) 
             height={20}
             className="absolute -top-18 sm:-top-20 block lg:hidden"
           />
-          <h2 className="font-poppins text-2xl-up-custom sm:text-[32px] lg:text-[36px] leading-[32px] sm:leading-[42px] lg:leading-[47px] tracking-[-0.15px] font-normal text-black text-center">
+          <h2 className="font-poppins text-2xl-up-custom lg:text-[28px] xxl:text-[36px] leading-tight tracking-[-0.15px] font-normal text-black text-center">
             I risultati delle
             <br />
             nostre donne
@@ -473,7 +473,7 @@ export default function TestimonialsSection({ testimonials: testimonialsProp }) 
         {/* Left Testimonial Card - Intro Video */}
         <div className="flex-1 max-w-2xl">
           <div className="mb-4 xl:mb-6">
-            <h3 className="font-poppins text-[24px] xl:text-[28px] leading-[32px] xl:leading-[36px] tracking-[-0.1px] font-normal text-[#553B39] text-center">
+            <h3 className="font-poppins text-[20px] xxl:text-[24px] leading-[32px] xl:leading-[36px] tracking-[-0.1px] font-normal text-[#553B39] text-center">
               Cinzia lost 37kg with Traininpink
             </h3>
           </div>
@@ -514,7 +514,7 @@ export default function TestimonialsSection({ testimonials: testimonialsProp }) 
         {/* Right Testimonial Card - Swiper Carousel */}
         <div className="flex-1 max-w-2xl">
           <div className="mb-4 xl:mb-6">
-            <h3 className="font-['Poppins'] text-[24px] xl:text-[28px] leading-[32px] xl:leading-[36px] tracking-[-0.1px] font-normal text-[#553B39] text-center">
+            <h3 className="font-['Poppins'] text-[20px] xxl:text-[24px] leading-[32px] xl:leading-[36px] tracking-[-0.1px] font-normal text-[#553B39] text-center">
               From our Inbox
             </h3>
           </div>
@@ -611,7 +611,7 @@ export default function TestimonialsSection({ testimonials: testimonialsProp }) 
         {/* Mobile Intro Video */}
         <div className="w-full">
           <div className="mb-5 sm:mb-6">
-            <h3 className="font-poppins text-2xl max-w-[186px] mx-auto sm:text-[24px] leading-[28px] sm:leading-[32px] tracking-[-0.1px] font-normal text-[#553B39] text-center">
+            <h3 className="font-poppins text-2xl max-w-[186px] mx-auto sm:text-[20px] xxl:text-[24px] leading-[28px] sm:leading-[32px] tracking-[-0.1px] font-normal text-[#553B39] text-center">
               Cinzia lost 37kg with Traininpink
             </h3>
           </div>
@@ -662,7 +662,7 @@ export default function TestimonialsSection({ testimonials: testimonialsProp }) 
                   />
 
           <div className="mb-4 sm:mb-6">
-            <h3 className="font-poppins text-2xl max-w-[186px] mx-auto sm:text-[24px] leading-[28px] sm:leading-[32px] tracking-[-0.1px] font-normal text-[#553B39] text-center">
+            <h3 className="font-poppins text-2xl max-w-[186px] mx-auto sm:text-[20px] xxl:text-[24px] leading-[28px] sm:leading-[32px] tracking-[-0.1px] font-normal text-[#553B39] text-center">
               From our Inbox
             </h3>
           </div>

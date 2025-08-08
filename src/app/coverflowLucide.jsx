@@ -614,9 +614,7 @@ const CarouselCoverLucide = () => {
   const touchStartX = useRef(0);
   const touchEndX = useRef(0);
   const mouseStartX = useRef(0);
-  const mouseEndX = useRef(0);
   const [isDragging, setIsDragging] = useState(false);
-  const hasTriggeredSlide = useRef(false);
   const videoRef = useRef(null);
   const [isTransitioning, setIsTransitioning] = useState(true);
 
@@ -735,12 +733,12 @@ const CarouselCoverLucide = () => {
     touchEndX.current = e.touches[0].clientX;
   };
 
-  const handleTouchEnd = () => {
+  const handleTouchEnd = (e) => {
     if (!touchStartX.current || !touchEndX.current) return;
 
     const distance = touchStartX.current - touchEndX.current;
-    const isLeftSwipe = distance > 10;
-    const isRightSwipe = distance < -10;
+    const isLeftSwipe = distance > 50;
+    const isRightSwipe = distance < -50;
 
     if (isLeftSwipe) {
       nextSlide();
@@ -752,147 +750,100 @@ const CarouselCoverLucide = () => {
     touchEndX.current = 0;
   };
 
-  // Mouse handlers for drag functionality
+  // Simple mouse drag handlers
   const handleMouseDown = (e) => {
-    if (e.button !== 0) return; // Only handle left mouse button
-    e.preventDefault();
+    if (e.button !== 0 || isAnimating) return; // Only left button, not during animation
     setIsDragging(true);
-    hasTriggeredSlide.current = false; // Reset trigger flag
     mouseStartX.current = e.clientX;
-    mouseEndX.current = e.clientX;
-    
-    // Add event listeners to document to handle mouse move and up outside the container
-    document.addEventListener('mousemove', handleMouseMove);
-    document.addEventListener('mouseup', handleMouseUp);
-    
-    // Change cursor to grabbing
-    if (containerRef.current) {
-      containerRef.current.style.cursor = 'grabbing';
-    }
   };
 
-  const handleMouseMove = (e) => {
-    if (!isDragging || hasTriggeredSlide.current) return;
-    e.preventDefault();
-    mouseEndX.current = e.clientX;
-    
-    // Check if we should trigger slide change during move (for immediate response)
-    const distance = mouseStartX.current - mouseEndX.current;
-    const isLeftDrag = distance > 10;
-    const isRightDrag = distance < -10;
-
-    if ((isLeftDrag || isRightDrag) && !hasTriggeredSlide.current) {
-      hasTriggeredSlide.current = true; // Prevent multiple triggers
-      
-      if (isLeftDrag) {
-        nextSlide();
-      } else if (isRightDrag) {
-        prevSlide();
-      }
-    }
-  };
-
-  const handleMouseUp = () => {
+  const handleMouseUp = (e) => {
     if (!isDragging) return;
     
-    setIsDragging(false);
+    setIsDragging(true);
+    const mouseEndX = e.clientX;
+    const distance = mouseStartX.current - mouseEndX;
     
-    // Remove event listeners
-    document.removeEventListener('mousemove', handleMouseMove);
-    document.removeEventListener('mouseup', handleMouseUp);
-    
-    // Reset cursor
-    if (containerRef.current) {
-      containerRef.current.style.cursor = 'grab';
-    }
-
-    // Reset values
-    mouseStartX.current = 0;
-    mouseEndX.current = 0;
-    hasTriggeredSlide.current = false;
-  };
-
-  // Handle mouse wheel scroll
-  const handleWheel = (e) => {
-    if (isAnimating) return;
-    
-    e.preventDefault();
-    const deltaY = e.deltaY;
-    
-    if (deltaY > 0) {
-      // Scroll down = next slide
+    // Same threshold as touch
+    if (distance > 50) {
       nextSlide();
-    } else if (deltaY < 0) {
-      // Scroll up = previous slide
+    } else if (distance < -50) {
       prevSlide();
     }
+    
+    mouseStartX.current = 0;
   };
 
-  // Cleanup mouse event listeners on component unmount
-  useEffect(() => {
-    return () => {
-      document.removeEventListener('mousemove', handleMouseMove);
-      document.removeEventListener('mouseup', handleMouseUp);
-    };
-  }, []);
+     const getSlideStyle = (index) => {
+     const diff = index - currentIndex;
+     const absIndex = Math.abs(diff);
 
-  const getSlideStyle = (index) => {
-    const diff = index - currentIndex;
-    const absIndex = Math.abs(diff);
+     // Get screen width for responsive adjustments
+     const screenWidth = typeof window !== 'undefined' ? window.innerWidth : 1920;
+     
+     // Responsive transform values - smaller transforms for smaller screens in 1200-1900px range
+     const getResponsiveTransform = (baseTransform) => {
+       if (screenWidth >= 1900) return baseTransform;
+       if (screenWidth >= 1600) return baseTransform * 0.92; // Large screens
+       if (screenWidth >= 1400) return baseTransform * 0.85; // Medium large screens
+       if (screenWidth >= 1200) return baseTransform * 0.78; // Large tablet/small desktop
+       return baseTransform * 0.7; // Below 1200px
+     };
 
-    let transform = "";
-    let opacity = 1;
-    let scale = 1;
-    let zIndex = 0;
-    let boxShadow = "";
+     let transform = "";
+     let opacity = 1;
+     let scale = 1;
+     let zIndex = 0;
+     let boxShadow = "";
 
-    if (diff === 0) {
-      // Center slide
-      transform = "translateX(0%)";
-      opacity = 1;
-      scale = 1;
-      zIndex = 10;
-      boxShadow = "none"; // No shadow for active card
-    } else if (diff === 1) {
-      // Right slide (1st position)
-      transform = "translateX(80%)";
-      // opacity = 0.6;
-      scale = 0.8;
-      zIndex = 5;
-      boxShadow = "0px 4px 10px 0px #00000026";
-    } else if (diff === -1) {
-      // Left slide (1st position)
-      transform = "translateX(-80%)";
-      // opacity = 0.6;
-      scale = 0.8;
-      zIndex = 5;
-      boxShadow = "0px 4px 10px 0px #00000026";
-    } else if (diff === 2) {
-      // Far right slide (2nd position)
-      transform = "translateX(115%)";
-      // opacity = 0.4;
-      scale = 0.7;
-      zIndex = 2;
-      boxShadow = "0px 4px 10px 0px #00000026";
-    } else if (diff === -2) {
-      // Far left slide (2nd position)
-      transform = "translateX(-115%)";
-      // opacity = 0.4;
-      scale = 0.7;
-      zIndex = 2;
-      boxShadow = "0px 4px 10px 0px #00000026";
-    } else {
-      // Hidden slides
-      if (diff > 0) {
-        transform = "translateX(190%)";
-      } else {
-        transform = "translateX(-190%)";
-      }
-      opacity = 0;
-      scale = 0.6;
-      zIndex = 1;
-      boxShadow = "0px 4px 10px 0px #00000026";
-    }
+     if (diff === 0) {
+       // Center slide
+       transform = "translateX(0%)";
+       opacity = 1;
+       scale = 1;
+       zIndex = 10;
+       boxShadow = "none"; // No shadow for active card
+     } else if (diff === 1) {
+       // Right slide (1st position)
+       const translateX = getResponsiveTransform(80);
+       transform = `translateX(${translateX}%)`;
+       scale = 0.8;
+       zIndex = 5;
+       boxShadow = "0px 4px 10px 0px #00000026";
+     } else if (diff === -1) {
+       // Left slide (1st position)
+       const translateX = getResponsiveTransform(80);
+       transform = `translateX(-${translateX}%)`;
+       scale = 0.8;
+       zIndex = 5;
+       boxShadow = "0px 4px 10px 0px #00000026";
+     } else if (diff === 2) {
+       // Far right slide (2nd position)
+       const translateX = getResponsiveTransform(115);
+       transform = `translateX(${translateX}%)`;
+       scale = 0.7;
+       zIndex = 2;
+       boxShadow = "0px 4px 10px 0px #00000026";
+     } else if (diff === -2) {
+       // Far left slide (2nd position)
+       const translateX = getResponsiveTransform(115);
+       transform = `translateX(-${translateX}%)`;
+       scale = 0.7;
+       zIndex = 2;
+       boxShadow = "0px 4px 10px 0px #00000026";
+     } else {
+       // Hidden slides
+       const translateX = getResponsiveTransform(190);
+       if (diff > 0) {
+         transform = `translateX(${translateX}%)`;
+       } else {
+         transform = `translateX(-${translateX}%)`;
+       }
+       opacity = 0;
+       scale = 0.6;
+       zIndex = 1;
+       boxShadow = "0px 4px 10px 0px #00000026";
+     }
 
     // Calculate base z-index to prevent abrupt layering changes during transitions
     const baseZIndex = 50; // Base layer for all slides
@@ -919,7 +870,7 @@ const CarouselCoverLucide = () => {
 
   return (
     <div className="relative w-full bg-white py-20 overflow-hidden">
-      <h1 className="text-center relative font-poppins text-2xl-up-custom leading-10 md:text-4xl font-normal max-w-[290px] md:max-w-[479px] mx-auto">
+      <h1 className="text-center relative font-poppins text-2xl-up-custom leading-10 lg:text-[28px] xxl:text-4xl font-normal max-w-[290px] md:max-w-[479px] mx-auto">
         Allenamenti su misura per <br className="hidden md:block" /> te per
         risultati garantiti
         <Image
@@ -944,7 +895,7 @@ const CarouselCoverLucide = () => {
             key={tab.key}
             className={`${
               activeCard === tab.key ? "text-black" : "opacity-20"
-            } cursor-grab relative font-poppins text-xl md:text-2xl-custom font-normal leading-[1.4em] tracking-[-0.25%] ${
+            } cursor-grab relative font-poppins text-xl xxl:text-2xl-custom font-normal leading-[1.4em] tracking-[-0.25%] ${
               tab.key === "Tutti" ? "text-center" : "text-left"
             }`}
             onClick={() => setActiveCard(tab.key)}
@@ -963,35 +914,39 @@ const CarouselCoverLucide = () => {
           </p>
         ))}
       </div>
-      <div className="relative h-full flex items-center justify-center px-4 mt-10 md:mt-14 z-100">
+      <div className="relative h-full flex items-center justify-center px-4 mt-10 xxl:mt-14 z-100">
         {/* Carousel container */}
         <div
-          ref={containerRef}
-          className="relative w-full h-[673px] flex rounded-2xl items-center justify-center perspective-1000"
+                     ref={containerRef}
+           className="relative max-w-[1000px] lg:max-w-[1100px] xl:max-w-[1200px] xxl:max-w-[1358px] w-full min-h-[400px] h-[60vh] lg:h-[65vh] xl:h-[70vh] xxl:h-[673px] flex rounded-2xl items-center justify-center perspective-1000"
           onTouchStart={handleTouchStart}
           onTouchMove={handleTouchMove}
           onTouchEnd={handleTouchEnd}
+          onDragStart={(e) => {
+            if (isDragging) {
+              e.preventDefault();
+              handleMouseDown(e);
+            }
+          }}
+       
           onMouseDown={handleMouseDown}
-          onWheel={handleWheel}
+          onMouseUp={handleMouseUp}
           style={{ 
             perspective: "1000px",
             cursor: isDragging ? 'grabbing' : 'grab',
-            userSelect: 'none' // Prevent text selection during drag
+            userSelect: 'none'
           }}
         >
           {slides.map((slide, index) => (
             <div
               key={slide.id}
-              className={`absolute w-80 md:w-100 h-[90%] md:h-full rounded-2xl preserve-3d ${isDragging ? 'cursor-grabbing' : 'cursor-grab'}`}
+                             className={`absolute w-72 md:w-80 lg:w-88 xl:w-96 xxl:w-100 h-[90%] md:h-full rounded-2xl preserve-3d ${isDragging ? 'cursor-grabbing' : 'cursor-grab'}`}
               style={{
                 ...getSlideStyle(index),
                 // Ensure smooth width/scale transitions by using will-change
                 willChange: isAnimating ? "transform, opacity" : "auto",
               }}
               onClick={() => {
-                // Don't trigger slide navigation if we just finished dragging
-                if (isDragging) return;
-                
                 // For cloned slides, calculate the equivalent original slide index
                 if (slide.id.toString().includes("clone")) {
                   const originalId = parseInt(slide.id.split("-")[1]);

@@ -2,13 +2,13 @@ import Image from "next/image";
 
 export default function PricingSection() {
   return (
-    <section className="bg-[#F1EBE7] relative px-4 sm:px-8 lg:px-6 xl:px-16 pt-20 pb-8 sm:py-12 lg:py-16 flex flex-col items-center overflow-hidden">
+    <section className="bg-[#F1EBE7] relative px-4 sm:px-8 lg:px-6 xxl:px-16 pt-20 pb-8 sm:py-12 lg:py-16 flex flex-col items-center overflow-hidden">
               <Image src="/dotLineFour.svg" alt="dotLineFour" width={2} height={20} className="absolute hidden md:block -top-12 left-[51%] md:left-[51%] lg:block" />
 
-      <div className="w-full max-w-[1114px] bg-[#F1EBE7] pt-10 flex flex-col items-center gap-10 sm:gap-10 relative z-10 lg:gap-10 md:px-4">
+      <div className="w-full max-w-[1114px] bg-[#F1EBE7] pt-10 flex flex-col items-center gap-6 xxl:gap-10 relative z-10  md:px-4">
         {/* Header */}
-        <div className="flex flex-col items-center text-center gap-7 sm:gap-5">
-          <h2 className="text-2xl-up-custom relative lg:text-[36px] leading-[32px] sm:leading-[38px] lg:leading-[47px] tracking-[-0.15px] font-normal text-black font-poppins px-4">
+        <div className="flex flex-col items-center text-center gap-7 sm:gap-4 xxl:gap-5">
+          <h2 className="text-2xl-up-custom relative lg:text-[28px] xxl:text-[36px] leading-tight  tracking-[-0.15px] font-normal text-black font-poppins px-4">
             Ti garantiamo i risultati:{' '}
             <br className="hidden md:block"/>
             soddisfatta o rimborsata
@@ -23,11 +23,11 @@ export default function PricingSection() {
         </div>
 
         {/* Pricing Cards */}
-        <div className="flex flex-col lg:flex-row items-center justify-center gap-6 xl:gap-8 w-full max-w-[1200px]">
+        <div className="flex flex-col lg:flex-row items-center justify-center gap-5 xxl:gap-8 w-full max-w-[1200px]">
           {/* Monthly Card */}
           <div className="w-full max-w-sm lg:w-[310px] xl:w-[350px] bg-white rounded-2xl shadow-[0px_4px_20px_0px_rgba(0,0,0,0.1)] border border-black/10 p-4 lg:p-5 xl:p-6 max-h-[326px]">
-            <div className="flex flex-col justify-between gap-6 sm:gap-10 h-full max-h-[326px]">
-              <div className="flex flex-col gap-3 sm:gap-4">
+            <div className="flex flex-col justify-between gap-6 xxl:gap-10 h-full xxl:max-h-[326px]">
+              <div className="flex flex-col gap-3 xxl:gap-4">
                 <h3 className="font-poppins text-lg lg:text-xl xl:text-[28px] font-medium leading-[32px] sm:leading-[36px] tracking-[-0.1px] text-black">
                   Mensile
                 </h3>
@@ -40,7 +40,7 @@ export default function PricingSection() {
                   <span className="font-bold"> gratuita di 7 giorni</span>
                 </div>
               </div>
-              <button className="bg-[#F3EFEC] xl:mt-[40px] border border-black/10 shadow-[0px_2px_20px_0px_rgba(0,0,0,0.08)] rounded-lg py-[10px] px-4 flex items-center justify-center gap-3 w-full h-12 sm:h-auto whitespace-nowrap">
+              <button className="bg-[#F3EFEC] xl:mt-[40px] border border-black/10 shadow-[0px_2px_20px_0px_rgba(0,0,0,0.08)] rounded-lg py-[10px] px-4 flex items-center justify-center gap-[5px] w-full h-12 sm:h-auto whitespace-nowrap">
                 <span className="font-dm-sans text-lg sm:text-xl font-bold leading-[24px] sm:leading-[29px] text-[#684744]">
                   Inizia la prova gratuita
                 </span>
@@ -84,10 +84,10 @@ export default function PricingSection() {
             </div>
             
             {/* Card Content */}
-            <div className="bg-white rounded-b-2xl shadow-[0px_4px_20px_0px_rgba(0,0,0,0.1)] border border-black/10 p-4 lg:p-5 xl:p-6 relative md:min-h-[380px] md:h-[430px]">
+            <div className="bg-white rounded-b-2xl shadow-[0px_4px_20px_0px_rgba(0,0,0,0.1)] border border-black/10 p-4 lg:p-5 xl:p-6 relative xxl:min-h-[380px] xxl:h-[430px]">
               <div className="flex flex-col justify-between h-full gap-8">
-                <div className="flex flex-col gap-3 sm:gap-4">
-                  <h3 className="font-poppins text-lg lg:text-xl xl:text-[28px] font-medium leading-[32px] sm:leading-[36px] tracking-[-0.1px] text-black">
+                <div className="flex flex-col gap-3 xxl:gap-4">
+                  <h3 className="font-poppins text-lg lg:text-xl xl:text-[28px] font-medium leading-tight tracking-[-0.1px] text-black">
                     Semestrale
                   </h3>
                   <div className="text-[#684744]">
@@ -127,8 +127,8 @@ export default function PricingSection() {
 
           {/* Annual Card */}
           <div className="w-full max-w-sm lg:w-[310px] xl:w-[350px] bg-white rounded-2xl shadow-[0px_4px_20px_0px_rgba(0,0,0,0.1)] border border-black/10 p-4 lg:p-5 xl:p-6 relative max-h-[326px]">
-            <div className="flex flex-col justify-between gap-6 sm:gap-10 h-full max-h-[326px]">
-              <div className="flex flex-col gap-3 sm:gap-4">
+            <div className="flex flex-col justify-between gap-6 xxl:gap-10 h-full max-h-[326px]">
+              <div className="flex flex-col gap-3 xxl:gap-4">
                 <h3 className="font-poppins text-lg lg:text-xl xl:text-[28px] font-medium leading-[32px] sm:leading-[36px] tracking-[-0.1px] text-black">
                   Annuale
                 </h3>
@@ -145,7 +145,7 @@ export default function PricingSection() {
                   <span className="font-bold">prova gratuita di 7 giorni</span>
                 </div>
               </div>
-              <button className="bg-[#F3EFEC] border border-black/10 shadow-[0px_2px_20px_0px_rgba(0,0,0,0.08)] rounded-lg py-[10px] px-4 flex items-center justify-center gap-3 w-full h-12 sm:h-auto whitespace-nowrap">
+              <button className="bg-[#F3EFEC] border border-black/10 shadow-[0px_2px_20px_0px_rgba(0,0,0,0.08)] rounded-lg py-[10px] px-4 flex items-center justify-center gap-[5px] w-full h-12 sm:h-auto whitespace-nowrap">
                 <span className="font-dm-sans text-lg sm:text-xl font-bold leading-[24px] sm:leading-[29px] text-[#684744]">
                   Inizia la prova gratuita
                 </span>

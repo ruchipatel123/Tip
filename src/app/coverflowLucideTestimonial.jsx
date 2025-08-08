@@ -113,6 +113,8 @@ const coverflowLucideTestimonial = () => {
   const containerRef = useRef(null);
   const touchStartX = useRef(0);
   const touchEndX = useRef(0);
+  const mouseStartX = useRef(0);
+  const [isDragging, setIsDragging] = useState(false);
   const [isTransitioning, setIsTransitioning] = useState(true);
 
   const nextSlide = () => {
@@ -215,6 +217,29 @@ const coverflowLucideTestimonial = () => {
     touchEndX.current = 0;
   };
 
+  const handleMouseDown = (e) => {
+    if (e.button !== 0 || isAnimating) return; // Only left button, not during animation
+    setIsDragging(true);
+    mouseStartX.current = e.clientX;
+  };
+
+  const handleMouseUp = (e) => {
+    if (!isDragging) return;
+    
+    setIsDragging(true);
+    const mouseEndX = e.clientX;
+    const distance = mouseStartX.current - mouseEndX;
+    
+    // Same threshold as touch
+    if (distance > 50) {
+      nextSlide();
+    } else if (distance < -50) {
+      prevSlide();
+    }
+    
+    mouseStartX.current = 0;
+  };
+
   const getSlideStyle = (index) => {
     const diff = index - currentIndex;
     const absIndex = Math.abs(diff);
@@ -293,28 +318,37 @@ const coverflowLucideTestimonial = () => {
   };
 
   return (
-    <div className="relative w-full bg-[#F3EFEC] py-12 sm:py-20 overflow-hidden">
-      <h1 className="text-center text-2xl-up-custom leading-10 md:text-4xl font-normal font-poppins">
+    <div className="relative w-full bg-[#F3EFEC] py-12 sm:py-20 overflow-hidden ">
+      <h1 className="text-center text-2xl-up-custom leading-10 lg:text-[28px] xxl:text-4xl font-normal font-poppins">
         Le loro storie,
         <br />
         la tua ispirazione.
       </h1>
       {/* Main carousel container */}
       
-      <div className="relative h-full flex items-center justify-center px-4 mt-10">
+      <div className="relative max-w-[1000px] xl:max-w-[1300px] xxl:max-w-[1358px] mx-auto h-full flex items-center justify-center px-4 mt-10">
         {/* Carousel container */}
         <div
           ref={containerRef}
-          className="relative w-full h-[603px] flex rounded-2xl items-center justify-center perspective-1000"
+          className="relative w-full  min-h-[400px] h-[70vh] xxl:h-[600px] flex rounded-2xl items-center justify-center perspective-1000"
           onTouchStart={handleTouchStart}
           onTouchMove={handleTouchMove}
           onTouchEnd={handleTouchEnd}
+          onDragStart={(e) => {
+            if (isDragging) {
+              e.preventDefault();
+              handleMouseDown(e);
+            }
+          }}
+          onMouseDown={handleMouseDown}
+          onMouseUp={handleMouseUp}
+
           style={{ perspective: "1000px" }}
         >
           {slides.map((slide, index) => (
             <div
               key={slide.id}
-              className="absolute w-80 md:w-100 h-full cursor-grab rounded-2xl preserve-3d"
+              className="absolute w-80  xxl:w-100 h-full cursor-grab rounded-2xl preserve-3d"
               style={{
                 ...getSlideStyle(index),
                 // Ensure smooth width/scale transitions by using will-change
