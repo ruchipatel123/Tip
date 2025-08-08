@@ -330,7 +330,7 @@ const coverflowLucideTestimonial = () => {
         {/* Carousel container */}
         <div
           ref={containerRef}
-          className="relative w-full  min-h-[400px] h-[70vh] xxl:h-[600px] flex rounded-2xl items-center justify-center perspective-1000"
+          className="relative w-full  min-h-[400px] h-[60vh] xxl:h-[600px] flex rounded-2xl items-center justify-center perspective-1000"
           onTouchStart={handleTouchStart}
           onTouchMove={handleTouchMove}
           onTouchEnd={handleTouchEnd}
