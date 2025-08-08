@@ -613,6 +613,10 @@ const CarouselCoverLucide = () => {
   const containerRef = useRef(null);
   const touchStartX = useRef(0);
   const touchEndX = useRef(0);
+  const mouseStartX = useRef(0);
+  const mouseEndX = useRef(0);
+  const [isDragging, setIsDragging] = useState(false);
+  const hasTriggeredSlide = useRef(false);
   const videoRef = useRef(null);
   const [isTransitioning, setIsTransitioning] = useState(true);
 
@@ -735,8 +739,8 @@ const CarouselCoverLucide = () => {
     if (!touchStartX.current || !touchEndX.current) return;
 
     const distance = touchStartX.current - touchEndX.current;
-    const isLeftSwipe = distance > 50;
-    const isRightSwipe = distance < -50;
+    const isLeftSwipe = distance > 10;
+    const isRightSwipe = distance < -10;
 
     if (isLeftSwipe) {
       nextSlide();
@@ -747,6 +751,90 @@ const CarouselCoverLucide = () => {
     touchStartX.current = 0;
     touchEndX.current = 0;
   };
+
+  // Mouse handlers for drag functionality
+  const handleMouseDown = (e) => {
+    if (e.button !== 0) return; // Only handle left mouse button
+    e.preventDefault();
+    setIsDragging(true);
+    hasTriggeredSlide.current = false; // Reset trigger flag
+    mouseStartX.current = e.clientX;
+    mouseEndX.current = e.clientX;
+    
+    // Add event listeners to document to handle mouse move and up outside the container
+    document.addEventListener('mousemove', handleMouseMove);
+    document.addEventListener('mouseup', handleMouseUp);
+    
+    // Change cursor to grabbing
+    if (containerRef.current) {
+      containerRef.current.style.cursor = 'grabbing';
+    }
+  };
+
+  const handleMouseMove = (e) => {
+    if (!isDragging || hasTriggeredSlide.current) return;
+    e.preventDefault();
+    mouseEndX.current = e.clientX;
+    
+    // Check if we should trigger slide change during move (for immediate response)
+    const distance = mouseStartX.current - mouseEndX.current;
+    const isLeftDrag = distance > 10;
+    const isRightDrag = distance < -10;
+
+    if ((isLeftDrag || isRightDrag) && !hasTriggeredSlide.current) {
+      hasTriggeredSlide.current = true; // Prevent multiple triggers
+      
+      if (isLeftDrag) {
+        nextSlide();
+      } else if (isRightDrag) {
+        prevSlide();
+      }
+    }
+  };
+
+  const handleMouseUp = () => {
+    if (!isDragging) return;
+    
+    setIsDragging(false);
+    
+    // Remove event listeners
+    document.removeEventListener('mousemove', handleMouseMove);
+    document.removeEventListener('mouseup', handleMouseUp);
+    
+    // Reset cursor
+    if (containerRef.current) {
+      containerRef.current.style.cursor = 'grab';
+    }
+
+    // Reset values
+    mouseStartX.current = 0;
+    mouseEndX.current = 0;
+    hasTriggeredSlide.current = false;
+  };
+
+  // Handle mouse wheel scroll
+  const handleWheel = (e) => {
+    if (isAnimating) return;
+    
+    e.preventDefault();
+    const deltaY = e.deltaY;
+    
+    if (deltaY > 0) {
+      // Scroll down = next slide
+      nextSlide();
+    } else if (deltaY < 0) {
+      // Scroll up = previous slide
+      prevSlide();
+    }
+  };
+
+  // Cleanup mouse event listeners on component unmount
+  useEffect(() => {
+    return () => {
+      document.removeEventListener('mousemove', handleMouseMove);
+      document.removeEventListener('mouseup', handleMouseUp);
+    };
+  }, []);
 
   const getSlideStyle = (index) => {
     const diff = index - currentIndex;
@@ -839,14 +927,14 @@ const CarouselCoverLucide = () => {
           alt="dotLineSeven"
           width={348}
           height={106}
-          className="absolute -top-30 left-1/2 ml-[1px] hidden xl:block"
+          className="absolute -top-30 left-1/2 ml-[1px] hidden lg:block"
         />
         <Image
           src="/dotLineFour.svg"
           alt="dotLineFour"
           width={2}
           height={106}
-          className="absolute -top-35 left-1/2 block xl:hidden"
+          className="absolute -top-35 left-1/2 block lg:hidden"
         />
       </h1>
       {/* Tab bar - responsive flex layout */}
@@ -883,18 +971,27 @@ const CarouselCoverLucide = () => {
           onTouchStart={handleTouchStart}
           onTouchMove={handleTouchMove}
           onTouchEnd={handleTouchEnd}
-          style={{ perspective: "1000px" }}
+          onMouseDown={handleMouseDown}
+          onWheel={handleWheel}
+          style={{ 
+            perspective: "1000px",
+            cursor: isDragging ? 'grabbing' : 'grab',
+            userSelect: 'none' // Prevent text selection during drag
+          }}
         >
           {slides.map((slide, index) => (
             <div
               key={slide.id}
-              className="absolute w-80 md:w-100 h-[90%] md:h-full  cursor-grab rounded-2xl preserve-3d"
+              className={`absolute w-80 md:w-100 h-[90%] md:h-full rounded-2xl preserve-3d ${isDragging ? 'cursor-grabbing' : 'cursor-grab'}`}
               style={{
                 ...getSlideStyle(index),
                 // Ensure smooth width/scale transitions by using will-change
                 willChange: isAnimating ? "transform, opacity" : "auto",
               }}
               onClick={() => {
+                // Don't trigger slide navigation if we just finished dragging
+                if (isDragging) return;
+                
                 // For cloned slides, calculate the equivalent original slide index
                 if (slide.id.toString().includes("clone")) {
                   const originalId = parseInt(slide.id.split("-")[1]);

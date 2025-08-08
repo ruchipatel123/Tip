@@ -114,7 +114,7 @@ export default function FAQSection() {
               {/* Question Header */}
               <button
                 onClick={() => toggleItem(index)}
-                className="w-full p-4 sm:p-6 flex cursor-grab items-center sm:items-center justify-between gap-8 sm:gap-8 lg:gap-[47px] hover:bg-[#F3EFEC] transition-colors duration-200"
+                className="w-full p-4 xl:p-6 flex cursor-grab items-center sm:items-center justify-between gap-8 sm:gap-8 lg:gap-[47px] hover:bg-[#F3EFEC] transition-colors duration-200"
               >
                 <div className="flex flex-col items-start flex-1 min-w-0">
                   <h3 className="font-poppins text-lg sm:text-[18px] lg:text-[22px] leading-[24px] sm:leading-[26px] lg:leading-[31px] tracking-[-0.05px] font-normal text-[#404040] text-left break-words">

@@ -6,7 +6,7 @@ import { IoIosArrowBack, IoIosArrowForward } from "react-icons/io";
 import { PiSpeakerXLight } from "react-icons/pi";
 import { PiSpeakerHighThin } from "react-icons/pi";
 import { Swiper, SwiperSlide } from 'swiper/react';
-import { Navigation, Pagination, EffectCreative } from 'swiper/modules';
+import { Navigation, Pagination, EffectCreative, FreeMode, Mousewheel } from 'swiper/modules';
 
 // Import Swiper styles
 import 'swiper/css';
@@ -407,13 +407,13 @@ export default function TestimonialsSection({ testimonials: testimonialsProp }) 
   const currentTestimonial = testimonials[currentSlide];
 
   return (
-    <section className="bg-white w-full py-18 sm:py-16 lg:pt-20 lg:pb-[66px] xl:pb-[75px] overflow-hidden relative">
+    <section className="bg-white w-full py-18 sm:py-16 xl:pt-20 xl:pb-[6px] xxl:pb-[75px] overflow-hidden relative">
       <Image
           src="/dotLineFour.svg"
           alt="dotLineFour"
           width={2}
           height={106}
-          className="absolute -bottom-10 left-1/2 hidden md:block xl:hidden"
+          className="absolute bottom-0 lg:-bottom-10 left-1/2 hidden  lg:hidden"
         />
       {/* Header Section */}
       <div className="flex flex-col items-center gap-8 sm:gap-8 px-4 sm:px-6 lg:px-8 mb-12 sm:mb-16 lg:mb-20">
@@ -430,7 +430,7 @@ export default function TestimonialsSection({ testimonials: testimonialsProp }) 
             alt="dotLineFour"
             width={1}
             height={20}
-            className="absolute -top-18 sm:-top-20 block md:hidden"
+            className="absolute -top-18 sm:-top-20 block lg:hidden"
           />
           <h2 className="font-poppins text-2xl-up-custom sm:text-[32px] lg:text-[36px] leading-[32px] sm:leading-[42px] lg:leading-[47px] tracking-[-0.15px] font-normal text-black text-center">
             I risultati delle
@@ -469,15 +469,15 @@ export default function TestimonialsSection({ testimonials: testimonialsProp }) 
       </div>
 
       {/* Desktop Layout */}
-      <div className="hidden lg:flex lg:flex-row lg:gap-4 xl:gap-4 px-4 sm:px-6 lg:px-8 max-w-[1360px] mx-auto">
+      <div className="hidden lg:flex lg:flex-row lg:gap-4 xl:gap-4 px-4 sm:px-6 lg:px-2  max-w-[1000px] xl:max-w-[1200px] xxl:max-w-[1358px] mx-auto">
         {/* Left Testimonial Card - Intro Video */}
         <div className="flex-1 max-w-2xl">
-          <div className="mb-6">
-            <h3 className="font-poppins text-[24px] lg:text-[28px] leading-[32px] lg:leading-[36px] tracking-[-0.1px] font-normal text-[#553B39] text-center">
+          <div className="mb-4 xl:mb-6">
+            <h3 className="font-poppins text-[24px] xl:text-[28px] leading-[32px] xl:leading-[36px] tracking-[-0.1px] font-normal text-[#553B39] text-center">
               Cinzia lost 37kg with Traininpink
             </h3>
           </div>
-          <div className="aspect-[4/5] rounded-2xl overflow-hidden bg-black xl:min-h-[830px]">
+          <div className="aspect-[4/5] w-full lg:max-h-[79vh] xxl:max-h-[740px] rounded-2xl overflow-hidden bg-black">
             <div className="relative w-full h-full">
               <video
                 ref={desktopIntroVideoRef}
@@ -513,12 +513,12 @@ export default function TestimonialsSection({ testimonials: testimonialsProp }) 
 
         {/* Right Testimonial Card - Swiper Carousel */}
         <div className="flex-1 max-w-2xl">
-          <div className="mb-6">
-            <h3 className="font-['Poppins'] text-[24px] lg:text-[28px] leading-[32px] lg:leading-[36px] tracking-[-0.1px] font-normal text-[#553B39] text-center">
+          <div className="mb-4 xl:mb-6">
+            <h3 className="font-['Poppins'] text-[24px] xl:text-[28px] leading-[32px] xl:leading-[36px] tracking-[-0.1px] font-normal text-[#553B39] text-center">
               From our Inbox
             </h3>
           </div>
-          <div className="aspect-[4/5] rounded-2xl bg-[#F3EFEC] xl:min-h-[830px]">
+          <div className="aspect-[4/5] w-full lg:max-h-[79vh] xxl:max-h-[740px] rounded-2xl bg-[#F3EFEC]">
             <div className="relative w-full h-full flex items-center justify-center gap-6 py-4">
               <Image
                     src="/dotLineFour.svg"
@@ -531,13 +531,13 @@ export default function TestimonialsSection({ testimonials: testimonialsProp }) 
               {/* Navigation Buttons */}
               <button
                 onClick={prevSlideDesktop}
-                className="w-10 h-10 lg:w-14 lg:h-14 bg-white border border-[rgba(104,71,68,0.1)] shadow-[0px_2px_20px_0px_rgba(0,0,0,0.08)] rounded-full flex items-center justify-center hover:bg-gray-50 transition-colors z-10"
+                className="w-10 h-10 xl:w-14 xl:h-14 bg-white border border-[rgba(104,71,68,0.1)] shadow-[0px_2px_20px_0px_rgba(0,0,0,0.08)] rounded-full flex items-center justify-center hover:bg-gray-50 transition-colors z-10"
               >
                 <IoIosArrowBack />
               </button>
 
               {/* Fixed Phone Container */}
-              <div className="relative flex-1 h-full max-h-[621px] max-w-[330px]">
+              <div className="relative flex-1 h-full max-h-[400px] xl:max-h-[500px] xxl:max-h-[621px] max-w-[330px]">
                 <div className="w-full h-full bg-white rounded-2xl shadow-[0px_4px_10px_0px_rgba(0,0,0,0.25)] overflow-hidden testimonials-fixed-container">
                   {/* Swiper Container - Only content moves inside */}
                   <Swiper
@@ -580,13 +580,13 @@ export default function TestimonialsSection({ testimonials: testimonialsProp }) 
 
               <button
                 onClick={nextSlideDesktop}
-                className="w-10 h-10 lg:w-14 lg:h-14 bg-white border border-[rgba(104,71,68,0.1)] shadow-[0px_2px_20px_0px_rgba(0,0,0,0.08)] rounded-full flex items-center justify-center hover:bg-gray-50 transition-colors z-10"
+                className="w-10 h-10 xl:w-14 xl:h-14 bg-white border border-[rgba(104,71,68,0.1)] shadow-[0px_2px_20px_0px_rgba(0,0,0,0.08)] rounded-full flex items-center justify-center hover:bg-gray-50 transition-colors z-10"
               >
                 <IoIosArrowForward />
               </button>
 
               {/* Pagination dots */}
-              <div className="absolute bottom-8 left-1/2 transform -translate-x-1/2 flex items-center gap-1">
+              <div className="absolute bottom-6 xl:bottom-8 left-1/2 transform -translate-x-1/2 flex items-center gap-1">
                 {testimonials.map((_, index) => (
                   <button
                     key={index}
@@ -615,7 +615,7 @@ export default function TestimonialsSection({ testimonials: testimonialsProp }) 
               Cinzia lost 37kg with Traininpink
             </h3>
           </div>
-          <div className="max-w-[354px] mx-auto rounded-2xl overflow-hidden bg-black">
+          <div className="max-w-[400px] mx-auto rounded-2xl overflow-hidden bg-black">
             <div className="relative w-full h-full">
               <video
                 ref={mobileIntroVideoRef}
@@ -656,8 +656,9 @@ export default function TestimonialsSection({ testimonials: testimonialsProp }) 
                     src="/dotLineFour.svg"
                     alt="dotLineFour"
                     width={2}
-                    height={20}
-                    className="absolute -bottom-1 left-1/2 block md:hidden"
+                    height={10}
+                    className="absolute -bottom-1 left-1/2 block md:hidden "
+
                   />
 
           <div className="mb-4 sm:mb-6">
@@ -665,7 +666,7 @@ export default function TestimonialsSection({ testimonials: testimonialsProp }) 
               From our Inbox
             </h3>
           </div>
-          <div className="mx-auto py-10 rounded-2xl overflow-hidden bg-[#F3EFEC]">
+          <div className="mx-auto py-10 md:px-4 rounded-2xl overflow-hidden bg-[#F3EFEC]">
             <div className="relative w-full flex items-center justify-center gap-4">
               {/* Navigation Buttons */}
               <button
@@ -742,7 +743,7 @@ export default function TestimonialsSection({ testimonials: testimonialsProp }) 
               ))}
             </div>
             
-            <div className="flex flex-row gap-2 justify-center">
+            <div className="flex flex-row gap-2 justify-center bg-[#F3EFEC] pb-3 relative z-10">
               <button
                 onClick={prevSlideMobile}
                 className="w-14 h-14 bg-white border border-[rgba(104,71,68,0.1)] shadow-[0px_2px_20px_0px_rgba(0,0,0,0.08)] rounded-full  items-center justify-center hover:bg-gray-50 transition-colors z-10 flex md:hidden"

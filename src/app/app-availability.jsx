@@ -38,8 +38,8 @@ export default function AppAvailabilitySection() {
       {/* Desktop Layout */}
       <div className="hidden md:block relative px-4 sm:px-6 lg:px-8">
         {/* Main Background Image - Samsung TV */}
-        <div className="relative mx-auto max-w-7xl">
-          <div className="relative w-full max-w-[1254px] h-[719px] mx-auto">
+        <div className="relative mx-auto  max-w-[900px] xl:max-w-[900px] xxl:max-w-[1358px]">
+          <div className="relative w-full max-w-[1254px] h-[500px] xl:h-[600px] xxl:h-[719px] mx-auto">
             <Image
               src="/mockup/samsung-tv-6050db.png"
               alt="Woman doing yoga on TV"
@@ -52,7 +52,7 @@ export default function AppAvailabilitySection() {
           
           {/* Device Mockups */}
           {/* iPad Silver - Top Right */}
-          <div className="absolute -bottom-5 right-[10%] w-[285px] h-[372px] drop-shadow-lg">
+          <div className="absolute -bottom-10 xxl:-bottom-5 right-[10%] w-[200px] xl:w-[285px] h-[280px] xl:h-[372px] drop-shadow-lg">
             <div className="relative w-full h-full">
               <Image
                 src="/mockup/ipad-silver-56586a.png"
@@ -61,7 +61,7 @@ export default function AppAvailabilitySection() {
                 className="object-contain"
               />
               {/* iPad Screen Content */}
-              <div className="absolute top-[13px] left-[12px] w-[261px] h-[348px] overflow-hidden rounded-lg">
+              <div className="absolute top-[14px] xxl:top-[13px] left-[10px] xl:left-[12px] w-[180px] h-[250px]  xl:w-[261px] xl:h-[348px] overflow-hidden rounded-lg">
                 <Image
                   src="/mockup/ipad-screen-content-56586a.png"
                   alt="iPad app content"
@@ -73,7 +73,7 @@ export default function AppAvailabilitySection() {
           </div>
 
           {/* Phone Mockup - Bottom Center Right */}
-          <div className="absolute -bottom-5 right-[6%] w-[110px] h-[234px] drop-shadow-lg">
+          <div className="absolute -bottom-10 xxl:-bottom-5 right-[6%] w-[110px] h-[234px] drop-shadow-lg">
             <div className="relative w-full h-full">
               <Image
                 src="/mockup/phone-mockup-56586a.png"
@@ -94,7 +94,7 @@ export default function AppAvailabilitySection() {
           </div>
 
           {/* iPhone Space Black - Bottom Right */}
-          <div className="absolute -bottom-5 right-[2.5%] w-[109px] h-[222px] drop-shadow-lg">
+          <div className="absolute -bottom-10 xxl:-bottom-5 right-[2.5%] w-[109px] h-[222px] drop-shadow-lg">
             <div className="relative w-full h-full">
               <Image
                 src="/mockup/iphone-space-black-56586a.png"

@@ -357,7 +357,7 @@ const coverflowLucideTestimonial = () => {
 
                 {/* Content - only visible on active card */}
                 {index === currentIndex && (
-                  <div className="absolute top-130 left-1/2 transform -translate-x-1/2 bg-white rounded-2xl p-4 shadow-lg max-w-[90%] w-[350px]">
+                  <div className="absolute -bottom-20 left-1/2 transform -translate-x-1/2 bg-white rounded-2xl p-4 shadow-lg max-w-[90%] w-[350px]">
                     {/* Image with name and user */}
                     <div className="flex items-center gap-3 mb-3">
                       <div className="w-12 h-12 rounded-full overflow-hidden bg-gray-200">

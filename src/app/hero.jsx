@@ -149,14 +149,14 @@ export default function HeroSection() {
         <nav className="hidden lg:flex lg:items-start lg:justify-between gap-10 pt-2.5">
           {/* Logo and Tagline */}
           <div className="flex flex-col min-w-60 w-full max-w-lg">
-            <div className="h-20 w-full">
+            <div className="xl:h-[99px] w-full">
             <Link href="/" className="cursor-pointer">           
               <Image
                 src="/logo-vector-2.svg"
                 alt="TraininPink Logo"
                 width={536}
                 height={81}
-                className="object-contain"
+                className="object-cover w-[300px] xl:w-[536px]  xl:h-full"
                 priority
               />
               </Link>

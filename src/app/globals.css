@@ -17,6 +17,12 @@
   --text-2xl-custom: 28px;
   --text-2xl-up-custom: 32px;
   --text-3xl-custom: 34px;
+
+
+  /*custom break points*/
+  --breakpoint-xl: 1440px;
+  --breakpoint-xxl: 1920px;
+
 }
 
 /* Custom Font Family Utility Classes */
@@ -412,7 +418,7 @@ button {
 } 
 @media (min-width: 1336px) {
   .xxl\:left-\[47\.4\%\] {
-    left: 315px;
+    left: 339px;
   }
 }
 
