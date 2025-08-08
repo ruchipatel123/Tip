@@ -104,7 +104,7 @@ export default function PricingSection() {
                     <span className="font-bold">prova gratuita di 7 giorni</span>
                   </div>
                 </div>
-                <button className="bg-[#684744] border border-[rgba(243,239,236,0.2)] shadow-[0px_2px_20px_0px_rgba(0,0,0,0.2)] rounded-lg py-[10px] px-4 flex items-center justify-center gap-3 w-full h-12 sm:h-auto whitespace-nowrap">
+                <button className="bg-[#684744] border border-[rgba(243,239,236,0.2)] shadow-[0px_2px_20px_0px_rgba(0,0,0,0.2)] rounded-lg py-[10px] px-4 flex items-center justify-center gap-[5px] w-full h-12 sm:h-auto whitespace-nowrap">
                   <span className="font-dm-sans text-lg sm:text-xl font-bold leading-[24px] sm:leading-[29px] text-white">
                     Inizia la prova gratuita
                   </span>
